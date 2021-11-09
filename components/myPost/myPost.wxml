@@ -1,0 +1,31 @@
+<view class="main">
+    <view class="top">
+        <view class="pic-avtor">
+            <van-image round width="100%" height="100%" src="https://img.yzcdn.cn/vant/cat.jpeg" />
+        </view>
+        <view class="desc">
+            <view class="name">{{name}}</view>
+            <view class="position">{{position}}</view>
+            <view class="time">{{time}}</view>
+        </view>
+    </view>
+    <view class="post">{{detail}}</view>
+    <view class="btn-box">
+        <view class="btn">
+            <van-icon name="thumb-circle" />
+            <view>{{thumbnum}}</view>
+        </view>
+        <view class="btn">
+            <van-icon name="chat" />
+            <view>{{chatnum}}</view>
+        </view>
+        <view class="btn">
+            <van-icon name="share" />
+            <view>{{sharenum}}</view>
+        </view>
+        <view class="btn">
+            <van-icon name="star" />
+            <view>{{starnum}}</view>
+        </view>
+    </view>
+</view>
