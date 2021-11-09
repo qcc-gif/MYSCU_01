@@ -1,0 +1,31 @@
+<!-- pages/mine/mine.wxml -->
+<view class="main">
+    <view class="bg-top">bg</view>
+    <view class="menu">
+        <van-cell-group inset>
+            <van-cell title="系统消息" is-link />
+            <van-cell title="向管理员申诉" is-link />
+            <van-cell title="联系开发者" is-link />
+            <van-cell title="打赏我们" is-link />
+            <van-cell title="退出登录" is-link />
+        </van-cell-group>
+    </view>
+    <view class="mine">
+        <view class="name">名称</view>
+        <view class="label">
+            <van-icon name="label-o" />
+            <view>这是标签</view>
+        </view>
+        <view class="aaa">
+            <view class="post little-box">
+                <view class="num">{{postnum}}</view>
+                <view class="desc">我的发帖</view>
+            </view>
+            <view class="star little-box">
+                <view class="num">{{starnum}}</view>
+                <view class="desc">我的收藏</view>
+            </view>
+        </view>
+        <view class="pic-avtor">头像</view>
+    </view>
+</view>

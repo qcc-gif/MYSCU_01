@@ -1,0 +1,23 @@
+<!-- pages/appeal/appeal.wxml -->
+<view class="main">
+    <view class="desc">举报类别(*必填项)</view>
+    <view class="choose box" bindtap="showPicker">
+        <view>{{reason}}</view>
+        <van-icon name="arrow-down" />
+    </view>
+    <view class="desc">阐述理由(*必填项)</view>
+    <view class="detail-desc box">
+        <van-field model:value="{{ detail }}" clearable type="textarea" autosize placeholder="请输入描述理由，以便管理员处理您的举报" />
+    </view>
+    <view class="count-text">{{detail.length}}/500</view>
+    <view class="desc">联系方式</view>
+    <view class="phone box">
+        <van-field model:value="{{ phone }}" clearable placeholder="请输入电话或邮箱" />
+    </view>
+    <view class="btn">
+        <van-button block square type="primary">提交</van-button>
+    </view>
+    <van-popup show="{{ showpopup }}" position="bottom" bind:close="onClosePopup">
+        <van-picker columns="{{ columns }}" show-toolbar title="举报类别*" bind:cancel="onCancel" bind:confirm="onConfirm" bind:change="onChange" />
+    </van-popup>
+</view>

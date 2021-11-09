@@ -1,0 +1,66 @@
+/* pages/mine/mine.wxss */
+.main {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.bg-top {
+    height: 30%;
+    /* border-bottom: 2PX solid #ccc; */
+}
+
+.mine {
+    position: absolute;
+    top: 24%;
+    left:8%;
+    width: 84%;
+    height: 280rpx;
+    border-radius: 20rpx;
+    border: 2px solid #ccc;
+}
+
+.menu {
+    margin-top: 260rpx
+}
+
+.name {
+    font-size: 38rpx;
+    font-weight: 600;
+    padding: 20rpx;
+}
+
+.label {
+    padding: 24rpx;
+    display: flex;
+    padding-left: 6rpx;
+}
+
+.label view {
+    padding-left: 20rpx;
+}
+
+.aaa {
+    display: flex;
+}
+
+.little-box {
+    text-align: center;
+    margin-left: 20rpx;
+    margin-right: 20rpx;
+}
+
+.desc {
+    font-size:small;
+    padding-top: 10rpx;
+}
+
+.pic-avtor {
+    width: 160rpx;
+    height: 160rpx;
+    border: 2px solid #ccc;
+    border-radius: 80rpx;
+    position: absolute;
+    top: -15%;
+    right: 10%;
+}

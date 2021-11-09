@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "my-post": "./../../components/myPost/myPost"
+  }
+}

@@ -1,0 +1,23 @@
+/* pages/login/login.wxss */
+.box-login {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+}
+
+.input {
+    margin: 40rpx auto;
+    margin-bottom: 0;
+}
+
+.tips {
+    line-height: 100rpx;
+    font-size: 0.8em;
+    color: #999;
+}
+
+.btn {
+    margin-bottom: 20rpx;
+}

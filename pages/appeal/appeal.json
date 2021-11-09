@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "van-button": "/miniprogram/miniprogram_npm/@vant/weapp/button/index",
+    "van-picker": "/miniprogram/miniprogram_npm/@vant/weapp/picker/index",
+    "van-icon": "/miniprogram/miniprogram_npm/@vant/weapp/icon/index",
+    "van-field": "/miniprogram/miniprogram_npm/@vant/weapp/field/index",
+    "van-popup": "/miniprogram/miniprogram_npm/@vant/weapp/popup/index",
+    "van-dialog": "/miniprogram/miniprogram_npm/@vant/weapp/dialog/index"
+  }
+}

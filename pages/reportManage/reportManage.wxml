@@ -1,0 +1,4 @@
+<!--pages/reportManage/reportManage.wxml-->
+<view class="main">
+    <my-report></my-report>
+</view>

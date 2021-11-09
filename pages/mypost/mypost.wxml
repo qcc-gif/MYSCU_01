@@ -1,0 +1,6 @@
+<!-- pages/mypost/mypost.wxml -->
+<view class="main">
+    <my-post name="{{name}}"></my-post>
+    <my-post></my-post>
+    <my-post></my-post>
+</view>
