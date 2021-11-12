@@ -1,0 +1,16 @@
+<view class="main">
+    <view class="body">
+        <view class="title">登录</view>
+        <view class="student-number input-view">
+            <van-field model:value="{{ account }}" required clearable placeholder="输入管理员账户" />
+        </view>
+        <view class="password input-view">
+            <van-field model:value="{{ password }}" required clearable type="password" placeholder="输入管理员密码" bind:click-icon="onClickIcon" />
+        </view>
+        <view class="bind-btn">
+            <van-button color="#fa6d8e" round bind:click="register" block>登录</van-button>
+        </view>
+    </view>
+</view>
+<van-dialog id="van-dialog" />
+<van-toast id="van-toast" />

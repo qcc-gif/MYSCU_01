@@ -1,0 +1,34 @@
+.main {
+    width: 90%;
+    border-top: 2rpx solid #ccc;
+    border-bottom: 2rpx solid #ccc;
+    margin: 0 auto;
+}
+
+.top {
+    display: flex;
+}
+
+.pic-avtor {
+    width: 100rpx;
+    height: 100rpx;
+    border: 2rpx solid #ccc;
+    border-radius: 50%;
+    margin: 20rpx;
+}
+
+.desc {
+    margin-top: 20rpx;
+}
+
+.name {
+    font-size: large;
+    font-weight: 600;
+    padding: 10rpx 0;
+}
+
+.detail {
+    padding-left: 20rpx;
+    margin: 20rpx 0;
+    font-size: larger;
+}

@@ -1,0 +1,57 @@
+/* pages/adminstor/adminstor.wxss */
+.main {
+    position: relative;
+}
+
+.bg-top {
+    width: 100%;
+    height: 600rpx;
+    border: 2rpx solid #ccc;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.user {                          
+    height: 200rpx;
+    position: absolute;
+    top: 40%;
+    left: 5%;
+}
+
+.name {
+    font-size: 42rpx;
+    font-weight: 550;
+    text-align: center;
+}
+
+.pic-avtor {
+    width: 120rpx;
+    height: 120rpx;
+    border: 1rpx solid #ccc;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.pic {
+    width: 100%;
+    height: 100%;
+
+}
+.menu {
+    position: absolute;
+    box-sizing: border-box;
+    top: 77%;
+    width: 90%;                                                    
+    height: 400rpx;
+    left: 5%;
+    border: 2rpx solid #ccc;
+    border-radius: 20rpx;
+    padding: 3%;
+}
+
+.exit {
+    position: absolute;
+    top:5%;
+    right: 5%;
+}

@@ -1,0 +1,31 @@
+<!-- pages/square/square.wxml -->
+<view class="main">
+    <view class="box-search">
+        <van-search value="{{ searchvalue }}" input-align="center" bind:search="onSearch" bind:change="onChangeSea" placeholder="按标签/关键字搜索" />
+    </view>
+    <view class="box-tab">
+        <view class="left">
+            <view class="pos-tab">
+                <van-tabs type="card" active="{{ active }}" bind:change="onChangeTab">
+                    <van-tab title="教学楼区"></van-tab>
+                    <van-tab title="宿舍区"></van-tab>
+                    <van-tab title="餐厅区"></van-tab>
+                    <van-tab title="运动区"></van-tab>
+                </van-tabs>
+            </view>
+        </view>
+        <view class="right">
+            <view class="choose box" bindtap="showPicker">
+                <view>{{position}}</view>
+                <van-icon name="arrow-down" />
+            </view>
+        </view>
+    </view>
+    <view class="plain"></view>
+    <view class="box-post">
+        <my-post></my-post>
+    </view>
+    <van-popup show="{{ showpopup }}" position="bottom" bind:close="onClosePopup">
+        <van-picker columns="{{ columns }}" show-toolbar title="地点" bind:cancel="onCancel" bind:confirm="onConfirm" bind:change="onChange" />
+    </van-popup>
+</view>

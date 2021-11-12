@@ -1,0 +1,44 @@
+<!-- pages/mine/mine.wxml -->
+<view class="main">
+    <view class="bg-top">bg</view>
+    <view class="menu">
+        <van-cell-group inset>
+            <van-cell title="系统消息" is-link link-type="navigateTo" url="/pages/systemmsg/systemmsg"/>
+            <van-cell title="向管理员申诉" is-link link-type="navigateTo" url="/pages/appeal/appeal"/>
+            <van-cell title="联系开发者" is-link bind:click="contactFonfirm" />
+            <van-cell title="打赏我们" is-link link-type="navigateTo" url="/pages/reward/reward" />
+            <van-cell title="退出登录" is-link />
+            <van-cell title="后台管理" is-link link-type="navigateTo" url="/pages/adminlogin/adminlogin"/> 
+        </van-cell-group>
+    </view>
+    <view class="mine">
+        <view class="name">
+            <open-data type="userNickName"></open-data>
+        </view>
+        <view class="label">
+            <van-icon name="label-o" />
+            <view>这是标签</view>
+        </view>
+        <view class="aaa">
+            <view class="post little-box">
+                <view class="num">{{postnum}}</view>
+                <view class="desc">我的发帖</view>
+            </view>
+            <view class="star little-box">
+                <view class="num">{{starnum}}</view>
+                <view class="desc">我的收藏</view>
+            </view>
+        </view>
+        <view class="pic-avtor">
+            <open-data type="userAvatarUrl" class="pic"></open-data>
+        </view>
+    </view>
+    <van-action-sheet show="{{ showAction }}" bind:close="onCloseAct" title="联系我们">
+        <view class="act">
+            <view class="contact-desc">通过微信联系我们</view>
+            <view class="contact-btn" bind:contact="contactUs">
+                <van-button block icon="chat-o" type="info" open-type="contact">联系我们</van-button>
+            </view>
+        </view>
+    </van-action-sheet>
+</view>

@@ -1,0 +1,71 @@
+<!-- pages/post/post.wxml -->
+<view class="main">
+    <view class="position box">
+        <view class="po-icon">
+            <van-icon name="location-o" size="30" />
+        </view>
+        <view class="pos-tab">
+            <van-tabs type="card" active="{{ active }}" bind:change="onChangeTab">
+                <van-tab title="标签 1">
+                    <view class="detail-pos">
+                        <view class="box-pos" wx:for="{{pos[0]}}" wx:key="index" data-i="0" data-j="{{index}}" bindtap="choosePos">
+                            {{item}}
+                        </view>
+                    </view>
+                </van-tab>
+                <van-tab title="标签 2">
+                    <view class="detail-pos">
+                        <view class="box-pos" wx:for="{{pos[1]}}" wx:key="index" data-i="1" data-j="{{index}}" bindtap="choosePos">
+                            {{item}}
+                        </view>
+                    </view>
+                </van-tab>
+                <van-tab title="标签 3">
+                    <view class="detail-pos">
+                        <view class="box-pos" wx:for="{{pos[2]}}" wx:key="index" data-i="2" data-j="{{index}}" bindtap="choosePos">
+                            {{item}}
+                        </view>
+                    </view>
+                </van-tab>
+                <van-tab title="标签 4">
+                    <view class="detail-pos">
+                        <view class="box-pos" wx:for="{{pos[3]}}" wx:key="index" data-i="3" data-j="{{index}}" bindtap="choosePos">
+                            {{item}}
+                        </view>
+                    </view>
+                </van-tab>
+            </van-tabs>
+        </view>
+    </view>
+    <view class="edit box">
+        <van-cell-group>
+            <van-field model:value="{{ msg }}"  type="textarea" placeholder="请输入留言" autosize border="{{ false }}" />
+        </van-cell-group>
+    </view>
+    <view class="count">{{msg.length}}/500</view>
+    <view class="icon">
+        <view>
+            <van-icon name="photo-o" size="30" />
+        </view>
+        <view>
+            <van-icon name="smile-comment-o" size="30" />
+        </view>
+        <view>
+            <van-icon name="guide-o" size="30" />
+        </view>
+        <view>
+            <van-icon name="smile-comment-o" size="30" />
+        </view>
+        <view class="last-icon" style="margin-left: 160rpx;">
+            <van-icon name="guide-o" size="30" />
+        </view>
+    </view>
+    <view class="label box">
+        <view class="label-detai">选择其他标签(可选)</view>
+        <viwe class="lable-btn">
+            <view class="label-button" wx:for="{{label}}" wx:key="index" data-j="{{index}}" bindtap="chooseLabel">
+                {{item}}
+            </view>
+        </viwe>
+    </view>
+</view>

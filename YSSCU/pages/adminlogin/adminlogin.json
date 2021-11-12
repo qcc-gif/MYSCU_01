@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+    "van-button": "/miniprogram/miniprogram_npm/@vant/weapp/button/index",
+    "van-field": "/miniprogram/miniprogram_npm/@vant/weapp/field/index",
+    "van-checkbox": "/miniprogram/miniprogram_npm/@vant/weapp/checkbox/index",
+    "van-checkbox-group": "/miniprogram/miniprogram_npm/@vant/weapp/checkbox-group/index",
+    "van-dialog": "/miniprogram/miniprogram_npm/@vant/weapp/dialog/index",
+    "van-toast": "/miniprogram/miniprogram_npm/@vant/weapp/toast/index"
+  },
+  "navigationBarTitleText":"管理员"
+}

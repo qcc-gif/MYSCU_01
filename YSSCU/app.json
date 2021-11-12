@@ -1,0 +1,68 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/post/post",
+    "pages/adminlogin/adminlogin",
+    "pages/mine/mine",
+    "pages/map/map",
+    "pages/systemmsg/systemmsg",
+    "pages/reward/reward",
+    "pages/square/square",
+    "pages/morefunc/morefunc",
+    "pages/reportManage/reportManage",
+    "pages/adminstor/adminstor",
+    "pages/mypost/mypost",
+    "pages/appeal/appeal",
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/map/map",
+        "text": "地图",
+        "iconPath": "./static/icons/map-u.png",
+        "selectedIconPath":"./static/icons/map.png"
+      },
+      {
+        "pagePath": "pages/square/square",
+        "text": "广场",
+        "iconPath": "./static/icons/comment-u.png",
+        "selectedIconPath":"./static/icons/comment.png"
+      },
+      {
+        "pagePath": "pages/post/post",
+        "text": "",
+        "iconPath": "./static/icons/plus.png",
+        "selectedIconPath":"./static/icons/plus.png"
+      },
+      {
+        "pagePath": "pages/morefunc/morefunc",
+        "text": "多功能",
+        "iconPath": "./static/icons/more-u.png",
+        "selectedIconPath":"./static/icons/more.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "./static/icons/mine-u.png",
+        "selectedIconPath":"./static/icons/mine.png"
+      }
+    ],
+    "selectedColor" : "#EE0A24"
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "YSSCU",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json",
+  "usingComponents": {
+    "van-grid": "/miniprogram/miniprogram_npm/@vant/weapp/grid/index",
+    "van-grid-item": "/miniprogram/miniprogram_npm/@vant/weapp/grid-item/index",
+    "van-image": "/miniprogram/miniprogram_npm/@vant/weapp/image/index",
+    "van-icon": "/miniprogram/miniprogram_npm/@vant/weapp/icon/index",
+    "van-button": "/miniprogram/miniprogram_npm/@vant/weapp/button/index"
+  }
+}
