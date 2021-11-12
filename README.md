@@ -12,7 +12,33 @@
 
 该项目基于微信小程序开发平台，采用Vant UI（前端），Node.js框架（后端）和SQLite（数据库）。
 
+## 目录结构
 
+* YSSCU 小程序端
+
+  > cmd
+
+  ```bash
+  npm install
+  ```
+
+  微信开发者工具勾选 使用npm模块，不检查HTTP
+
+  工具 -> 构建npm
+
+* server 服务端
+
+  > cmd
+
+  ```bash
+  cd server
+  
+  npm install
+  
+  npm start # 运行 默认在3000端口
+  ```
+
+  
 
 ## 参考资料
 
