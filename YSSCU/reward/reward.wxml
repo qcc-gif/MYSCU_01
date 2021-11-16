@@ -1,0 +1,4 @@
+<!--pages/reward/reward.wxml-->
+<view class="main">
+    <image class="code" src="https://i.loli.net/2021/11/16/JNA9B45HcZWsOlG.jpg" mode="widthFix"></image>
+</view>

@@ -1,0 +1,19 @@
+<!-- pages/login/login.wxml -->
+<view class="main">
+  <view class="box-login">
+    <view class="input">
+      <van-field-group>
+        <van-field model:value="{{ studentnumber }}" adjust-position clearable size="large" label="账号：" placeholder="请输入账号" error-message="{{stuerrmsg}}" err />
+        <van-field model:value="{{ pwd }}" adjust-position clearable size="large" label="密码：" placeholder="请输入密码" error-message="{{pwderrmsg}}" border="{{ false }}" err />
+      </van-field-group>
+    </view>
+    <view class="tips">注：忘记密码可通过教务处重置。</view>
+    <view class="btn">
+      <van-button hairline type="primary" color="#438D90" bind:click="loginIn">登录</van-button>
+    </view>
+  </view>
+  <view class="butt">
+    <view>云上川大</view>
+    <view>YYSCU</view>
+  </view>
+</view>
