@@ -5,7 +5,8 @@
     "van-checkbox": "/miniprogram/miniprogram_npm/@vant/weapp/checkbox/index",
     "van-checkbox-group": "/miniprogram/miniprogram_npm/@vant/weapp/checkbox-group/index",
     "van-dialog": "/miniprogram/miniprogram_npm/@vant/weapp/dialog/index",
-    "van-toast": "/miniprogram/miniprogram_npm/@vant/weapp/toast/index"
+    "van-toast": "/miniprogram/miniprogram_npm/@vant/weapp/toast/index",
+    "van-divider": "/miniprogram/miniprogram_npm/@vant/weapp/divider/index"
   },
-  "navigationBarTitleText":"管理员"
+  "navigationBarTitleText":"管理员登录"
 }

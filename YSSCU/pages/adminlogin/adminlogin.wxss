@@ -2,53 +2,60 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    /* background-color:#fa6d8e; */
-    /* background-color: #2d3a4b; */
+    background: url("https://z3.ax1x.com/2021/11/09/ItbUi9.png") no-repeat;
 }
 
-.body {
-    display: flex;
-    justify-content: space-around;
-    flex-direction: column;
-    align-items: center;
+.login{
+    margin-left:68rpx;
+    width: 300rpx;
+    height: 100rpx;
+    font-size: 60rpx;
+    color: #333333;
+}
+
+.box-login {
     width: 90%;
-    height: 400rpx;
+    height: 37%;
     margin: 0 auto;
-    margin-top: 130rpx;
-    padding-top: 100rpx;
-    border: 1rpx solid #ccc;
-    border-radius: 14rpx;
-    box-shadow: 0 0 20px 2px #ccc;
+    text-align: center;
+    border: 3px solid rgb(211, 208, 208);
+    /* box-shadow: 4px 4px 4px #bdbcbc; */
+    background: #fff;
+    border-radius: 10px;
+    margin-top: 50%;
 }
 
-.title {
-    font-size: 47rpx;
-    position: absolute;
-    top: 160rpx;
-    left: 90rpx;
-    /* color: #eeeeee; */
+.input {
+    margin: 40rpx auto;
+    margin-bottom: 0;
 }
 
-.input-view {
-    width: 90%;
-}
+.divLine{
+    background: #cccccc;
+    width: 80%;
+    margin-left: 11%;
+    height: 1rpx;
+   }   
 
-/* .input-view .van-cell {
-    background-color: #283443;
-} */
-
-.input-view .van-field__control {
-    font-size: 32rpx;
-    padding-left: 14rpx;
-    /* color: #bcbcb8, */
+.tips {
+    line-height: 100rpx;
+    font-size: 0.2em;
+    text-align: center;
+    color: #999;
 }
 
 
-.bind-btn {
+.btn {
     width: 60%;
     height: 30rpx;
+    margin-bottom: 100rpx;
+    margin-left: 20%;
 }
 
-.bind-btn .van-button {
-    font-size: 40rpx;
+.butt {
+    color: rgb(250, 249, 249);
+    width: 200rpx;
+    margin:  auto;
+    text-align: center;
+    margin-top: 430rpx;
 }

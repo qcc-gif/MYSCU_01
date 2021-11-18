@@ -1,20 +1,99 @@
 /* pages/login/login.wxss */
-.main {
+.header {
+    margin: 90rpx 0 90rpx 50rpx;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+    width: 650rpx;
+    height: 300rpx;
+    line-height: 450rpx;
+}
+
+.bt{
+    width: 80%;
+}
+ 
+.header image {
+    width: 200rpx;
+    height: 200rpx;
+}
+ 
+.content {
+    /* margin-left: 50rpx; */
+    text-align: center;
+    margin-bottom: 90rpx;
+}
+ 
+.content text {
+    display: block;
+    color: #9d9d9d;
+    margin-top: 40rpx;
+}
+ 
+.bottom {
+    border-radius: 80rpx;
+    margin: 70rpx 50rpx;
+    font-size: 35rpx;
+}
+
+.userinfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #aaa;
+  }
+  
+  .userinfo-avatar {
+    overflow: hidden;
+    width: 128rpx;
+    height: 128rpx;
+    margin: 20rpx;
+    border-radius: 50%;
+  }
+  
+  .usermotto {
+    margin-top: 200px;
+  }
+
+  .main {
     position: absolute;
     width: 100%;
     height: 100%;
     background: url("https://z3.ax1x.com/2021/11/09/ItbUi9.png") no-repeat;
+    opacity: 92%;
+}
+
+.login{
+    margin-left:40rpx;
+    width: 300rpx;
+    height: 100rpx;
+    font-size: 60rpx;
+    color: #333333;
+}
+
+.pro{
+    margin-left: 44rpx;
+    padding: 2rpx;
+    color: #333333;
 }
 
 .box-login {
-    width: 80%;
+    width: 90%;
+    height: 43%;
     margin: 0 auto;
     text-align: center;
-    border: 2px solid #ccc;
+    border: 3px solid rgb(211, 208, 208);
+    /* box-shadow: 4px 4px 4px #bdbcbc; */
     background: #fff;
     border-radius: 10px;
-    margin-top: 50%;
+    margin-top: 45%;
 }
+
+.divLine{
+    background: #cccccc;
+    width: 80%;
+    margin-left: 11%;
+    height: 1rpx;
+   }   
 
 .input {
     margin: 40rpx auto;
@@ -23,17 +102,31 @@
 
 .tips {
     line-height: 100rpx;
-    font-size: 0.8em;
+    font-size: 0.2em;
+    text-align: center;
     color: #999;
 }
 
+
 .btn {
-    margin-bottom: 20rpx;
+    width: 60%;
+    height: 30rpx;
+    margin-bottom: auto;
+    margin-top: 55rpx;
+    margin-left: 20%;
 }
 
 .butt {
-    color: #fff;
+    color: rgb(250, 249, 249);
     width: 200rpx;
     margin:  auto;
-    margin-top: 300rpx;
+    text-align: center;
+    margin-top: 270rpx;
+}
+
+.admin {
+    position: absolute;
+    top:5%;
+    right: 5%;
+    color: #333333;
 }

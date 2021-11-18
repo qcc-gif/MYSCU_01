@@ -1,7 +1,4 @@
 <!--pages/reward/reward.wxml-->
 <view class="main">
-    <view class="code">
-        二维码
-    </view>
-    <view class="desc">谢谢您的支持</view>
+    <image class="code" src="https://i.loli.net/2021/11/16/JNA9B45HcZWsOlG.jpg" mode="widthFix"></image>
 </view>

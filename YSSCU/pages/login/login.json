@@ -1,6 +1,9 @@
 {
   "usingComponents": {
     "van-button": "/miniprogram/miniprogram_npm/@vant/weapp/button/index" ,
-    "van-field": "/miniprogram/miniprogram_npm/@vant/weapp/field/index"
-  }
+    "van-field": "/miniprogram/miniprogram_npm/@vant/weapp/field/index",
+    "van-cell": "/miniprogram/miniprogram_npm/@vant/weapp/cell/index",
+    "van-toast": "/miniprogram/miniprogram_npm/@vant/weapp/toast/index"
+  },
+  "navigationBarTitleText": "用户登录"
 }
