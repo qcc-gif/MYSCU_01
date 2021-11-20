@@ -1,13 +1,13 @@
 // app.js
 App({
   globalData: {
-    userInfo: {
-      username: "",
-      imgUrl: "",
-    },
+    userInfo: null,
     host: "",
-    openid: "",
+    openid: "ofktd44z-FOuIvGSMrhgBwqvCNFk",
+    account: "",
+    url: "http://10.133.133.26:3000",
   },
+
   getopenid: async () => {
     return new Promise(async (resolve, reject) => {
       wx.login({
@@ -18,11 +18,15 @@ App({
           var secret = '853f8491160ddc7e41b947831d51395b'; // 小程序secret
           wx.request({
             url: 'https://api.weixin.qq.com/sns/jscode2session?appid=' + appid + '&secret=' + secret + '&js_code=' + code + '&grant_type=authorization_code',
+            data: {
+              studentnumber: studentnumber,
+            },
             header: {
               'content-type': 'application/json'
             },
             success: (res) => {
-              resolve(res)
+              resolve(res)  // 获取到用户的open_id
+              wx.setStorageSync('openid', res.data.openid); // 缓存到本地
             },
             fail: (err) => {
               reject(err)

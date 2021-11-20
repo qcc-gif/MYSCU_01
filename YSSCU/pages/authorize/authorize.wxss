@@ -1,0 +1,64 @@
+/* pages/authorize/authorize.wxss */
+.main{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url("https://z3.ax1x.com/2021/11/09/ItbUi9.png") no-repeat;
+    opacity: 92%;
+}
+
+.box{
+    background-color: white;
+    margin-left: 50rpx;
+    margin-right: 50rpx;
+    border-radius: 5%;
+    margin-top: 250rpx;
+    height: 740rpx;
+}
+
+.header {
+    margin: 90rpx 0rpx 90rpx 20rpx;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+    width: 650rpx;
+    height: 300rpx;
+    line-height: 450rpx;
+   }
+    
+   .header image {
+    width: 200rpx;
+    height: 200rpx;
+   }
+    
+   .content {
+    margin-left: 50rpx;
+    margin-bottom: 90rpx;
+    text-align: center;
+   }
+    
+   .content text {
+    display: block;
+    color: #9d9d9d;
+    margin-top: 40rpx;
+   }
+    
+   .bottom {
+    border-radius: 80rpx;
+    margin: 70rpx 50rpx;
+    font-size: 35rpx;
+   }
+
+   .butt {
+    color: rgb(250, 249, 249);
+    width: 200rpx;
+    margin:  auto;
+    text-align: center;
+    margin-top: 270rpx;
+}
+
+.admin {
+    position: absolute;
+    top:5%;
+    right: 5%;
+    color: #333333;
+}

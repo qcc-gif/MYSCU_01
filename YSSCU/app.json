@@ -1,18 +1,23 @@
 {
   "pages": [
-    "pages/login/login",
     "pages/post/post",
     "pages/adminlogin/adminlogin",
+    "pages/adminstor/adminstor",
     "pages/mine/mine",
-    "pages/map/map",
-    "pages/systemmsg/systemmsg",
+    "pages/authorize/authorize",   
     "pages/reward/reward",
+
+    "pages/systemmsg/systemmsg",
+    "pages/map/map",
     "pages/square/square",
     "pages/morefunc/morefunc",
     "pages/reportManage/reportManage",
-    "pages/adminstor/adminstor",
     "pages/mypost/mypost",
     "pages/appeal/appeal",
+    "post/msgManage/msgManage",
+    "pages/systempost/systempost",
+    "pages/accountManage/accountManage",
+
     "pages/index/index",
     "pages/logs/logs"
   ],
@@ -34,7 +39,8 @@
         "pagePath": "pages/post/post",
         "text": "",
         "iconPath": "./static/icons/plus.png",
-        "selectedIconPath":"./static/icons/plus.png"
+        "selectedIconPath":"./static/icons/plus.png",
+        "size":""
       },
       {
         "pagePath": "pages/morefunc/morefunc",
@@ -63,6 +69,7 @@
     "van-grid-item": "/miniprogram/miniprogram_npm/@vant/weapp/grid-item/index",
     "van-image": "/miniprogram/miniprogram_npm/@vant/weapp/image/index",
     "van-icon": "/miniprogram/miniprogram_npm/@vant/weapp/icon/index",
-    "van-button": "/miniprogram/miniprogram_npm/@vant/weapp/button/index"
+    "van-button": "/miniprogram/miniprogram_npm/@vant/weapp/button/index",
+    "van-field": "/miniprogram/miniprogram_npm/@vant/weapp/field/index"
   }
 }

@@ -4,38 +4,51 @@
     width: 100%;
     height: 100%;
 }
+.weui-input{
+    margin-left: 10rpx;
+}
 
 .bg-top {
-    height: 40%;
+    height:45%;
     background: url("https://s3.bmp.ovh/imgs/2021/11/63e7ebdf25bc9462.jpg") no-repeat;
+    opacity: 0.75;
     /* border-bottom: 2PX solid #ccc; */
 }
 
 .mine {
     position: absolute;
-    top: 24%;
-    left:8%;
-    width: 84%;
-    height: 280rpx;
-    border-radius: 20rpx;
-    border: 2px solid #ccc;
+    top: 30%;
+    left:5%;
+    width: 680rpx;
+    height: 330rpx;
+    border-radius: 30rpx;
+    box-shadow: 4px 4px 4px rgb(145, 145, 145);
     background-color: white;
+    text-align: auto;
+    color: #333333;
 }
 
 .menu {
-    margin-top: 180rpx
+    margin-top: 200rpx;
+    color: #333333;
+    font-size: medium;
 }
 
 .name {
     font-size: 38rpx;
     font-weight: 600;
-    padding: 20rpx;
+    padding: 10rpx;
+    margin-top: 4%;
+    margin-left: 7%;
 }
 
 .label {
-    padding: 24rpx;
+    padding: 20rpx;
     display: flex;
-    padding-left: 6rpx;
+    /* padding-left: 6rpx; */
+    font-size: small;
+    color: #969798;
+    margin-left: 20rpx;
 }
 
 .label view {
@@ -44,6 +57,14 @@
 
 .aaa {
     display: flex;
+    color: #333333;
+    margin-top: 3%;
+    margin-left: 5%;
+}
+
+.desc{
+    color: #969798;
+    font-size: small;
 }
 
 .little-box {
@@ -58,13 +79,13 @@
 }
 
 .pic-avtor {
-    width: 160rpx;
-    height: 160rpx;
+    width: 180rpx;
+    height: 180rpx;
     border: 2px solid #ccc;
-    border-radius: 80rpx;
+    border-radius: 100rpx;
     position: absolute;
     top: -15%;
-    right: 10%;
+    right: 5%;
     overflow: hidden;
 }
 
@@ -77,13 +98,33 @@
 
 
 .contact-desc {
-    width: 400rpx;
-    margin: 40rpx auto;
+    width: 500rpx;
+    margin: 50rpx auto;
     text-align: center;
+    font-size: small;
 }
 
 .contact-btn {
-    margin: 80rpx auto;
+    margin: 30rpx auto;
     display: flex;
     align-items: center;
+}
+
+.exit {
+    position: absolute;
+    top:5%;
+    right: 5%;
+}
+
+.edit{
+    height: 60rpx;
+    width: 110rpx;
+    font-size: x-small;
+    color: #333333;
+    /* margin-top: 20rpx; */
+    margin-left: 100rpx;
+}
+
+.personlabel{
+    margin-top: 10rpx;
 }

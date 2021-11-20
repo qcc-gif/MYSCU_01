@@ -6,6 +6,7 @@
     border: 2rpx solid #ccc;
     border-radius: 20rpx;
     margin-top:25rpx;
+    /* box-shadow: 3rpx 3rpx 3rpx #606262; */
 }
 
 .position {
@@ -16,10 +17,15 @@
 .po-icon {
     width: 5%;
     text-align: center;
+    margin-top: 17rpx;
+    margin-left: 20rpx;
+    color: #939595;
 }
 
 .pos-tab {
-    width: 95%
+    width: 95%;
+    margin-top: 15rpx;
+    margin-left: 5rpx;
 }
 
 .detail-pos {
@@ -29,17 +35,30 @@
 }
 
 .box-pos {
-    height: 40rpx;
-    line-height: 40rpx;
+    height: 30rpx;
+    line-height: 30rpx;
     padding: 10rpx 30rpx;
     border: 2rpx solid #ccc;
     border-radius: 30rpx;
     margin: 20rpx 20rpx;
+    font-size: small;
+    color: #606262;
 }
 
 .edit {
     margin: 50rpx auto;
     padding: 20rpx;
+    height: 300rpx;
+    box-shadow: 3rpx 3rpx 3rpx rgb(163, 163, 163);
+}
+
+.label-choice{
+    padding: 24rpx;
+    display: flex;
+    font-size: medium;
+    color: #333333;
+    margin-left: 2%;
+    padding-left: 20rpx;
 }
 
 .label {
@@ -47,9 +66,10 @@
 }
 
 .count {
-    padding-left: 80%;
-    color: #444;
-    margin: 10rpx 0;
+    padding-left: 85%;
+    color: rgb(163, 163, 163);
+    margin: 5rpx 0;
+    font-size: small;
 }
 
 .icon {
@@ -78,4 +98,8 @@
     border: 2rpx solid #ccc;
     border-radius: 30rpx;
     margin: 20rpx 20rpx;
+}
+
+.isActive{
+    background-color: aqua;
 }

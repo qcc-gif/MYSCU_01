@@ -4,16 +4,17 @@ const app = getApp();
 // import Dialog from "./../../miniprogram_npm/@vant/weapp/dialog/dialog"
 import api from "./../../api/api"
 
+
 Page({
   data: {
     account: "", // 管理员账号
     password: "",
-    url: "http://127.0.0.1:3000",
+    url: "",
   },
 
   onLoad: function() {
     if (wx.getStorageSync('account')){
-      app.globalData.account = wx.getStorageSync('account');
+      app.globalData.account = wx.getStorageSync('account');  // 有缓存就直接登录
       wx.reLaunch({
         url: '/pages/adminstor/adminstor',
       })
@@ -41,24 +42,27 @@ Page({
 
   // 点击登录
   register: function () {
-    api.post(this.data.url + 'admin/login', {
+    let url = app.globalData.url + '/admin/login'
+    console.log('url', url)
+    api.post(url, {
       account: this.data.account,
-      pwd: this.data.password
-    }).then((res) => {
-      if (res.success) {
-        console.log("验证成功")
-        console.log(res)
-        // let path = `name=${res.adminname}&image=${res.image}`
-        app.globalData.account = this.data.account
-        wx.setStorageSync('account', this.data.account);  // account的本地缓存
+      pwd: this.data.password,
+    }).then((res)=>{  // 返回状态
+      if(res.data.success){
+        let name = res.data.name
+        let img = res.data.img
+        app.globalData.account = this.data.account,
+        wx.setStorageSync('account', this.data.account)
         wx.reLaunch({
-          url: 'pages/adminstor/adminstor',
-        });
-      } else {
-        console.log("验证失败")
+          url: `/pages/adminstor/adminstor?name=${name}&img=${img}`,
+        })
+      }else{
+        wx.showModal({
+          cancelColor: 'cancelColor',
+        })
       }
-    }).catch((err) => {
-      console.log("err", err)
+    }).catch((err)=>{
+      console.log(err)
     })
   },
 

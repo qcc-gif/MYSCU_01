@@ -1,6 +1,8 @@
 /* pages/adminstor/adminstor.wxss */
 .main {
     position: relative;
+    background: url("https://s3.bmp.ovh/imgs/2021/11/63e7ebdf25bc9462.jpg") no-repeat;
+    opacity: 80%;
 }
 
 .bg-top {
@@ -23,12 +25,16 @@
     font-size: 42rpx;
     font-weight: 550;
     text-align: center;
+    margin-left: 250rpx;
+    margin-top: -130rpx;
+    color: #ffffff;
+    /* background-color: rgb(255, 255, 255); */
 }
 
 .pic-avtor {
-    width: 120rpx;
-    height: 120rpx;
-    border: 1rpx solid #ccc;
+    width: 200rpx;
+    height: 200rpx;
+    border: 5rpx solid rgb(253, 248, 248);
     border-radius: 50%;
     overflow: hidden;
 }
@@ -54,4 +60,5 @@
     position: absolute;
     top:5%;
     right: 5%;
+    color: white;
 }

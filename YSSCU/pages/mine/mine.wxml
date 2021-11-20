@@ -5,10 +5,9 @@
         <van-cell-group inset>
             <van-cell title="系统消息" is-link link-type="navigateTo" url="/pages/systemmsg/systemmsg"/>
             <van-cell title="向管理员申诉" is-link link-type="navigateTo" url="/pages/appeal/appeal"/>
-            <van-cell title="联系开发者" is-link bind:click="contactFonfirm" />
-            <van-cell title="打赏我们" is-link link-type="navigateTo" url="/pages/reward/reward" />
-            <van-cell title="退出登录" is-link />
-            <van-cell title="后台管理" is-link link-type="navigateTo" url="/pages/adminlogin/adminlogin"/> 
+            <van-cell title="联系我们" is-link bind:click="contactFonfirm" />
+            <van-cell title="打赏开发者" is-link link-type="navigateTo" url="/pages/reward/reward" />
+            <van-cell title="退出登录" is-link bind:click="logOut"/>
         </van-cell-group>
     </view>
     <view class="mine">
@@ -16,9 +15,18 @@
             <open-data type="userNickName"></open-data>
         </view>
         <view class="label">
-            <van-icon name="label-o" />
-            <view>这是标签</view>
+            <van-icon color="#E7C212" name="label-o" />
+            <view class="personlabel">{{personLabel}}</view>
+            <button class="edit" bindtap="modalinput">
+                <text>修改</text>
+            </button>
+            <modal hidden="{{hiddenmodalput}}" title="请输入个人标签" 
+   			confirm-text="确定" cancel-text="取消" bindcancel="modalinput" 
+               bindconfirm="confirm">
+               <van-field model:value="{{ newLabel }}" placeholder="" border="{{ false }}"/>
+            </modal>
         </view>
+
         <view class="aaa">
             <view class="post little-box">
                 <view class="num">{{postnum}}</view>
@@ -35,7 +43,7 @@
     </view>
     <van-action-sheet show="{{ showAction }}" bind:close="onCloseAct" title="联系我们">
         <view class="act">
-            <view class="contact-desc">通过微信联系我们</view>
+            <view class="contact-desc">使用小程序客服消息功能，与小程序的客服人员进行沟通。</view>
             <view class="contact-btn" bind:contact="contactUs">
                 <van-button block icon="chat-o" type="info" open-type="contact">联系我们</van-button>
             </view>

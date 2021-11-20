@@ -3,6 +3,9 @@
     "van-cell": "/miniprogram/miniprogram_npm/@vant/weapp/cell/index",
     "van-cell-group": "/miniprogram/miniprogram_npm/@vant/weapp/cell-group/index",
     "van-icon": "/miniprogram/miniprogram_npm/@vant/weapp/icon/index",
-    "van-action-sheet" : "/miniprogram/miniprogram_npm/@vant/weapp/action-sheet/index"
-  }
+    "van-action-sheet" : "/miniprogram/miniprogram_npm/@vant/weapp/action-sheet/index",
+    "van-dialog":"/miniprogram/miniprogram_npm/@vant/weapp/dialog/index",
+    "van-field":"/miniprogram/miniprogram_npm/@vant/weapp/field/index"
+  },
+  "navigationBarTitleText": "个人空间"
 }
