@@ -1,13 +1,13 @@
-<!-- pages/appeal/appeal.wxml -->
+<!--pages/report/report.wxml-->
 <view class="main">
-    <view class="desc1">申诉类别(*必填项)</view>
+    <view class="desc1">举报类别(*必填项)</view>
     <view class="choose box" bindtap="showPicker">
         <view>{{reason}}</view>
         <van-icon name="arrow-down"/>
     </view>
     <view class="desc2">阐述理由(*必填项)</view>
     <view class="detail-desc box">
-        <van-field model:value="{{ detail }}" clearable maxlength="200" type="textarea" autosize placeholder="请输入描述理由，以便管理员更好理解您的申诉" bind:input="GetDetail"/>
+        <van-field model:value="{{ detail }}" clearable maxlength="200" type="textarea" autosize placeholder="请输入描述理由，以便管理员更好理解您的诉求" bind:input="GetDetail"/>
     </view>
     <view class="count-text">{{detail.length}}/200</view>
     <view class="desc3">联系方式</view>
@@ -15,9 +15,9 @@
         <van-field model:value="{{ phone }}" clearable placeholder="请输入电话或邮箱" bind:input="GetContactInfo"/>
     </view>
     <view class="btn">
-        <van-button block square type="primary" bind:click="onPostAppeal">提交申诉</van-button>
+        <van-button block square type="primary" bind:click="onPostAppeal">举报</van-button>
     </view>
     <van-popup show="{{ showpopup }}" position="bottom" bind:close="onClosePopup">
-        <van-picker columns="{{ columns }}" show-toolbar title="申诉类别*" bind:cancel="onCancel" bind:confirm="onConfirm" bind:change="onChange" />
+        <van-picker columns="{{ columns }}" show-toolbar title="举报类别*" bind:cancel="onCancel" bind:confirm="onConfirm" bind:change="onChange" />
     </van-popup>
 </view>

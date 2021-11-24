@@ -1,16 +1,16 @@
 <!--pages/morefunc/morefunc.wxml-->
 <view class="main">
-    <view class="box box1">
+    <view class="box box1" bindtap="onClickLost">
         <view class="title">
             <view>
                 失物招领
             </view>
               <van-icon name="question-o" color="#ffffff" size="26"/>
         </view>
-        <view class="desc">Lost</view>
+        <view class="desc">Lost & Found</view>
     </view>
 
-    <view class="box box2">
+    <view class="box box2" bindtap="onClickConfession">
         <view class="title">
             <view>
                 表白

@@ -1,0 +1,75 @@
+/* pages/report/report.wxss */
+.desc1 {
+    margin-top: 50rpx;
+    font-size:40rpx;
+    box-sizing: border-box;
+    width:90%;
+    margin-left: 50rpx;
+    margin-right: 20rpx;
+    padding-bottom: 20rpx;
+    border-bottom: 2rpx solid #6b6a6a;
+    color: #333333;
+}
+
+.desc2 {
+    margin-top: 70rpx;
+    font-size: 40rpx;
+    box-sizing: border-box;
+    width:90%;
+    margin-left: 50rpx;
+    margin-right: 20rpx;
+    padding-bottom: 20rpx;
+    border-bottom: 2rpx solid #6b6a6a;
+    color: #333333;
+}
+
+.desc3 {
+    margin-top: -12rpx;
+    font-size:40rpx;
+    box-sizing: border-box;
+    width:90%;
+    margin-left: 50rpx;
+    margin-right: 20rpx;
+    padding-bottom: 20rpx;
+    border-bottom: 2rpx solid #6b6a6a;
+    color: #333333;
+}
+
+.box {
+    width:88%;
+    margin: 30rpx 6%;
+    padding-left: 2%;
+    padding-right: 2%;
+    border: 2rpx solid #6b6a6a;
+    border-radius: 10rpx;
+    box-sizing: border-box;
+    color: #333333;
+    margin-left: 50rpx;
+}
+
+.choose {
+    display: flex;
+    justify-content: space-between;
+
+    
+    height: 60rpx;
+    line-height: 58rpx;
+
+}
+
+.detail-desc {
+    height: 200rpx;
+    margin-left: 50rpx;
+}
+
+.btn {
+    width: 80%;
+    margin:  70rpx 10%;
+}
+
+.count-text {
+    margin-left: 83%;
+    margin-bottom: 10rpx;
+    color: #b8b7b7;
+}
+

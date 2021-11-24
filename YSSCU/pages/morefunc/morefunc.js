@@ -1,66 +1,26 @@
 // pages/morefunc/morefunc.js
+
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    searchvalue: "",
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
 
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  onClickLost: function(){
+    let searchvalue = '失物招领'
+    wx.reLaunch({
+      url: `/pages/square/square?searchvalue=${searchvalue}`,
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  onClickConfession: function(){
+    let searchvalue = '表白'
+    wx.reLaunch({
+      url: `/pages/square/square?searchvalue=${searchvalue}`,
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

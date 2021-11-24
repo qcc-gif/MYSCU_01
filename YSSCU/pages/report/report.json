@@ -7,5 +7,5 @@
     "van-popup": "/miniprogram/miniprogram_npm/@vant/weapp/popup/index",
     "van-dialog": "/miniprogram/miniprogram_npm/@vant/weapp/dialog/index"
   },
-  "navigationBarTitleText": "账号申诉"
+  "navigationBarTitleText": "举报"
 }

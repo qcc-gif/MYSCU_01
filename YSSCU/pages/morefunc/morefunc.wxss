@@ -5,28 +5,32 @@
     height: 100%;
     background: url("https://s3.bmp.ovh/imgs/2021/11/29ad3e41eec0e68b.jpg") no-repeat;
     background-position: 0 0;
+    opacity: 80%;
 }
 
 .box {
-    width: 50%;
+    width: 55%;
     height: 220rpx;
     background-color: #C79D25;
     border-radius: 40rpx;
+    opacity: 85%;
 }
 
 .box1 {
     margin-top: 30%;
-    margin-left: 20%;
+    margin-left: 15%;
 }
 
 .box2 {
     margin-top: 20%;
-    margin-left: 40%;
+    margin-left: 35%;
 }
 
 .title {
     display: flex;
-    padding: 8%;
+    padding: 9%;
+    font-size: xx-large;
+    font-weight: 600;
 }
 
 .title view {

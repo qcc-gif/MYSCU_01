@@ -1,4 +1,5 @@
 /* pages/adminstor/adminstor.wxss */
+/* 管理员界面 */
 .main {
     position: relative;
     background: url("https://s3.bmp.ovh/imgs/2021/11/63e7ebdf25bc9462.jpg") no-repeat;

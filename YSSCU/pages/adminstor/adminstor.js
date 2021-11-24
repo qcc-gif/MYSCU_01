@@ -1,4 +1,5 @@
 // pages/adminstor/adminstor.js
+// 管理员界面
 import Dialog from "./../../miniprogram/miniprogram_npm/@vant/weapp/dialog/dialog"
 const app=getApp();
 
@@ -7,6 +8,7 @@ Page({
     name: "",
     img: "",
   },
+
   onLoad: function (e) {
     this.setData({
       name: e.name,
@@ -14,28 +16,26 @@ Page({
     })
     console.log('info', e)
   },
-  // 由上一级跳转后，隐藏返回
+
   onShow: function () {
     wx.hideHomeButton({
     })
   },
+
   exitLogin: function () {
     Dialog.confirm({
       title: '提示',
-      context: this,   // 增加this可用
+      context: this,   
       message: '确认退出？',
-    })
-      .then(() => {
-        // on confirm
+    }).then(() => {
         console.log('confirm')
-        app.globalData.account = null
+        wx.setStorageSync('openid', null)
+        wx.setStorageSync('studentnumber', null)
         wx.reLaunch({
           url: '/pages/authorize/authorize',
         })
-      })
-      .catch(() => {
-        // on cancel
-        console.log('cancel')
+      }).catch((err) => {
+        console.log('err', err)
       });
   },
 
@@ -61,5 +61,6 @@ Page({
     wx.navigateTo({
       url: '/pages/msgManage/msgManage',
     })
-  }
+  },
+
 })

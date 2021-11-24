@@ -1,4 +1,5 @@
 <!-- pages/adminstor/adminstor.wxml -->
+<!-- 管理员界面 -->
 <view class="main">
     <view class="bg-top"></view>
     <view class="user">
