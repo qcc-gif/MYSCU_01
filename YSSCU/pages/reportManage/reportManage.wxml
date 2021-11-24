@@ -1,4 +1,9 @@
 <!--pages/reportManage/reportManage.wxml-->
-<view class="main">
-    <my-report></my-report>
+<view wx:for="{{reportList}}"wx:key="index">
+    <myreport id="{{item.id}}"
+               profilePhoto="{{item.profilePhoto}}"
+               name="{{item.name}}"
+               time="{{item.time}}"
+               detail="{{item.detail}}">
+    </myreport>
 </view>

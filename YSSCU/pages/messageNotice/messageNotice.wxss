@@ -1,0 +1,58 @@
+/* pages/messageNotice/messageNotice.wxss */
+.main{
+    width: 100%;
+    height: 100%;
+}
+.box-search {
+    height: 20%;
+    display: flex;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 5%;
+    justify-content: center;
+    border-radius: 30rpx;
+    border: 2px solid #ccc;
+    background-color: white;
+}
+.search{
+    width: 90%;
+}
+.box1{
+    height: 15%;
+    display: flex;
+    margin-left: 5%;
+}
+.box2{
+    height: 230px;
+    justify-content: center;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 5%;
+    border: 1px solid rgba(0, 159, 255, 0.71);
+    border-radius: 42px;
+}
+.editbox{
+    margin-left: 7%;
+    margin-right: 7%;
+    margin-top: 15%;
+}
+.box3{
+    height: 10%;
+    display: flex;
+    margin-left: 5%;
+}
+.count {
+    padding-left: 5%;
+    padding-top: 5%;
+    color: rgb(163, 163, 163);
+    margin: 5rpx 0;
+    font-size: small;
+}
+.textbox{
+    padding-left: 4%;
+    padding-top: 4%;
+    padding-right:4%;
+}
+.textarea{
+    max-height: 170px;
+}

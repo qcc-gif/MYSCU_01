@@ -1,5 +1,46 @@
 <!--pages/map/map.wxml-->
-<view>
-    地图
+<view class="main">
+    <view class="box1">
+        <view class="location">
+            <van-icon name="location-o" color="#1989fa" />
+        <view class="location1">四川大学{{location}}</view></view>
+        <view class="distance">距离您{{distance}}米</view>
+    </view>
+    <view class="box2">
+        <view class="post little-box">
+            <view class="num">{{allPostNum}}</view>
+            <view class="desc">总帖子</view>
+        </view>
+        <view class="star little-box">
+            <view class="num">{{addPostNum}}</view>
+            <view class="desc">今日新增</view>
+        </view>
+        </view>
+    <view class="box3" >
+        <view class="hot">
+        <view class="hot">今日热门</view>
+        </view>
+        <view class="btn1" >
+            <van-icon name="fire-o" color="#ee0a24" />
+            <view>{{hotSpot1}}</view>
+        </view>
+        <view class="btn2" >
+            <van-icon name="fire-o" color="#ee0a24" />
+            <view>{{hotSpot2}}</view>
+        </view>
+        
+    </view>
+    <view class="box4">
+        <map class="map" 
+        id="map"
+        style="width: 746rpx; height: 640rpx; position: relative; top: -3rpx; display: block; box-sizing: border-box; left: 3rpx"
+        scale="17" 
+        markers="{{markers}}" 
+        longitude="{{longitude}}" 
+        latitude="{{latitude}}" 
+        enable-scroll="true" 
+        covers="{{covers}}"> </map>
+    </view>
+
 </view>
   

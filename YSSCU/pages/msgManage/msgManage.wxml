@@ -1,2 +1,7 @@
 <!--pages/systempost/systempost.wxml-->
-<text>pages/systempost/systempost.wxml</text>
+<view wx:for="{{msgList}}"wx:key="id">
+    <myMsg  name="{{item.name}}"
+            time="{{item.time}}"
+            msg="{{item.msg}}">
+    </myMsg>
+</view>
