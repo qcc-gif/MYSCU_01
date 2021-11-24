@@ -1,23 +1,26 @@
 {
-  "pages": [
+  "pages": [ 
     "pages/post/post",
-    "pages/adminlogin/adminlogin",
-    "pages/adminstor/adminstor",
-    "pages/mine/mine",
-    "pages/authorize/authorize",   
-    "pages/reward/reward",
+    "pages/mypost/mypost",
 
     "pages/systemmsg/systemmsg",
-    "pages/map/map",
     "pages/square/square",
-    "pages/morefunc/morefunc",
-    "pages/reportManage/reportManage",
-    "pages/mypost/mypost",
-    "pages/appeal/appeal",
-    "post/msgManage/msgManage",
-    "pages/systempost/systempost",
+    
+    "pages/map/map",
     "pages/accountManage/accountManage",
+    "post/msgManage/msgManage",
+    "pages/reportManage/reportManage",
+    
 
+    "pages/morefunc/morefunc",
+    "pages/appeal/appeal",
+    "pages/report/report",
+    "pages/mine/mine",
+    "pages/frozen/frozen",
+    "pages/adminstor/adminstor", 
+    "pages/reward/reward",
+    "pages/adminlogin/adminlogin",
+    "pages/userlogin/userlogin",
     "pages/index/index",
     "pages/logs/logs"
   ],
