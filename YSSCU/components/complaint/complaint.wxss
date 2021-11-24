@@ -1,0 +1,37 @@
+/* components/complaint/complaint.wxss */
+.main {
+    width: 90%;
+    border: 2rpx solid #000;
+    margin: 0 auto;
+    margin-top: 20rpx;
+    border-radius: 10rpx;
+    padding: 8rpx;
+    box-sizing: border-box;
+}
+
+.top {
+    display: flex;
+}
+.portrait{
+    width: 120rpx;
+    height: 120rpx;
+    border-radius: 50%;
+    /* border: 2rpx solid #000; */
+    margin-right: 20rpx;
+}
+.name{
+    font-size: 40rpx;
+    font-weight: 600;
+}
+.time {
+    color: #555;
+    margin: 20rpx 0;
+}
+.reason{
+    text-indent: 1.8em;
+    margin: 20rpx 0;
+}
+.consent{
+     margin-left: 60%;
+     display: flex;
+}

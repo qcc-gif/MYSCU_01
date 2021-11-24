@@ -1,0 +1,17 @@
+<!--components/complaint/complaint.wxml-->
+<view class="main">
+    <view class="top">
+        <view class="portrait">
+            <van-image round width="100%" height="100%" src="{{profilePhoto}}" />
+        </view>
+        <view class="desc">
+            <view class="name">{{name}}</view>
+            <view class="time">{{time}}</view>
+        </view>
+    </view>
+    <view class="reason">申诉理由：{{reason}}</view>
+    <view class="consent">
+        <switch type='switch'checked='true' bindchange="switchChange"color="#82caff"/>
+        <van-icon name="guide-o"color="#82caff"bind:click="sendClick"size="40"/>
+    </view>
+</view>

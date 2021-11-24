@@ -1,3 +1,4 @@
+<!--components/adminstorPost/adminstorPost.wxml-->
 <view class="main">
     <view class="top">
         <view class="pic-avtor">
@@ -5,18 +6,11 @@
         </view>
         <view class="desc">
             <view class="name">{{name}}</view>
+            
+            <view class="position">{{position}}</view>
             <view class="time">{{time}}</view>
         </view>
+        <van-icon bindclick="delete"style="width: 38rpx; height: 50rpx; display: flex;margin-left: 60rpx; box-sizing: border-box"  name="close" />
     </view>
     <view class="post">{{detail}}</view>
-    <view class="btn-box">
-        <view>
-            <van-button icon="success-o" plain type="default"bindclick="retainClick">继续保留</van-button>
-        </view>
-          
-        <view>
-            <van-button icon="cross-o" plain type="default"bindclick="deleteClick">系统删除</van-button>
-        </view>
-          
-    </view>
 </view>
