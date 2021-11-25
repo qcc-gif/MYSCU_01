@@ -1,6 +1,19 @@
 // pages/mypost/mypost.js
 Page({
   data: {
-    name: 'lyz'
+    postList:[{
+      postId: '1',//帖子id
+      profilePhoto: 'https://img.yzcdn.cn/vant/cat.jpeg',//头像
+      name: '大白',
+      title:'标题',
+        position1: '教学楼',
+        position2:'一教',
+        time:  '2000年11月14日 14:00',
+        detail: "这里是我发的帖子",
+        thumbnum:'2',
+          chatnum: '2',
+          sharenum: '2',
+          starnum: '2'
+    }]
   }
 })

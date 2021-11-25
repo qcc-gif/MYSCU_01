@@ -1,6 +1,7 @@
 /* pages/square/square.wxss */
 .box-search {
     height: 120rpx;
+    display: flex;
 }
 
 .box-tab {
@@ -8,20 +9,11 @@
     display: flex;
 }
 
-.left {
-    width: 83%;
-}
-
-.choose {
+.right {
+    margin-top: 3%;
     display: flex;
     border: 2rpx solid #333;
     border-radius: 10rpx;
-    padding: 10rpx;
-}
-
-.plain {
-    height: 25rpx;
-    width: 100%;
-    background: #eee;
-
+    height: 60rpx;
+    margin-left: auto;
 }

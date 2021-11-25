@@ -1,0 +1,27 @@
+<!--pages/fullText/fullText.wxml-->
+<scroll-view scroll-y="true" style="height: auto;" >
+<view wx:for="{{postList}}"wx:key="index">
+    <fullText postId="{{item.postId}}"
+               profilePhoto="{{item.profilePhoto}}"
+               name="{{item.name}}"
+               position1="{{item.position1}}"
+               position2="{{item.position2}}"
+               title="{{item.title}}"
+               time="{{item.time}}"
+               detail="{{item.detail}}"
+               thumbnum="{{item.thumbnum}}"
+               chatnum="{{item.chatnum}}"
+               sharenum="{{item.sharenum}}"
+               starnum="{{item.starnum}}">
+    </fullText>
+</view>
+<view wx:for="{{commentList}}"wx:key="index">
+    <comment
+               profilePhoto="{{item.profilePhoto}}"
+               name="{{item.name}}"
+               time="{{item.time}}"
+               detail="{{item.detail}}"
+               thumbnum="{{item.thumbnum}}">
+    </comment>
+</view>
+</scroll-view>

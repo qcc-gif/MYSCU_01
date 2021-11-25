@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "fullText":"/components/fullText/fullText",
+    "comment":"/components/comment/comment"
+  },
+  "navigationBarTitleText": "帖子详情"
+}

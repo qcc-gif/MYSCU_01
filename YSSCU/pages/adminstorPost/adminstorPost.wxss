@@ -1,0 +1,29 @@
+/* pages/adminstorPost/adminstorPost.wxss */
+.box-search {
+    height: 120rpx;
+    display: flex;
+}
+
+.box-tab {
+    padding-bottom: 20rpx;
+    display: flex;
+}
+
+.right {
+    margin-top: 3%;
+    display: flex;
+    border: 2rpx solid #333;
+    border-radius: 10rpx;
+    height: 60rpx;
+    margin-left: auto;
+}
+
+
+
+
+.plain {
+    height: 25rpx;
+    width: 100%;
+    background: #eee;
+
+}

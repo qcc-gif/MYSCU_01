@@ -1,0 +1,30 @@
+<!--pages/adminstorFullText/adminstorFullText.wxml-->
+<scroll-view scroll-y="true" style="height: auto;" >
+<view wx:for="{{postList}}"wx:key="index">
+    <adminstorFullText postId="{{item.postId}}"
+               profilePhoto="{{item.profilePhoto}}"
+               name="{{item.name}}"
+               studentNumber="{{item.studentNumber}}"
+               position1="{{item.position1}}"
+               position2="{{item.position2}}"
+               title="{{item.title}}"
+               time="{{item.time}}"
+               detail="{{item.detail}}"
+               thumbnum="{{item.thumbnum}}"
+               chatnum="{{item.chatnum}}"
+               sharenum="{{item.sharenum}}"
+               starnum="{{item.starnum}}">
+    </adminstorFullText>
+</view>
+<view wx:for="{{commentList}}"wx:key="index">
+    <adminstorComment
+               profilePhoto="{{item.profilePhoto}}"
+               name="{{item.name}}"
+               time="{{item.time}}"
+               studentNumber="{{item.studentNumber}}"
+               detail="{{item.detail}}"
+               thumbnum="{{item.thumbnum}}">
+    </adminstorComment>
+</view>
+</scroll-view>
+

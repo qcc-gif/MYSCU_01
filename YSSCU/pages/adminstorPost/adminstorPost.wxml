@@ -1,4 +1,4 @@
-<!-- pages/square/square.wxml -->
+<!--pages/adminstorPost/adminstorPost.wxml-->
 <view class="main">
     <view class="box-search">
         <van-search style="width: 648rpx; height: 120rpx; display: block; box-sizing: border-box"  model:value="{{ searchvalue }}" input-align="center" bind:search="onSearch" bind:change="onChangeSea" placeholder="按标签/关键字搜索" />
@@ -12,9 +12,10 @@
     <view class="box-post">
         <scroll-view scroll-y="true" style="height: auto;" >
     <view wx:for="{{postList}}"wx:key="index">
-    <mypost postId="{{item.postId}}"
+    <adminstorPost postId="{{item.postId}}"
                profilePhoto="{{item.profilePhoto}}"
                name="{{item.name}}"
+               studentNumber="{{item.studentNumber}}"
                position1="{{item.position1}}"
                position2="{{item.position2}}"
                title="{{item.title}}"
@@ -24,7 +25,7 @@
                chatnum="{{item.chatnum}}"
                sharenum="{{item.sharenum}}"
                starnum="{{item.starnum}}">
-    </mypost>
+    </adminstorPost>
 </view>
 </scroll-view>
     </view>

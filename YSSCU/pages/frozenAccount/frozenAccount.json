@@ -1,8 +1,8 @@
 {
   "usingComponents": {
     "van-search": "/miniprogram/miniprogram_npm/@vant/weapp/search/index",
-    "complaint":"/components/complaint/complaint"
+    "frozenAccount":"/components/frozenAccount/frozenAccount"
   },
-  "navigationBarTitleText": "申诉管理"
+  "navigationBarTitleText": "账号管理"
   
 }

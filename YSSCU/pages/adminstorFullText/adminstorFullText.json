@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "adminstorFullText":"/components/adminstorFullText/adminstorFullText",
+    "adminstorComment":"/components/adminstorComment/adminstorComment"
+  },
+  "navigationBarTitleText": "帖子详情"
+}

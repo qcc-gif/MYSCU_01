@@ -5,6 +5,7 @@ Page({
     reportList:[{id:'1',
       userId: '1',
       name: '大',
+      studentNumber:'2019',
       profilePhoto:'https://img.yzcdn.cn/vant/cat.jpeg',
       position:'教学楼 一教',
       time: '2000年11月14日 14:00',
@@ -15,11 +16,11 @@ Page({
   },
   onLoad: function () {
     //     let url = 'url'
-    // // 请求申诉列表
+    // // 请求举报列表
     // api.post(url, {  
       
     // }).then((res) => {
-    //    //展示申诉列表
+    //    //展示举报列表
     //   this.setData({
     //    reportList：res.data
     //   })

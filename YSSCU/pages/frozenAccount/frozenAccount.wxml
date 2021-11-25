@@ -1,4 +1,4 @@
-<!--pages/accountManage/accountManage.wxml-->
+<!--pages/frozenAccount/frozenAccount.wxml-->
 <van-search
         model:value="{{searchValue}}"
         placeholder="请输入需要处理的账号"
@@ -8,13 +8,11 @@
         <view slot="action" bind:tap="onSearch">搜索</view>
     </van-search>
     <scroll-view scroll-y="true" style="height: auto;" >
-<view wx:for="{{complaintList}}"wx:key="id">
-    <complaint userId="{{item.userId}}"
+<view wx:for="{{accountList}}"wx:key="index">
+    <frozenAccount userId="{{item.userId}}"
                profilePhoto="{{item.profilePhoto}}"
                name="{{item.name}}"
-               studentNumber="{{item.studentNumber}}"
-               time="{{item.time}}"
-               reason="{{item.reason}}">
-    </complaint>
+               studentNumber="{{item.studentNumber}}">
+    </frozenAccount>
 </view>
 </scroll-view>

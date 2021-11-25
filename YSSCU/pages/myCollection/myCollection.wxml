@@ -1,13 +1,11 @@
-<!-- pages/mypost/mypost.wxml -->
-
-        <scroll-view scroll-y="true" style="height: auto;" >
+<!--pages/myCollection/myCollection.wxml-->
+<scroll-view scroll-y="true" style="height: auto;" >
     <view wx:for="{{postList}}"wx:key="index">
-    <adminstorPost postId="{{item.postId}}"
+    <myPost postId="{{item.postId}}"
                profilePhoto="{{item.profilePhoto}}"
                name="{{item.name}}"
                position1="{{item.position1}}"
                position2="{{item.position2}}"
-               studentNumber=""
                title="{{item.title}}"
                time="{{item.time}}"
                detail="{{item.detail}}"
@@ -15,6 +13,6 @@
                chatnum="{{item.chatnum}}"
                sharenum="{{item.sharenum}}"
                starnum="{{item.starnum}}">
-    </adminstorPost>
+    </myPost>
 </view>
 </scroll-view>

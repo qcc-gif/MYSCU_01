@@ -1,0 +1,22 @@
+<!--pages/searchUser/searchUser.wxml-->
+<van-search
+    model:value="{{searchValue}}"
+    placeholder="请输入需要处理的账号"
+    use-action-slot
+    maxHeight="13"
+    bind:search="onSearch"
+    bind:change="searchInput" 
+>
+    <view slot="action" bind:tap="onSearch">搜索</view>
+</van-search>
+<scroll-view scroll-y="true" style="height: auto;" >
+<view wx:for="{{searchResultList}}"wx:key="id">
+    <searchUserId userId="{{item.userId}}"
+               profilePhoto="{{item.profilePhoto}}"
+               name="{{item.name}}"
+               studentNumber="{{item.studentNumber}}"
+               time="{{item.time}}"
+               reason="{{item.reason}}">
+    </searchUserId>
+</view>
+</scroll-view>

@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "my-post": "./../../components/myPost/myPost"
-  }
+    "adminstorPost":"/components/adminstorPost/adminstorPost"
+  },
+  "navigationBarTitleText": "历史发布"
 }

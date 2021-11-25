@@ -1,9 +1,12 @@
 <!--pages/reportManage/reportManage.wxml-->
-<view wx:for="{{reportList}}"wx:key="index">
+<scroll-view scroll-y="true" style="height: auto;" >
+<view wx:for="{{reportList}}"wx:key="index" style="width: 750rpx; height: 334rpx; display: block; box-sizing: border-box">
     <myreport id="{{item.id}}"
                profilePhoto="{{item.profilePhoto}}"
                name="{{item.name}}"
+               studentNumber="{{item.studentNumber}}"
                time="{{item.time}}"
                detail="{{item.detail}}">
     </myreport>
 </view>
+</scroll-view>

@@ -1,4 +1,4 @@
-// pages/accountManage/accountManage.js
+// pages/frozenAccount/frozenAccount.js
 var app = getApp();
 Page({
 
@@ -6,14 +6,11 @@ Page({
      * 页面的初始数据
      */
     data: {
-        complaintList:[{id:'1',
+        accountList:[{id:'1',
         userId: '1',
         studentNumber: '2019',
         profilePhoto: 'https://img.yzcdn.cn/vant/cat.jpeg',
         name:  '大白',
-          position:'教学楼 一教',
-          time:'2000年11月14日 14:00',
-          reason:  "言论过激，以后注意。"
           }]
     },
     search:function(){

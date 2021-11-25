@@ -1,43 +1,39 @@
-// pages/accountManage/accountManage.js
-var app = getApp();
+// pages/fullText/fullText.js
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        complaintList:[{id:'1',
-        userId: '1',
-        studentNumber: '2019',
-        profilePhoto: 'https://img.yzcdn.cn/vant/cat.jpeg',
-        name:  '大白',
-          position:'教学楼 一教',
-          time:'2000年11月14日 14:00',
-          reason:  "言论过激，以后注意。"
+        postList:[{
+            postId: '1',//帖子id
+            profilePhoto: 'https://img.yzcdn.cn/vant/cat.jpeg',//头像
+            name: '大白',
+            title:'标题',
+              position1: '教学楼',
+              position2:'一教',
+              time:  '2000年11月14日 14:00',
+              detail: "这里是我发的帖子",
+              thumbnum:'2',
+              chatnum: '2',
+              sharenum: '2',
+              starnum: '2'
+          }],
+          commentList:[{
+              postId:'1',//帖子id
+          commentId:'1',
+        profilePhoto:'https://img.yzcdn.cn/vant/cat.jpeg',
+        name: '大白',
+          time:  '2000年11月14日 14:00',
+          detail: "这里是我发的评论",
+          thumbnum: '1'
           }]
     },
-    search:function(){
-        var navigateId=1;
-        wx.navigateTo({
-        url:'/pages/searchUser/searchUser?navigateId='+navigateId
-      });
-},
-   
 
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function () {
-    //     let url = 'url'
-    // // 请求申诉列表
-    // api.post(url, {  
-      
-    // }).then((res) => {
-    //    //展示申诉列表
-    //   this.setData({
-    //    complaintList：res.data
-    //   })
-    // })
+    onLoad: function (options) {
 
     },
 
@@ -89,6 +85,4 @@ Page({
     onShareAppMessage: function () {
 
     }
-    
-       
 })

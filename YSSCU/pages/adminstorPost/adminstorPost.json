@@ -1,11 +1,12 @@
 {
   "usingComponents": {
-    "mypost": "/components/myPost/myPost",
+    "adminstorPost":"/components/adminstorPost/adminstorPost",
     "van-tab": "/miniprogram/miniprogram_npm/@vant/weapp/tab/index",
     "van-tabs": "/miniprogram/miniprogram_npm/@vant/weapp/tabs/index",
     "van-search":"/miniprogram/miniprogram_npm/@vant/weapp/search/index",
     "van-popup": "/miniprogram/miniprogram_npm/@vant/weapp/popup/index",
     "van-picker": "/miniprogram/miniprogram_npm/@vant/weapp/picker/index",
     "van-dialog": "/miniprogram/miniprogram_npm/@vant/weapp/dialog/index"
-  }
+  },
+  "navigationBarTitleText": "帖子管理"
 }
