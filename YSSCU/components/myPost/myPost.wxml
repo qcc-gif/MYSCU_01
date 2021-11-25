@@ -1,16 +1,19 @@
 <view class="main">
-    <view class="top">
+    <view class="top" style="width: 656rpx; height: 108rpx; display: flex; box-sizing: border-box">
         <view class="pic-avtor">
-            <van-image round width="100%" height="100%" src="https://img.yzcdn.cn/vant/cat.jpeg" />
+            <van-image style="margin-left: 10rpx;"round size="80%"width="80%" height="80%" src="{{profilePhoto}}" />
         </view>
         <view class="desc">
+            <view class="nameBox">
             <view class="name">{{name}}</view>
-            <view class="position">{{position}}</view>
-            <view class="time">{{time}}</view>
+            </view>
+             <view class="position">{{position1}}•{{position2}}</view>
         </view>
     </view>
-    <view class="post">{{detail}}</view>
+    <view class="title">{{title}}</view>
+    <text class="post"space="nbsp">{{detail}}</text>
     <view class="btn-box">
+        <view class="time">{{time}}</view>
         <view class="btn">
             <van-icon name="thumb-circle" />
             <view>{{thumbnum}}</view>

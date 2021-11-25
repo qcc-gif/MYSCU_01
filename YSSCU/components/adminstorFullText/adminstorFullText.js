@@ -1,4 +1,4 @@
-// components/adminstorPost/adminstorPost.js
+// components/adminstorFullText/adminstorFullText.js
 Component({
     /**
      * 组件的属性列表
@@ -71,7 +71,7 @@ Component({
      * 组件的方法列表
      */
     methods: {
-        delete(){//叉删除
+        delete(){
           this.setData({
             isDelete:true
           })
@@ -87,9 +87,6 @@ Component({
             //              console.log(this.data.isDelete)
             //           }
             //         })
-
-        },
-        fullDetails(){//点击帖子跳转详情
 
         },
         thumb(){//点赞

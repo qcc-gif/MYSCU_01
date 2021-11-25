@@ -1,22 +1,20 @@
-<!--components/complaint/complaint.wxml-->
+<!--components/frozenAccount/frozenAccount.wxml-->
 <view class="main">
     <view class="top" style="width: 656rpx; height: 104rpx; display: flex; box-sizing: border-box">
         <view class="pic-avtor">
             <van-image style="margin-left: 10rpx;"round size="80%"width="80%" height="80%" src="{{profilePhoto}}" />
         </view>
         <view class="desc">
-            <view class="nameBox">
             <view class="name">{{name}}</view>
-            <view class="studentNumber">{{studentNumber}}</view>
-            </view>
+            <view class="studentNumber">学号：{{studentNumber}}</view>
         </view>
-    </view>
-    <view class="reason">申诉理由：{{reason}}</view>
-
-    
-    <view class="consent">
-        <switch type='switch'checked='true' bindchange="switchChange"color="#82caff"/>
+        <view class="consent">
+        <switch class="consent"type='switch'checked='true' bindchange="switchChange"color="#82caff"/>
         <van-icon name="guide-o"color="#82caff"bind:click="sendClick"size="40"/>
     </view>
-    <view class="time" >{{time}}</view>
 </view>
+    </view>
+
+    
+    
+

@@ -1,4 +1,4 @@
-// components/adminstorPost/adminstorPost.js
+// components/fullText/fullText.js
 Component({
     /**
      * 组件的属性列表
@@ -11,10 +11,6 @@ Component({
         profilePhoto:{
             type:String,
             value: 'https://img.yzcdn.cn/vant/cat.jpeg'
-        },
-        studentNumber:{
-          type: String,
-          value: '20191414'
         },
         name: {
             type: String,
@@ -71,25 +67,7 @@ Component({
      * 组件的方法列表
      */
     methods: {
-        delete(){//叉删除
-          this.setData({
-            isDelete:true
-          })
-          console.log(this.data.isDelete,this.data.postId)
-          
-            // let url = app.globalData.url + ''
-            //         api.post(url, {
-            //           "openid": app.globalData.openid,
-            //           'postId':this.data.postId,
-            //           'isDelete':this.data.isDelete
-            //         }).then((res) => {
-            //           if(res.data.success){
-            //              console.log(this.data.isDelete)
-            //           }
-            //         })
-
-        },
-        fullDetails(){//点击帖子跳转详情
+        report(){//举报
 
         },
         thumb(){//点赞
@@ -103,7 +81,7 @@ Component({
         },
         star(){//收藏
 
-        }
+        }    
 
     }
 })

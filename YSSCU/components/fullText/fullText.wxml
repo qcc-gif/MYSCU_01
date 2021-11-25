@@ -1,5 +1,5 @@
-<!--components/adminstorPost/adminstorPost.wxml-->
-<view class="main" >
+<!--components/fullText/fullText.wxml-->
+<view class="main">
     <view class="top" style="width: 656rpx; height: 108rpx; display: flex; box-sizing: border-box">
         <view class="pic-avtor">
             <van-image style="margin-left: 10rpx;"round size="80%"width="80%" height="80%" src="{{profilePhoto}}" />
@@ -7,17 +7,15 @@
         <view class="desc">
             <view class="nameBox">
             <view class="name">{{name}}</view>
-            <view class="studentNumber">{{studentNumber}}</view>
             </view>
              <view class="position">{{position1}}•{{position2}}</view>
         </view>
         
-        <van-icon style="width: 38rpx; height: 38rpx; display: flex; box-sizing: border-box"  class="delete" type="position"bindclick="delete"  name="clear" />
+        <van-icon style="width: 38rpx; height: 38rpx; display: flex; box-sizing: border-box"  class="delete" type="position"bindclick="report" color="#555" name="warning" />
     </view>
-    <view bindtap="fullDetails">
     <view class="title">{{title}}</view>
     <text class="post"space="nbsp">{{detail}}</text>
-    </view>
+   
     <view class="btn-box">
         <view class="time">{{time}}</view>
         <view class="btn">

@@ -1,0 +1,23 @@
+<!--components/comment/comment.wxml-->
+<view class="main">
+    <view class="top" style="width: 636rpx; height: 76rpx; display: flex; box-sizing: border-box">
+        <view class="pic-avtor">
+            <van-image style="margin-left: 10rpx;"round size="80%"width="80%" height="80%" src="{{profilePhoto}}" />
+        </view>
+        <view class="desc">
+            <view class="nameBox">
+            <view class="name">{{name}}</view>
+            </view>
+        </view>
+        <van-icon style="width: 38rpx; height: 38rpx; display: flex; box-sizing: border-box"  class="delete" type="position"bindclick="report" color="#555" name="warning" />
+    </view>
+    <text class="post"space="nbsp">{{detail}}</text>
+   
+    <view class="btn-box">
+        <view class="time">{{time}}</view>
+        <view class="btn">
+            <van-icon bindclick="thumb"name="thumb-circle" />
+            <view>{{thumbnum}}</view>
+        </view>
+    </view>
+</view>

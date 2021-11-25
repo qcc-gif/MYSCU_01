@@ -4,7 +4,7 @@
     border: 2rpx solid #000;
     margin: 0 auto;
     margin-top: 20rpx;
-    border-radius: 10rpx;
+    border-radius: 20rpx;
     padding: 8rpx;
     box-sizing: border-box;
 }
@@ -22,21 +22,55 @@
 }
 
 .name {
-    font-size: 40rpx;
+    font-size: 35rpx;
     font-weight: 600;
 }
 
 .position {
     color: #555;
     margin: 8rpx 0;
+    font-size:  28rpx;
+}
+.studentNumber{
+    font-size:  25rpx;
+    margin: 10rpx 0;
 }
 
 .time {
     color: #555;
+    font-size:  25rpx;
+    margin-left:20rpx;
 }
 
 .post {
     text-indent: 1.8em;
     margin: 20rpx 0;
+    display: -webkit-box;
+    font-size: 25rpx;       
+  overflow: hidden;
+  -webkit-box-orient: vertical;  
+  -webkit-line-clamp: 2;
+}
+.title {
+    font-size: 28rpx;
+    font-weight: 600;
+    margin-left:20rpx;
+}
+.delete{
+    margin-left: auto;
+}
+.nameBox{
+    display: flex;
+}
+.btn-box {
+    display: flex;
 }
 
+.btn {
+    width: 13%;
+    display: flex;
+    font-size:  30rpx;
+}
+.btn view {
+    padding-left: 10rpx;
+}

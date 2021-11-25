@@ -1,10 +1,13 @@
 <view class="main">
-    <view class="top">
+    <view class="top" style="width: 656rpx; height: 108rpx; display: flex; box-sizing: border-box">
         <view class="pic-avtor">
-            <van-image round width="100%" height="100%" src="{{profilePhoto}}" />
+            <van-image style="margin-left: 10rpx;"round size="80%"width="80%" height="80%" src="{{profilePhoto}}" />
         </view>
         <view class="desc">
+            <view class="nameBox">
             <view class="name">{{name}}</view>
+            <view class="studentNumber">{{studentNumber}}</view>
+            </view>
             <view class="time">{{time}}</view>
         </view>
     </view>

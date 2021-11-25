@@ -21,20 +21,27 @@
 }
 
 .name {
-    font-size: 40rpx;
+    font-size: 35rpx;
     font-weight: 600;
-    
 }
 
 
+.studentNumber{
+    font-size:  25rpx;
+    margin: 10rpx 0;
+}
+
 .time {
     color: #555;
-    margin: 20rpx 0;
+    font-size:  25rpx;
+    margin-left:20rpx;
 }
 
 .post {
     text-indent: 1.8em;
     margin: 20rpx 0;
+    display: -webkit-box;
+    font-size: 25rpx;   
 }
 
 .btn-box {
@@ -44,3 +51,7 @@
     margin: 10rpx 0;
     margin-top: 15rpx;
 }
+.nameBox{
+    display: flex;
+}
+
