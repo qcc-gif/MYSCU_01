@@ -15,8 +15,9 @@
    
     <view class="btn-box">
         <view class="time">{{time}}</view>
-        <view class="btn">
-            <van-icon bindclick="thumb"name="thumb-circle" />
+        <view class="btn"catchtap="thumb">
+            <van-icon wx:if="{{thumbStatus}}"name="thumb-circle" />
+            <van-icon wx:else name="thumb-circle"color="red" />
             <view>{{thumbnum}}</view>
         </view>
     </view>

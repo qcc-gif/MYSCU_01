@@ -35,7 +35,11 @@ Component({
           thumbnum:{
             type: String,
             value: '1'
-          }
+          },
+          thumbStatus:{//点赞状态
+            type:Boolean,
+            value:'true'
+          },
 
     },
 
@@ -68,7 +72,29 @@ Component({
             //         })
         },
         thumb(){//点赞
-
-        }
+          return this.updatePostData('thumb');
+          this.setData({
+            thumbnum:thumbnum,
+            thumbStatus:thumbStatus
+          })
+        },
+        updatePostData(category){
+          switch(category){
+              case 'thumb':
+                //处理点赞
+                if(!thumbStatus){
+                  //如果当前状态是未点赞
+                  thumbnum++;
+                  thumbStatus = true;
+                }else{
+                  //如果当前状态是已点赞
+                  thumbnum--;
+                  thumbStatus = false;
+                }
+                break;
+              default:break;
+        
+          }
+        },
     }
 })

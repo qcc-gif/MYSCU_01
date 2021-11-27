@@ -10,24 +10,28 @@
              <view class="position">{{position1}}•{{position2}}</view>
         </view>
     </view>
+    <view bindtap="fullDetails">
     <view class="title">{{title}}</view>
     <text class="post"space="nbsp">{{detail}}</text>
+    </view>
     <view class="btn-box">
         <view class="time">{{time}}</view>
-        <view class="btn">
-            <van-icon name="thumb-circle" />
+        <view class="btn"catchtap="thumb">
+            <van-icon wx:if="{{thumbStatus}}"name="thumb-circle" />
+            <van-icon wx:else name="thumb-circle"color="red" />
             <view>{{thumbnum}}</view>
         </view>
-        <view class="btn">
+        <view class="btn"catchtap="chat">
             <van-icon name="chat" />
             <view>{{chatnum}}</view>
         </view>
-        <view class="btn">
+        <view class="btn"catchtap="share">
             <van-icon name="share" />
             <view>{{sharenum}}</view>
         </view>
-        <view class="btn">
-            <van-icon name="star" />
+        <view class="btn"catchtap="star">
+            <van-icon wx:if="{{starStatus}}"name="star" />
+            <van-icon wx:else name="star"color="red" />
             <view>{{starnum}}</view>
         </view>
     </view>

@@ -14,24 +14,26 @@
         <van-icon style="width: 38rpx; height: 38rpx; display: flex; box-sizing: border-box"  class="delete" type="position"bindclick="report" color="#555" name="warning" />
     </view>
     <view class="title">{{title}}</view>
-    <text class="post"space="nbsp">{{detail}}</text>
+    <text user-select="true"class="post"space="nbsp">{{detail}}</text>
    
     <view class="btn-box">
         <view class="time">{{time}}</view>
-        <view class="btn">
-            <van-icon bindclick="thumb"name="thumb-circle" />
+        <view class="btn"catchtap="thumb">
+            <van-icon wx:if="{{thumbStatus}}"name="thumb-circle" />
+            <van-icon wx:else name="thumb-circle"color="red" />
             <view>{{thumbnum}}</view>
         </view>
-        <view class="btn">
-            <van-icon bindclick="chat"name="chat" />
+        <view class="btn"catchtap="chat">
+            <van-icon name="chat" />
             <view>{{chatnum}}</view>
         </view>
-        <view class="btn">
-            <van-icon bindclick="share"name="share" />
+        <view class="btn"catchtap="share">
+            <van-icon name="share" />
             <view>{{sharenum}}</view>
         </view>
-        <view class="btn">
-            <van-icon bindclick="star"name="star" />
+        <view class="btn"catchtap="star">
+            <van-icon wx:if="{{starStatus}}"name="star" />
+            <van-icon wx:else name="star"color="red" />
             <view>{{starnum}}</view>
         </view>
     </view>

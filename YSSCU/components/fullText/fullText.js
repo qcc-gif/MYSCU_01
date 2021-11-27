@@ -40,6 +40,10 @@ Component({
             type: String,
             value: '1'
           },
+          thumbStatus:{//点赞状态
+            type:Boolean,
+            value:'true'
+          },
           chatnum:{
             type: String,
             value: '1'
@@ -52,7 +56,12 @@ Component({
             type: String,
             value: '1'
     
+          },
+          starStatus:{//收藏状态
+            type:Boolean,
+            value:'true'
           }
+
 
     },
 
@@ -68,10 +77,16 @@ Component({
      */
     methods: {
         report(){//举报
-
+            wx.navigateTo({
+              url: '/pages/appeal/appeal?postId'+this.postId,
+            })
         },
         thumb(){//点赞
-
+          return this.updatePostData('thumb');
+          this.setData({
+            thumbnum:thumbnum,
+            thumbStatus:thumbStatus
+          })
         },
         chat(){//评论
 
@@ -80,8 +95,43 @@ Component({
 
         },
         star(){//收藏
-
-        }    
+          return this.updatePostData('star');
+          this.setData({
+            starnum:starnum,
+            starStatus:starStatus,
+          })
+        },
+        //更新本地的点赞、评论信息、收藏、阅读量
+        updatePostData(category){
+          switch(category){
+              case 'star':
+                //处理收藏
+                if(!starStatus){
+                  //如果当前状态是未收藏
+                  starnum++;
+                  starStatus = true;
+                }else{
+                  //如果当前状态是已收藏
+                  starnum--;
+                  starStatus = false;
+                }
+                break;
+              case 'thumb':
+                //处理点赞
+                if(!thumbStatus){
+                  //如果当前状态是未点赞
+                  thumbnum++;
+                  thumbStatus = true;
+                }else{
+                  //如果当前状态是已点赞
+                  thumbnum--;
+                  thumbStatus = false;
+                }
+                break;
+              default:break;
+        
+          }
+        },
 
     }
 })

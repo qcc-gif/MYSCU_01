@@ -90,6 +90,9 @@ Component({
 
         },
         fullDetails(){//点击帖子跳转详情
+          wx.navigateTo({
+            url: '/pages/adminstorFullText/adminstorFullText?postId='+this.data.postId,
+          })
 
         },
         thumb(){//点赞

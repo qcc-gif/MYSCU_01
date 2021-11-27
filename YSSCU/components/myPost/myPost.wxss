@@ -43,13 +43,14 @@
 }
 
 .post {
-    text-indent: 1.8em;
     margin: 20rpx 0;
     display: -webkit-box;
     font-size: 25rpx;       
-  overflow: hidden;
-  -webkit-box-orient: vertical;  
-  -webkit-line-clamp: 2;
+    overflow:hidden;
+    text-overflow: ellipsis;
+    display:-webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
 }
 .title {
     font-size: 28rpx;

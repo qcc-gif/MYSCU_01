@@ -31,7 +31,11 @@ Component({
           thumbnum:{
             type: String,
             value: '1'
-          }
+          },
+          thumbStatus:{//点赞状态
+            type:Boolean,
+            value:'true'
+          },
 
     },
 
@@ -46,11 +50,35 @@ Component({
      * 组件的方法列表
      */
     methods: {
-        thumb(){//点赞
-
-        },
+      thumb(){//点赞
+        return this.updatePostData('thumb');
+        this.setData({
+          thumbnum:thumbnum,
+          thumbStatus:thumbStatus
+        })
+      },
+      updatePostData(category){
+        switch(category){
+            case 'thumb':
+              //处理点赞
+              if(!thumbStatus){
+                //如果当前状态是未点赞
+                thumbnum++;
+                thumbStatus = true;
+              }else{
+                //如果当前状态是已点赞
+                thumbnum--;
+                thumbStatus = false;
+              }
+              break;
+            default:break;
+      
+        }
+      },
         report(){//举报
-
-        }        
+          wx.navigateTo({
+            url: '/pages/appeal/appeal?postId'+this.postId,
+          })
+      },
     }
 })

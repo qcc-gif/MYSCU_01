@@ -20,6 +20,11 @@ Component({
                 type: String,
                 value: '大白'
               },
+              navigateId:{
+                type: String,
+                value: '1'
+              }
+              
             
     },
 
@@ -35,7 +40,17 @@ Component({
      */
     methods: {
         chooseUser(){//点击选择用户
-
+              if(this.data.navigateId==1){
+                var result=this.studentNumber
+                wx.navigateTo({
+                    url: '/pages/frozenAccount/frozenAccount?result='+result,
+                  })
+              }
+              else{
+                wx.navigateTo({
+                    url: '/pages/messageNotice/messageNotice?studentNumber='+this.studentNumber+'userId='+this.userId+'name='+this.name+'profilePhoto='+this.profilePhoto,
+                  })
+              }
         }
 
     }
