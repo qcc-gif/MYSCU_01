@@ -20,9 +20,19 @@ Page({
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function (options) {
-
-    },
+    onLoad: function () {
+        //     let url = 'url'
+        // // 请求我的评论列表
+        // api.post(url, {  
+          
+        // }).then((res) => {
+        //    //展示我的评论列表
+        //   this.setData({
+        //    commentList：res.data
+        //   })
+        // })
+    
+        },
 
     /**
      * 生命周期函数--监听页面初次渲染完成

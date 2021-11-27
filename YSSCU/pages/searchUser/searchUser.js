@@ -6,6 +6,8 @@ Page({
      */
     data: {
         searchValue:'',//搜索内容
+        navigateId:'',//页面跳转传递的参数，1为frozenAccount页面跳转过来传递的参数
+                      //2为messageNotice页面跳转过来传递的参数
         searchResultList:[
           {studentNumber:'20191414',
           userId:'1',
@@ -34,7 +36,7 @@ Page({
     //       }
         
     // },
-    // searchResult:function(user) {
+    // searchResult:function(user) {//搜索功能实现
     //    let url="url?keyWord="+user;
     //     api.post(url, {  
     // }).then((res) => {
@@ -51,6 +53,9 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+        this.setData({
+            navigateId:options.navigateId
+        })
         if(options.navigateId==2){
             console.log(options)
             this.navigate1(searchResultList)

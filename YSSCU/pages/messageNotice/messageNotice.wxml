@@ -12,6 +12,7 @@
 
     <view class="box1">
     <text>发送至</text>
+    <view>{{result}}</view>
     <van-icon name="add" bind:click="addClick" color="#82caff" />
     </view>
 

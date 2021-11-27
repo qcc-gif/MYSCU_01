@@ -26,13 +26,13 @@ Page({
      */
     onLoad: function () {
     //     let url = 'url'
-    // // 请求申诉列表
+    // // 请求用户账号列表
     // api.post(url, {  
       
     // }).then((res) => {
-    //    //展示申诉列表
+    //    //展示用户账号列表
     //   this.setData({
-    //    complaintList：res.data
+    //    accountList：res.data
     //   })
     // })
 

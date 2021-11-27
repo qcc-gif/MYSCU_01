@@ -22,74 +22,95 @@ Page({
     }]
   },
   onLoad: function () {
-     
-  
-      },
-      searchResult:function(keyWord) {
-          // let url="url?keyWord="+keyWord;
-           // api.post(url, {  
-              
-       // }).then((res) => {
-       //    //展示搜索结果
-       //   this.setData({
-       //    searchResultList：res.data
-       //   })
-       // })
-   
-   
-       },
-       selectClick:function (e) {
-           console.log(e.detail.title);
-           var keyWord=e.detail.title;
-           this.searchResult(keyword);
+       // let url='url';
+     // api.post(url, {  //请求所有帖子
+        
+ // }).then((res) => {
+ //    //展示搜索结果
+ //   this.setData({
+ //    postList：res.data
+ //   })
+ // })
+    
+  },
+  searchResult1:function(keyWord) {//关键字搜索
+      // let url="url?keyWord="+keyWord;
+       // api.post(url, {  
+          
+   // }).then((res) => {
+   //    //展示搜索结果
+   //   this.setData({
+   //    postList：res.data
+   //   })
+   // })
 
-       },
-  onChangeTab: function () {
 
-  },
-  onSearch: function () {
-      var keyWord=this.data.searchvalue;
-      this.searchResult(keyWord)
-    console.log(this.data.searchvalue)
-  },
-  onChangeSea: function (e) {
-    this.setData({
-      searchvalue: e.detail
-    })
-  },
-  showPicker: function () {
-    console.log(12)
-    this.setData({
-      showpopup: true
-    });
-  },
-  onChange(event) {
-    const { picker, value, index } = event.detail;
-    this.setData({
-      position: value
-    })
-  },
-  onConfirm(event) {
-    const { picker, value, index } = event.detail;
-    console.log(event.detail.value)
-    this.setData({
-      position: value,
-      showpopup: false
-    })
-    var keyword=event.detail.value;
-    this.searchResult(keyword);
+   },
+   searchResult2:function(label) {//选择标签搜索
+    // let url="url?label="+label;
+     // api.post(url, {  
+        
+ // }).then((res) => {
+ //    //展示搜索结果
+ //   this.setData({
+ //    postList：res.data
+ //   })
+ // })
 
-  },
 
-  onCancel() {
-    console.log('取消')
-    this.setData({
-      showpopup: false
-    });
-  },
-  onClosePopup() {
-    this.setData({
-      showpopup: false
-    });
-  },
+ },
+   selectClick:function (e) {//选择标签搜索
+       console.log(e.detail.title);
+       var label=e.detail.title;
+       this.searchResult2(lebal);
+
+   },
+onChangeTab: function () {
+
+},
+onSearch: function () {//关键字搜索
+  var keyWord=this.data.searchvalue;
+  this.searchResult1(keyWord)
+console.log(this.data.searchvalue)
+},
+onChangeSea: function (e) {
+this.setData({
+  searchvalue: e.detail
+})
+},
+showPicker: function () {
+console.log(12)
+this.setData({
+  showpopup: true
+});
+},
+onChange(event) {
+const { picker, value, index } = event.detail;
+this.setData({
+  position: value
+})
+},
+onConfirm(event) {
+const { picker, value, index } = event.detail;
+console.log(event.detail.value)
+this.setData({
+  position: value,
+  showpopup: false
+})
+var keyword=event.detail.value;
+this.searchResult(keyword);
+
+},
+
+onCancel() {
+console.log('取消')
+this.setData({
+  showpopup: false
+});
+},
+onClosePopup() {
+this.setData({
+  showpopup: false
+});
+},
 })

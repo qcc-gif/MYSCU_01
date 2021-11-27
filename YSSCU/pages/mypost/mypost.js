@@ -15,5 +15,18 @@ Page({
           sharenum: '2',
           starnum: '2'
     }]
-  }
+  },
+  onLoad: function () {
+    //     let url = 'url'
+    // // 请求我的历史发布帖子列表
+    // api.post(url, {  
+      
+    // }).then((res) => {
+    //    //展示我的历史发布帖子列表
+    //   this.setData({
+    //    postList：res.data
+    //   })
+    // })
+
+    }
 })

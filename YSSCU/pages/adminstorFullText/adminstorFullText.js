@@ -36,6 +36,17 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+        console.log(options.postId)
+        // let url='url';
+     // api.post(url, {  //请求帖子和评论列表
+        //"postId":this.data.options.postId
+ // }).then((res) => {
+ //    //展示帖子和评论列表
+ //   this.setData({
+ //    postList：res.data
+ //commentList：
+ //   })
+ // })
 
     },
 

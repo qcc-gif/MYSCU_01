@@ -9,7 +9,8 @@ Page({
         searchValue:'',
         editMessage:'',
         picture:'',
-        userId:[]
+        userId:[],
+        result:''
     },
     //输入框获得焦点时跳转搜索页面
     search:function(){
@@ -99,7 +100,10 @@ Page({
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function () {
+    onLoad: function (options) {
+      this.setData({
+        result:options.result
+      })
 
     },
 

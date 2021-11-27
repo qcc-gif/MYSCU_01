@@ -25,9 +25,19 @@ Page({
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function (options) {
-
-    },
+    onLoad: function () {
+      //     let url = 'url'
+      // // 请求我的收藏帖子列表
+      // api.post(url, {  
+        
+      // }).then((res) => {
+      //    //展示我的收藏帖子列表
+      //   this.setData({
+      //    postList：res.data
+      //   })
+      // })
+  
+      },
 
     /**
      * 生命周期函数--监听页面初次渲染完成
