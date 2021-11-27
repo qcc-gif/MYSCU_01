@@ -51,7 +51,7 @@
     width: 200rpx;
     margin:  auto;
     text-align: center;
-    margin-top: 425rpx;
+    margin-top: 330rpx;
 } 
 
 .bottom{

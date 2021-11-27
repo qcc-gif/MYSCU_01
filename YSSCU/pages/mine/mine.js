@@ -7,6 +7,7 @@ Page({
   data: {
     postnum: 20,
     starnum: 10,
+    commentnum: 10,
     showAction: false,
     personLabel: "个人标签",
     openid: "",
@@ -28,8 +29,9 @@ Page({
         if (res.confirm) { //点击确定
           console.log('用户点击确定')
           wx.setStorageSync('openid', null); 
-          wx.navigateTo({
-            url: '/pages/login/login', //跳去登录页
+          wx.setStorageSync('studentnumber', null); 
+          wx.reLaunch({
+            url: '/pages/userlogin/userlogin', //跳去登录页
           })
         } else { //点击取消
           console.log('用户点击取消')
@@ -48,13 +50,14 @@ Page({
     let url = app.globalData.url + '/mine/space'
     // 请求个人标签，我的发帖数，我的收藏数
     api.post(url, {  
-      "openid": app.globalData.openid,
+      "openid": wx.getStorageSync('openid'),
     }).then((res) => {
-       //设置个人标签，我的发帖数，我的收藏数
+       //设置个人标签，我的发帖数，我的收藏数，我的评论数
       this.setData({
         personLabel: res.data.personLabel, 
         postnum: res.data.postnum,
         starnum: res.data.starnum,
+        commentnum: res.data.commentnum,
       })
     })
   },
@@ -68,7 +71,7 @@ Page({
     // post 个人标签
     let url = app.globalData.url + '/mine/label'
     api.post(url, {
-      "openid": app.globalData.openid,
+      "openid": wx.getStorageSync('openid'),
       "personLabel": this.data.personLabel, 
     }).then((res) => {
       if(res.data.success){
@@ -96,7 +99,7 @@ Page({
     // post 个人标签
     let url = app.globalData.url + '/mine/label'
     api.post(url, {
-      "openid": app.globalData.openid,
+      "openid": wx.getStorageSync('openid'),
       "personLabel": this.data.newLabel, 
     }).then((res) => {
       if(res.data.success){

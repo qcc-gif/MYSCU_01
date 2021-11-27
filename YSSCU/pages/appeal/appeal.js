@@ -69,20 +69,36 @@ Page({
   },
 
   onPostAppeal: function(){
-    let url = app.globalData.url + '/user/?'
-    api.post(url, {
-      openid: this.data.openid,
-      reason: this.data.reason,
-      detail: this.data.detail,
-      phone: this.data.phone,
-    }).then((res) => {
+    if(this.data.detail){
+      let url = app.globalData.url + '/appeal'
+      api.post(url, {
+        // openid: this.data.openid,
+        openid: wx.getStorageSync('openid'),
+        atype: this.data.reason,
+        areason: this.data.detail,
+        aphone: this.data.phone,
+      }).then((res) => {
+        console.log(res)
+        if(res.data.success){
+          wx.showToast({
+            title: '提交成功！',
+         })
+         wx.reLaunch({
+          url: '/pages/frozen/frozen',
+        })
+        }else{
+          wx.showToast({
+            title: '上传失败',
+            icon: "none",
+          })
+        }
+      })
+    }else{
       wx.showToast({
-        title: '提交成功！',
+        title: '请阐述细节',
+        icon: "none",
       })
-      wx.navigateBack({
-        delta: 1,
-      })
-    })
+   }
   }
 
 })

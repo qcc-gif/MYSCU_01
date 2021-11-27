@@ -1,4 +1,4 @@
-const { get } = require("../../api/api")
+// const { get } = require("../../api/api")
 const api = require("../../api/api")
 const app = getApp();
 
@@ -10,37 +10,176 @@ Page({
     ['一餐', '二餐', '牛肉馆', '小吃城', '美食广场','三餐'],
     ['一号场', '二号场', '体育馆', '游泳池']],
     label: ['失物招领','表白'],
+    newlabel: "",
     msg: "",
     openid: "",
     pos_i: -1,
     pos_j: -1,
-    otherJ: -1
+    otherJ: -1,  
+    countIndex: 1,
+    imgFilePath: null,
   },
 
   onLoad: function(){
-    this.setData({
-
-    })
-    let url = app.globalData.openid
-    api.post(url, {
-      "openid": this.data.openid
-    })
+   
   },
 
   onChangeTab: function () {
-    
+
   },
   choosePos: function(e){
-    console.log(e.currentTarget.dataset)
+    console.log('pos:', e.currentTarget.dataset)
     this.setData({
       pos_i: Number(e.currentTarget.dataset.i),
       pos_j: e.currentTarget.dataset.j,
     })
+    console.log(this.data.pos[this.data.pos_i][this.data.pos_j])
   },
   chooseLabel:function(e){
-    console.log(e.currentTarget.dataset)
+    console.log('label:',e.currentTarget.dataset)
     this.setData({
       otherJ: e.currentTarget.dataset.j
     })
-  }
+    console.log(this.data.label[this.data.otherJ])
+  },
+
+  // 获取输入文本
+  GetMsg: function(e){
+    console.log(e.detail)
+    this.setData({
+      msg: e.detail
+    })
+  },
+
+  // 图片浏览及上传
+  browse: function(e){
+    let that = this;
+    wx.showActionSheet({
+      itemList: ['从相册中选择', '拍照'],
+      // itemColor: "#CED63A",
+      success: function(res) {
+        if (!res.cancel) {
+          if (res.tapIndex == 0) {
+            that.chooseWxImage('album');
+          } else if (res.tapIndex == 1) {
+            that.chooseWxImage('camera');
+          }
+        }
+      }
+    })
+  },
+
+  // 打开相册，相机
+  chooseWxImage: function(type) {
+    let that = this;
+    wx.chooseImage({
+      count: that.data.countIndex,
+      sizeType: ['original', 'compressed'],
+      sourceType: [type],
+      // 选择图片成功，保存imgFilePath
+      success: function (res) {
+        that.setData({
+          imgFilePath: res.tempFilePaths[0]
+        })
+        console.log('imgFilePath:', res.tempFilePaths[0])
+      }
+    })
+  },
+
+  // 点击发送
+  onClickSend: function(){
+    // 用户选择了地点标签
+    if(this.pos_i!=-1 && this.pos_j!=-1){
+      // 用户选择了其他标签？
+      if(this.data.otherJ==-1){
+        this.setData({
+          newlabel: null
+        })
+      }else{
+        this.setData({
+          newlabel: this.data.label[this.data.otherJ]
+        })
+      }
+      // 没有图片
+      if(!this.data.imgFilePath){
+         // 发送标签和文本
+        let url = app.globalData.url + '/post'
+        let tmp_i = this.data.pos_i
+        let tmp_j = this.data.pos_j
+        console.log(this.data.pos[tmp_i][tmp_j])
+        api.post(url, {
+          openid: wx.getStorageSync('openid'),
+          ppos: this.data.pos[tmp_i][tmp_j],
+          plabel: this.data.newlabel,
+          ptext: this.data.msg,
+      }).then((res)=>{
+        if(res.data.success){
+          wx.showToast({
+            title: '发送成功',
+            icon: 'none'
+          })
+          wx.reLaunch({
+            url: '/pages/square/square',
+          })
+        }else{
+          wx.showToast({
+            title: '发送失败',
+            icon: 'none',
+          })
+        }
+      })
+      }else{
+        // 发送图片
+        let url = app.globalData.url + '/post/img'
+        let tmp_i = this.data.pos_i
+        let tmp_j = this.data.pos_j
+        let filePath = this.data.imgFilePath
+        let ppos = this.data.pos[tmp_i][tmp_j]
+        let plabel = this.data.newlabel
+        let ptext = this.data.msg
+        api.upload(url, filePath, ppos, plabel, ptext).then((res)=>{
+          console.log(res)
+          if(true){
+            wx.showToast({
+              title: '发送成功',
+              icon: 'none'
+            })
+            wx.reLaunch({
+              url: '/pages/square/square',
+            })
+          }else{
+            wx.showToast({
+              title: '发送失败',
+              icon: 'none',
+            })
+          }
+        })
+      } 
+    }else{   // 用户未选择地点标签
+      wx.showToast({
+        title: '请选择地点标签',
+        icon: 'none'
+      })
+    }
+  },
+
+  // 点击删除
+  deleteImage: function(){
+    let that = this
+    wx.showModal({
+      title: '提示',
+      content: '确定要删除此图片吗？',
+      success: function (res) {
+        if (res.confirm) {
+          console.log('点击确定了');
+          that.setData({
+            imgFilePath: null,
+          })
+        } else if (res.cancel) {
+          console.log('点击取消了');
+        }
+      }
+    })
+  },
+
 })

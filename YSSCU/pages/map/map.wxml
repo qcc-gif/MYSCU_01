@@ -1,11 +1,6 @@
 <!--pages/map/map.wxml-->
 <view class="main">
-    <view class="box1">
-        <view class="location">
-            <van-icon name="location-o" color="#1989fa" />
-        <view class="location1">四川大学{{location}}</view></view>
-        <view class="distance">距离您{{distance}}米</view>
-    </view>
+   
     <view class="box2">
         <view class="post little-box">
             <view class="num">{{allPostNum}}</view>
@@ -28,18 +23,21 @@
             <van-icon name="fire-o" color="#ee0a24" />
             <view>{{hotSpot2}}</view>
         </view>
+        <view class="btn2" >
+            <van-icon name="fire-o" color="#ee0a24" />
+            <view>{{hotSpot3}}</view>
+        </view>
         
     </view>
     <view class="box4">
         <map class="map" 
         id="map"
-        style="width: 746rpx; height: 640rpx; position: relative; top: -3rpx; display: block; box-sizing: border-box; left: 3rpx"
+        style="width: 746rpx; height: 950rpx; position: relative; top: 0rpx; display: block; box-sizing: border-box; left: 2rpx"
         scale="17" 
-        markers="{{markers}}" 
         longitude="{{longitude}}" 
         latitude="{{latitude}}" 
-        enable-scroll="true" 
-        covers="{{covers}}"> </map>
+        enable-scroll="true"
+        iconPath="/static/icons/map-u"> </map>
     </view>
 
 </view>

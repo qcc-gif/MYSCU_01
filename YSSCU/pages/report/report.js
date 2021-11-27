@@ -11,12 +11,14 @@ Page({
     phone: "",
     detail: "",
     showpopup: false,
-    postid: "",  // 帖子或评论的ID
+    pid: "",  // 帖子或评论的ID
+    poc: "",
   },
 
   onLoad(e){
     this.setData({  // 从帖子或评论的阅读界面传的参数：帖子或评论的ID
-      postid: e,
+      poc: e.poc,
+      pid: e.pid,
     })
     console.log('info', e)
   },
@@ -71,20 +73,41 @@ Page({
   },
 
   onPostAppeal: function(){
-    let url = app.globalData.url + '/user/?'
-    api.post(url, {
-      postid: this.data.postid,
-      reason: this.data.reason,
-      detail: this.data.detail,
-      phone: this.data.phone,
-    }).then((res) => {
+    let url = app.globalData.url + '/users/report'
+    if(this.data.detail){
+      api.post(url, {
+        openid: wx.getStorageSync('openid'),
+        // poc: this.data.poc,
+        poc: 44589,
+        // pid: this.data.pid,
+        pid: 123,
+        rtype: this.data.reason,
+        rreason: this.data.detail,
+        rphone: this.data.phone,
+      }).then((res) => {
+        console.log(res)
+        if(res.data.success){
+          wx.showToast({
+            title: '提交成功！',
+            duration: 2000,
+          })
+          wx.navigateBack({
+            delta: 1,
+          })
+        }else{
+          wx.showToast({
+            title: '不可以重复举报！',
+            icon: 'none',
+          })
+        }
+      })
+    }else{
       wx.showToast({
-        title: '提交成功！',
+        title: '请阐述理由',
+        icon: 'none',
       })
-      wx.navigateBack({
-        delta: 1,
-      })
-    })
+    }
+   
   }
 
 })

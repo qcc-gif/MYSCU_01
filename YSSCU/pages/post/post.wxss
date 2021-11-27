@@ -47,9 +47,10 @@
 
 .edit {
     margin: 50rpx auto;
-    padding: 20rpx;
+    padding: 10rpx;
     height: 300rpx;
-    box-shadow: 3rpx 3rpx 3rpx rgb(163, 163, 163);
+    /* box-shadow: 3rpx 3rpx 3rpx rgb(163, 163, 163); */
+    border: 2rpx solid #009FFF;
 }
 
 .label-choice{
@@ -66,15 +67,24 @@
 }
 
 .count {
+    /* position: absolute; */
     padding-left: 85%;
     color: rgb(163, 163, 163);
     margin: 5rpx 0;
     font-size: small;
+    margin-top: 130rpx;
 }
 
 .icon {
     display: flex;
+    justify-content: space-between;
+    margin-left: 30rpx;
+    margin-top: -16rpx;
 }
+
+/* .last-icon{
+    margin-left: 80%;
+} */
 
 .icon view{
     margin: 5rpx 15rpx;
@@ -98,8 +108,19 @@
     border: 2rpx solid #ccc;
     border-radius: 30rpx;
     margin: 20rpx 20rpx;
+    font-size: small;
+    color: #606262;
+    margin-left: 70rpx;
+}
+
+.choice-label{
+    margin-left: 20rpx;
+    font-size: medium;
+    color: #606262;
 }
 
 .isActive{
-    background-color: aqua;
+    background-color: #FFCC00;
+    color: white;
 }
+

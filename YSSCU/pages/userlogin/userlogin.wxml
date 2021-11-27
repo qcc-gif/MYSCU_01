@@ -1,5 +1,5 @@
 <!--pages/userlogin/userlogin.wxml-->
-<view class="main">
+<view class="main" style="position: absolute; left: 2rpx; top: -12rpx">
   <view class="box-login">
     <van-van-field class="login">学生认证</van-van-field>
     <view class="input">

@@ -3,7 +3,9 @@
     "van-tab": "/miniprogram/miniprogram_npm/@vant/weapp/tab/index",
     "van-tabs": "/miniprogram/miniprogram_npm/@vant/weapp/tabs/index",
     "van-field": "/miniprogram/miniprogram_npm/@vant/weapp/field/index",
-    "van-cell-group" : "/miniprogram/miniprogram_npm/@vant/weapp/cell-group/index"
+    "van-cell-group" : "/miniprogram/miniprogram_npm/@vant/weapp/cell-group/index",
+    "van-image": "/miniprogram/miniprogram_npm/@vant/weapp/image/index",
+    "van-uploader": "/miniprogram/miniprogram_npm/@vant/weapp/uploader/index"
   },
   "navigationBarTitleText": "发帖"
 }
