@@ -30,9 +30,9 @@ Page({
     }).then(() => {
         console.log('confirm')
         wx.setStorageSync('openid', null)
-        wx.setStorageSync('studentnumber', null)
+        wx.setStorageSync('account', null)
         wx.reLaunch({
-          url: '/pages/authorize/authorize',
+          url: '/pages/userlogin/userlogin',
         })
       }).catch((err) => {
         console.log('err', err)
@@ -53,13 +53,13 @@ Page({
 
   syspost: function(){
     wx.navigateTo({
-      url: '/pages/systempost/systempost',
+      url: '/pages/messageNotice/messageNotice',
     })
   },
 
   msg: function(){
     wx.navigateTo({
-      url: '/pages/msgManage/msgManage',
+      url: '/pages/adminstorPost/adminstorPost',
     })
   },
 

@@ -7,9 +7,9 @@ Page({
       openid: "",
     },
 
-    onLoad: function (options) {
+    onShow: function (options) {
       this.setData({
-        openid: app.globalData.openid,
+        openid: wx.getStorageInfoSync('openid'),
       })
     },
 
