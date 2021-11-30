@@ -1,0 +1,28 @@
+/* pages/searchPost/searchPost.wxss */
+.main {
+    display: flex;
+}
+.portrait{
+    width: 120rpx;
+    height: 120rpx;
+    border-radius: 50%;
+    /* border: 2rpx solid #000; */
+    margin-right: 20rpx;
+}
+.name{
+    font-size: 40rpx;
+    font-weight: 600;
+}
+
+.none{
+    margin-top: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: #636363;
+}
+
+.nostyle{
+    margin-top: 25rpx;
+}

@@ -7,6 +7,8 @@ Page({
         openid: "",
         studentnumber: "",
         password: "",
+        avatarUrl: "", 
+        nickName: "",
         url: "",
     },
 
@@ -36,6 +38,16 @@ Page({
 
     bindGetUserInfo: function(){
       let that = this
+      // 获取昵称和头像
+      wx.getUserProfile({
+        desc: '用于完善个人资料',
+        success: (res) => {
+          app.globalData.avatarUrl = res.userInfo.avatarUrl,
+          app.globalData.nickName = res.userInfo.nickName,
+          console.log('success:', res.userInfo.avatarUrl, res.userInfo.nickName)
+        }
+      })
+      // 登录
       wx.login({
         success(res){
           // 请求并获取openid
@@ -51,6 +63,8 @@ Page({
               openid: app.globalData.openid,
               account: that.data.studentnumber,
               pwd: that.data.password,
+              nickName: app.globalData.nickName,
+              avatarUrl: app.globalData.avatarUrl
             }).then((res)=>{
               console.log(res)
               // 登录成功，跳转到个人界面

@@ -1,22 +1,21 @@
-const app = getApp();
-
-// import Toast from "./../../miniprogram_npm/@vant/weapp/toast/toast"
-// import Dialog from "./../../miniprogram_npm/@vant/weapp/dialog/dialog"
 import api from "./../../api/api"
-
+const app = getApp();
 
 Page({
   data: {
-    account: "", // 管理员账号
-    password: "",
-    url: "",
+    account: "",    // 管理员账号
+    password: "",   // 管理员密码
+    url: "",        
   },
 
+  // 管理员无需重复登录
   onLoad: function() {
     if (wx.getStorageSync('account')){
       app.globalData.account = wx.getStorageSync('account');  // 有缓存就直接登录
+      let name = wx.getStorageInfoSync('name')
+      let img = wx.getStorageInfoSync('img')
       wx.reLaunch({
-        url: '/pages/adminstor/adminstor',
+        url:  `/pages/adminstor/adminstor?name=${name}&img=${img}`,
       })
     }
   },
@@ -26,6 +25,7 @@ Page({
     })
   },
 
+  // 获取登录账号
   adminnumber: function(event){
     this.setData({
      account: event.detail,
@@ -33,6 +33,7 @@ Page({
     console.log('account:', this.data.account)
   },
 
+  // 获取密码
   pwd: function(event){
     this.setData({
       password: event.detail,
@@ -53,6 +54,8 @@ Page({
         let img = res.data.img
         app.globalData.account = this.data.account,
         wx.setStorageSync('account', this.data.account)
+        wx.setStorageSync('name', name)
+        wx.setStorageSync('img', img)
         wx.reLaunch({
           url: `/pages/adminstor/adminstor?name=${name}&img=${img}`,
         })

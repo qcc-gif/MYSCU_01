@@ -13,8 +13,8 @@
 <view class="result" wx:else>
 <scroll-view scroll-y="true" >
     <view wx:for="{{searchResultList}}" wx:key="id">
-        <searchUserId userId="{{item.userId}}" profilePhoto="{{item.profilePhoto}}" name="{{item.name}}" studentNumber="{{item.studentNumber}}" time="{{item.time}}" reason="{{item.reason}}">
-        </searchUserId>
+        <frozenAccount userId="{{item.userId}}" profilePhoto="{{item.profilePhoto}}" name="{{item.name}}" studentNumber="{{item.studentNumber}}">
+        </frozenAccount>
     </view>
 </scroll-view>
 </view>

@@ -4,14 +4,14 @@ const app = getApp();
 
 Page({
     data: {
-        searchValue:'',             // 搜索内容
-        searchResultList:[{         // 搜索结果列表
-          studentNumber:'20191414', // 学号
-          userId:'1',               // 用户ID
-          profilePhoto: '',         // 用户头像
-          name: '大白'              // 用户昵称
+        searchValue:'',                                              // 搜索内容
+        searchResultList:[{                                          // 搜索结果列表
+            userId: '1',                                             // 用户ID
+            studentNumber: '20191414',                               // 用户学号
+            profilePhoto: '',                                        // 用户头像
+            name:  '大白',                                           // 用户昵称
         }],
-        noneview: null,            // 有无搜索结果: true无搜索结果 false有搜索结果
+        noneview: null,                                             // 有无搜索结果: true无搜索结果 false有搜索结果
     },
 
     onLoad: function (options) {

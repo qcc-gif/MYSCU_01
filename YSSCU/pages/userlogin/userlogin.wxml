@@ -11,7 +11,7 @@
       </van-field-group>
     </view>
     <view class="tips">注：忘记密码可通过教务处重置。</view>
-    <button class='bottom' type='primary' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">
+    <button class='bottom' type='primary' open-type="getUserInfo" lang="zh_CN" bindtap="bindGetUserInfo">
    授权登录
    </button>
 
