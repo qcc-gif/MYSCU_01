@@ -10,6 +10,10 @@ Page({
     hotSpot3:'体育馆',
     longitude: "",
     latitude: "",
+    markers: [],
+    circle: [],
+    // speed: 0,
+    // accuracy: 0,
   },
 
   onLoad: function () {
@@ -18,11 +22,29 @@ Page({
     wx.getLocation({
       type: 'wgs84', 
       success: function (res) {
+        console.log('res:', res)
         that.setData({
           latitude: res.latitude,
           longitude: res.longitude,
+          markers: [{
+            id: 1,
+            latitude: res.latitude,
+            longitude: res.longitude,
+            width: 50,
+            height: 50,
+            iconPath: "https://img0.baidu.com/it/u=1291843146,1328854747&fm=26&fmt=auto",
+            title: "您所在的位置"
+          }],
+          circles: [{
+            latitude: res.latitude,
+            longitude: res.longitude,
+            color: '#FF0000DD',
+            fillColor: '#7cb5ec88',
+            radius: 100,
+            strokeWidth: 1
+          }],
         })
-        console.log(res.longitude, res.latitude)
+        console.log(res.longitude, res.latitude, that.data.markers)
       }
     })
     setInterval(function () {

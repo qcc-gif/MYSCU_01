@@ -1,116 +1,113 @@
 // pages/square/square.js
+const api = require("../../api/api")
+const app = getApp();
+
 Page({
   data: {
     active: 0,
     searchvalue: "", // 搜索栏的值
-    showpopup: false,
-    position: "全部",
-    columns: ['全部', '教学区', '餐厅区', '运动区','宿舍区','失物招领','表白'],
-    postList:[{
-      postId: '1',//帖子id
-      profilePhoto: 'https://img.yzcdn.cn/vant/cat.jpeg',//头像
-      name: '大白',
-      title:'标题',
+    index: 0,
+    array: ['全部', '教学区', '餐厅区', '运动区','宿舍区','失物招领','表白'],
+    objectArray: [
+      {
+        id: 0,
+        name: '全部'
+      },
+      {
+        id: 1,
+        name: '教学区'
+      },
+      {
+        id: 2,
+        name: '餐厅区'
+      },
+      {
+        id: 3,
+        name: '运动区'
+      },
+      {
+        id: 4,
+        name: '宿舍区'
+      },
+      {
+        id: 5,
+        name: '失物招领'
+      },
+      {
+        id: 6,
+        name: '表白'
+      }
+    ],
+    openid: "",
+    postList:[{   //
+      postId: '1',                                        //帖子id
+      profilePhoto: 'https://img.yzcdn.cn/vant/cat.jpeg', //头像
+      name: '大白',                                       // 发帖者微信名
+      title:'标题',                                       // 标题
         position1: '教学楼',
         position2:'一教',
-        time:  '2000年11月14日 14:00',
+        time:  '2021-11-30 14:00',
         detail: "这里是我发的帖子",
-        thumbnum:'2',
-        chatnum: '2',
-        sharenum: '2',
-        starnum: '2'
+        thumbnum:'0',
+        chatnum: '0',
+        sharenum: '0',
+        starnum: '0'
     }]
   },
-  onLoad: function () {
-       // let url='url';
-     // api.post(url, {  //请求所有帖子
-        
- // }).then((res) => {
- //    //展示搜索结果
- //   this.setData({
- //    postList：res.data
- //   })
- // })
-    
+
+  onLoad: function(){
+
   },
-  searchResult1:function(keyWord) {//关键字搜索
-      // let url="url?keyWord="+keyWord;
-       // api.post(url, {  
-          
-   // }).then((res) => {
-   //    //展示搜索结果
-   //   this.setData({
-   //    postList：res.data
-   //   })
-   // })
 
-
-   },
-   searchResult2:function(label) {//选择标签搜索
-    // let url="url?label="+label;
-     // api.post(url, {  
-        
- // }).then((res) => {
- //    //展示搜索结果
- //   this.setData({
- //    postList：res.data
- //   })
- // })
-
-
- },
-   selectClick:function (e) {//选择标签搜索
-       console.log(e.detail.title);
-       var label=e.detail.title;
-       this.searchResult2(lebal);
-
-   },
-onChangeTab: function () {
-
-},
-onSearch: function () {//关键字搜索
-  var keyWord=this.data.searchvalue;
-  this.searchResult1(keyWord)
-console.log(this.data.searchvalue)
-},
-onChangeSea: function (e) {
-this.setData({
-  searchvalue: e.detail
-})
-},
-showPicker: function () {
-console.log(12)
-this.setData({
-  showpopup: true
-});
-},
-onChange(event) {
-const { picker, value, index } = event.detail;
-this.setData({
-  position: value
-})
-},
-onConfirm(event) {
-const { picker, value, index } = event.detail;
-console.log(event.detail.value)
-this.setData({
-  position: value,
-  showpopup: false
-})
-var keyword=event.detail.value;
-this.searchResult(keyword);
-
+  onShow: function () {
+    //请求所有帖子
+    let url = app.globalData.url + 'url';
+    api.post(url, {  
+        openid: wx.getStorageInfoSync('openid')
+   }).then((res) => {
+    // 请求成功
+    if(res.data.postList){
+      this.setData({
+        postList: res.data,
+     })
+    }else{  // 请求失败
+      wx.showLoading({
+        title: '加载中',
+      })      
+    }
+  })
 },
 
-onCancel() {
-console.log('取消')
-this.setData({
-  showpopup: false
-});
-},
-onClosePopup() {
-this.setData({
-  showpopup: false
-});
-},
+  // 获取选项并搜索
+  bindPickerChange: function (e) {
+    console.log('picker:', e.detail.value)
+    this.setData({
+      index: e.detail.value
+    })
+    // 按选项搜索
+    let url = app.globalData.url + 'url';
+    api.post(url, {  
+        openid: wx.getStorageInfoSync('openid'),
+        choice: this.data.array[this.data.index],
+   }).then((res) => {
+    // 请求成功
+    if(res.data.postList){
+      this.setData({
+        postList: res.data,
+     })
+    }else{  // 请求失败
+      wx.showLoading({
+        title: '加载中',
+      })      
+    }
+  })
+  },
+
+  // 用户点击搜索框，跳转到搜索界面
+  bindFocus: function(){
+    wx.navigateTo({
+      url: '/pages/searchPost/searchPost',
+    })
+  },
+  
 })

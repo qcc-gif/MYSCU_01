@@ -5,5 +5,5 @@
     "van-search": "/miniprogram/miniprogram_npm/@vant/weapp/search/index",
     "van-button": "/miniprogram/miniprogram_npm/@vant/weapp/button/index"
   },
-  "navigationBarTitleText": "发送消息"
+  "navigationBarTitleText": "发送通知"
 }

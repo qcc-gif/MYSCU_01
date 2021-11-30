@@ -13,3 +13,16 @@
     font-size: 40rpx;
     font-weight: 600;
 }
+
+.none{
+    margin-top: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: #636363;
+}
+
+.nostyle{
+    margin-top: 25rpx;
+}

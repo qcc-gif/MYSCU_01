@@ -72,7 +72,7 @@
     color: rgb(163, 163, 163);
     margin: 5rpx 0;
     font-size: small;
-    margin-top: 130rpx;
+    margin-top: 45rpx;
 }
 
 .icon {
@@ -124,3 +124,15 @@
     color: white;
 }
 
+.textarea-wrp {
+    padding: 0 25rpx;
+    background-color: #fff;
+  }
+
+  .upLoad{
+      margin-top: -20rpx;
+  }
+  
+  .img{
+      margin-left: -240rpx
+  }

@@ -1,32 +1,23 @@
 <!-- pages/square/square.wxml -->
 <view class="main">
     <view class="box-search">
-        <van-search style="width: 617rpx; height: 120rpx; display: block; box-sizing: border-box"  model:value="{{ searchvalue }}" input-align="center" bind:search="onSearch" bind:change="onChangeSea" placeholder="按标签/关键字搜索" />
+        <van-search style="width: 580rpx; height: 120rpx; display: block; box-sizing: border-box"  input-align="center" bind:focus="bindFocus" placeholder="按关键字搜索" />
         <view class="right">
-            <view class="choosebox" bindtap="showPicker" >{{position}}</view>
-                <van-icon name="arrow-down" />
-            </view>
+            <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+            <view class="picker">{{array[index]}}</view>
+            </picker>
+            <van-icon class='arrow-icon' name="arrow-down" />
         </view>
+</view>
    
     <view class="plain"></view>
     <view class="box-post">
-        <scroll-view scroll-y="true" style="height: auto;" >
-    <view wx:for="{{postList}}"wx:key="index">
-    <mypost postId="{{item.postId}}"
-               profilePhoto="{{item.profilePhoto}}"
-               name="{{item.name}}"
-               position1="{{item.position1}}"
-               position2="{{item.position2}}"
-               title="{{item.title}}"
-               time="{{item.time}}"
-               detail="{{item.detail}}"
-               thumbnum="{{item.thumbnum}}"
-               chatnum="{{item.chatnum}}"
-               sharenum="{{item.sharenum}}"
-               starnum="{{item.starnum}}">
-    </mypost>
-</view>
-</scroll-view>
+    <scroll-view scroll-y="true" style="height: auto;" >
+        <view wx:for="{{postList}}"wx:key="index">
+        <mypost postId="{{item.postId}}" profilePhoto="{{item.profilePhoto}}" name="{{item.name}}" position1="{{item.position1}}" position2="{{item.position2}}" title="{{item.title}}" time="{{item.time}}" detail="{{item.detail}}" thumbnum="{{item.thumbnum}}" chatnum="{{item.chatnum}}" sharenum="{{item.sharenum}}" starnum="{{item.starnum}}">
+        </mypost>
+        </view>
+    </scroll-view>
     </view>
     <van-popup show="{{ showpopup }}" position="bottom" bind:close="onClosePopup">
         <van-picker columns="{{ columns }}" show-toolbar title="地点" bind:cancel="onCancel" bind:confirm="onConfirm" bind:change="onChange" />

@@ -27,15 +27,15 @@
         </view>
 
         <view class="aaa">
-            <view class="post little-box">
+            <view class="post little-box" bindtap="onClickPost">
                 <view class="num">{{postnum}}</view>
                 <view class="desc">我的发帖</view>
             </view>
-            <view class="star little-box">
+            <view class="star little-box" bindtap="onClickCollection">
                 <view class="num">{{starnum}}</view>
                 <view class="desc">我的收藏</view>
             </view>
-            <view class="comment little-box">
+            <view class="comment little-box" bindtap="onClickComment">
                 <view class="num">{{commentnum}}</view>
                 <view class="desc">我的评论</view>
             </view>

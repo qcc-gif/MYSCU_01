@@ -1,33 +1,28 @@
 <!--pages/messageNotice/messageNotice.wxml-->
 <view class="main">
-    <van-search
-        model:value="{{searchValue}}"
-        placeholder="请输入需要处理的账号"
-        use-action-slot
-        bindfocus="search" 
-    >
-        <view slot="action" bind:tap="onSearch">搜索</view>
+    <van-search model:value="{{searchValue}}" placeholder="请输入需要处理的账号" use-action-slot bindfocus="search">
+    <view slot="action" bind:tap="onSearch">搜索</view>
     </van-search>
 
-
     <view class="box1">
-    <text>发送至</text>
-    <view>{{result}}</view>
-    <van-icon name="add" bind:click="addClick" color="#82caff" />
+        <text>发送至：</text>
+        <view>{{result}}</view>
+        <van-icon wx:if="{{!studentnumber}}"  name="add" class='add-icon' size='25' bind:click="addClick" color="#82caff" />
+        <view wx:else>{{studentnumber}}</view>
     </view>
 
-    <view class="box2">
-        <view class="textbox">
-        <van-cell-group>
-        <van-field  input-class="textarea"model:value="{{editMessage}}"bind:input="getEdit" autosize
-         maxHeight="20"type="textarea" placeholder="来，说点什么吧！" adjust-position size="large" maxlength="500"style="top:20rpx;right:20rpx;left:20rpx"/>
-        </van-cell-group>
+    <view class="edit box">
+     <view class="textarea-wrp">
+      <textarea bindinput="GetMsg" auto-focus="true" adjust-position style="height: 8em"  placeholder="来，说点什么吧！" maxlength="120" />
+     </view>
+    <view class="count">{{msg.length}}/120</view>
+    </view>
+
+    <view class="icon">
+        <view><van-icon wx:if='{{!imgFilePath}}' name="photo-o" size="70" color='#bfbfbf' bind:click='browse'/> </view>
+        <van-image wx:if='{{imgFilePath}}' class="img" slot="loading" width="70" height="70" src="{{imgFilePath}}" bindlongpress="deleteImage"/>
+        <view class="last-icon" style="margin-left: 160rpx;" bindtap="onClickSend">
+            <van-icon name="guide-o" color='#009FFF' size="30" />
         </view>
     </view>
-    
-    <view class="box3">
-        <van-icon name="photo-o"color="#82caff"bind:click="pictureClick" size="40"/>
-        <van-icon name="guide-o"color="#82caff"bind:click="sendClick"size="40"style="margin-left: 300rpx"/>
-        <view class="count">{{text.length}}/500</view>
-        </view>
 </view>

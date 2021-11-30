@@ -11,13 +11,13 @@ Page({
     ['一号场', '二号场', '体育馆', '游泳池']],
     label: ['失物招领','表白'],
     newlabel: "",
-    msg: "",
-    openid: "",
-    pos_i: -1,
-    pos_j: -1,
-    otherJ: -1,  
-    countIndex: 1,
-    imgFilePath: null,
+    msg: "",            // 输入的信息
+    openid: "",         // 用户openid
+    pos_i: -1,          // 位置选择
+    pos_j: -1,          // 位置选择
+    otherJ: -1,         // 标签选择
+    countIndex: 1,      // 上传图片的最大数量
+    imgFilePath: null,  // 上传图片的路径
   },
 
   onLoad: function(){
@@ -27,6 +27,8 @@ Page({
   onChangeTab: function () {
 
   },
+
+  // 选择位置
   choosePos: function(e){
     console.log('pos:', e.currentTarget.dataset)
     this.setData({
@@ -35,6 +37,8 @@ Page({
     })
     console.log(this.data.pos[this.data.pos_i][this.data.pos_j])
   },
+
+  // 选择标签
   chooseLabel:function(e){
     console.log('label:',e.currentTarget.dataset)
     this.setData({
@@ -45,10 +49,11 @@ Page({
 
   // 获取输入文本
   GetMsg: function(e){
-    console.log(e.detail)
+    console.log('input', e.detail.value)
     this.setData({
-      msg: e.detail
+      msg: e.detail.value
     })
+    console.log('message', this.data.msg.length)
   },
 
   // 图片浏览及上传
@@ -100,18 +105,22 @@ Page({
           newlabel: this.data.label[this.data.otherJ]
         })
       }
+      let tmp_i = this.data.pos_i
+      let tmp_j = this.data.pos_j
+      let openid = wx.getStorageSync('openid')
+      let ppos = this.data.pos[tmp_i][tmp_j]
+      let plabel = this.data.newlabel
+      let ptext = this.data.msg
       // 没有图片
       if(!this.data.imgFilePath){
          // 发送标签和文本
         let url = app.globalData.url + '/post'
-        let tmp_i = this.data.pos_i
-        let tmp_j = this.data.pos_j
         console.log(this.data.pos[tmp_i][tmp_j])
         api.post(url, {
-          openid: wx.getStorageSync('openid'),
-          ppos: this.data.pos[tmp_i][tmp_j],
-          plabel: this.data.newlabel,
-          ptext: this.data.msg,
+          openid: openid,
+          ppos: ppos,
+          plabel: plabel,
+          ptext: ptext,
       }).then((res)=>{
         if(res.data.success){
           wx.showToast({
@@ -129,17 +138,12 @@ Page({
         }
       })
       }else{
-        // 发送图片
+        // 发送图片 + 标签和文本
         let url = app.globalData.url + '/post/img'
-        let tmp_i = this.data.pos_i
-        let tmp_j = this.data.pos_j
         let filePath = this.data.imgFilePath
-        let ppos = this.data.pos[tmp_i][tmp_j]
-        let plabel = this.data.newlabel
-        let ptext = this.data.msg
-        api.upload(url, filePath, ppos, plabel, ptext).then((res)=>{
+        api.upload(url, filePath, "", openid, ppos, plabel, ptext).then((res)=>{
           console.log(res)
-          if(true){
+          if(res.data.success){
             wx.showToast({
               title: '发送成功',
               icon: 'none'

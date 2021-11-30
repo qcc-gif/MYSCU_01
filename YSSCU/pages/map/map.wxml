@@ -1,7 +1,7 @@
 <!--pages/map/map.wxml-->
 <view class="main">
    
-    <view class="box2">
+    <view class="box2" style="width: 742rpx; height: 106rpx; display: flex; box-sizing: border-box">
         <view class="post little-box">
             <view class="num">{{allPostNum}}</view>
             <view class="desc">总帖子</view>
@@ -11,31 +11,33 @@
             <view class="desc">今日新增</view>
         </view>
         </view>
-    <view class="box3" >
+    <view class="box3"  style="width: 750rpx; height: 216rpx; display: block; box-sizing: border-box">
         <view class="hot">
-        <view class="hot">今日热门</view>
+        <view class="hot-title">今日热门</view>
         </view>
         <view class="btn1" >
             <van-icon name="fire-o" color="#ee0a24" />
-            <view>{{hotSpot1}}</view>
+            <view class="space-between">{{hotSpot1}}</view>
         </view>
         <view class="btn2" >
             <van-icon name="fire-o" color="#ee0a24" />
-            <view>{{hotSpot2}}</view>
+            <view class="space-between">{{hotSpot2}}</view>
         </view>
         <view class="btn2" >
             <van-icon name="fire-o" color="#ee0a24" />
-            <view>{{hotSpot3}}</view>
+            <view class="space-between">{{hotSpot3}}</view>
         </view>
         
     </view>
     <view class="box4">
         <map class="map" 
         id="map"
-        style="width: 746rpx; height: 950rpx; position: relative; top: 0rpx; display: block; box-sizing: border-box; left: 2rpx"
+        style="width: 764rpx; height: 918rpx; position: relative; top: 10rpx; display: block; box-sizing: border-box; left: -10rpx"
         scale="17" 
         longitude="{{longitude}}" 
         latitude="{{latitude}}" 
+        markers="{{markers}}"
+        circles="{{circles}}"
         enable-scroll="true"
         iconPath="/static/icons/map-u"> </map>
     </view>

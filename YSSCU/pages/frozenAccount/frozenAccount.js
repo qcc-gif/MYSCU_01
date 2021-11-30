@@ -1,91 +1,45 @@
 // pages/frozenAccount/frozenAccount.js
-var app = getApp();
-Page({
+const api = require("../../api/api")
+const app = getApp();
 
-    /**
-     * 页面的初始数据
-     */
+Page({
     data: {
-        accountList:[{id:'1',
-        userId: '1',
-        studentNumber: '2019',
-        profilePhoto: 'https://img.yzcdn.cn/vant/cat.jpeg',
-        name:  '大白',
-          }]
+        accountList:[{                                               // 用户账户信息表
+            userId: '1',                                             // 用户ID
+            studentNumber: '20191414',                               // 用户学号
+            profilePhoto: '',                                        // 用户头像
+            name:  '大白',                                           // 用户昵称
+        }]
     },
-    search:function(){
-        var navigateId=1;
+
+    onShow: function () {
+        let url = app.globalData.url + 'url'
+        // 请求所有用户账号列表
+        api.post(url, {  
+          
+        }).then((res) => {
+           // 请求成功，展示用户账号列表
+           if(res.data){
+            this.setData({
+                accountList: res.data,
+            })
+           }else{  // 请求失败
+               wx.showLoading({
+                 title: '加载中...',
+               })
+           }
+        })
+    
+    },
+
+    // 用户点击搜索，页面跳转至搜索界面
+    onClickSearch: function(){
         wx.navigateTo({
-        url:'/pages/searchUser/searchUser?navigateId='+navigateId
-      });
-},
+          url: '/pages/searchUser/searchUser',
+        })
+    },
+
+})
    
 
-    /**
-     * 生命周期函数--监听页面加载
-     */
-    onLoad: function () {
-    //     let url = 'url'
-    // // 请求用户账号列表
-    // api.post(url, {  
-      
-    // }).then((res) => {
-    //    //展示用户账号列表
-    //   this.setData({
-    //    accountList：res.data
-    //   })
-    // })
-
-    },
-
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload: function () {
-
-    },
-
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh: function () {
-
-    },
-
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom: function () {
-
-    },
-
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage: function () {
-
-    }
     
-       
-})

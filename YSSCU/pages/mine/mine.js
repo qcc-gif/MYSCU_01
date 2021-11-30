@@ -46,7 +46,7 @@ Page({
     })
   },
 
-  onLoad: function(){
+  onShow: function(){
     let url = app.globalData.url + '/mine/space'
     // 请求个人标签，我的发帖数，我的收藏数
     api.post(url, {  
@@ -88,12 +88,14 @@ Page({
     })
   },
 
+  // 取消修改个人标签
   bindcancel: function(){
     this.setData({
       bindconfirm: true
     })
   },
 
+  // 确认修改个人标签
   confirm: function(){
     console.log('confirm')
     // post 个人标签
@@ -109,6 +111,28 @@ Page({
         })
       }
     })
+  },
+
+  // 我的发帖
+  onClickPost: function(){
+    wx.navigateTo({
+      url: '/pages/mypost/mypost',
+    })
+  },
+  
+  // 我的收藏
+  onClickCollection: function(){
+    wx.navigateTo({
+      url: '/pages/myCollection/myCollection',
+    })
+  },
+
+  // 我的评论
+  onClickComment: function(){
+    wx.navigateTo({
+      url: '/pages/myComment/myComment',
+    })
   }
+
 })
 
