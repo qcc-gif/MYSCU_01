@@ -1,0 +1,138 @@
+/* pages/post/post.wxss */
+.box {
+    width: 90%;
+    margin-left: 5%;
+    box-sizing: border-box;
+    border: 2rpx solid #ccc;
+    border-radius: 20rpx;
+    margin-top:25rpx;
+    /* box-shadow: 3rpx 3rpx 3rpx #606262; */
+}
+
+.position {
+    display: flex;
+    padding-top:10rpx;
+}
+
+.po-icon {
+    width: 5%;
+    text-align: center;
+    margin-top: 17rpx;
+    margin-left: 20rpx;
+    color: #939595;
+}
+
+.pos-tab {
+    width: 95%;
+    margin-top: 15rpx;
+    margin-left: 5rpx;
+}
+
+.detail-pos {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10rpx;
+}
+
+.box-pos {
+    height: 30rpx;
+    line-height: 30rpx;
+    padding: 10rpx 30rpx;
+    border: 2rpx solid #ccc;
+    border-radius: 30rpx;
+    margin: 20rpx 20rpx;
+    font-size: small;
+    color: #606262;
+}
+
+.edit {
+    margin: 50rpx auto;
+    padding: 10rpx;
+    height: 300rpx;
+    /* box-shadow: 3rpx 3rpx 3rpx rgb(163, 163, 163); */
+    border: 2rpx solid #009FFF;
+}
+
+.label-choice{
+    padding: 24rpx;
+    display: flex;
+    font-size: medium;
+    color: #333333;
+    margin-left: 2%;
+    padding-left: 20rpx;
+}
+
+.label {
+    padding-bottom: 30rpx;
+}
+
+.count {
+    /* position: absolute; */
+    padding-left: 85%;
+    color: rgb(163, 163, 163);
+    margin: 5rpx 0;
+    font-size: small;
+    margin-top: 45rpx;
+}
+
+.icon {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 30rpx;
+    margin-top: -16rpx;
+}
+
+/* .last-icon{
+    margin-left: 80%;
+} */
+
+.icon view{
+    margin: 5rpx 15rpx;
+}
+
+.label-detai {
+    margin: 10rpx;
+    margin-left: 20rpx;
+}
+
+.lable-btn {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10rpx;
+}
+
+.label-button {
+    height: 40rpx;
+    line-height: 40rpx;
+    padding: 10rpx 30rpx;
+    border: 2rpx solid #ccc;
+    border-radius: 30rpx;
+    margin: 20rpx 20rpx;
+    font-size: small;
+    color: #606262;
+    margin-left: 70rpx;
+}
+
+.choice-label{
+    margin-left: 20rpx;
+    font-size: medium;
+    color: #606262;
+}
+
+.isActive{
+    background-color: #FFCC00;
+    color: white;
+}
+
+.textarea-wrp {
+    padding: 0 25rpx;
+    background-color: #fff;
+  }
+
+  .upLoad{
+      margin-top: -20rpx;
+  }
+  
+  .img{
+      margin-left: -240rpx
+  }

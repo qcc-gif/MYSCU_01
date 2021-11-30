@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "van-search": "/miniprogram/miniprogram_npm/@vant/weapp/search/index",
+    "frozenAccount":"/components/frozenAccount/frozenAccount"
+  },
+  "navigationBarTitleText": "冻结账号管理"
+  
+}

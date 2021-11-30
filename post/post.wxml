@@ -1,0 +1,69 @@
+<!-- pages/post/post.wxml -->
+<view class="main">
+    <view class="position box">
+        <view class="po-icon">
+            <van-icon name="location-o" color="#606262" size="25" />
+        </view>
+        <view class="pos-tab">
+            <van-tabs type="card" color='#56C5EF' title-inactive-color='#606262' active="{{ active }}" bind:change="onChangeTab">
+                <van-tab title="教学楼区">
+                    <view class="detail-pos">
+                        <view class="box-pos  {{pos_i==0 && pos_j==index?'isActive':''}}" wx:for="{{pos[0]}}" wx:key="index" data-i="0" data-j="{{index}}" 
+                        bindtap="choosePos">
+                            {{item}}
+                        </view>
+                    </view>
+                </van-tab>
+                <van-tab title="宿舍区">
+                    <view class="detail-pos">
+                        <view class="box-pos {{pos_i==1 && pos_j==index?'isActive':''}}" wx:for="{{pos[1]}}" wx:key="index" data-i="1" data-j="{{index}}" bindtap="choosePos">
+                            {{item}}
+                        </view>
+                    </view>
+                </van-tab>
+                <van-tab title="餐厅区">
+                    <view class="detail-pos">
+                        <view class="box-pos {{pos_i==2 && pos_j==index?'isActive':''}}" wx:for="{{pos[2]}}" wx:key="index" data-i="2" data-j="{{index}}" bindtap="choosePos">
+                            {{item}}
+                        </view>
+                    </view>
+                </van-tab>
+                <van-tab title="运动区">
+                    <view class="detail-pos">
+                        <view class="box-pos {{pos_i==3 && pos_j==index?'isActive':''}}" wx:for="{{pos[3]}}" wx:key="index" data-i="3" data-j="{{index}}" bindtap="choosePos">
+                            {{item}}
+                        </view>
+                    </view>
+                </van-tab>
+            </van-tabs>
+        </view>
+    </view>
+
+    <view class="label box">
+        <view class="label-choice">
+            <van-icon color="#33333" name="label-o" size="20"/>
+            <view class="choice-label">选择其他标签(可选)</view>
+        </view>
+
+        <viwe class="lable-btn">
+            <view class="label-button {{otherJ == index ? 'isActive': ''}}" wx:for="{{label}}" wx:key="index" data-j="{{index}}" bindtap="chooseLabel">
+                {{item}}
+            </view>
+        </viwe>
+    </view>
+
+    <view class="edit box">
+        <view class="textarea-wrp">
+            <textarea bindinput="GetMsg" auto-focus="true" adjust-position style="height: 8em"  placeholder="请分享你的校园生活" maxlength="120" />
+        </view>
+        <view class="count">{{msg.length}}/120</view>
+    </view>
+
+    <view class="icon">
+        <view><van-icon wx:if='{{!imgFilePath}}' name="photo-o" size="70" color='#bfbfbf' bind:click='browse'/> </view>
+        <van-image wx:if='{{imgFilePath}}' class="img" slot="loading" width="70" height="70" src="{{imgFilePath}}" bindlongpress="deleteImage"/>
+        <view class="last-icon" style="margin-left: 160rpx;" bindtap="onClickSend">
+            <van-icon name="guide-o" color='#009FFF' size="30" />
+        </view>
+    </view>
+</view>
