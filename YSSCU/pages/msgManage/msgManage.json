@@ -1,6 +1,0 @@
-{
-  "usingComponents": {
-    "myMsg":"/components/myMsg/myMsg"
-  },
-  "navigationBarTitleText": "系统消息"
-}
