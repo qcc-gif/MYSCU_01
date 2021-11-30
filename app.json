@@ -1,0 +1,89 @@
+{
+  "pages": [ 
+    "pages/mypost/mypost",
+    "pages/myComment/myComment",
+    "pages/myCollection/myCollection",
+    "pages/adminstorFullText/adminstorFullText",
+    "pages/adminstorPost/adminstorPost",
+    "pages/accountManage/accountManage",
+    "pages/reportManage/reportManage",
+    
+    "pages/searchPost/searchPost",
+    "pages/searchUser/searchUser",
+    "pages/frozenAccount/frozenAccount",
+    "pages/square/square",
+    "pages/messageNotice/messageNotice",
+    "pages/adminstor/adminstor", 
+    "pages/post/post",
+    "pages/morefunc/morefunc",
+    "pages/map/map",
+    "pages/appeal/appeal",
+    "pages/report/report",
+    "pages/mine/mine",
+    "pages/frozen/frozen",
+    "pages/reward/reward",
+    "pages/adminlogin/adminlogin",
+    "pages/userlogin/userlogin",
+
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示" 
+    }
+  },
+
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/map/map",
+        "text": "地图",
+        "iconPath": "./static/icons/map-u.png",
+        "selectedIconPath":"./static/icons/map.png"
+      },
+      {
+        "pagePath": "pages/square/square",
+        "text": "广场",
+        "iconPath": "./static/icons/comment-u.png",
+        "selectedIconPath":"./static/icons/comment.png"
+      },
+      {
+        "pagePath": "pages/post/post",
+        "text": "",
+        "iconPath": "./static/icons/plus.png",
+        "selectedIconPath":"./static/icons/plus.png",
+        "size":""
+      },
+      {
+        "pagePath": "pages/morefunc/morefunc",
+        "text": "多功能",
+        "iconPath": "./static/icons/more-u.png",
+        "selectedIconPath":"./static/icons/more.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "./static/icons/mine-u.png",
+        "selectedIconPath":"./static/icons/mine.png"
+      }
+    ],
+    "selectedColor" : "#EE0A24"
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "YSSCU",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json",
+  "usingComponents": {
+    "van-grid": "/miniprogram/miniprogram_npm/@vant/weapp/grid/index",
+    "van-grid-item": "/miniprogram/miniprogram_npm/@vant/weapp/grid-item/index",
+    "van-image": "/miniprogram/miniprogram_npm/@vant/weapp/image/index",
+    "van-icon": "/miniprogram/miniprogram_npm/@vant/weapp/icon/index",
+    "van-button": "/miniprogram/miniprogram_npm/@vant/weapp/button/index",
+    "van-field": "/miniprogram/miniprogram_npm/@vant/weapp/field/index"
+  }
+}
