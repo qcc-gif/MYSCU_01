@@ -1,10 +1,14 @@
 <view class="main">
     <view class="top">
         <view class="pic-avtor">
-            <van-image round width="100%" height="100%" src="https://img.yzcdn.cn/vant/cat.jpeg" />
+            <!-- <van-image round width="100%" height="100%" src="https://img.yzcdn.cn/vant/cat.jpeg" /> -->
+            <open-data type="userAvatarUrl"></open-data>
         </view>
         <view class="desc">
-            <view class="name">{{name}}</view>
+            <!-- <view class="name">{{name}}</view> -->
+            <view style="height: 50rpx;">
+            <open-data type="userNickName"></open-data>
+        </view>
             <view class="time">{{time}}</view>
         </view>
     </view>

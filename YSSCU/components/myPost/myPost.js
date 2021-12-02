@@ -1,28 +1,32 @@
 Component({
     properties: {
       postId:{
-        type: String,
-        value: '1'
+        type: Number,
+        value: 1
       },//帖子id
     profilePhoto:{
         type:String,
         value: 'https://img.yzcdn.cn/vant/cat.jpeg'
     },
     studentNumber:{
-      type: String,
-      value: '20191414'
+      type: Number,
+      value: 20191414
     },
     name: {
         type: String,
         value: '大白'
       },
-      position1: {
+      position: {
         type: String,
         value: '教学楼'
       },
-      position2: {
+      place: {
         type: String,
         value: '一教'
+      },
+      label:{
+        type:String,
+        value:''
       },
       time: {
         type: String,
@@ -37,33 +41,48 @@ Component({
         value: "这里是我发的帖子这里是我发的帖子这里是我发的帖子这里是我发的帖子这里是我发的帖子这里是我发的帖子这里是我发的帖子这里是我发的帖子这里是我发的帖子这里是我发的帖子这里是我发的帖子这里是我发的帖子这里是我发的帖子这里是我发的帖子这里是我发的帖子这里是我发的帖子"
       },
       thumbnum:{
-        type: String,
-        value: '1'
+        type: Number,
+        value: 1
       },
-      thumbStatus:{//点赞状态
-        type:Boolean,
-        value:'true'
-      },
+      
       chatnum:{
-        type: String,
-        value: '1'
+        type: Number,
+        value: 1
       },
       sharenum:{
-        type: String,
-        value: '1'
+        type: Number,
+        value: 1
       },
       starnum:{
-        type: String,
-        value: '1'
+        type: Number,
+        value: 1
 
       },
-      starStatus:{//收藏状态
-        type:Boolean,
-        value:'true'
-      }
     },
     data: {
-      
+      thumbStatus:'',//点赞状态
+      starStatus:''//收藏状态
+    },
+    lifetimes:{
+      attached: function() {
+        // 在组件实例进入页面节点树时执行
+        let url=app.globalData.url+''
+        api.post(url,{
+          postId:this.data.postId,
+          userId:''
+        }).then((res)=>{
+          if(res.data.success){
+            this.setData({
+              thumbStatus:'',
+              starStatus:''
+            })
+          }
+          else{
+            console.log(res.data)
+          }
+        })
+      },
+
     },
     methods: {
       fullDetails(){//跳转帖子详情
@@ -71,57 +90,6 @@ Component({
           url: '/pages/fullText/fullText?postId='+this.postId,
         })
       },
-    thumb(){//点赞
-      return this.updatePostData('thumb');
-      this.setData({
-        thumbnum:thumbnum,
-        thumbStatus:thumbStatus
-      })
-    },
-    chat(){//评论
-
-    },
-    share(){//分享
-
-    },
-    star(){//收藏
-      return this.updatePostData('star');
-      this.setData({
-        starnum:starnum,
-        starStatus:starStatus,
-      })
-    },
-    //更新本地的点赞、评论信息、收藏、阅读量
-    updatePostData(category){
-      switch(category){
-          case 'star':
-            //处理收藏
-            if(!starStatus){
-              //如果当前状态是未收藏
-              starnum++;
-              starStatus = true;
-            }else{
-              //如果当前状态是已收藏
-              starnum--;
-              starStatus = false;
-            }
-            break;
-          case 'thumb':
-            //处理点赞
-            if(!thumbStatus){
-              //如果当前状态是未点赞
-              thumbnum++;
-              thumbStatus = true;
-            }else{
-              //如果当前状态是已点赞
-              thumbnum--;
-              thumbStatus = false;
-            }
-            break;
-          default:break;
-    
-      }
-    },
      
     }
   })

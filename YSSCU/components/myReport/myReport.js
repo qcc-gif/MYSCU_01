@@ -1,12 +1,12 @@
 Component({
     properties: {
       userId:{
-        type: String,
-        value: '1'
+        type: Number,
+        value: 1
       },
       studentNumber:{
-        type: String,
-        value: '20191414'
+        type: Number,
+        value: 20191414
       },
       name: {
         type: String,
@@ -16,10 +16,6 @@ Component({
         type:String,
         value: 'https://img.yzcdn.cn/vant/cat.jpeg'
     },
-      position: {
-        type: String,
-        value: '教学楼 一教'
-      },
       time: {
         type: String,
         value: '2000年11月14日 14:00'
@@ -33,42 +29,45 @@ Component({
       isDelete:'true'
     },
     methods: {
-      // retainClick(){
-      //      this.setData({
-      //       isDelete:false
-      //      })
-      //      this.deleteClick();
-      // },
-      // deleteClick(){
-      //   this.setData({
-      //     isDelete:true
-      //    })
-      //    this.deleteClick();
-      // },
-      // determineClick(){
-      //   var that=this
-      //         wx.showLoading({
-      //           title: '正在发送...',
-      //         });
-      //         let url = app.globalData.url + ''
-      //         api.post(url, {
-      //           "openid": app.globalData.openid,
-      //           'userId':that.data.userId,
-      //           'isDelete':that.data.isDelete
-      //         }).then((res) => {
-      //           if(res.data.success){
-      //               wx.showToast({
-      //                   title: '发送成功！',
-      //               })
-      //               console.log(res.data);
-      //           }
-      //           else{
-      //               wx.showToast({
-      //                   title: '发送失败！',
-      //               })
-      //           }
-      //         })
-      // }
+      retainClick(){
+           this.setData({
+            isDelete:false
+           })
+           this.determineClick();
+      },
+      deleteClick(){
+        this.setData({
+          isDelete:true
+         })
+         this.determineClick();
+      },
+      determineClick(){
+        var that=this
+              wx.showLoading({
+                title: '正在发送...',
+              });
+              if(isDelete){
+                let url = app.globalData.url + ''//系统删除
+              }else{
+                let url = app.globalData.url + ''//保留
+              }
+              api.post(url, {
+                openid: app.globalData.openid,
+                userId:that.data.userId,
+              }).then((res) => {
+                if(res.data.success){
+                    wx.showToast({
+                        title: '发送成功！',
+                    })
+                    console.log(res.data);
+                }
+                else{
+                    wx.showToast({
+                        title: '发送失败！',
+                    })
+                }
+              })
+      }
   
     }
   })

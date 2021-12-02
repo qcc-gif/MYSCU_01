@@ -5,12 +5,12 @@ Component({
      */
     properties: {
       studentNumber:{
-        type: String,
-        value: '20191414'
+        type: Number,
+        value: 20191414
       },
         userId:{
             type:Number,
-            value: '1'
+            value: 1
         },
         profilePhoto:{
             type:String,
@@ -19,10 +19,6 @@ Component({
         name: {
             type: String,
             value: '大白'
-          },
-          position: {
-            type: String,
-            value: '教学楼 一教'
           },
           time: {
             type: String,
@@ -59,15 +55,19 @@ Component({
               wx.showLoading({
                 title: '正在发送...',
               });
-              let url = app.globalData.url + ''
+              if(isAgree){
+                let url = app.globalData.url + ''//同意
+              }else{
+                let url = app.globalData.url + ''//拒绝
+              }
               api.post(url, {
                 "openid": app.globalData.openid,
                 'userId':that.data.userId,
-                'isAgree':that.data.isAgree
               }).then((res) => {
                 if(res.data.success){
                     wx.showToast({
                         title: '发送成功！',
+                        
                     })
                     console.log(res.data);
                 }

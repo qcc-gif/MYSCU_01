@@ -2,11 +2,15 @@
 <view class="main">
     <view class="top" style="width: 636rpx; height: 76rpx; display: flex; box-sizing: border-box">
         <view class="pic-avtor">
-            <van-image style="margin-left: 10rpx;"round size="80%"width="80%" height="80%" src="{{profilePhoto}}" />
+            <!-- <van-image style="margin-left: 10rpx;"round size="80%"width="80%" height="80%" src="{{profilePhoto}}" /> -->
+            <open-data type="userAvatarUrl"></open-data>
         </view>
         <view class="desc">
             <view class="nameBox">
-            <view class="name">{{name}}</view>
+            <!-- <view class="name">{{name}}</view> -->
+            <view style="height: 50rpx;">
+            <open-data type="userNickName"></open-data>
+        </view>
             <view class="studentNumber">{{studentNumber}}</view>
             </view>
         </view>
@@ -14,12 +18,14 @@
         <van-icon style="width: 38rpx; height: 38rpx; display: flex; box-sizing: border-box"  class="delete" type="position"bindclick="delete"  name="clear" />
     </view>
     <text class="post"space="nbsp">{{detail}}</text>
-   
+    <view wx:if="{{photo}}" class="photo">
+        <cover-image round size="100%"width="100%" height="100%" src="{{photo}}"/>
+    </view>
+    <view wx:else></view>
     <view class="btn-box">
         <view class="time">{{time}}</view>
         <view class="btn"catchtap="thumb">
-            <van-icon wx:if="{{thumbStatus}}"name="thumb-circle" />
-            <van-icon wx:else name="thumb-circle"color="red" />
+            <van-icon name="thumb-circle" />
             <view>{{thumbnum}}</view>
         </view>
     </view>

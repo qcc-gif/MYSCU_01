@@ -14,8 +14,8 @@
 }
 
 .pic-avtor {
-    width: 120rpx;
-    height: 120rpx;
+    width: 100rpx;
+    height: 100rpx;
     border-radius: 50%;
     /* border: 2rpx solid #000; */
     margin-right: 20rpx;
@@ -70,4 +70,10 @@
 }
 .btn view {
     padding-left: 10rpx;
+}
+.photo{
+    width: 200rpx;
+    height: 200rpx;
+    margin-right: 20rpx;
+    margin-left: 20rpx;
 }

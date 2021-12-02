@@ -5,28 +5,32 @@ Component({
      */
     properties: {
         postId:{
-            type: String,
-            value: '1'
+            type: Number,
+            value: 1
           },//帖子id
         profilePhoto:{
             type:String,
             value: 'https://img.yzcdn.cn/vant/cat.jpeg'
         },
         studentNumber:{
-          type: String,
-          value: '20191414'
+          type: Number,
+          value: 20191414
         },
         name: {
             type: String,
             value: '大白'
           },
-          position1: {
+          position: {
             type: String,
             value: '教学楼'
           },
-          position2: {
+          place: {
             type: String,
             value: '一教'
+          },
+          label:{
+            type:String,
+            value:''
           },
           time: {
             type: String,
@@ -41,20 +45,20 @@ Component({
             value: "这里是我发的帖子这里是我发的帖子这里是我发的帖子这里是我发的帖子这里是我发的帖子这里是我发的帖子这里是我发的帖子这里是我发的帖子这里是我发的帖子这里是我发的帖子这里是我发的帖子这里是我发的帖子这里是我发的帖子这里是我发的帖子这里是我发的帖子这里是我发的帖子"
           },
           thumbnum:{
-            type: String,
-            value: '1'
+            type: Number,
+            value: 1
           },
           chatnum:{
-            type: String,
-            value: '1'
+            type: Number,
+            value: 1
           },
           sharenum:{
-            type: String,
-            value: '1'
+            type: Number,
+            value: 1
           },
           starnum:{
-            type: String,
-            value: '1'
+            type: Number,
+            value: 1
     
           }
 
@@ -64,7 +68,6 @@ Component({
      * 组件的初始数据
      */
     data: {
-        isDelete:false//falae删除，true保留
     },
 
     /**
@@ -72,39 +75,29 @@ Component({
      */
     methods: {
         delete(){//叉删除
-          this.setData({
-            isDelete:true
-          })
           console.log(this.data.isDelete,this.data.postId)
           
-            // let url = app.globalData.url + ''
-            //         api.post(url, {
-            //           "openid": app.globalData.openid,
-            //           'postId':this.data.postId,
-            //           'isDelete':this.data.isDelete
-            //         }).then((res) => {
-            //           if(res.data.success){
-            //              console.log(this.data.isDelete)
-            //           }
-            //         })
+            let url = app.globalData.url + ''
+                    api.post(url, {
+                      openid: app.globalData.openid,
+                      pid:this.data.postId,
+                    }).then((res) => {
+                      if(res.data.success){
+                        console.log(res.data)
+                     }
+                     else(
+                       wx.showToast({
+                         title: '无法删除帖子，请稍后再试',
+                         icon:'none'
+                       })
+                     )
+                    })
 
         },
         fullDetails(){//点击帖子跳转详情
           wx.navigateTo({
             url: '/pages/adminstorFullText/adminstorFullText?postId='+this.data.postId,
           })
-
-        },
-        thumb(){//点赞
-
-        },
-        chat(){//评论
-
-        },
-        share(){//分享
-
-        },
-        star(){//收藏
 
         }
 

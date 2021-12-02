@@ -5,20 +5,20 @@ Component({
      */
     properties: {
         postId:{
-            type: String,
-            value: '1'
+            type: Number,
+            value: 1
           },//帖子id
           commentId:{
-            type: String,
-            value: '1'
+            type: Number,
+            value: 1
           },
         profilePhoto:{
             type:String,
             value: 'https://img.yzcdn.cn/vant/cat.jpeg'
         },
         studentNumber:{
-          type: String,
-          value: '20191414'
+          type: Number,
+          value: 20191414
         },
         name: {
             type: String,
@@ -33,13 +33,13 @@ Component({
             value: "这里是我发的评论"
           },
           thumbnum:{
-            type: String,
-            value: '1'
+            type: Number,
+            value: 1
           },
-          thumbStatus:{//点赞状态
-            type:Boolean,
-            value:'true'
-          },
+          photo:{
+            type:String,
+            value: 'https://img.yzcdn.cn/vant/cat.jpeg'
+          }
 
     },
 
@@ -47,7 +47,6 @@ Component({
      * 组件的初始数据
      */
     data: {
-
     },
 
     /**
@@ -55,46 +54,23 @@ Component({
      */
     methods: {
         delete(){
-            this.setData({
-                isDelete:true
-              })
             console.log(this.data.isDelete,this.data.postId)
-            // let url = app.globalData.url + ''
-            //         api.post(url, {
-            //           "openid": app.globalData.openid,
-            //           'postId':this.data.postId,
-            //           'commentId':this.data.commentId,
-            //           'isDelete':this.data.isDelete
-            //         }).then((res) => {
-            //           if(res.data.success){
-            //              console.log(this.data.isDelete)
-            //           }
-            //         })
-        },
-        thumb(){//点赞
-          return this.updatePostData('thumb');
-          this.setData({
-            thumbnum:thumbnum,
-            thumbStatus:thumbStatus
-          })
-        },
-        updatePostData(category){
-          switch(category){
-              case 'thumb':
-                //处理点赞
-                if(!thumbStatus){
-                  //如果当前状态是未点赞
-                  thumbnum++;
-                  thumbStatus = true;
-                }else{
-                  //如果当前状态是已点赞
-                  thumbnum--;
-                  thumbStatus = false;
-                }
-                break;
-              default:break;
-        
-          }
+            let url = app.globalData.url + ''//删除评论
+                    api.post(url, {
+                      openid: app.globalData.openid,
+                      pid:this.postId,
+                      commentId:this.data.commentId,
+                    }).then((res) => {
+                      if(res.data.success){
+                         console.log(res.data)
+                      }
+                      else{
+                         wx.showToast({
+                           title: '无法删除评论，请稍后再试',
+                           icon:'none'
+                         })
+                      }
+                    })
         },
     }
 })

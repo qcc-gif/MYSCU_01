@@ -69,4 +69,9 @@
 .btn view {
     padding-left: 10rpx;
 }
-
+.photo{
+    width: 200rpx;
+    height: 200rpx;
+    margin-right: 20rpx;
+    margin-left: 20rpx;
+}

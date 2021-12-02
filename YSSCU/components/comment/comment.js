@@ -5,12 +5,12 @@ Component({
      */
     properties: {
         postId:{
-            type: String,
-            value: '1'
+            type: Number,
+            value: 1
           },//帖子id
           commentId:{
-            type: String,
-            value: '1'
+            type: Number,
+            value: 1
           },
         profilePhoto:{
             type:String,
@@ -29,12 +29,8 @@ Component({
             value: "这里是我发的评论"
           },
           thumbnum:{
-            type: String,
-            value: '1'
-          },
-          thumbStatus:{//点赞状态
-            type:Boolean,
-            value:'true'
+            type: Number,
+            value: 1
           },
 
     },
@@ -43,6 +39,27 @@ Component({
      * 组件的初始数据
      */
     data: {
+        thumbStatus:"true"
+    },
+    //组件生命周期
+    lifetimes:{
+      attached: function() {
+        // 在组件实例进入页面节点树时执行
+        let url=app.globalData.url+''//请求点赞状态
+        api.post(url,{
+          commentId:this.data.commentId,
+          studentnumber:app.globalData.studentnumber
+        }).then((res)=>{
+          if(res.data.success){
+            this.setData({
+              thumbStatus:''
+            })
+          }
+          else{
+            console.log(res.data)
+          }
+        })
+      },
 
     },
 
@@ -51,7 +68,23 @@ Component({
      */
     methods: {
       thumb(){//点赞
-        return this.updatePostData('thumb');
+        if(this.data.thumbStatus){
+          let url = app.globalData.url + ''
+        }else{
+          let url = app.globalData.url + ''
+        }
+          
+            api.post(url, {
+              pid:this.postId,
+              studentnumber:app.globalData.studentnumber
+            }).then((res) => {
+              if(res.data.success){
+                  this.setData({
+                    thumbStatus: !thumbStatus
+                  })
+              }
+            })
+        return this.updatePostData('thumb'),
         this.setData({
           thumbnum:thumbnum,
           thumbStatus:thumbStatus
@@ -77,7 +110,7 @@ Component({
       },
         report(){//举报
           wx.navigateTo({
-            url: '/pages/appeal/appeal?postId'+this.postId,
+            url: '/pages/appeal/appeal?postId'+this.data.postId+"commentId="+this.data.commentId
           })
       },
     }

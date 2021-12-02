@@ -5,12 +5,12 @@ Component({
      */
     properties: {
         studentNumber:{
-            type: String,
-            value: '20191414'
+            type: Number,
+            value: 20191414
           },
             userId:{
                 type:Number,
-                value: '1'
+                value: 1
             },
             profilePhoto:{
                 type:String,
@@ -21,8 +21,8 @@ Component({
                 value: '大白'
               },
               navigateId:{
-                type: String,
-                value: '1'
+                type: Number,
+                value: 1
               }
               
             
@@ -48,7 +48,7 @@ Component({
               }
               else{
                 wx.navigateTo({
-                    url: '/pages/messageNotice/messageNotice?studentNumber='+this.studentNumber+'userId='+this.userId+'name='+this.name+'profilePhoto='+this.profilePhoto,
+                    url: '/pages/messageNotice/messageNotice?studentNumber='+this.studentNumber+'name='+this.name+'profilePhoto='+this.profilePhoto,
                   })
               }
         }
