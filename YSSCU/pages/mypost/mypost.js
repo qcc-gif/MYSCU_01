@@ -18,21 +18,17 @@ Page({
           starnum: '2'
     }]
   },
-  onLoad: function () {
-    
-
-    },
     onShow: function (){
-       //     let url = 'url'
-    // // 请求我的历史发布帖子列表
-    // api.post(url, {  
-      
-    // }).then((res) => {
-    //    //展示我的历史发布帖子列表
-    //   this.setData({
-    //    postList：res.data
-    //   })
-    // })
+           let url = app.globalData.url+'url'
+    // 请求我的历史发布帖子列表
+    api.post(url, {  
+      openid: wx.getStorageInfoSync('openid')
+    }).then((res) => {
+       //展示我的历史发布帖子列表
+      this.setData({
+       postList:res.data
+      })
+    })
     }
   
 })

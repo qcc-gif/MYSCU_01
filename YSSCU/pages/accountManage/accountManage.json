@@ -3,6 +3,8 @@
     "van-search": "/miniprogram/miniprogram_npm/@vant/weapp/search/index",
     "complaint":"/components/complaint/complaint"
   },
-  "navigationBarTitleText": "申诉管理"
+  "navigationBarTitleText": "申诉管理",
+  "backgroundTextStyle":"dark",
+  "enablePullDownRefresh": true
   
 }

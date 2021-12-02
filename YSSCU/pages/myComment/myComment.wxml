@@ -1,0 +1,14 @@
+<!--pages/myComment/myComment.wxml-->
+<scroll-view scroll-y="true" style="height: auto;" >
+<view wx:for="{{commentList}}"wx:key="index">
+    <adminstorComment
+               profilePhoto="{{item.profilePhoto}}"
+               name="{{item.name}}"
+               time="{{item.time}}"
+               studentNumber=""
+               detail="{{item.detail}}"
+               thumbnum="{{item.thumbnum}}">
+    </adminstorComment>
+</view>
+</scroll-view>
+

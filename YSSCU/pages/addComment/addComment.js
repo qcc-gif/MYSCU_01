@@ -1,5 +1,5 @@
 const api = require("../../api/api");
-
+const app = getApp();
 // pages/addComment/addComment.js
 Page({
 
@@ -79,8 +79,8 @@ Page({
       else if(!this.data.imgFilePath&&this.data.msg){
         let url = app.globalData.url + 'url'
         api.post(url, {
-            postId:this.data.postId,
-            userId:this.data.userId,
+            pid:this.data.postId,
+            openid: wx.getStorageInfoSync('openid'),
             ptext: this.data.msg,
         }).then((res)=>{
             if(res.data.success){
@@ -102,8 +102,8 @@ Page({
       else{
           let url=app.globalData.url + 'url'
           api.post(url,{
-            postId:this.data.postId,
-            userId:this.data.userId,
+            pid:this.data.postId,
+            openid: wx.getStorageInfoSync('openid'),
             ptext: this.data.msg,
             img:this.data.imgFilePath
           }).then((res)=>{

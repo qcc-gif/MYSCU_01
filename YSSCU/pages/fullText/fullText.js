@@ -38,9 +38,14 @@ Page({
      */
     onLoad: function (options) {
         console.log(options.postId)
-        let url='url';
-     api.post(url, {  //请求帖子和评论列表
-        postId:options.postId
+        this.setData({
+            postId:options.postId
+        })
+    },
+    onShow: function (){
+        let url=app.globalData.url+'url';//请求帖子和评论列表
+     api.post(url, { 
+        pid:options.postId
     }).then((res) => {
     //展示帖子和评论列表
     if(res.data.success){
@@ -50,54 +55,7 @@ Page({
       })
     }
  })
-    },
-
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload: function () {
-
-    },
-
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh: function () {
-
-    },
-
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom: function () {
-
-    },
-
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage: function () {
 
     }
+    
 })
