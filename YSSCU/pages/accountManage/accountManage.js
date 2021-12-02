@@ -1,5 +1,6 @@
 // pages/accountManage/accountManage.js
-var app = getApp();
+const api = require("../../api/api")
+const app = getApp();
 Page({
 
     /**
@@ -11,7 +12,6 @@ Page({
         studentNumber: '2019',
         profilePhoto: 'https://img.yzcdn.cn/vant/cat.jpeg',
         name:  '大白',
-          position:'教学楼 一教',
           time:'2000年11月14日 14:00',
           reason:  "言论过激，以后注意。"
           }]
@@ -28,8 +28,8 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function () {
-    //     let url = 'url'
-    // // 请求申诉列表
+        let url = app.globalData.url+'url'
+    // 请求申诉列表
     // api.post(url, {  
       
     // }).then((res) => {

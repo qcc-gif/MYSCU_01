@@ -7,7 +7,7 @@
     >
         <view slot="action" bind:tap="onSearch">搜索</view>
     </van-search>
-    <scroll-view scroll-y="true" style="height: auto;" >
+    <scroll-view scroll-y="true" style="height: 1230rpx;" >
 <view wx:for="{{complaintList}}"wx:key="id">
     <complaint userId="{{item.userId}}"
                profilePhoto="{{item.profilePhoto}}"

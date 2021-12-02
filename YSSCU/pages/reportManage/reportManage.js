@@ -1,5 +1,6 @@
 // pages/reportManage/reportManage.js
-var app = getApp();
+const api = require("../../api/api")
+const app = getApp();
 Page({
   data: {
     reportList:[{id:'1',
@@ -15,16 +16,6 @@ Page({
 
   },
   onLoad: function () {
-    //     let url = 'url'
-    // // 请求举报列表
-    // api.post(url, {  
-      
-    // }).then((res) => {
-    //    //展示举报列表
-    //   this.setData({
-    //    reportList：res.data
-    //   })
-    // })
 
     },
 
@@ -39,7 +30,16 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-
+        //     let url = 'url'
+    // // 请求举报列表
+    // api.post(url, {  
+      
+    // }).then((res) => {
+    //    //展示举报列表
+    //   this.setData({
+    //    reportList：res.data
+    //   })
+    // })
     },
 
     /**

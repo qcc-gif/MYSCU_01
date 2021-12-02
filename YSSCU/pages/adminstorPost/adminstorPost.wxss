@@ -11,11 +11,11 @@
 
 .right {
     margin-top: 3%;
+    width: auto;
     display: flex;
     border: 2rpx solid #333;
     border-radius: 10rpx;
     height: 60rpx;
-    margin-left: auto;
 }
 
 

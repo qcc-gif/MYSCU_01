@@ -1,4 +1,6 @@
 // pages/adminstorFullText/adminstorFullText.js
+const api = require("../../api/api")
+const app = getApp();
 Page({
 
     /**
@@ -36,17 +38,9 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        console.log(options.postId)
-        // let url='url';
-     // api.post(url, {  //请求帖子和评论列表
-        //"postId":this.data.options.postId
- // }).then((res) => {
- //    //展示帖子和评论列表
- //   this.setData({
- //    postList：res.data
- //commentList：
- //   })
- // })
+        this.setData({
+            postId:options.postId
+        })
 
     },
 
@@ -61,7 +55,19 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-
+        console.log(options.postId)
+        let url=app.globalData.url+'url';
+     api.post(url, {  //请求帖子和评论列表
+        postId:this.d
+     }).then((res) => {
+    //展示帖子和评论列表
+    if(res.data.success){
+       this.setData({
+       postList:res.data,
+       commentList:''
+      })
+   }
+ })
     },
 
     /**

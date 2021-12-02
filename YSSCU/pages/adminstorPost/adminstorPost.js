@@ -1,4 +1,6 @@
 // pages/adminstorPost/adminstorPost.js
+const api = require("../../api/api")
+const app = getApp();
 Page({
     data: {
       active: 0,
@@ -22,20 +24,30 @@ Page({
           starnum: '2'
       }]
     },
-    onLoad: function () {
-       
+    onLoad: function (options) {
+      console.log(options)
+      let url = app.globalData.url+'';
+      api.post(url, {  //请求所有帖子
+          
+    }).then((res) => {
+      //展示搜索结果
+     this.setData({
+         
+     })
+     console.log(res)
+   })
     
         },
         searchResult:function(keyWord) {
-            // let url="url?keyWord="+keyWord;
-             // api.post(url, {  
+            let url="url?keyWord="+keyWord;
+             api.post(url, {  
                 
-         // }).then((res) => {
-         //    //展示搜索结果
-         //   this.setData({
-         //    searchResultList：res.data
-         //   })
-         // })
+         }).then((res) => {
+            //展示搜索结果
+           this.setData({
+            searchResultList:res.data
+           })
+         })
      
      
          },

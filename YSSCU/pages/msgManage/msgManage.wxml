@@ -1,0 +1,9 @@
+<!--pages/systempost/systempost.wxml-->
+<scroll-view scroll-y="true" style="height: auto;" >
+<view wx:for="{{msgList}}"wx:key="id">
+    <myMsg  name="{{item.name}}"
+            time="{{item.time}}"
+            msg="{{item.msg}}">
+    </myMsg>
+</view>
+</scroll-view>

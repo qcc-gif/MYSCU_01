@@ -1,4 +1,6 @@
 // pages/mypost/mypost.js
+const api = require("../../api/api")
+const app = getApp();
 Page({
   data: {
     postList:[{
@@ -17,7 +19,11 @@ Page({
     }]
   },
   onLoad: function () {
-    //     let url = 'url'
+    
+
+    },
+    onShow: function (){
+       //     let url = 'url'
     // // 请求我的历史发布帖子列表
     // api.post(url, {  
       
@@ -27,6 +33,6 @@ Page({
     //    postList：res.data
     //   })
     // })
-
     }
+  
 })

@@ -1,15 +1,17 @@
 <!--pages/adminstorFullText/adminstorFullText.wxml-->
-<scroll-view scroll-y="true" style="height: auto;" >
+<scroll-view scroll-y="true" style="height: 1440rpx;" >
 <view wx:for="{{postList}}"wx:key="index">
     <adminstorFullText postId="{{item.postId}}"
                profilePhoto="{{item.profilePhoto}}"
                name="{{item.name}}"
                studentNumber="{{item.studentNumber}}"
-               position1="{{item.position1}}"
-               position2="{{item.position2}}"
+               position="{{item.position}}"
+               place="{{item.place}}"
+               label="{{item.label}}"
                title="{{item.title}}"
                time="{{item.time}}"
                detail="{{item.detail}}"
+               photo="{{item.photo}}"
                thumbnum="{{item.thumbnum}}"
                chatnum="{{item.chatnum}}"
                sharenum="{{item.sharenum}}"
@@ -23,6 +25,7 @@
                time="{{item.time}}"
                studentNumber="{{item.studentNumber}}"
                detail="{{item.detail}}"
+               photo="{{item.photo}}"
                thumbnum="{{item.thumbnum}}">
     </adminstorComment>
 </view>

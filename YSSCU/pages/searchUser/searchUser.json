@@ -1,8 +1,7 @@
 {
   "usingComponents": {
     "van-search": "/miniprogram/miniprogram_npm/@vant/weapp/search/index",
-    "searchUserId":"/components/searchUserId/searchUserId",
-    "frozenAccount":"/components/frozenAccount/frozenAccount"
+    "searchUserId":"/components/searchUserId/searchUserId"
   },
   "navigationBarTitleText": "搜索用户"
 }

@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "van-field": "/miniprogram/miniprogram_npm/@vant/weapp/field/index",
+    "van-image": "/miniprogram/miniprogram_npm/@vant/weapp/image/index",
+    "van-icon": "/miniprogram/miniprogram_npm/@vant/weapp/icon/index"
+  },
+  "navigationBarTitleText": "发布评论"
+}

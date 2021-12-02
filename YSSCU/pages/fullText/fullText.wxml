@@ -1,14 +1,16 @@
 <!--pages/fullText/fullText.wxml-->
-<scroll-view scroll-y="true" style="height: auto;" >
+<scroll-view scroll-y="true" style="height: 1430rpx;" >
 <view wx:for="{{postList}}"wx:key="index">
     <fullText postId="{{item.postId}}"
                profilePhoto="{{item.profilePhoto}}"
                name="{{item.name}}"
-               position1="{{item.position1}}"
-               position2="{{item.position2}}"
+               position="{{item.position1}}"
+               place="{{item.place}}"
+               label="{{item.label}}"
                title="{{item.title}}"
                time="{{item.time}}"
                detail="{{item.detail}}"
+               photo="{{item.photo}}"
                thumbnum="{{item.thumbnum}}"
                chatnum="{{item.chatnum}}"
                sharenum="{{item.sharenum}}"
@@ -21,7 +23,10 @@
                name="{{item.name}}"
                time="{{item.time}}"
                detail="{{item.detail}}"
+               photo="{{item.photo}}"
                thumbnum="{{item.thumbnum}}">
     </comment>
 </view>
 </scroll-view>
+
+

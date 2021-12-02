@@ -10,14 +10,15 @@
    
     <view class="plain"></view>
     <view class="box-post">
-        <scroll-view scroll-y="true" style="height: auto;" >
+        <scroll-view scroll-y="true" style="height: 1300rpx;" >
     <view wx:for="{{postList}}"wx:key="index">
     <adminstorPost postId="{{item.postId}}"
                profilePhoto="{{item.profilePhoto}}"
                name="{{item.name}}"
                studentNumber="{{item.studentNumber}}"
-               position1="{{item.position1}}"
-               position2="{{item.position2}}"
+               position="{{item.position}}"
+               place="{{item.place}}"
+               label="{{item.label}}"
                title="{{item.title}}"
                time="{{item.time}}"
                detail="{{item.detail}}"
