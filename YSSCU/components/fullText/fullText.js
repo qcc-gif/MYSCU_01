@@ -77,10 +77,10 @@ Component({
     lifetimes:{
       attached: function() {
         // 在组件实例进入页面节点树时执行
-        let url=app.globalData.url+''
+        let url=app.globalData.url+'url'//请求帖子的点赞状态和收藏状态
         api.post(url,{
-          postId:this.data.postId,
-          userId:''
+          pid:this.data.postId,
+          openid: wx.getStorageInfoSync('openid')
         }).then((res)=>{
           if(res.data.success){
             this.setData({
@@ -106,15 +106,15 @@ Component({
             })
         },
         thumb(){//点赞
-          if(this.data.thumbStatus){//未点赞
-            let url = app.globalData.url + ''
-          }else{//已点赞
-            let url = app.globalData.url + ''
+          if(this.data.thumbStatus){//取消点赞
+            let url = app.globalData.url + 'url'
+          }else{//点赞
+            let url = app.globalData.url + 'url'
           }
             
               api.post(url, {
-                pid:this.postId,
-                studentnumber:app.globalData.studentnumber
+                pid:this.data.postId,
+                openid: wx.getStorageInfoSync('openid')
               }).then((res) => {
                 if(res.data.success){
                     this.setData({
@@ -124,11 +124,11 @@ Component({
                   console.log(res.data)
                 }
               })
-          return this.updatePostData('thumb'),
-          this.setData({
-            thumbnum:thumbnum,
-            thumbStatus:thumbStatus
-          })
+          // return this.updatePostData('thumb'),
+          // this.setData({
+          //   thumbnum:thumbnum,
+          //   thumbStatus:thumbStatus
+          // })
         },
         chat(){//评论
            wx.navigateTo({
@@ -160,61 +160,61 @@ Component({
 },
         star(){//收藏
           if(this.data.starStatus){
-            let url = app.globalData.url + ''
+            let url = app.globalData.url + 'url'//取消收藏
           }else{
-            let url = app.globalData.url + ''
+            let url = app.globalData.url + 'url'//收藏
           }
               api.post(url, {
-                postId:this.postId,
-                studentnumber:app.globalData.studentnumber
+                pid:this.data.postId,
+                openid: wx.getStorageInfoSync('openid')
               }).then((res) => {
                 if(res.data.success){
                     this.setData({
-                      starnum:starnum,
-                      starStatus:starStatus,
+                      starnum:!starnum,
+                      starStatus:!starStatus,
                     })
                 }
                 else{
                   console.log(res.data)
                 }
               })
-          return this.updatePostData('star'),
-          this.setData({
-            starnum:starnum,
-            starStatus:starStatus,
-          })
+          // return this.updatePostData('star'),
+          // this.setData({
+          //   starnum:starnum,
+          //   starStatus:starStatus,
+          // })
         },
         //更新本地的点赞、收藏[]
-        updatePostData(category){
-          switch(category){
-              case 'star':
-                //处理收藏
-                if(!starStatus){
-                  //如果当前状态是未收藏
-                  starnum++;
-                  starStatus = true;
-                }else{
-                  //如果当前状态是已收藏
-                  starnum--;
-                  starStatus = false;
-                }
-                break;
-              case 'thumb':
-                //处理点赞
-                if(!thumbStatus){
-                  //如果当前状态是未点赞
-                  thumbnum++;
-                  thumbStatus = true;
-                }else{
-                  //如果当前状态是已点赞
-                  thumbnum--;
-                  thumbStatus = false;
-                }
-                break;
-              default:break;
+        // updatePostData(category){
+        //   switch(category){
+        //       case 'star':
+        //         //处理收藏
+        //         if(!starStatus){
+        //           //如果当前状态是未收藏
+        //           starnum++;
+        //           starStatus = true;
+        //         }else{
+        //           //如果当前状态是已收藏
+        //           starnum--;
+        //           starStatus = false;
+        //         }
+        //         break;
+        //       case 'thumb':
+        //         //处理点赞
+        //         if(!thumbStatus){
+        //           //如果当前状态是未点赞
+        //           thumbnum++;
+        //           thumbStatus = true;
+        //         }else{
+        //           //如果当前状态是已点赞
+        //           thumbnum--;
+        //           thumbStatus = false;
+        //         }
+        //         break;
+        //       default:break;
         
-          }
-        },
+        //   }
+        // },
 
     }
 })

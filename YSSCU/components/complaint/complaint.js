@@ -56,13 +56,13 @@ Component({
                 title: '正在发送...',
               });
               if(isAgree){
-                let url = app.globalData.url + ''//同意
+                let url = app.globalData.url + ''//同意解冻
               }else{
-                let url = app.globalData.url + ''//拒绝
+                let url = app.globalData.url + ''//拒绝解冻
               }
               api.post(url, {
-                "openid": app.globalData.openid,
-                'userId':that.data.userId,
+                openid: wx.getStorageInfoSync('openid'),
+                studentNumber:this.data.studentNumber
               }).then((res) => {
                 if(res.data.success){
                     wx.showToast({

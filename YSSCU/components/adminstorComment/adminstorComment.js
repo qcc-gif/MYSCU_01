@@ -55,14 +55,14 @@ Component({
     methods: {
         delete(){
             console.log(this.data.isDelete,this.data.postId)
-            let url = app.globalData.url + ''//删除评论
+            let url = app.globalData.url + 'url'//删除评论
                     api.post(url, {
-                      openid: app.globalData.openid,
+                      openid: wx.getStorageInfoSync('openid'),
                       pid:this.postId,
-                      commentId:this.data.commentId,
+                      commentId:this.data.commentId,//评论Id
                     }).then((res) => {
                       if(res.data.success){
-                         console.log(res.data)
+                         console.log(res.data)//返回一个状态，是否删除成功
                       }
                       else{
                          wx.showToast({

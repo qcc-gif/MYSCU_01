@@ -48,7 +48,7 @@ Component({
         let url=app.globalData.url+''//请求点赞状态
         api.post(url,{
           commentId:this.data.commentId,
-          studentnumber:app.globalData.studentnumber
+          openid: wx.getStorageInfoSync('openid')
         }).then((res)=>{
           if(res.data.success){
             this.setData({
@@ -69,9 +69,9 @@ Component({
     methods: {
       thumb(){//点赞
         if(this.data.thumbStatus){
-          let url = app.globalData.url + ''
+          let url = app.globalData.url + 'url'//取消点赞
         }else{
-          let url = app.globalData.url + ''
+          let url = app.globalData.url + 'url'//点赞
         }
           
             api.post(url, {
@@ -84,30 +84,30 @@ Component({
                   })
               }
             })
-        return this.updatePostData('thumb'),
-        this.setData({
-          thumbnum:thumbnum,
-          thumbStatus:thumbStatus
-        })
+        // return this.updatePostData('thumb'),
+        // this.setData({
+        //   thumbnum:thumbnum,
+        //   thumbStatus:thumbStatus
+        // })
       },
-      updatePostData(category){
-        switch(category){
-            case 'thumb':
-              //处理点赞
-              if(!thumbStatus){
-                //如果当前状态是未点赞
-                thumbnum++;
-                thumbStatus = true;
-              }else{
-                //如果当前状态是已点赞
-                thumbnum--;
-                thumbStatus = false;
-              }
-              break;
-            default:break;
+      // updatePostData(category){
+      //   switch(category){
+      //       case 'thumb':
+      //         //处理点赞
+      //         if(!thumbStatus){
+      //           //如果当前状态是未点赞
+      //           thumbnum++;
+      //           thumbStatus = true;
+      //         }else{
+      //           //如果当前状态是已点赞
+      //           thumbnum--;
+      //           thumbStatus = false;
+      //         }
+      //         break;
+      //       default:break;
       
-        }
-      },
+        // }
+      // },
         report(){//举报
           wx.navigateTo({
             url: '/pages/appeal/appeal?postId'+this.data.postId+"commentId="+this.data.commentId

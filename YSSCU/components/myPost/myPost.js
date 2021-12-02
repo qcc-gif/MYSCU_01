@@ -66,10 +66,10 @@ Component({
     lifetimes:{
       attached: function() {
         // 在组件实例进入页面节点树时执行
-        let url=app.globalData.url+''
+        let url=app.globalData.url+'url'//请求点赞状态和收藏状态
         api.post(url,{
-          postId:this.data.postId,
-          userId:''
+          pid:this.data.postId,
+          openid: wx.getStorageInfoSync('openid')
         }).then((res)=>{
           if(res.data.success){
             this.setData({

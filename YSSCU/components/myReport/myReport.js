@@ -47,9 +47,9 @@ Component({
                 title: '正在发送...',
               });
               if(isDelete){
-                let url = app.globalData.url + ''//系统删除
+                let url = app.globalData.url + 'url'//系统删除
               }else{
-                let url = app.globalData.url + ''//保留
+                let url = app.globalData.url + 'url'//保留
               }
               api.post(url, {
                 openid: app.globalData.openid,

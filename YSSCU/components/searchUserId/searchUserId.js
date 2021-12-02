@@ -41,7 +41,7 @@ Component({
     methods: {
         chooseUser(){//点击选择用户
               if(this.data.navigateId==1){
-                var result=this.studentNumber
+                var result=this.data.studentNumber
                 wx.navigateTo({
                     url: '/pages/frozenAccount/frozenAccount?result='+result,
                   })

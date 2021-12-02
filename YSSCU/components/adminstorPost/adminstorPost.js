@@ -77,9 +77,9 @@ Component({
         delete(){//叉删除
           console.log(this.data.isDelete,this.data.postId)
           
-            let url = app.globalData.url + ''
+            let url = app.globalData.url + 'url'//删除帖子
                     api.post(url, {
-                      openid: app.globalData.openid,
+                      openid: wx.getStorageInfoSync('openid'),
                       pid:this.data.postId,
                     }).then((res) => {
                       if(res.data.success){

@@ -79,15 +79,15 @@ Component({
      */
     methods: {
         delete(){
-          console.log(this.data.isDelete,this.data.postId)
+          console.log(this.data.postId)
           
-            let url = app.globalData.url + ''//删除帖子
+            let url = app.globalData.url + 'url'//删除帖子
                     api.post(url, {
-                      openid: app.globalData.openid,
+                      openid: wx.getStorageInfoSync('openid'),
                       pid:this.data.postId
                     }).then((res) => {
                       if(res.data.success){
-                         console.log(res.data)
+                         console.log(res.data)//返回状态
                       }
                       else(
                         wx.showToast({
