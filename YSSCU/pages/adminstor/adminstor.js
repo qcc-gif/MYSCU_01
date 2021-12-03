@@ -1,18 +1,18 @@
 // pages/adminstor/adminstor.js
 // 管理员界面
 import Dialog from "./../../miniprogram/miniprogram_npm/@vant/weapp/dialog/dialog"
-const app=getApp();
+const app = getApp();
 
 Page({
   data: {
-    name: "",
-    img: "",
+    adminName: "",
+    adminAvatarUrl: "",
   },
 
   onLoad: function (e) {
     this.setData({
-      name: e.name,
-      img: e.img,
+      adminName: e.adminName,
+      adminAvatarUrl: e.adminAvatarUrl,
     })
     console.log('info', e)
   },
@@ -29,8 +29,7 @@ Page({
       message: '确认退出？',
     }).then(() => {
         console.log('confirm')
-        wx.setStorageSync('openid', null)
-        wx.setStorageSync('account', null)
+        wx.setStorageSync('adminAccount', null)
         wx.reLaunch({
           url: '/pages/userlogin/userlogin',
         })

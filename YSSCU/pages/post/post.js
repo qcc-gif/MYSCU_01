@@ -1,4 +1,5 @@
-// const { get } = require("../../api/api")
+// post.js
+// 发帖界面
 const api = require("../../api/api")
 const app = getApp();
 
@@ -10,12 +11,13 @@ Page({
     ['一餐', '二餐', '牛肉馆', '小吃城', '美食广场','三餐'],
     ['一号场', '二号场', '体育馆', '游泳池']],
     label: ['失物招领','表白'],
-    newlabel: "",
-    msg: "",            // 输入的信息
-    openid: "",         // 用户openid
+    studentNumber: "",  // 用户学号
     pos_i: -1,          // 位置选择
     pos_j: -1,          // 位置选择
     otherJ: -1,         // 标签选择
+    ppos: "",           // 地点（必选）
+    plabel: "",         // 其他标签（可选）
+    ptext: "",          // 正文
     countIndex: 1,      // 上传图片的最大数量
     imgFilePath: null,  // 上传图片的路径
   },
@@ -51,9 +53,9 @@ Page({
   GetMsg: function(e){
     console.log('input', e.detail.value)
     this.setData({
-      msg: e.detail.value
+      ptext: e.detail.value
     })
-    console.log('message', this.data.msg.length)
+    
   },
 
   // 图片浏览及上传
@@ -93,60 +95,63 @@ Page({
 
   // 点击发送
   onClickSend: function(){
-    // 用户选择了地点标签
-    if(this.pos_i!=-1 && this.pos_j!=-1){
-      // 用户选择了其他标签？
-      if(this.data.otherJ==-1){
+    if(this.data.pos_i!=-1 && this.data.pos_j!=-1){ // 用户选择了地点标签
+      // 设置地点标签和正文
+      this.setData({
+        ppos: this.data.pos[this.data.pos_i][this.data.pos_j],
+      })
+      // 判断用户是否选择其他标签
+      if(this.data.otherJ!=-1){   // 用户选择了其他标签
         this.setData({
-          newlabel: null
+          plabel: this.data.label[this.data.otherJ]
         })
-      }else{
+      }else{  // 用户未选择其他标签
         this.setData({
-          newlabel: this.data.label[this.data.otherJ]
+          plabel: null,
         })
       }
-      let tmp_i = this.data.pos_i
-      let tmp_j = this.data.pos_j
-      let openid = wx.getStorageSync('openid')
-      let ppos = this.data.pos[tmp_i][tmp_j]
-      let plabel = this.data.newlabel
-      let ptext = this.data.msg
-      // 没有图片
-      if(!this.data.imgFilePath){
-         // 发送标签和文本
+    
+      // 发送
+      if(!this.data.imgFilePath){  // 用户没有发送图片
         let url = app.globalData.url + '/post'
-        console.log(this.data.pos[tmp_i][tmp_j])
         api.post(url, {
-          openid: openid,
-          ppos: ppos,
-          plabel: plabel,
-          ptext: ptext,
+          studentNumber: app.globalData.studentNumber,
+          ppos: this.data.ppos,
+          plabel: this.data.plabel,
+          ptext: this.data.ptext,
       }).then((res)=>{
-        if(res.data.success){
-          wx.showToast({
-            title: '发送成功',
-            icon: 'none'
+        if(res.statusCode == '200'){
+          wx.showLoading({
+            title: 'loading',
+          }).then((res) => {
+            wx.reLaunch({
+              url: '/pages/square/square',
+            })
           })
-          wx.reLaunch({
-            url: '/pages/square/square',
-          })
-        }else{
+          
+        }else{   
           wx.showToast({
             title: '发送失败',
             icon: 'none',
           })
         }
       })
-      }else{
-        // 发送图片 + 标签和文本
+      }else{    // 用户发送了图片
         let url = app.globalData.url + '/post/img'
         let filePath = this.data.imgFilePath
-        api.upload(url, filePath, "", openid, ppos, plabel, ptext).then((res)=>{
+        api.upload(url, filePath, {
+          studentNumber: app.globalData.studentNumber,
+          ppos: this.data.ppos, 
+          plabel: this.data.plabel, 
+          ptext: this.data.ptext
+        }).then((res)=>{
           console.log(res)
-          if(res.data.success){
+          if(res.statusCode=='200'){
+            console.log('continue')
             wx.showToast({
               title: '发送成功',
-              icon: 'none'
+              icon: 'none',
+              duration: 2000,
             })
             wx.reLaunch({
               url: '/pages/square/square',

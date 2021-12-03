@@ -1,0 +1,42 @@
+{
+    "setting": {},
+    "condition": {
+        "plugin": {
+            "list": []
+        },
+        "game": {
+            "list": []
+        },
+        "gamePlugin": {
+            "list": []
+        },
+        "miniprogram": {
+            "list": [
+                {
+                    "name": "pages/userlogin/userlogin",
+                    "pathName": "pages/userlogin/userlogin",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/map/map",
+                    "pathName": "pages/map/map",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/mine/mine",
+                    "pathName": "pages/mine/mine",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/post/post",
+                    "pathName": "pages/post/post",
+                    "query": "",
+                    "scene": null
+                }
+            ]
+        }
+    }
+}

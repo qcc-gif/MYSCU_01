@@ -3,19 +3,20 @@ const app = getApp();
 
 Page({
   data: {
-    account: "",    // 管理员账号
-    password: "",   // 管理员密码
+    adminAccount: "",    // 管理员账号
+    password: "",        // 管理员密码
     url: "",        
   },
 
   // 管理员无需重复登录
   onLoad: function() {
-    if (wx.getStorageSync('account')){
-      app.globalData.account = wx.getStorageSync('account');  // 有缓存就直接登录
-      let name = wx.getStorageInfoSync('name')
-      let img = wx.getStorageInfoSync('img')
+    // 有缓存就直接登录
+    if (wx.getStorageSync('adminAccount')){
+      app.globalData.account = wx.getStorageSync('adminAccount');  
+      var adminName = wx.getStorageInfoSync('adminName')
+      var adminAvatarUrl = wx.getStorageInfoSync('adminAvatarUrl')
       wx.reLaunch({
-        url:  `/pages/adminstor/adminstor?name=${name}&img=${img}`,
+        url:  `/pages/adminstor/adminstor?name=${adminName}&img=${adminAvatarUrl}`,
       })
     }
   },
@@ -28,9 +29,9 @@ Page({
   // 获取登录账号
   adminnumber: function(event){
     this.setData({
-     account: event.detail,
+     adminAccount: event.detail,
     })
-    console.log('account:', this.data.account)
+    console.log('account:', this.data.adminAccount)
   },
 
   // 获取密码
@@ -44,24 +45,22 @@ Page({
   // 点击登录
   register: function () {
     let url = app.globalData.url + '/admin/login'
-    console.log('url', url)
     api.post(url, {
-      account: this.data.account,
+      account: this.data.adminAccount,
       pwd: this.data.password,
     }).then((res)=>{  // 返回状态
       if(res.data.success){
-        let name = res.data.name
-        let img = res.data.img
-        app.globalData.account = this.data.account,
-        wx.setStorageSync('account', this.data.account)
-        wx.setStorageSync('name', name)
-        wx.setStorageSync('img', img)
+        app.globalData.adminAccount = this.data.adminAccount,
+        wx.setStorageSync('adminAccount', this.data.adminAccount)
+        wx.setStorageSync('adminName', res.data.adminName)
+        wx.setStorageSync('adminAvatarUrl', res.data.adminAvatarUrl)
         wx.reLaunch({
-          url: `/pages/adminstor/adminstor?name=${name}&img=${img}`,
+          url:  `/pages/adminstor/adminstor?adminName=${res.data.adminName}&adminAvatarUrl=${res.data.adminAvatarUrl}`,
         })
       }else{
-        wx.showModal({
-          cancelColor: 'cancelColor',
+        wx.showToast({
+          title: '账号或密码错误！',
+          icon: 'none',
         })
       }
     }).catch((err)=>{

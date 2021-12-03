@@ -47,23 +47,48 @@ Page({
         console.log(res.longitude, res.latitude, that.data.markers)
       }
     })
+
+    // setInterval(function () {
+    //   // console.log(res)
+    //   let that = this
+    //   let url = app.globalData.url+'/post/getpost'
+    //   // 请求总贴子数，今日新增，今日热门
+    //   api.post(url, {  
+
+    //   }).then((res) => {
+    //      //设置总贴子数，今日新增，今日热门
+    //     that.setData({
+    //       allPostNum: res.data.totalpost, 
+    //       addPostNum: res.data.todaypost,
+    //       hotSpot1: res.data,
+    //       hotSpot2: res.data,
+    //       hotSpot3: res.data,
+    //     })
+    //   })
+    // }, 600)  
+  }, 
+
+  onShow: function(){
+    console.log('onshow')
+    var that = this
     setInterval(function () {
-      console.log(res)
+      // console.log(res)
       let url = app.globalData.url+'/post/getpost'
       // 请求总贴子数，今日新增，今日热门
       api.post(url, {  
 
       }).then((res) => {
+        console.log('result', res)
          //设置总贴子数，今日新增，今日热门
-        this.setData({
+        that.setData({
           allPostNum: res.data.totalpost, 
           addPostNum: res.data.todaypost,
-          hotSpot1: res.data,
-          hotSpot2: res.data,
-          hotSpot3: res.data,
+          hotSpot1: res.data.hostpost1,
+          hotSpot2: res.data.hostpost2,
+          hotSpot3: res.data.hostpost3,
         })
       })
-    }, 60000)  
-  }, 
+    }, 6000000000)  
+  }
 
 })

@@ -9,7 +9,7 @@ Page({
     starnum: 10,
     commentnum: 10,
     showAction: false,
-    personLabel: "个人标签",
+    personLabel: "这个人很懒~",
     openid: "",
     hiddenmodalput: true,
     newLabel: "",
@@ -28,8 +28,7 @@ Page({
       success: function (res) {
         if (res.confirm) { //点击确定
           console.log('用户点击确定')
-          wx.setStorageSync('openid', null); 
-          wx.setStorageSync('studentnumber', null); 
+          wx.setStorageSync('studentNumber', null); 
           wx.reLaunch({
             url: '/pages/userlogin/userlogin', //跳去登录页
           })
@@ -50,7 +49,9 @@ Page({
     let url = app.globalData.url + '/mine/space'
     // 请求个人标签，我的发帖数，我的收藏数
     api.post(url, {  
-      "openid": wx.getStorageSync('openid'),
+        nickName: app.globalData.nickName,
+        studentAvatarUrl: app.globalData.studentAvatarUrl,
+        account: app.globalData.studentNumber,
     }).then((res) => {
        //设置个人标签，我的发帖数，我的收藏数，我的评论数
       this.setData({
@@ -71,7 +72,7 @@ Page({
     // post 个人标签
     let url = app.globalData.url + '/mine/label'
     api.post(url, {
-      "openid": wx.getStorageSync('openid'),
+      "account": app.globalData.studentNumber,
       "personLabel": this.data.personLabel, 
     }).then((res) => {
       if(res.data.success){
@@ -101,7 +102,7 @@ Page({
     // post 个人标签
     let url = app.globalData.url + '/mine/label'
     api.post(url, {
-      "openid": wx.getStorageSync('openid'),
+      "account": app.globalData.studentNumber,
       "personLabel": this.data.newLabel, 
     }).then((res) => {
       if(res.data.success){

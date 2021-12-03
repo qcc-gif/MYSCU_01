@@ -1,5 +1,6 @@
 {
   "pages": [ 
+    "pages/userlogin/userlogin",
     "pages/mypost/mypost",
     "pages/myComment/myComment",
     "pages/myCollection/myCollection",
@@ -23,7 +24,7 @@
     "pages/frozen/frozen",
     "pages/reward/reward",
     "pages/adminlogin/adminlogin",
-    "pages/userlogin/userlogin",
+    
 
     "pages/index/index",
     "pages/logs/logs"

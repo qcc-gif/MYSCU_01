@@ -61,7 +61,7 @@ Page({
 
   onShow: function () {
     //请求所有帖子
-    let url = app.globalData.url + 'url';
+    let url = app.globalData.url + 'searchPost';
     api.post(url, {  
         openid: wx.getStorageInfoSync('openid')
    }).then((res) => {
@@ -85,7 +85,7 @@ Page({
       index: e.detail.value
     })
     // 按选项搜索
-    let url = app.globalData.url + 'url';
+    let url = app.globalData.url + 'searchPost';
     api.post(url, {  
         openid: wx.getStorageInfoSync('openid'),
         choice: this.data.array[this.data.index],
