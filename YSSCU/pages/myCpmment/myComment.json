@@ -1,6 +1,0 @@
-{
-  "usingComponents": {
-    "adminstorComment":"/components/adminstorComment/adminstorComment"
-  },
-  "navigationBarTitleText": "我的评论"
-}
