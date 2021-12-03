@@ -4,20 +4,20 @@ const app = getApp();
 
 Page({
     data: {
-        searchValue:'',             // 搜索内容
-        searchResultList:[{         // 搜索结果列表
-            postId: '1',                                        //帖子id
-            profilePhoto: 'https://img.yzcdn.cn/vant/cat.jpeg', //头像
-            name: '大白',                                       // 发帖者微信名
-            title:'标题',                                       // 标题
-              position1: '教学楼',
-              position2:'一教',
-              time:  '2021-11-30 14:00',
-              detail: "这里是我发的帖子",
-              thumbnum: 0,
-              chatnum: 0,
-              sharenum: 0,
-              starnum: 0,
+        searchValue:'',                                         // 搜索内容
+        searchResultList:[{                                     // 搜索结果列表
+            pid: '1',                                           //帖子id
+            avatar: 'https://img.yzcdn.cn/vant/cat.jpeg',       //头像
+            nickNmae: '大白',                                   // 发帖者微信名
+            title:'标题',                                       // 帖子标题
+            position1: '教学楼',
+            position2:'一教',
+            time:  '2021-11-30 14:00',                          // 发布时间
+            detail: "这里是我发的帖子",                          // 帖子内容
+            thumbnum: 0,                                       // 点赞数
+            chatnum: 0,                                        // 评论数
+            sharenum: 0,                                       // 分享数
+            starnum: 0,                                        // 收藏数
         }],
         noneview: null,            // 有无搜索结果: true无搜索结果 false有搜索结果
     },

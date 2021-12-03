@@ -8,21 +8,22 @@ Page({
     reason: "不实信息",
     columns: ['不实信息', '垃圾广告信息', '诱导赞同、关注等行为', '辱骂、人身攻击等不友善行为', 
     '有人意图自杀或自残','骚扰','不规范转载或涉嫌侵权','清朗行动专项举报'],
-    phone: "",
-    detail: "",
+    phone: "",                     // 联系方式
+    detail: "",                    // 阐述的举报细节
+    poc: "",                       // 帖子/评论
+    pid: "",                       // 帖子或评论的ID
     showpopup: false,
-    pid: "",  // 帖子或评论的ID
-    poc: "",
   },
 
   onLoad(e){
-    this.setData({  // 从帖子或评论的阅读界面传的参数：帖子或评论的ID
+    this.setData({  // 从帖子或评论的阅读界面传的参数：（1）poc: 帖子/评论；（2）pid: 帖子或评论的ID
       poc: e.poc,
       pid: e.pid,
     })
-    console.log('info', e)
+    console.log('info', this.poc, this.pid)
   },
 
+  // 获取理由
   onChange(event) {
     const { picker, value, index } = event.detail;
     this.setData({
@@ -58,6 +59,7 @@ Page({
     });
   },
 
+  // 获取细节
   GetDetail: function(event){
     this.setData({
      detail: event.detail,
@@ -65,6 +67,7 @@ Page({
     console.log('detail:', this.data.detail)
   },
 
+  // 获取联系方式
   GetContactInfo: function(event){
     this.setData({
      phone: event.detail,
@@ -72,15 +75,14 @@ Page({
     console.log('phone:', this.data.phone)
   },
 
+  // 发送举报
   onPostAppeal: function(){
     let url = app.globalData.url + '/users/report'
     if(this.data.detail){
       api.post(url, {
-        openid: wx.getStorageSync('openid'),
-        // poc: this.data.poc,
-        poc: 44589,
-        // pid: this.data.pid,
-        pid: 123,
+        studentNumber: this.data.studentNumber,
+        poc: this.data.poc,
+        pid: this.data.pid,
         rtype: this.data.reason,
         rreason: this.data.detail,
         rphone: this.data.phone,
@@ -90,9 +92,10 @@ Page({
           wx.showToast({
             title: '提交成功！',
             duration: 2000,
-          })
-          wx.navigateBack({
-            delta: 1,
+          }).then((res) => {
+            wx.navigateBack({
+              delta: 1,
+            })
           })
         }else{
           wx.showToast({

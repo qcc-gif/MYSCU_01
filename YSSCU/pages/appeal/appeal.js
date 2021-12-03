@@ -6,17 +6,17 @@ Page({
   data: {
     reason: "学习竞赛需要",
     columns: ['学习竞赛需要', '专业背景相关', '账号被盗', '对不起，我错了', '其他'],
-    phone: "",
-    detail: "",
+    phone: "",             // 联系方式
+    detail: "",            // 阐述细节
     showpopup: false,
-    openid: "",  
+    studentNumber: "",     // 学号
   },
 
   onLoad(e){
-    this.setData({  // 从封号界面传的参数：被封号用户的openid
-      openid: e,
+    this.setData({  // 从封号界面传的参数：被封号用户的studentNumber
+      studentNumber: e,
     })
-    console.log('info', e)
+    console.log('studentNumber', this.data.studentNumber)
   },
 
   onChange(event) {
@@ -54,6 +54,7 @@ Page({
     });
   },
 
+  // 获取细节
   GetDetail: function(event){
     this.setData({
      detail: event.detail,
@@ -61,6 +62,7 @@ Page({
     console.log('detail:', this.data.detail)
   },
 
+  // 获取联系方式
   GetContactInfo: function(event){
     this.setData({
      phone: event.detail,
@@ -68,12 +70,12 @@ Page({
     console.log('phone:', this.data.phone)
   },
 
+  // 发送申诉
   onPostAppeal: function(){
-    if(this.data.detail){
+    if(this.data.detail){      // 必填不为空
       let url = app.globalData.url + '/appeal'
       api.post(url, {
-        // openid: this.data.openid,
-        openid: wx.getStorageSync('openid'),
+        studentNumber: this.data.studentNumber,
         atype: this.data.reason,
         areason: this.data.detail,
         aphone: this.data.phone,
@@ -82,10 +84,11 @@ Page({
         if(res.data.success){
           wx.showToast({
             title: '提交成功！',
+         }).then((res) => {
+          wx.navigateBack({
+            delta: 1,
+          })
          })
-         wx.reLaunch({
-          url: '/pages/frozen/frozen',
-        })
         }else{
           wx.showToast({
             title: '上传失败',

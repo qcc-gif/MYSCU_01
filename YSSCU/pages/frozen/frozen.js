@@ -4,19 +4,19 @@ const app = getApp();
 
 Page({
     data: {
-      openid: "",
+      studentNumber: "",       // 学号
     },
 
     onShow: function (options) {
-      this.setData({
-        openid: wx.getStorageInfoSync('openid'),
-      })
+
     },
 
-    bindGetUserInfo: function(){
-      let openid = this.data.openid
-      wx.navigateTo({
-        url: `/pages/appeal/appeal?openid=${openid}`,
-      })
-    }
+   // 点击举报
+   bindGetUserInfo: function(){
+    let studentNumber = app.globalData.studentNumber
+    wx.navigateTo({
+      url: `/pages/appeal/appeal?openid=${studentNumber}`,
+    })
+  },
+
 })
