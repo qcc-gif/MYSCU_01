@@ -121,8 +121,8 @@ Page({
           ptext: this.data.ptext,
       }).then((res)=>{
         if(res.statusCode == '200'){
-          wx.showLoading({
-            title: 'loading',
+          wx.showToast({
+            title: '发布成功！',
           }).then((res) => {
             wx.reLaunch({
               url: '/pages/square/square',
@@ -151,10 +151,10 @@ Page({
             wx.showToast({
               title: '发送成功',
               icon: 'none',
-              duration: 2000,
-            })
-            wx.reLaunch({
-              url: '/pages/square/square',
+            }).then((res) => {
+              wx.reLaunch({
+                url: '/pages/square/square',
+              })
             })
           }else{
             wx.showToast({
@@ -172,7 +172,7 @@ Page({
     }
   },
 
-  // 点击删除
+  // 点击删除已上传的图片
   deleteImage: function(){
     let that = this
     wx.showModal({

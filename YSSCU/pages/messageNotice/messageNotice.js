@@ -1,25 +1,35 @@
 // pages/messageNotice/messageNotice.js
-var app = getApp();
-Page({
-    data: {
-        studentnumber: "",  // 学号
-        countIndex: 1,      // 上传图片的最大数量
-        imgFilePath: null,  // 上传图片的路径
-    },
+// 管理员发送系统消息
+const api = require("../../api/api")
+const app = getApp();
 
-    //输入框获得焦点时跳转搜索页面
-    search:function(){
-      var navigateId=2;
-        wx.navigateTo({
-        url:'/pages/searchUser/searchUser?navigateId='+navigateId
-      });
-    },
+Page({
+  data: {
+    studentnumber: "",  // 学号
+    // avatar: "",         // 学生头像
+    ptext: "",          // 发送的消息
+    countIndex: 1,      // 上传图片的最大数量
+    imgFilePath: null,  // 上传图片的路径
+  },
 
   onShow: function (e) {
-    this.setData({
-      studentnumber: e.studentNumber,
-      avatar: e.profilePhoto,
-    })
+    if(e){
+      // 获取并显示搜索结果
+      this.setData({
+        studentnumber: e.studentNumber,
+        avatar: e.profilePhoto,
+      })
+    }else{
+
+    }
+    
+  },
+
+  //输入框获得焦点时跳转搜索页面
+  search: function(){
+    wx.navigateTo({
+    url:'/pages/searchUser/searchUser',
+    });
   },
 
    // 获取输入文本
@@ -28,7 +38,7 @@ Page({
     this.setData({
       msg: e.detail.value
     })
-    console.log('message', this.data.msg.length)
+    console.log('message', this.data.msg)
   },
 
   // 图片浏览及上传
@@ -68,25 +78,21 @@ Page({
 
   // 点击发送
   onClickSend: function(){
-    let studentnumber = this.data.studentnumber
-    let ptext = this.data.msg
-    // 没有图片
+    // 没有上传图片
     if(!this.data.imgFilePath){
-       // 发送标签和文本
       let url = app.globalData.url + '/post'
-      console.log(this.data.pos[tmp_i][tmp_j])
       api.post(url, {
-        studentnumber: studentnumber,
-        ptext: ptext,
-    }).then((res)=>{
-      if(res.data.success){
-        wx.showToast({
-          title: '发送成功',
-          icon: 'none'
-        })
-        wx.reLaunch({
-          url: '/pages/square/square',
-        })
+        studentnumber: this.data.studentnumber,
+        ptext: this.data.ptext,
+      }).then((res)=>{
+        if(res.data.success){
+          wx.showToast({
+            title: '发送成功',
+          }).then((res) => {
+            wx.navigateBack({    // 回到上一个界面
+              delta: 1,  
+            })
+          })
       }else{
         wx.showToast({
           title: '发送失败',
@@ -94,19 +100,21 @@ Page({
         })
       }
     })
-    }else{
-      // 发送图片 + 标签和文本
+    }else{   // 上传了图片
       let url = app.globalData.url + '/post/img'
       let filePath = this.data.imgFilePath
-      api.upload(url, filePath, studentnumber, "", ppos, plabel, ptext).then((res)=>{
+      api.upload(url, filePath, {
+        studentNumber: this.data.studentnumber,
+        ptext: this.data.ptext
+      }).then((res)=>{
         console.log(res)
-        if(res.data.success){
+        if(res.statusCode=='200'){
           wx.showToast({
             title: '发送成功',
-            icon: 'none'
-          })
-          wx.navigateBack({
-            delta: 1,
+          }).then((res) => {
+            wx.navigateBack({   // 回到上一个页面
+              delta: 1,
+            })
           })
         }else{
           wx.showToast({

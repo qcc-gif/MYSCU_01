@@ -1,9 +1,5 @@
 // pages/searchUser/searchUser.js
 Page({
-
-    /**
-     * 页面的初始数据
-     */
     data: {
         searchValue:'',//搜索内容
         navigateId:'',//页面跳转传递的参数，1为frozenAccount页面跳转过来传递的参数
@@ -13,9 +9,12 @@ Page({
           userId:'1',
           profilePhoto: 'https://img.yzcdn.cn/vant/cat.jpeg',
           name: '大白'}],
-          noneview: null,                                             // 有无搜索结果: true无搜索结果 false有搜索结果
+          noneview: null,                        // 有无搜索结果: true无搜索结果 false有搜索结果
 
     },
+
+
+    // 点击搜索
     onSearch: function(){
         console.log('onSearch')
         let url = app.globalData.url + '/'
