@@ -2,21 +2,23 @@ const express = require('express')
 const router = express.Router()
 const dbs = require('./../db/dbs')
 var multer = require("multer")
+const fun = require("../test/imgUrl")
 
 
-
+const basePath = 'public/images'
 /**
  * 
  */
-// 设置文件存放路径和名字保留后缀
+// 设置文件存放路径和名字保留后缀 同时生成url链接
 var storge = multer.diskStorage({
     destination (req, res, cb) {
-        cb(null, 'public/images')
+        cb(null, basePath)
     },
     filename: function (req, file, cb) {
         var fileformat = (file.originalname).split('.')
         cb(null, file.fieldname + '-' + Date.now() + '.' + fileformat[fileformat.length - 1])
     }
+
 })
 
 var upload = multer({
@@ -29,12 +31,12 @@ var upload = multer({
  */
 router.post('/', async (req, resp) => {
     console.log('发帖')
-    let { studentNumber, ppos, plabel, ptext } = req.body
+    let { studentNumber, ppos, plabel, ptext, ptitle } = req.body
     var d = new Date()
     let time = d.getTime()
     console.log(req.body)
-    let sql = `insert into post (stuNum,ppos,plabel,ptext,ptime) values ('${studentNumber}',
-        '${ppos}','${plabel}','${ptext}',${time})`
+    let sql = `insert into post (stuNum,ppos,plabel,ptext,ptime,ptitle) values ('${studentNumber}',
+        '${ppos}','${plabel}','${ptext}','${time}','${ptitle}')`
     let sqlres = await dbs.Run(sql)
     console.log(sqlres)
 
@@ -60,7 +62,19 @@ router.post('/', async (req, resp) => {
 // })
 
 router.post('/img', upload.single('file'), async (req, resp) => {
-    console.log(req)
+    console.log(req.body)
+    let { studentNumber, ppos, plabel, ptext, ptitle } = req.body
+    let file = req.file
+    var img = file.filename
+    let realPath = 'images/' + img
+    var d = new Date()
+    let time = d.getTime()
+    let sql = `insert into post (stuNum,ppos,plabel,ptext,ptime,pimgurl,ptitle) values ('${studentNumber}',
+        '${ppos}','${plabel}','${ptext}','${time}','${realPath}','${ptitle}')`
+    let sqlres = await dbs.Run(sql)
+    // console.log(sqlres)
+    console.log(realPath)
+    // console.log(pimgurl)
     resp.send({
         'success': true
 
