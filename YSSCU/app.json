@@ -1,33 +1,35 @@
 {
   "pages": [ 
-    "pages/userlogin/userlogin",
+    "pages/msgManage/msgManage",
     "pages/mypost/mypost",
-    "pages/myComment/myComment",
     "pages/myCollection/myCollection",
     "pages/adminstorFullText/adminstorFullText",
     "pages/adminstorPost/adminstorPost",
     "pages/accountManage/accountManage",
     "pages/reportManage/reportManage",
-    
-    "pages/searchPost/searchPost",
-    "pages/searchUser/searchUser",
-    "pages/frozenAccount/frozenAccount",
-    "pages/square/square",
     "pages/messageNotice/messageNotice",
-    "pages/adminstor/adminstor", 
-    "pages/post/post",
-    "pages/morefunc/morefunc",
-    "pages/map/map",
-    "pages/appeal/appeal",
-    "pages/report/report",
-    "pages/mine/mine",
-    "pages/frozen/frozen",
-    "pages/reward/reward",
-    "pages/adminlogin/adminlogin",
+    "pages/fullText/fullText",
+    "pages/searchUser/searchUser",
     
-
+    "pages/myComment/myComment",
+    "pages/addComment/addComment",
+    "pages/report/report",
+    "pages/appeal/appeal",
+    "pages/frozen/frozen",
+    "pages/searchPost/searchPost",
+    "pages/morefunc/morefunc",
+    "pages/square/square",
+    "pages/post/post",
+    "pages/map/map",
+    "pages/reward/reward",
+    "pages/mine/mine",
+    "pages/adminstor/adminstor", 
+    "pages/userlogin/userlogin",
+    "pages/adminlogin/adminlogin",
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+
+    "pages/frozenAccount/frozenAccount"
   ],
 
   "permission": {
