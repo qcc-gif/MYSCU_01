@@ -1,23 +1,34 @@
+// pages/addComment/addComment.js
 const api = require("../../api/api");
 const app = getApp();
-// pages/addComment/addComment.js
+
 Page({
+  data: {
+    postId: "",
+    ptext: "",          // 正文
+    countIndex: 1,      // 上传图片的最大数量
+    imgFilePath: null,  // 上传图片的路径
+  },
 
-    /**
-     * 页面的初始数据
-     */
-    data: {
-        msg:"",
-        imgFilePath:""
-
-    },
-    // 获取输入文本
-  GetMsg: function(e){
-    console.log(e.detail)
+  onLoad: function(e){
     this.setData({
-      msg: e.detail
+      // postId: e.detail.value
+      postId: '1'
     })
   },
+
+  onChangeTab: function () {
+
+  },
+
+  // 获取输入文本
+  GetMsg: function(e){
+    console.log('input', e.detail.value)
+    this.setData({
+      ptext: e.detail.value
+    })
+  },
+
   // 图片浏览及上传
   browse: function(e){
     let that = this;
@@ -52,6 +63,74 @@ Page({
       }
     })
   },
+
+  // 点击发送
+  onClickSend: function(){
+    if(this.data.ptext){ // 用户填写了文本
+      // 发送
+      if(!this.data.imgFilePath){  // 用户没有发送图片
+        let url = app.globalData.url + '/comment/addComment'
+        api.post(url, {
+          studentNumber: wx.getStorageSync('studentNumber'),
+          postId: this.data.postId,
+          ptext: this.data.ptext,
+      }).then((res)=>{
+        if(res.statusCode == '200'){
+          wx.showToast({
+            title: '发布成功！',
+            duration: 3000,
+          }).then((res) => {
+            wx.reLaunch({
+              url: '/pages/square/square',
+            })
+          })
+          
+        }else{   
+          wx.showToast({
+            title: '发送失败',
+            icon: 'none',
+            duration: 3000,
+          })
+        }
+      })
+      }else{    // 用户发送了图片
+        let url = app.globalData.url + '/comment/img'
+        let filePath = this.data.imgFilePath
+        api.addcomment(url, filePath, {
+          studentNumber: wx.getStorageSync('studentNumber'),
+          postId: this.data.postId,
+          ptext: this.data.ptext,
+        }).then((res)=>{
+          console.log(res)
+          if(res.statusCode=='200'){
+            console.log('continue')
+            wx.showToast({
+              title: '发送成功',
+              duration: 3000,
+            }).then((res) => {
+              wx.navigateBack({
+                delta: 1,
+              })
+            })
+          }else{
+            wx.showToast({
+              title: '发送失败',
+              icon: 'none',
+              duration: 3000,
+            })
+          }
+        })
+      } 
+    }else{   // 用户未填写内容
+      wx.showToast({
+        title: '请填写内容！',
+        icon: 'none',
+        duration: 3000,
+      })
+    }
+  },
+
+  // 点击删除已上传的图片
   deleteImage: function(){
     let that = this
     wx.showModal({
@@ -69,120 +148,5 @@ Page({
       }
     })
   },
-  onClickSend:function(){
-      if(!this.data.msg&&!this.data.imgFilePath){
-        wx.showToast({
-            title: '请添加评论内容',
-            icon: 'none'
-          })
-      }
-      else if(!this.data.imgFilePath&&this.data.msg){
-        let url = app.globalData.url + 'url'
-        api.post(url, {
-            pid:this.data.postId,
-            openid: wx.getStorageInfoSync('openid'),
-            ptext: this.data.msg,
-        }).then((res)=>{
-            if(res.data.success){
-                wx.showToast({
-                  title: '发送成功',
-                  icon: 'none'
-                })
-                wx.navigateBack({
-                    delta:1
-                })
-            }else{
-                wx.showToast({
-                  title: '发送失败',
-                  icon: 'none',
-                })
-              } 
-      })
-      }
-      else{
-          let url=app.globalData.url + 'url'
-          api.post(url,{
-            pid:this.data.postId,
-            openid: wx.getStorageInfoSync('openid'),
-            ptext: this.data.msg,
-            img:this.data.imgFilePath
-          }).then((res)=>{
-            if(res.data.success){
-                wx.showToast({
-                  title: '发送成功',
-                  icon: 'none'
-                })
-                wx.navigateBack({
-                    delta:1
-                })
-            }else{
-                wx.showToast({
-                  title: '发送失败',
-                  icon: 'none',
-                })
-              }
-          }) 
-      }
-},
 
-
-    /**
-     * 生命周期函数--监听页面加载
-     */
-    onLoad: function (options) {
-        console.log(options)
-        this.setData({
-            postId:options.detail.postId
-        })
-
-    },
-
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload: function () {
-
-    },
-
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh: function () {
-
-    },
-
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom: function () {
-
-    },
-
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage: function () {
-
-    }
 })

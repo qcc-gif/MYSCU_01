@@ -2,12 +2,11 @@
 
         <scroll-view scroll-y="true" style="height: auto;" >
     <view wx:for="{{postList}}"wx:key="index">
-    <adminstorPost postId="{{item.postId}}"
-               profilePhoto="{{item.profilePhoto}}"
+    <adminstorPost postId=""
+               profilePhoto="{{item.simgurl}}"
                name="{{item.name}}"
-               position="{{item.position}}"
-               place="{{item.place}}"
-               label="{{item.label}}"
+               position="{{item.position1}}"
+               place="{{item.position2}}"
                studentNumber=""
                title="{{item.title}}"
                time="{{item.time}}"

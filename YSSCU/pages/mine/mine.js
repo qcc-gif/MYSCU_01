@@ -5,12 +5,12 @@ var app = getApp();
 
 Page({
   data: {
-    postnum: 20,
-    starnum: 10,
-    commentnum: 10,
+    postnum: 20,                // 发帖数
+    starnum: 10,                // 收藏数
+    commentnum: 10,             // 评论数
     showAction: false,
-    personLabel: "这个人很懒~",
-    openid: "",
+    personLabel: "这个人很懒~",  // 个人标签
+    studentNumber: "",          // 学号
     hiddenmodalput: true,
     newLabel: "",
   },
@@ -21,6 +21,7 @@ Page({
     })
   },
 
+  // 退出登录
   logOut: function(){
     wx.showModal({
       title: '提示',
@@ -63,13 +64,12 @@ Page({
     })
   },
 
+  // 修改个人标签
   labelinput: function(event){
-    // 从输入框获取个人标签
     console.log('label', event.detail)
     this.setData({
       personLabel: event.detail,
     })
-    // post 个人标签
     let url = app.globalData.url + '/mine/label'
     api.post(url, {
       "account": app.globalData.studentNumber,

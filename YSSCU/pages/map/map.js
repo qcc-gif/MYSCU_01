@@ -3,17 +3,15 @@ const api = require("../../api/api")
 const app = getApp();
 Page({
   data: {
-    allPostNum: 20,
-    addPostNum: 20,
-    hotSpot1:'综合楼',
-    hotSpot2:'图书馆',
-    hotSpot3:'体育馆',
-    longitude: "",
-    latitude: "",
-    markers: [],
-    circle: [],
-    // speed: 0,
-    // accuracy: 0,
+    allPostNum: 20,           // 总发帖数
+    addPostNum: 20,           // 新增发帖数
+    hotSpot1:'综合楼',        // 热门地点1
+    hotSpot2:'图书馆',        // 热门地点2
+    hotSpot3:'体育馆',        // 热门地点3
+    longitude: "",           // 经度
+    latitude: "",            // 纬度
+    markers: [],             // 标记       
+    circle: [],              // 标记半径
   },
 
   onLoad: function () {
@@ -65,14 +63,13 @@ Page({
     //       hotSpot3: res.data,
     //     })
     //   })
-    // }, 600)  
+    // }, 6000)  
   }, 
 
   onShow: function(){
     console.log('onshow')
     var that = this
     setInterval(function () {
-      // console.log(res)
       let url = app.globalData.url+'/post/getpost'
       // 请求总贴子数，今日新增，今日热门
       api.post(url, {  
@@ -88,7 +85,7 @@ Page({
           hotSpot3: res.data.hostpost3,
         })
       })
-    }, 6000000000)  
+    }, 6000)    // 请求时间间隔
   }
 
 })

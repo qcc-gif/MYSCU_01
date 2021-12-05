@@ -13,8 +13,9 @@ Page({
   },
 
   onLoad(e){
+    console.log(e)
     this.setData({  // 从封号界面传的参数：被封号用户的studentNumber
-      studentNumber: e,
+      studentNumber: e.studentNumber,
     })
     console.log('studentNumber', this.data.studentNumber)
   },
@@ -54,7 +55,7 @@ Page({
     });
   },
 
-  // 获取细节
+  // 获取申诉细节
   GetDetail: function(event){
     this.setData({
      detail: event.detail,
@@ -84,6 +85,7 @@ Page({
         if(res.data.success){
           wx.showToast({
             title: '提交成功！',
+            duration: 3000,
          }).then((res) => {
           wx.navigateBack({
             delta: 1,
@@ -93,6 +95,7 @@ Page({
           wx.showToast({
             title: '上传失败',
             icon: "none",
+            duration: 3000,
           })
         }
       })
@@ -100,6 +103,7 @@ Page({
       wx.showToast({
         title: '请阐述细节',
         icon: "none",
+        duration: 3000,
       })
    }
   }

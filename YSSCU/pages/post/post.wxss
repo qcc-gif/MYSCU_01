@@ -82,10 +82,6 @@
     margin-top: -16rpx;
 }
 
-/* .last-icon{
-    margin-left: 80%;
-} */
-
 .icon view{
     margin: 5rpx 15rpx;
 }
@@ -124,6 +120,11 @@
     color: white;
 }
 
+.nonActive{
+    background-color: white;
+    color: #333333;
+}
+
 .textarea-wrp {
     padding: 0 25rpx;
     background-color: #fff;
@@ -135,4 +136,13 @@
   
   .img{
       margin-left: -240rpx
+  }
+
+  .ptitle{
+    margin-top: 45rpx;
+    margin-left: 45rpx;
+    margin-right: 45rpx;
+    color: #606262;
+    border: 2rpx solid #009FFF;
+    border-radius: 20rpx;
   }

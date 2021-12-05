@@ -1,5 +1,6 @@
 <!-- pages/square/square.wxml -->
 <view class="main">
+    <!-- 搜索框 -->
     <view class="box-search">
         <van-search style="width: 580rpx; height: 120rpx; display: block; box-sizing: border-box"  input-align="center" bind:focus="bindFocus" placeholder="按关键字搜索" />
         <view class="right">
@@ -8,17 +9,18 @@
             </picker>
             <van-icon class='arrow-icon' name="arrow-down" />
         </view>
-</view>
-   
+    </view>
+   <!-- 消息 -->
     <view class="plain"></view>
     <view class="box-post">
-    <scroll-view scroll-y="true" style="height: auto;" >
+    <scroll-view scroll-y="true" style="height: auto;" refresher-enabled="{{true}}" refresher-threshold="{{100}}" refresher-triggered="{{triggered}}" bindrefresherrefresh="onScrollRefresh" bindtap="toFullText">
         <view wx:for="{{postList}}"wx:key="index">
-        <mypost postId="{{item.postId}}" profilePhoto="{{item.profilePhoto}}" name="{{item.name}}" position1="{{item.position1}}" position2="{{item.position2}}" title="{{item.title}}" time="{{item.time}}" detail="{{item.detail}}" thumbnum="{{item.thumbnum}}" chatnum="{{item.chatnum}}" sharenum="{{item.sharenum}}" starnum="{{item.starnum}}">
+        <mypost postId="{{item.postId}}" profilePhoto="{{item.simgurl}}" name="{{item.name}}" position1="{{item.position1}}" position2="{{item.position2}}" title="{{item.ptitle}}" time="{{item.time}}" detail="{{item.detail}}" thumbnum="{{item.thumbnum}}" chatnum="{{item.chatnum}}" sharenum="{{item.sharenum}}" starnum="{{item.starnum}}">
         </mypost>
         </view>
     </scroll-view>
     </view>
+    <!-- 选择框 -->
     <van-popup show="{{ showpopup }}" position="bottom" bind:close="onClosePopup">
         <van-picker columns="{{ columns }}" show-toolbar title="地点" bind:cancel="onCancel" bind:confirm="onConfirm" bind:change="onChange" />
     </van-popup>

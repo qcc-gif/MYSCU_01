@@ -5,7 +5,8 @@
     "van-icon": "/miniprogram/miniprogram_npm/@vant/weapp/icon/index",
     "van-field": "/miniprogram/miniprogram_npm/@vant/weapp/field/index",
     "van-popup": "/miniprogram/miniprogram_npm/@vant/weapp/popup/index",
-    "van-dialog": "/miniprogram/miniprogram_npm/@vant/weapp/dialog/index"
+    "van-dialog": "/miniprogram/miniprogram_npm/@vant/weapp/dialog/index",
+    "van-image": "/miniprogram/miniprogram_npm/@vant/weapp/image/index"
   },
   "navigationBarTitleText": "举报"
 }

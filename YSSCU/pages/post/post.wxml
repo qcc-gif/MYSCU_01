@@ -52,11 +52,13 @@
         </viwe>
     </view>
 
+    <input class="ptitle" adjust-position clearable placeholder="请输入标题" style="height: 2em" bind:input="GetTitle" maxlength="15"/>
+
     <view class="edit box">
         <view class="textarea-wrp">
-            <textarea bindinput="GetMsg" auto-focus="true" adjust-position style="height: 8em"  placeholder="请分享你的校园生活" maxlength="120" />
+            <textarea bindinput="GetMsg" auto-focus="true" adjust-position style="height: 8em"  placeholder="请分享你的校园生活" maxlength="150" />
         </view>
-        <view class="count">{{ptext.length}}/120</view>
+        <view class="count">{{ptext.length}}/150</view>
     </view>
 
     <view class="icon">

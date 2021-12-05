@@ -11,6 +11,22 @@
     color: #333333;
 }
 
+.img{
+    border-radius: 50rpx;
+    margin-left: 7%;
+    margin-top: 6%;
+}
+
+.tips{
+    width:90%;
+    margin-left: 50rpx;
+    margin-right: 20rpx;
+    padding-top: 30rpx;
+    border-top: 2rpx solid #6b6a6a;
+    text-align: center;
+    color: #333333;
+}
+
 .desc2 {
     margin-top: 70rpx;
     font-size: 40rpx;

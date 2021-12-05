@@ -5,7 +5,7 @@ const app = getApp();
 
 Page({
   data: {
-    studentNumber: "",          // 川大学生学号
+    studentNumber: "2019141460341",          // 川大学生学号
     password: "",               // 教务密码
     studentAvatarUrl: "",       // 微信头像
     nickName: "",               // 微信昵称
@@ -48,13 +48,39 @@ Page({
       console.log(res)
       if(res.data.success){
         // 若账号密码正确，则获取个人信息并登录
-        this.GetUserInfo();
-        // 发送个人信息
-        let url = app.globalData.url + '/mine/space'
-        api.post(url, {
-          nickName: app.globalData.nickName,
-          studentAvatarUrl: app.globalData.studentAvatarUrl,
-          account: this.data.studentNumber
+        this.GetUserInfo().then((res) => {
+          // 保存个人信息到全局变量
+          app.globalData.studentAvatarUrl = res.userInfo.avatarUrl,
+          app.globalData.nickName = res.userInfo.nickName,
+          // 保存个人信息到缓存
+          wx.setStorageSync('studentAvatarUrl', app.globalData.studentAvatarUrl)
+          wx.setStorageSync('nickName', app.globalData.nickName)
+
+          let url = app.globalData.url + '/mine/space'
+          api.upload(url, app.globalData.studentAvatarUrl, {
+            nickName: app.globalData.nickName,
+            account: this.data.studentNumber
+          }).then((res) => {
+            if(res.data.success){
+              wx.setStorageSync('studentNumber', that.data.studentNumber)
+              app.globalData.studentNumber = that.data.studentNumber
+              // 页面跳转
+              console.log('reLaunch...')
+              wx.reLaunch({
+              url: '/pages/mine/mine',
+              })
+            }else{  // 失败
+              wx.showToast({
+                title: '登录失败！',
+                icon: 'none'
+                })
+              }
+            })
+
+          api.post(url, {
+            nickName: app.globalData.nickName,
+            studentAvatarUrl: app.globalData.studentAvatarUrl,
+            account: this.data.studentNumber
         }).then((res) => {
           if(res.data.success){
             wx.setStorageSync('studentNumber', that.data.studentNumber)
@@ -68,8 +94,9 @@ Page({
             wx.showToast({
               title: '登录失败！',
               icon: 'none'
-            })
-          }
+              })
+            }
+          })
         })
       }else{
         // 登录失败，弹出提示框
@@ -83,16 +110,18 @@ Page({
 
   // 获取用户头像和昵称
   GetUserInfo: function(){
-     wx.getUserInfo({
-      desc: '用于完善个人资料',
-      success: (res) => {
-        app.globalData.studentAvatarUrl = res.userInfo.avatarUrl,
-        app.globalData.nickName = res.userInfo.nickName,
-        // 保存个人信息到缓存
-        wx.setStorageSync('studentAvatarUrl', app.globalData.studentAvatarUrl)
-        wx.setStorageSync('nickName', app.globalData.nickName)
-      }
+    return new Promise((resolve,reject) => {
+      wx.getUserProfile({
+        desc: '用于完善个人资料',
+        success: (res) => {
+          resolve(res)
+        },
+        fail: (err) => {
+          reject(err)
+        }
+      })
     })
+  
   },
 
   // 获取输入的学号
@@ -117,4 +146,6 @@ Page({
   },
 
 })
+
+
 

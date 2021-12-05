@@ -17,13 +17,14 @@ Page({
     otherJ: -1,         // 标签选择
     ppos: "",           // 地点（必选）
     plabel: "",         // 其他标签（可选）
+    ptitle: "",          // 标题
     ptext: "",          // 正文
     countIndex: 1,      // 上传图片的最大数量
     imgFilePath: null,  // 上传图片的路径
   },
 
   onLoad: function(){
-   
+
   },
 
   onChangeTab: function () {
@@ -43,10 +44,25 @@ Page({
   // 选择标签
   chooseLabel:function(e){
     console.log('label:',e.currentTarget.dataset)
+    // 重复点击则取消选择
+    console.log('otherJ', this.data.otherJ)
+    if(e.currentTarget.dataset == this.data.otherJ){
+      this.setData({
+        otherJ: -1,
+      })
+    }
     this.setData({
       otherJ: e.currentTarget.dataset.j
     })
     console.log(this.data.label[this.data.otherJ])
+  },
+
+  // 获取标题
+  GetTitle: function(e){
+    console.log('title', e.detail.value)
+    this.setData({
+      ptitle: e.detail.value
+    })
   },
 
   // 获取输入文本
@@ -55,7 +71,6 @@ Page({
     this.setData({
       ptext: e.detail.value
     })
-    
   },
 
   // 图片浏览及上传
@@ -95,7 +110,7 @@ Page({
 
   // 点击发送
   onClickSend: function(){
-    if(this.data.pos_i!=-1 && this.data.pos_j!=-1){ // 用户选择了地点标签
+    if(this.data.pos_i!=-1 && this.data.pos_j!=-1 && this.data.ptitle){ // 用户填写了地点标签和标题
       // 设置地点标签和正文
       this.setData({
         ppos: this.data.pos[this.data.pos_i][this.data.pos_j],
@@ -114,15 +129,18 @@ Page({
       // 发送
       if(!this.data.imgFilePath){  // 用户没有发送图片
         let url = app.globalData.url + '/post'
+        console.log('sendTitle', this.data.ptitle)
         api.post(url, {
-          studentNumber: app.globalData.studentNumber,
+          studentNumber: wx.getStorageSync('studentNumber'),
           ppos: this.data.ppos,
           plabel: this.data.plabel,
+          ptitle: this.data.ptitle,
           ptext: this.data.ptext,
       }).then((res)=>{
         if(res.statusCode == '200'){
           wx.showToast({
             title: '发布成功！',
+            duration: 3000,
           }).then((res) => {
             wx.reLaunch({
               url: '/pages/square/square',
@@ -133,6 +151,7 @@ Page({
           wx.showToast({
             title: '发送失败',
             icon: 'none',
+            duration: 3000,
           })
         }
       })
@@ -140,9 +159,10 @@ Page({
         let url = app.globalData.url + '/post/img'
         let filePath = this.data.imgFilePath
         api.upload(url, filePath, {
-          studentNumber: app.globalData.studentNumber,
+          studentNumber: wx.getStorageSync('studentNumber'),
           ppos: this.data.ppos, 
           plabel: this.data.plabel, 
+          ptitle: this.data.ptitle,
           ptext: this.data.ptext
         }).then((res)=>{
           console.log(res)
@@ -150,7 +170,7 @@ Page({
             console.log('continue')
             wx.showToast({
               title: '发送成功',
-              icon: 'none',
+              duration: 3000,
             }).then((res) => {
               wx.reLaunch({
                 url: '/pages/square/square',
@@ -160,14 +180,16 @@ Page({
             wx.showToast({
               title: '发送失败',
               icon: 'none',
+              duration: 3000,
             })
           }
         })
       } 
     }else{   // 用户未选择地点标签
       wx.showToast({
-        title: '请选择地点标签',
-        icon: 'none'
+        title: '请填写地点和标题！',
+        icon: 'none',
+        duration: 3000,
       })
     }
   },

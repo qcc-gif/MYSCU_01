@@ -5,15 +5,11 @@
         <view>{{reason}}</view>
         <van-icon name="arrow-down"/>
     </view>
-    <view class="desc2">阐述理由(*必填项)</view>
-    <view class="detail-desc box">
-        <van-field model:value="{{ detail }}" clearable maxlength="200" type="textarea" autosize placeholder="请输入描述理由，以便管理员更好理解您的诉求" bind:input="GetDetail"/>
-    </view>
-    <view class="count-text">{{detail.length}}/200</view>
-    <view class="desc3">联系方式</view>
-    <view class="phone box">
-        <van-field model:value="{{ phone }}" clearable placeholder="请输入电话或邮箱" bind:input="GetContactInfo"/>
-    </view>
+
+    <view class="tips">请大家合理、理性使用举报功能，文明上网,共建和谐互联网络!</view>
+   
+    <image class='img' src="/static/images/report.png" mode="widthFix"></image>
+
     <view class="btn">
         <van-button block square type="primary" bind:click="onPostAppeal">举报</van-button>
     </view>

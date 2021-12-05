@@ -1,15 +1,16 @@
 <!--pages/addComment/addComment.wxml-->
 <view class="main">
-<view class="edit box">
-        <!-- <textarea bindblur="bindTextAreaBlur" auto-height placeholder="请分享你的校园生活" /> -->
-        <van-field model:value="{{ msg }}"  type="textarea" placeholder="请分享你的校园生活" adjust-position autosize maxlength="120" show-word-limit bind:input="GetMsg">
-        </van-field>
-        <!-- <view class="count">{{msg.length}}/120</view> -->
+    <view class="edit box">
+        <view class="textarea-wrp">
+            <textarea bindinput="GetMsg" auto-focus="true" adjust-position style="height: 8em"  placeholder="请分享你的看法" maxlength="60" />
+        </view>
+        <view class="count">{{ptext.length}}/60</view>
     </view>
+
     <view class="icon">
-        <view><van-icon name="photo-o" size="30" color='#009FFF' bind:click='browse'/> </view>
-        <van-image wx:if='{{imgFilePath}}' class="img" slot="loading" width="100" height="100" src="{{imgFilePath}}" bindlongpress="deleteImage"/>
-        <view class="last-icon" style="margin-right: 30rpx;" bindtap="onClickSend">
+        <view><van-icon wx:if='{{!imgFilePath}}' name="photo-o" size="70" color='#bfbfbf' bind:click='browse'/> </view>
+        <van-image wx:if='{{imgFilePath}}' class="img" slot="loading" width="70" height="70" src="{{imgFilePath}}" bindlongpress="deleteImage"/>
+        <view class="last-icon" style="margin-left: 160rpx;" bindtap="onClickSend">
             <van-icon name="guide-o" color='#009FFF' size="30" />
         </view>
     </view>
