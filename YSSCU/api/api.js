@@ -46,6 +46,28 @@ const upload = (url, tempFilePath, data) => {
         'studentNumber': data.studentNumber,
         'ppos': data.ppos,
         'plabel': data.plabel,
+        'ptitle': data.ptitle,
+        'ptext': data.ptext,
+      },
+      success (res){
+        resolve(res)
+      },
+      fail: (err) => {
+        reject(err)
+      }
+    })
+  })
+}
+
+const addcomment = (url, tempFilePath, data) => {
+  return new Promise((resolve,reject) => {
+    wx.uploadFile({
+      url: url, 
+      filePath: tempFilePath,
+      name: 'file',
+      formData: {
+        'studentNumber': data.studentNumber,
+        'postId': data.postId,
         'ptext': data.ptext,
       },
       success (res){
@@ -62,4 +84,5 @@ module.exports = {
     post: post,
     get: get,
     upload: upload,
+    addcomment: addcomment
  }
