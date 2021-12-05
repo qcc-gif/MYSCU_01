@@ -45,10 +45,13 @@
 .post {
     margin: 20rpx 0;
     display: -webkit-box;
-    font-size: 25rpx;       
-  overflow: hidden;
-  -webkit-box-orient: vertical;  
-  -webkit-line-clamp: 2;
+    font-size: 25rpx; 
+    margin-left: 3%;
+    margin-right: 3%;
+    color: #696868;      
+    overflow: hidden;
+    -webkit-box-orient: vertical;  
+    -webkit-line-clamp: 2;
 }
 .title {
     font-size: 28rpx;
