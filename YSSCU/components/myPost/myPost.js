@@ -1,3 +1,6 @@
+const api = require("../../api/api");
+const app = getApp();
+
 Component({
     properties: {
       postId:{
@@ -16,11 +19,11 @@ Component({
         type: String,
         value: '大白'
       },
-      position: {
+      position1: {
         type: String,
         value: '教学楼'
       },
-      place: {
+      position2: {
         type: String,
         value: '一教'
       },
@@ -59,29 +62,30 @@ Component({
 
       },
     },
+    
     data: {
       thumbStatus:'',//点赞状态
       starStatus:''//收藏状态
     },
     lifetimes:{
-      attached: function() {
-        // 在组件实例进入页面节点树时执行
-        let url=app.globalData.url+'url'//请求点赞状态和收藏状态
-        api.post(url,{
-          pid:this.data.postId,
-          openid: wx.getStorageInfoSync('openid')
-        }).then((res)=>{
-          if(res.data.success){
-            this.setData({
-              thumbStatus:'',
-              starStatus:''
-            })
-          }
-          else{
-            console.log(res.data)
-          }
-        })
-      },
+      // attached: function() {
+      //   // 在组件实例进入页面节点树时执行
+      //   let url=app.globalData.url+'url'//请求点赞状态和收藏状态
+      //   api.post(url,{
+      //     pid:this.data.postId,
+      //     openid: wx.getStorageInfoSync('openid')
+      //   }).then((res)=>{
+      //     if(res.data.success){
+      //       this.setData({
+      //         thumbStatus:'',
+      //         starStatus:''
+      //       })
+      //     }
+      //     else{
+      //       console.log(res.data)
+      //     }
+      //   })
+      // },
 
     },
     methods: {
