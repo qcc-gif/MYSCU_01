@@ -50,7 +50,7 @@
     box-sizing: border-box;
     top: 77%;
     width: 90%;                                                    
-    height: 400rpx;
+    height: 530rpx;
     left: 5%;
     border: 2rpx solid #ccc;
     border-radius: 20rpx;

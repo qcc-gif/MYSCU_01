@@ -9,6 +9,7 @@
     <image src="/static/images/no_result.png" mode="widthFix" style="width:20%"></image>
     <text class="nostyle">抱歉，没有相关搜索结果</text>
 </view>
+
 <!-- 有结果 -->
 <view class="result" wx:else>
 <scroll-view scroll-y="true" >

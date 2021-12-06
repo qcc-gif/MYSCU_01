@@ -4,6 +4,10 @@
     height: 100%;
 }
 
+.last-icon{
+    margin-right: 80%;
+}
+
 .box-search {
     height: 20%;
     display: flex;
@@ -53,7 +57,7 @@
 
 .count {
     padding-left: 5%;
-    padding-top: 5%;
+    padding-top: 1%;
     color: rgb(163, 163, 163);
     margin: 5rpx 0;
     font-size: small;
@@ -152,4 +156,8 @@
     height: 300rpx;
     /* box-shadow: 3rpx 3rpx 3rpx rgb(163, 163, 163); */
     border: 2rpx solid #009FFF;
+}
+
+.last-icon{
+   margin-top: -32rpx;
 }

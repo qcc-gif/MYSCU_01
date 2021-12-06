@@ -62,4 +62,10 @@ Page({
     })
   },
 
+  frozen: function(){
+    wx.navigateTo({
+      url: '/pages/frozenAccount/frozenAccount',
+    })
+  },
+
 })
