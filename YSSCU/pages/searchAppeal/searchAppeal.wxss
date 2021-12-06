@@ -1,4 +1,4 @@
-/* pages/searchFrozen/searchFrozen.wxss */
+/* pages/searchAppeal/searchAppeal.wxss */
 .main {
     display: flex;
 }

@@ -74,8 +74,6 @@ Page({
         title: '加载中',
       })      
     }
-  }).catch((Error)=>{
-    console.log('ERR',Error)
   })
   
 },

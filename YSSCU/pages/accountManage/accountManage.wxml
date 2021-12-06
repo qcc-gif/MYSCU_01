@@ -1,20 +1,11 @@
 <!--pages/accountManage/accountManage.wxml-->
-<van-search
-        model:value="{{searchValue}}"
-        placeholder="请输入需要处理的账号"
-        use-action-slot
-        bindfocus="search" 
-    >
-        <view slot="action" bind:tap="onSearch">搜索</view>
-    </van-search>
-    <scroll-view scroll-y="true" style="height: 1230rpx;" >
+<van-search model:value="{{searchValue}}" placeholder="请输入需要处理的账号" use-action-slot bindfocus="search">
+<view slot="action" bind:tap="onSearch">搜索</view>
+</van-search>
+
+<scroll-view scroll-y="true" style="height: 1230rpx;" >
 <view wx:for="{{complaintList}}"wx:key="id">
-    <complaint userId="{{item.userId}}"
-               profilePhoto="{{item.profilePhoto}}"
-               name="{{item.name}}"
-               studentNumber="{{item.studentNumber}}"
-               time="{{item.time}}"
-               reason="{{item.reason}}">
+    <complaint profilePhoto="{{item.simgurl}}" name="{{item.name}}" studentNumber="{{item.studentNumber}}" time="{{item.time}}" reason="{{item.reason}}">
     </complaint>
 </view>
 </scroll-view>

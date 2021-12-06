@@ -1,44 +1,37 @@
 // pages/accountManage/accountManage.js
 const api = require("../../api/api")
 const app = getApp();
-Page({
 
-    /**
-     * 页面的初始数据
-     */
+Page({
     data: {
-        complaintList:[{id:'1',
-        userId: '1',
-        studentNumber: '2019',
-        profilePhoto: 'https://img.yzcdn.cn/vant/cat.jpeg',
-        name:  '大白',
-          time:'2000年11月14日 14:00',
-          reason:  "言论过激，以后注意。"
-          }]
+        complaintList:[{
+            studentNumber: '2019141460341',
+            simgurl: '',
+            name:  '大白',
+            time:'2021-12-2 12:00',
+            atype: "",
+            areason:  "",
+            aphone: "",
+        }]
     },
    
     search:function(){
-        var navigateId=1;
         wx.navigateTo({
-        url:'/pages/searchUser/searchUser?navigateId='+navigateId
+            url: '/pages/searchAppeal/searchAppeal'
       });
 },
    
-
-    /**
-     * 生命周期函数--监听页面加载
-     */
     onShow: function () {
-        let url = app.globalData.url+'url'//请求申诉列表
-    
-    api.post(url, {  
-        openid: wx.getStorageInfoSync('openid')
-    }).then((res) => {
-       //展示申诉列表
-      this.setData({
-       complaintList:res.data
-      })
-    })
+        let url = app.globalData.url+'/?'  // 请求申诉列表
+        api.post(url, {  
+            
+        }).then((res) => {
+            if(!res.data.empty){  // 展示申诉列表
+                this.setData({
+                    complaintList:res.data.complaintList
+                })
+            }
+        })
 
     },
 

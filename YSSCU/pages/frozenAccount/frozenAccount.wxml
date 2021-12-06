@@ -5,7 +5,7 @@
 
 <scroll-view scroll-y="true">
 <view wx:for="{{accountList}}"wx:key="index">
-<frozenAccount userId="{{item.userId}}" profilePhoto="{{item.profilePhoto}}" name="{{item.name}}" studentNumber="{{item.studentNumber}}">
+<frozenAccount profilePhoto="{{item.simgurl}}" name="{{item.name}}" studentNumber="{{item.studentNumber}}">
 </frozenAccount>
 </view>
 </scroll-view>

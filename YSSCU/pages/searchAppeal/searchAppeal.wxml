@@ -1,4 +1,4 @@
-<!--pages/searchFrozen/searchFrozen.wxml-->
+<!--pages/searchAppeal/searchAppeal.wxml-->
 <!-- 搜索框 -->
 <van-search model:value="{{searchValue}}" placeholder="请输入需要处理的账号" use-action-slot maxHeight="13" bind:search="onSearch">
 <view slot="action" bind:tap="onSearch">搜索</view>
@@ -13,10 +13,11 @@
 <!-- 有结果 -->
 <view class="result" wx:else>
 <scroll-view scroll-y="true" >
-    <view wx:for="{{accountList}}"wx:key="index">
-        <frozenAccount profilePhoto="{{item.simgurl}}" name="{{item.name}}" studentNumber="{{item.studentNumber}}">
-        </frozenAccount>
+    <view wx:for="{{complaintList}}"wx:key="id">
+        <complaint profilePhoto="{{item.simgurl}}" name="{{item.name}}" studentNumber="{{item.studentNumber}}" time="{{item.time}}" reason="{{item.reason}}">
+        </complaint>
     </view>
 </scroll-view>
 </view>
+
 

@@ -1,11 +1,15 @@
-// pages/searchFrozen/searchFrozen.js
+// pages/searchAppeal/searchAppeal.js
 Page({
     data: {
         studentNumber:'',                       // 搜索内容
-        accountList:[{                                               // 用户账户信息表
-            studentNumber: '20191414',                               // 用户学号
-            simgurl: '',                                             // 用户头像
-            name:  '大白',                                           // 用户昵称
+        complaintList:[{
+            studentNumber: '2019141460341',
+            simgurl: '',
+            name:  '大白',
+            time:'2021-12-2 12:00',
+            atype: "",
+            areason:  "",
+            aphone: "",
         }],
         noneview: null,                         // 有无搜索结果: true无搜索结果 false有搜索结果
     },
@@ -25,7 +29,7 @@ Page({
             if(!res.data.empty){  // 查找到
                 this.setData({
                     noneview: false,
-                    searchResultList: res.data.accountList,
+                    complaintList: res.data.complaintList,
                 })
             }else{
                 this.setData({  // 未查找到

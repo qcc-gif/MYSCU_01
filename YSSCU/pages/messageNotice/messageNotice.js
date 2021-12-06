@@ -7,7 +7,6 @@ Page({
   data: {
     studentNumber: "",  // 学号
     ptext: "",          // 发送的消息
-    navigateId: "2",   // 用于搜索时的标识
   },
 
   onShow: function (e) {
@@ -43,10 +42,10 @@ Page({
     console.log('message', this.data.msg)
   },
 
-  
   // 点击发送
   onClickSend: function(){
     let url = app.globalData.url + '/post'
+    if(this.data.studentNumber){     // 选择发送用户
       api.post(url, {
         studentnumber: this.data.studentnumber,
         ptext: this.data.ptext,
@@ -60,32 +59,21 @@ Page({
               delta: 1,  
             })
           })
-      }else{
+      }else{       // 发送失败
         wx.showToast({
           title: '发送失败',
           icon: 'none',
+          duration: 3000,
         })
       }
     })
+    }else{       // 未选择发送用户
+      wx.showToast({
+        title: '请选择发送对象！',
+        icon: 'none',
+        duration: 3000
+      })
+    }  
   },
 
-  // 点击删除
-  deleteImage: function(){
-    let that = this
-    wx.showModal({
-      title: '提示',
-      content: '确定要删除此图片吗？',
-      success: function (res) {
-        if (res.confirm) {
-          console.log('点击确定了');
-          that.setData({
-            imgFilePath: null,
-          })
-        } else if (res.cancel) {
-          console.log('点击取消了');
-        }
-      }
-    })
-  },
-      
 })

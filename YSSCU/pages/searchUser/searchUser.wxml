@@ -13,8 +13,8 @@
 <!-- 有结果 -->
 <view class="result" wx:else>
 <scroll-view scroll-y="true" >
-    <view wx:for="{{searchResultList}}" wx:key="id">
-        <frozenAccount userId="{{item.userId}}" profilePhoto="{{item.profilePhoto}}" name="{{item.name}}" studentNumber="{{item.studentNumber}}">
+    <view wx:for="{{searchResultList}}" wx:key="id" bindtap="onChosen">
+        <frozenAccount profilePhoto="{{item.simgurl}}" name="{{item.name}}" studentNumber="{{item.studentNumber}}">
         </frozenAccount>
     </view>
 </scroll-view>
