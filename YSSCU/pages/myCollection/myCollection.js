@@ -43,14 +43,14 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-            let url = app.globalData.url+'url'
+            let url = app.globalData.url+'/mine/myCollection'
       // 请求我的收藏帖子列表
       api.post(url, {  
-        openid: wx.getStorageInfoSync('openid')
+        stuNum: wx.getStorageSync('studentNumber')
       }).then((res) => {
          //展示我的收藏帖子列表
         this.setData({
-         postList:res.data
+         postList:res.data.postList
         })
       })
     },

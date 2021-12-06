@@ -1,31 +1,31 @@
 <!--pages/adminstorFullText/adminstorFullText.wxml-->
 <scroll-view scroll-y="true" style="height: 1440rpx;" >
 <view wx:for="{{postList}}"wx:key="index">
-    <adminstorFullText postId="{{item.postId}}"
-               profilePhoto="{{item.profilePhoto}}"
-               name="{{item.name}}"
-               studentNumber="{{item.studentNumber}}"
-               position="{{item.position}}"
-               place="{{item.place}}"
-               label="{{item.label}}"
-               title="{{item.title}}"
-               time="{{item.time}}"
-               detail="{{item.detail}}"
-               photo="{{item.photo}}"
-               thumbnum="{{item.thumbnum}}"
-               chatnum="{{item.chatnum}}"
-               sharenum="{{item.sharenum}}"
-               starnum="{{item.starnum}}">
+    <adminstorFullText postId="{{item.pid}}"
+                       label="{{item.position1}}"
+                       profilePhoto="{{item.simgurl}}"
+                       name="{{item.name}}"
+                       place="{{item.position2}}"
+                       studentNumber="{{item.studentNumber}}"
+                       title="{{item.ptitle}}"
+                       time="{{item.time}}"
+                       detail="{{item.detail}}"
+                       photo="{{item.profilePhoto}}"
+                       thumbnum="{{item.thumbnum}}"
+                       chatnum="{{item.chatnum}}"
+                       sharenum="{{item.sharenum}}"
+                       starnum="{{item.starnum}}">
     </adminstorFullText>
 </view>
 <view wx:for="{{commentList}}"wx:key="index">
-    <adminstorComment
-               profilePhoto="{{item.profilePhoto}}"
+    <adminstorComment 
+               commentId="{{item.cid}}"
+               profilePhoto="{{item.simgurl}}"
+               studentNumber="{{item.studentNumber}}"
                name="{{item.name}}"
                time="{{item.time}}"
-               studentNumber="{{item.studentNumber}}"
                detail="{{item.detail}}"
-               photo="{{item.photo}}"
+               photo="{{item.profilePhoto}}"
                thumbnum="{{item.thumbnum}}">
     </adminstorComment>
 </view>

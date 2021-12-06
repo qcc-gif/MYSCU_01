@@ -8,8 +8,8 @@ Page({
      */
     data: {
         postList:[{
-            postId: '1',//帖子id
-            profilePhoto: 'https://img.yzcdn.cn/vant/cat.jpeg',//头像
+            postId: '1',                                          // 帖子id
+            profilePhoto: 'https://img.yzcdn.cn/vant/cat.jpeg',   // 头像
             name: '大白',
             title:'标题',
             studentNumber:'2019',
@@ -23,7 +23,7 @@ Page({
               starnum: '2'
           }],
           commentList:[{
-              postId:'1',//帖子id
+              postId:'1',                                          // 帖子id
           commentId:'1',
         profilePhoto:'https://img.yzcdn.cn/vant/cat.jpeg',
         name: '大',
@@ -34,34 +34,32 @@ Page({
           }]
     },
 
-    /**
-     * 生命周期函数--监听页面加载
-     */
     onLoad: function (options) {
+        console.log(options)
         this.setData({
-            postId:options.postId
+            pid:options.postId
         })
 
     },
-
-    /**
-     * 生命周期函数--监听页面显示
-     */
     onShow: function () {
         console.log(options.postId)
-        let url=app.globalData.url+'url';//请求帖子和评论列表
+        let url=app.globalData.url+'/full/userFullText';               // 请求帖子和评论列表
      api.post(url, {  
         pid:this.data.postId
-     }).then((res) => {
-    //展示帖子和评论列表
-    if(res.data.success){
-       this.setData({
-       postList:res.data,//获取我发送的pid的帖子
-       commentList:''//获取该帖子的评论列表
-      })
-   }
+     }).then((res) => {                                               // 展示帖子和评论列表
+    if(!res.data.empty){
+        for (var chr of res.data.postList) {
+          chr.profilePhoto = app.globalData.url + '/' + chr.profilePhoto
+        }
+        this.setData({
+            postList:res.data.postList,                               // 获取我发送的pid的帖子
+            commentList:res.data.commentList                          // 获取该帖子的评论列表
+        })
+      }else{                                                          // 请求失败
+        wx.showLoading({
+          title: '加载中',
+        })      
+      }
  })
     },
-
-   
 })

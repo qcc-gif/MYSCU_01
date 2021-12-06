@@ -2,10 +2,11 @@
 <scroll-view scroll-y="true" style="height: auto;" >
 <view wx:for="{{commentList}}"wx:key="index">
     <adminstorComment
-               profilePhoto="{{item.profilePhoto}}"
+               commentId="{{item.cid}}"
+               profilePhoto="{{item.simgurl}}"
                name="{{item.name}}"
                time="{{item.time}}"
-               studentNumber=""
+               studentNumber="{{item.studentNumber}}"
                detail="{{item.detail}}"
                thumbnum="{{item.thumbnum}}">
     </adminstorComment>

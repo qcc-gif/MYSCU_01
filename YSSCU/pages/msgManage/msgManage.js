@@ -20,15 +20,15 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function () {
-        let url = app.globalData.url+'url'
+        let url = app.globalData.url+'/message/msgManage'
     // 请求系统消息列表
     api.post(url, {  
-        openid: wx.getStorageInfoSync('openid')
+        studentNumber:app.globalData.studentNumber
     }).then((res) => {
        //展示系统消息列表
        if(res.data.success){
         this.setData({
-            msgList:res.data
+            msgList:res.data.msgList
         })
       }
     })

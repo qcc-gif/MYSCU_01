@@ -14,7 +14,7 @@
     <view class="box-post">
     <scroll-view scroll-y="true" style="height: auto;" >
         <view wx:for="{{postList}}"wx:key="index">
-        <adminstorPost postId="{{item.postId}}" profilePhoto="{{item.profilePhoto}}" name="{{item.name}}" position1="{{item.position1}}" position2="{{item.position2}}" title="{{item.title}}" time="{{item.time}}" detail="{{item.detail}}" thumbnum="{{item.thumbnum}}" chatnum="{{item.chatnum}}" sharenum="{{item.sharenum}}" starnum="{{item.starnum}}">
+        <adminstorPost postId="{{item.postId}}" profilePhoto="{{item.simgurl}}" name="{{item.name}}" label="{{item.position1}}" place="{{item.position2}}" title="{{item.ptitle}}" time="{{item.time}}" detail="{{item.detail}}" thumbnum="{{item.thumbnum}}" chatnum="{{item.chatnum}}" sharenum="{{item.sharenum}}" starnum="{{item.starnum}}">
         </adminstorPost>
         </view>
     </scroll-view>

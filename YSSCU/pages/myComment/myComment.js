@@ -37,14 +37,14 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-            let url = app.globalData.url+'url'
+            let url = app.globalData.url+'/mine/myComment'
         // 请求我的评论列表
         api.post(url, {  
-            openid: wx.getStorageInfoSync('openid')
+            stuNum: wx.getStorageSync('studentNumber')
         }).then((res) => {
            //展示我的评论列表
           this.setData({
-           commentList:res.data
+           commentList:res.data.commentList
           })
         })
     },

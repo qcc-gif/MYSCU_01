@@ -1,6 +1,6 @@
 <!--pages/adminstorSearchPost/adminstorSearchPost.wxml-->
 <!-- 搜索框 -->
-<van-search model:value="{{searchValue}}" placeholder="请输入需要处理的账号" use-action-slot maxHeight="13" bind:search="onSearch">
+<van-search model:value="{{searchValue}}" placeholder="请输入需要处理的帖子" use-action-slot maxHeight="13" bind:search="onSearch">
 <view slot="action" bind:tap="onSearch">搜索</view>
 </van-search>
 

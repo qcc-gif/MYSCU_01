@@ -21,16 +21,16 @@ Page({
   },
     onShow: function (){
            let url = app.globalData.url+'/mine/mypost'
-    // 请求我的历史发布帖子列表
-    api.post(url, {  
-      stuNum: wx.getStorageSync('studentNumber')
-    }).then((res) => {
-      console.log('res', res)
-       //展示我的历史发布帖子列表
-      this.setData({
-       postList:res.data.postList
+      // 请求我的历史发布帖子列表
+      api.post(url, {  
+        stuNum: wx.getStorageSync('studentNumber')
+      }).then((res) => {
+        console.log('res', res)
+        //展示我的历史发布帖子列表
+        this.setData({
+        postList:res.data.postList
+        })
       })
-    })
     }
   
 })
