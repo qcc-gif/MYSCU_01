@@ -32,8 +32,10 @@
     font-size:  28rpx;
 }
 .studentNumber{
-    font-size:  25rpx;
-    margin: 10rpx 0;
+    font-size: small;
+    color: #333333;
+    margin-left: 20rpx;
+    margin-top: 8rpx;
 }
 
 .time {
@@ -69,9 +71,9 @@
 }
 
 .btn {
-    width: 13%;
+    width: 14%;
     display: flex;
-    font-size:  30rpx;
+    font-size:  25rpx;
 }
 .btn view {
     padding-left: 10rpx;

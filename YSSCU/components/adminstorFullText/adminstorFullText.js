@@ -7,7 +7,7 @@ Component({
         postId:{
             type: Number,
             value: 1
-          },//帖子id
+          },
         profilePhoto:{
             type:String,
             value: 'https://img.yzcdn.cn/vant/cat.jpeg'
@@ -20,10 +20,7 @@ Component({
             type: String,
             value: '大白'
           },
-          position: {
-            type: String,
-            value: '教学楼'
-          },
+          
           place: {
             type: String,
             value: '一教'
@@ -46,19 +43,19 @@ Component({
           },
           thumbnum:{
             type: Number,
-            value: 1
+            value: 111
           },
           chatnum:{
             type: Number,
-            value: 1
+            value: 111
           },
           sharenum:{
             type: Number,
-            value: 1
+            value: 111
           },
           starnum:{
             type: Number,
-            value: 1
+            value: 1111
     
           },
           photo:{
@@ -80,21 +77,23 @@ Component({
     methods: {
         delete(){
           console.log(this.data.postId)
-          
-            let url = app.globalData.url + 'url'//删除帖子
+            let url = app.globalData.url + '/post/deleteComment'             // 删除帖子
                     api.post(url, {
-                      openid: wx.getStorageInfoSync('openid'),
                       pid:this.data.postId
                     }).then((res) => {
-                      if(res.data.success){
-                         console.log(res.data)//返回状态
-                      }
-                      else(
+                      if(res.data.success){                                  // 返回一个状态，是否删除成功
+                        console.log(res.data)
                         wx.showToast({
-                          title: '无法删除帖子，请稍后再试',
+                         title: '删除成功',
+                         icon:'none'
+                       })                              
+                     }
+                     else{
+                        wx.showToast({
+                          title: '无法删除评论，请稍后再试',
                           icon:'none'
                         })
-                      )
+                     }
                     })
 
         },

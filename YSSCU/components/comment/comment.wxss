@@ -64,7 +64,7 @@
 
 .btn {
     display: flex;
-    font-size:  30rpx;
+    font-size:  25rpx;
     margin-left: auto;
 }
 .btn view {

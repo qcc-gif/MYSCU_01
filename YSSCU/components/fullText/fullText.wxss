@@ -70,18 +70,18 @@
     width: 12%;
     height: 50rpx;
     display: flex;
-    font-size:  30rpx;
+    font-size:  25rpx;
     border: 0rpx solid rgb(255, 255, 255);
     color: #696868;
     background-color: white;
 }
 
-.btn view {
-    padding-left: rpx;
-}
 .photo{
     width: 200rpx;
     height: 200rpx;
     margin-right: 20rpx;
     margin-left: 20rpx;
+}
+.icon{
+    margin-left: -20rpx;
 }

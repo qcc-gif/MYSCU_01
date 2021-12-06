@@ -11,8 +11,8 @@
            
             <view class="studentNumber">{{studentNumber}}</view>
             </view>
-            <view class="position"wx:if="{{!label}}">{{position}}•{{place}}</view>
-            <view class="position"wx:else>{{position}}•{{place}}•{{label}}</view>
+            <view class="position"wx:if="{{!label}}">{{place}}</view>
+            <view class="position"wx:else>{{place}}•{{label}}</view>
         </view>
         
         <van-icon style="width: 38rpx; height: 38rpx; display: flex; box-sizing: border-box"  class="delete" type="position"bindclick="delete"  name="clear" />

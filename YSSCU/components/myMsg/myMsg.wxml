@@ -1,7 +1,7 @@
 <view class="main">
     <view class="top">
         <view class="pic-avtor">
-            <van-image round width="100%" height="100%" src="https://img.yzcdn.cn/vant/cat.jpeg" />
+            <van-image round width="100%" height="100%" src="{{profilePhoto}}" />
             
         </view>
         <view class="desc">

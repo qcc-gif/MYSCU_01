@@ -1,5 +1,9 @@
 Component({
     properties: {
+        profilePhoto:{
+            type:String,
+            value: 'https://img.yzcdn.cn/vant/cat.jpeg'
+        },
         name: {
             type: String,
             value: '管理员'

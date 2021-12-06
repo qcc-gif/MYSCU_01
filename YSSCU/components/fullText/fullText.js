@@ -9,7 +9,7 @@ Component({
         postId:{
             type: Number,
             value: 1
-          },//帖子id
+          },
         profilePhoto:{
             type:String,
             value: 'https://img.yzcdn.cn/vant/cat.jpeg'
@@ -18,10 +18,7 @@ Component({
             type: String,
             value: '大白'
           },
-          position: {
-            type: String,
-            value: '教学楼'
-          },
+        
           place: {
             type: String,
             value: '一教'
@@ -44,19 +41,19 @@ Component({
           },
           thumbnum:{
             type: Number,
-            value: 1
+            value: 111
           },
           chatnum:{
             type: Number,
-            value: 1
+            value: 111
           },
           sharenum:{
             type: Number,
-            value: 1
+            value: 111
           },
           starnum:{
             type: Number,
-            value: 1
+            value: 111
     
           },
           photo:{
@@ -75,12 +72,11 @@ Component({
     },
     //组件生命周期
     lifetimes:{
-      attached: function() {
-        // 在组件实例进入页面节点树时执行
-        let url=app.globalData.url+'url'//请求帖子的点赞状态和收藏状态
+      attached: function() {                           // 在组件实例进入页面节点树时执行
+        let url=app.globalData.url+'url'               // 请求帖子的点赞状态和收藏状态
         api.post(url,{
           pid:this.data.postId,
-          openid: wx.getStorageInfoSync('openid')
+          studentNumber:app.globalData.studentNumber
         }).then((res)=>{
           if(res.data.success){
             this.setData({
@@ -100,25 +96,26 @@ Component({
      * 组件的方法列表
      */
     methods: {
-        report(){//举报
+        report(){                                        // 举报
             wx.navigateTo({
-              url: '/pages/appeal/appeal?postId'+this.postId,
+              url: '/pages/appeal/appeal?postId'+this.data.postId,
             })
         },
-        thumb(){//点赞
-          if(this.data.thumbStatus){//取消点赞
+        thumb(){                                         // 点赞
+          if(this.data.thumbStatus){                     // 取消点赞
             let url = app.globalData.url + 'url'
-          }else{//点赞
+          }else{                                         // 点赞
             let url = app.globalData.url + 'url'
           }
             
               api.post(url, {
                 pid:this.data.postId,
-                openid: wx.getStorageInfoSync('openid')
+                studentNumber:app.globalData.studentNumber
               }).then((res) => {
                 if(res.data.success){
                     this.setData({
-                      thumbStatus: !thumbStatus
+                      thumbnum:res.data,
+                      thumbStatus: res.data
                     })
                 }else{
                   console.log(res.data)
@@ -130,7 +127,7 @@ Component({
           //   thumbStatus:thumbStatus
           // })
         },
-        chat(){//评论
+        chat(){                                                    // 评论
            wx.navigateTo({
              url: '/pages/addComment/addComment?postId='+this.data.postId,
            })
@@ -139,39 +136,36 @@ Component({
 * 用户点击右上角分享（index.js）
 */
  onShareAppMessage: function (ops) {
-  if (ops.from === 'button') {
-    // 来自页面内转发按钮
+  if (ops.from === 'button') {                               // 来自页面内转发按钮
     console.log(ops.target)
   }
   return {
     title: '云上川大小程序',
-    path: 'pages/fullText/fullText?id=123&age=18',  // 路径，传递参数到指定页面。
-    imageUrl:'', // 分享的封面图
-    success: function (res) {
-      // 转发成功
+    path: 'pages/fullText/fullText?id=123&age=18',           // 路径，传递参数到指定页面。
+    imageUrl:'',                                             // 分享的封面图
+    success: function (res) {                                // 转发成功
       console.log("转发成功:" + JSON.stringify(res));
     },
-    fail: function (res) {
-      // 转发失败
+    fail: function (res) {                                   // 转发失败
       console.log("转发失败:" + JSON.stringify(res));
     }
   }
 
 },
-        star(){//收藏
+        star(){                                                          // 收藏
           if(this.data.starStatus){
-            let url = app.globalData.url + 'url'//取消收藏
+            let url = app.globalData.url + 'url'                         // 取消收藏
           }else{
-            let url = app.globalData.url + 'url'//收藏
+            let url = app.globalData.url + 'url'                          // 收藏
           }
               api.post(url, {
                 pid:this.data.postId,
-                openid: wx.getStorageInfoSync('openid')
+                studentNumber:app.globalData.studentNumber
               }).then((res) => {
                 if(res.data.success){
                     this.setData({
-                      starnum:!starnum,
-                      starStatus:!starStatus,
+                      starnum:res.data,
+                      starStatus:res.data,
                     })
                 }
                 else{

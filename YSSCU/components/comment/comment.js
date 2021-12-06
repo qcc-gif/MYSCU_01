@@ -4,10 +4,6 @@ Component({
      * 组件的属性列表
      */
     properties: {
-        postId:{
-            type: Number,
-            value: 1
-          },//帖子id
           commentId:{
             type: Number,
             value: 1
@@ -30,7 +26,7 @@ Component({
           },
           thumbnum:{
             type: Number,
-            value: 1
+            value: 1111
           },
 
     },
@@ -43,16 +39,15 @@ Component({
     },
     //组件生命周期
     lifetimes:{
-      attached: function() {
-        // 在组件实例进入页面节点树时执行
-        let url=app.globalData.url+''//请求点赞状态
+      attached: function() {                             // 在组件实例进入页面节点树时执行
+        let url=app.globalData.url+''                    // 请求点赞状态
         api.post(url,{
-          commentId:this.data.commentId,
-          openid: wx.getStorageInfoSync('openid')
+          cid:this.data.commentId,
+          studentNumber:app.globalData.studentNumber
         }).then((res)=>{
           if(res.data.success){
             this.setData({
-              thumbStatus:''
+              thumbStatus:''                              // false未点赞true已点赞
             })
           }
           else{
@@ -62,25 +57,22 @@ Component({
       },
 
     },
-
-    /**
-     * 组件的方法列表
-     */
+ 
     methods: {
       thumb(){//点赞
         if(this.data.thumbStatus){
-          let url = app.globalData.url + 'url'//取消点赞
+          let url = app.globalData.url + 'url'              // 取消点赞
         }else{
-          let url = app.globalData.url + 'url'//点赞
+          let url = app.globalData.url + 'url'               // 点赞
         }
-          
             api.post(url, {
-              pid:this.postId,
+              cid:this.postId,
               studentnumber:app.globalData.studentnumber
             }).then((res) => {
               if(res.data.success){
                   this.setData({
-                    thumbStatus: !thumbStatus
+                    thumbStatus: res.data,
+                    thumbnum:res.data
                   })
               }
             })
