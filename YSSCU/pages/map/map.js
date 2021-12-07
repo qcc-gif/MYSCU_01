@@ -17,9 +17,13 @@ Page({
   onLoad: function () {
     var that = this
     //获取当前的地理位置、速度
+    wx.showLoading({
+      title: 'Loading...',
+    })
     wx.getLocation({
       type: 'wgs84', 
       success: function (res) {
+        wx.hideLoading()
         console.log('res:', res)
         that.setData({
           latitude: res.latitude,

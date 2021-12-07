@@ -47,7 +47,28 @@ Page({
       searchvalue: e.searchvalue
     })
     console.log('searchValue:', this.data.searchvalue)
-    this.bindPickerChange();
+    // 按选项搜索
+    let url = app.globalData.url + '/search/requestPost';
+    console.log('choice', this.data.searchvalue)
+    api.post(url, {  
+        studentNumber: app.globalData.studentNumber,
+        choice: this.data.searchvalue,
+   }).then((res) => {
+    // 请求成功
+    console.log('res:', res)
+    if(!res.data.empty){
+      for (var chr of res.data.postList) {
+        chr.profilePhoto = app.globalData.url + '/' + chr.profilePhoto
+      }
+      this.setData({
+        postList: res.data.postList,
+     })
+    }else{  // 请求失败
+      wx.showLoading({
+        title: 'Loading...',
+      })      
+    }
+  })
   },
 
   onShow: function (e) {
@@ -71,7 +92,7 @@ Page({
      console.log('url', this.data.url)
      }else{  // 请求失败
       wx.showLoading({
-        title: '加载中',
+        title: 'Loading...',
       })      
     }
   })
@@ -84,6 +105,7 @@ Page({
     this.setData({
       index: e.detail.value
     })
+
     // 按选项搜索
     let url = app.globalData.url + '/search/requestPost';
     console.log('choice', this.data.array[this.data.index])
@@ -127,10 +149,14 @@ Page({
   },
 
   // 跳转到全文
-  toFullText: function(){
+  toFullText: function(e){
+    console.log('toFullText:', e)
+    let index = e.currentTarget.dataset.index          // 当前item的下标
+    let postId = this.data.postList[index].postId      // 当前帖子ID
     wx.navigateTo({
-      url: `/pages/fullText/fullText?postId=${this.data.postId}`,
+      url: `/pages/fullText/fullText?postId=${postId}`,
     })
+    console.log('toFullText PostId:', postId)
   }
    
 })
