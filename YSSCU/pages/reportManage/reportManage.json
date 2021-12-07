@@ -1,6 +1,7 @@
 {
   "usingComponents": {
-    "myreport": "./../../components/myReport/myReport"
+    "myreport": "./../../components/myReport/myReport",
+    "commentReport":"./../../components/commentReport/commentReport"
   },
   "navigationBarTitleText": "举报管理"
 }
