@@ -148,16 +148,16 @@ Page({
     })
   },
 
-  // 跳转到全文
-  toFullText: function(e){
-    console.log('toFullText:', e)
-    let index = e.currentTarget.dataset.index          // 当前item的下标
-    let postId = this.data.postList[index].postId      // 当前帖子ID
-    wx.navigateTo({
-      url: `/pages/fullText/fullText?postId=${postId}`,
-    })
-    console.log('toFullText PostId:', postId)
-  }
+  // // 跳转到全文
+  // toFullText: function(e){
+  //   console.log('toFullText:', e)
+  //   let index = e.currentTarget.dataset.index          // 当前item的下标
+  //   let postId = this.data.postList[index].postId      // 当前帖子ID
+  //   wx.navigateTo({
+  //     url: `/pages/fullText/fullText?postId=${postId}`,
+  //   })
+  //   console.log('toFullText PostId:', postId)
+  // }
    
 })
 
