@@ -1,6 +1,7 @@
+// components/commentReport/commentReport.js
 Component({
     properties: {
-      postId:{
+      commentId:{
         type: Number,
         value: 1
       },
@@ -20,13 +21,14 @@ Component({
         type: String,
         value: '2000年11月14日 14:00'
       },
-      title: {
-        type: String,
-        value: "这里是我的标题"
-      },
+
       detail: {
         type: String,
-        value: "这里是我发的帖子这里是我发的帖子这里是我发的帖子这里是我发的帖子这里是我发的帖子这里是我发的帖子这里是我发的帖子这里是我发的帖子这里是我发的帖子这里是我发的帖子这里是我发的帖子这里是我发的帖子这里是我发的帖子这里是我发的帖子这里是我发的帖子这里是我发的帖子"
+        value: "这里是我发的评论"
+      },
+      photo:{
+        type:String,
+        value: 'https://img.yzcdn.cn/vant/cat.jpeg'
       },
       reason:{
         type:String,
@@ -60,7 +62,7 @@ Component({
                 let url = app.globalData.url + 'url'                       //保留
               }
               api.post(url, {
-                pid:this.data.postId
+                cid:this.data.commentId
               }).then((res) => {
                 if(res.data.success){
                     wx.showToast({
@@ -75,12 +77,6 @@ Component({
                 }
               })
       },
-      fullDetails(){                                                       // 点击帖子跳转详情
-        wx.navigateTo({
-          url: '/pages/adminstorFullText/adminstorFullText?postId='+this.data.postId,
-        })
-
-      }
   
     }
   })

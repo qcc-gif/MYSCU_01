@@ -1,0 +1,72 @@
+/* components/commentReport/commentReport.wxss */
+.main {
+    width: 90%;
+    border: 2rpx solid #000;
+    margin: 0 auto;
+    margin-top: 20rpx;
+    border-radius: 10rpx;
+    padding: 8rpx;
+    box-sizing: border-box;
+}
+
+.top {
+    display: flex;
+}
+
+.pic-avtor {
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 50%;
+    /* border: 2rpx solid #000; */
+    margin-right: 20rpx;
+}
+
+.name {
+    font-size: 35rpx;
+    font-weight: 600;
+}
+
+
+.studentNumber{
+    font-size: small;
+    color: #333333;
+    margin-left: 20rpx;
+    margin-top: 8rpx;
+}
+
+
+.time {
+    color: #555;
+    font-size:  25rpx;
+    margin-left:20rpx;
+}
+
+.post {
+    margin: 20rpx 0;
+    display: -webkit-box;
+    font-size: 25rpx; 
+    margin-left: 3%;
+    margin-right: 3%;
+    color: #696868;      
+    overflow: hidden;
+    -webkit-box-orient: vertical;  
+    -webkit-line-clamp: 2;
+}
+
+.btn-box {
+    display: flex;
+    padding:0 10%;
+    justify-content: space-between;
+    margin: 10rpx 0;
+    margin-top: 15rpx;
+}
+.nameBox{
+    display: flex;
+}
+.photo{
+    width: 200rpx;
+    height: 200rpx;
+    margin-right: 20rpx;
+    margin-left: 20rpx;
+}
+
