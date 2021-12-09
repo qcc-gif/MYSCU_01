@@ -67,11 +67,11 @@ Component({
     },
 
     methods: {
-      onShow(){
 
-      },
       delete(){
         console.log(this.data.postId)
+        var allpages = getCurrentPages();//获取全部页面数据
+        var nowpage = allpages[allpages.length - 1];//获取页面，包括数据和方法
           let url = app.globalData.url + '/action/PCDrop'             // 删除帖子
                   api.post(url, {
                     pid: this.data.postId,
@@ -84,7 +84,7 @@ Component({
                        title: '删除成功',
                        icon:'none'
                      }) 
-                     this.onShow()                             
+                     nowpage.onShow()                                  
                    }
                    else{
                       wx.showToast({

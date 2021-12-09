@@ -63,29 +63,28 @@ Component({
             type:String,
             value: 'https://img.yzcdn.cn/vant/cat.jpeg'
           },
-          navigateNum:{
-            type:Number,
-            value:''
-          }
-
     },
 
     data: {
     },
 
     methods: {
+      
         delete(){
+          
           console.log(this.data.postId)
             let url = app.globalData.url + '/post/deleteComment'             // 删除帖子
                     api.post(url, {
-                      pid:this.data.postId
+                      pid:this.data.postId,
+                      poc:1
                     }).then((res) => {
                       if(res.data.success){                                  // 返回一个状态，是否删除成功
                         console.log(res.data)
                         wx.showToast({
                          title: '删除成功',
                          icon:'none'
-                       })                              
+                       })
+       
                      }
                      else{
                         wx.showToast({
@@ -94,11 +93,6 @@ Component({
                         })
                      }
                     })
-                    if(navigateNum==0){
-                      wx.navigateTo({
-                        url: '/pages/',
-                      })
-                    }
 
         },
     }
