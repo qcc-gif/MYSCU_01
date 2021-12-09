@@ -8,8 +8,8 @@ Page({
      */
     data: {
         postList:[{
-            postId: '1',//帖子id
-            profilePhoto: 'https://img.yzcdn.cn/vant/cat.jpeg',//头像
+            postId: '1',
+            profilePhoto: 'https://img.yzcdn.cn/vant/cat.jpeg',
             name: '大白',
             title:'标题',
               position1: '教学楼',
@@ -20,38 +20,32 @@ Page({
                 chatnum: '2',
                 sharenum: '2',
                 starnum: '2'
-          }]
+          }],
+          isEmpty:true
 
     },
 
-    /**
-     * 生命周期函数--监听页面加载
-     */
-    onLoad: function () {
-
-  
-      },
-
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面显示
-     */
     onShow: function () {
             let url = app.globalData.url+'/mine/myCollection'
       // 请求我的收藏帖子列表
       api.post(url, {  
-        stuNum: wx.getStorageSync('studentNumber')
+        stuNum:app.globalData.studentNumber
       }).then((res) => {
          //展示我的收藏帖子列表
-        this.setData({
-         postList:res.data.postList
-        })
+         console.log(res)
+         if(!res.data.empty){
+          for (var chr of res.data.postList) {
+            chr.profilePhoto = app.globalData.url + '/' + chr.profilePhoto
+          }
+          this.setData({
+            postList:res.data.postList,
+              isEmpty:false
+         })
+        }else{                                 
+          this.setData({
+              isEmpty:true
+         })      
+        }
       })
     },
     

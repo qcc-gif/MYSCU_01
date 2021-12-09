@@ -7,10 +7,11 @@ Page({
             name: '',                           // 昵称
         }],
         noneview: null,                         // 有无搜索结果: true无搜索结果 false有搜索结果
+        empty: true,
     },
 
     onShow: function () {
-       
+    
     },
 
     // 点击搜索
@@ -20,11 +21,15 @@ Page({
         api.post(url, {
             stuNum: this.data.studentNumber,
         }).then((res) => {
+            this.setData({
+                empty: true
+            })
             if(!res.data.empty){  // 查找到
                 this.setData({
                     noneview: false,
                     searchResultList: res.data.complaintList,
                 })
+                console.log('serach res:', this.data.searchResultList)
             }else{
                 this.setData({  // 未查找到
                     noneview: true

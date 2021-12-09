@@ -24,4 +24,7 @@
 .arrow-icon{
    display: flex;
 }
+.empty{
+    margin-left: 30%;
+}
 

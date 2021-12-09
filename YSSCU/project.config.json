@@ -41,11 +41,14 @@
             }
         ],
         "minifyWXSS": true,
-        "showES6CompileOption": false
+        "disableUseStrict": false,
+        "minifyWXML": true,
+        "showES6CompileOption": false,
+        "useCompilerPlugins": false
     },
     "compileType": "miniprogram",
-    "libVersion": "2.20.1",
-    "appid": "wxc4ee4374473173c6",
+    "libVersion": "2.20.2",
+    "appid": "wx9bd989b92d682740",
     "projectname": "YSSCU",
     "debugOptions": {
         "hidedInDevtools": []

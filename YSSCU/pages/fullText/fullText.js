@@ -27,11 +27,12 @@ Page({
       detail: "",
       thumbnum: 0,
     }],
-    postId: '1',
+    postId: '',
+    isEmpty:true
   },
 
   onLoad: function (options) {
-    console.log(options.postId)
+    console.log('postId', options.postId)
     this.setData({
       postId: options.postId
     })
@@ -42,20 +43,36 @@ Page({
     api.post(url, { 
       studentNumber: app.globalData.studentNumber,
       pid: this.data.postId
-    }).then((res) => {                                           // 展示帖子和评论列表
+    }).then((res) => { 
+      console.log(res) ;                                         // 展示帖子和评论列表
       if(!res.data.empty){
         for (var chr of res.data.postList) {
-          chr.profilePhoto = app.globalData.url + '/' + chr.profilePhoto
+          if(chr.profilePhoto==null){
+            chr.profilePhoto = chr.profilePhoto
+          }else{
+            chr.profilePhoto = app.globalData.url + '/' + chr.profilePhoto
+          }
+          for (var chr of res.data.commentList) {
+            if(chr.profilePhoto==null){
+              chr.profilePhoto = chr.profilePhoto
+            }else{
+              chr.profilePhoto = app.globalData.url + '/' + chr.profilePhoto
+            }
+          }
         }
+        console.log('postList:', res.data.postList);
+        console.log('commentList:', res.data.commentList);
         this.setData({
           postList: res.data.postList,
-          commentList: res.data.commentList
+          commentList:res.data.commentList,
+          isEmpty:false
        })
-        }else{                                                   // 请求失败
-          wx.showLoading({
-            title: 'Loading...',
-          })      
-        }
+       console.log('commentList', this.data.commentList)
+       }else{                                       // 请求结果为空列表
+        this.setData({
+          isEmpty:true
+       })
+      }
     })
   },
     

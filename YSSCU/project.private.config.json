@@ -35,6 +35,30 @@
                     "pathName": "pages/post/post",
                     "query": "",
                     "scene": null
+                },
+                {
+                    "name": "pages/userlogin/userlogin",
+                    "pathName": "pages/userlogin/userlogin",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/msgManage/msgManage",
+                    "pathName": "pages/msgManage/msgManage",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/mine/mine",
+                    "pathName": "pages/mine/mine",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/reportManage/reportManage",
+                    "pathName": "pages/reportManage/reportManage",
+                    "query": "",
+                    "scene": null
                 }
             ]
         }

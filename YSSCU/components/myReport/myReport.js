@@ -5,8 +5,8 @@ Component({
         value: 1
       },
       studentNumber:{
-        type: Number,
-        value: 20191414
+        type: String,
+        value: '20191414'
       },
       name: {
         type: String,

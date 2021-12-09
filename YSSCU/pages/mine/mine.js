@@ -55,11 +55,12 @@ Page({
         account: app.globalData.studentNumber,
     }).then((res) => {
        //设置个人标签，我的发帖数，我的收藏数，我的评论数
+       console.log(res)
       this.setData({
         personLabel: res.data.personLabel, 
         postnum: res.data.postnum,
         starnum: res.data.starnum,
-        commentnum: res.data.commentnum,
+        commentnum: res.data.commentNum,
       })
     })
   },

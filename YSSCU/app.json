@@ -1,5 +1,7 @@
 {
   "pages": [ 
+    "pages/userlogin/userlogin",
+    "pages/adminlogin/adminlogin",
     "pages/msgManage/msgManage",
     "pages/mypost/mypost",
     "pages/myCollection/myCollection",
@@ -24,8 +26,6 @@
     "pages/reward/reward",
     "pages/mine/mine",
     "pages/adminstor/adminstor", 
-    "pages/userlogin/userlogin",
-    "pages/adminlogin/adminlogin",
     "pages/index/index",
     "pages/logs/logs",
 

@@ -31,7 +31,8 @@ Page({
           time:  '2000年11月14日 14:00',
           detail: "这里是我发的评论",
           thumbnum: '1'
-          }]
+          }],
+          isEmpty:false
     },
 
     onLoad: function (options) {
@@ -45,20 +46,38 @@ Page({
         console.log(options.postId)
         let url=app.globalData.url+'/full/userFullText';               // 请求帖子和评论列表
      api.post(url, {  
-        pid:this.data.postId
+        pid:this.data.postId,
+        studentNumber: app.globalData.studentNumber,
      }).then((res) => {                                               // 展示帖子和评论列表
-    if(!res.data.empty){
+      console.log(res) ;                                         // 展示帖子和评论列表
+      if(!res.data.empty){
         for (var chr of res.data.postList) {
-          chr.profilePhoto = app.globalData.url + '/' + chr.profilePhoto
+          if(chr.profilePhoto==null){
+            chr.profilePhoto = chr.profilePhoto
+          }
+          else{
+            chr.profilePhoto = app.globalData.url + '/' + chr.profilePhoto
+          }
         }
+        for (var chr of res.data.commentList) {
+          if(chr.profilePhoto==null){
+            chr.profilePhoto = chr.profilePhoto
+          }
+          else{
+            chr.profilePhoto = app.globalData.url + '/' + chr.profilePhoto
+          }
+        }
+        console.log('postList:', res.data.postList);
         this.setData({
-            postList:res.data.postList,                               // 获取我发送的pid的帖子
-            commentList:res.data.commentList                          // 获取该帖子的评论列表
-        })
-      }else{                                                          // 请求失败
-        wx.showLoading({
-          title: '加载中',
-        })      
+          postList: res.data.postList,
+          commentList:res.data.commentList,
+          isEmpty:false
+       })
+       console.log('commentList', this.data.commentList)
+       }else{                                       // 请求结果为空列表
+        this.setData({
+          isEmpty:true
+       })
       }
  })
     },

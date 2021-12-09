@@ -18,6 +18,7 @@
     </view>
     <view class="title">{{title}}</view>
     <text user-select="true"class="post"space="nbsp">{{detail}}</text>
+    
     <view wx:if="{{photo}}" class="photo">
         <cover-image round size="100%"width="100%" height="100%" src="{{photo}}"/>
     </view>
@@ -25,7 +26,7 @@
     <view class="btn-box">
         <view class="time" style="width: 264rpx; height: 50rpx; display: block; box-sizing: border-box">{{time}}</view>
         <button class="btn"catchtap="thumb" style="position: relative;  top: -2rpx">
-            <van-icon class="icon" wx:if="{{!thumbStatus}}"name="thumb-circle" />
+            <van-icon class="icon" wx:if="{{thumbStatus==0}}"name="thumb-circle" />
             <van-icon class="icon" wx:else name="thumb-circle"color="#82caff" />
             <view>{{thumbnum}}</view>
         </button>
@@ -38,7 +39,7 @@
             <view>{{sharenum}}</view>
         </button>
         <button class="btn"catchtap="star">
-            <van-icon class="icon" wx:if="{{!starStatus}}"name="star" />
+            <van-icon class="icon" wx:if="{{starStatus==0}}"name="star" />
             <van-icon class="icon" wx:else name="star" color="#82caff"/>
             <view>{{starnum}}</view>
         </button>

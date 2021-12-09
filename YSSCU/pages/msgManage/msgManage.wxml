@@ -1,6 +1,6 @@
 <!--pages/systempost/systempost.wxml-->
-<scroll-view scroll-y="true" style="height: auto;" >
-<view wx:for="{{msgList}}"wx:key="id">
+<scroll-view  wx:if="{{!isEmpty}}" style="height: auto;" >
+<view wx:for="{{msgList}}"wx:key="index">
     <myMsg  name="{{item.name}}"
             time="{{item.mtime}}"
             msg="{{item.msg}}"
@@ -8,3 +8,4 @@
     </myMsg>
 </view>
 </scroll-view>
+<view wx:else class="empty">您暂时没有系统消息！</view>

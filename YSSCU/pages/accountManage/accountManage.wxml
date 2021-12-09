@@ -3,9 +3,10 @@
 <view slot="action" bind:tap="onSearch">搜索</view>
 </van-search>
 
-<scroll-view scroll-y="true" style="height: 1230rpx;" >
+<scroll-view wx:if="{{!isEmpty}}" scroll-y="true" style="height: 1230rpx;" >
 <view wx:for="{{complaintList}}"wx:key="id">
     <complaint profilePhoto="{{item.simgurl}}" name="{{item.name}}" studentNumber="{{item.studentNumber}}" time="{{item.time}}" reason="{{item.reason}}">
     </complaint>
 </view>
 </scroll-view>
+<view wx:else>暂时没有申诉！</view>

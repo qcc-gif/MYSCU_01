@@ -1,8 +1,9 @@
 // components/adminstorFullText/adminstorFullText.js
+const api = require("../../api/api");
+const app = getApp();
+
 Component({
-    /**
-     * 组件的属性列表
-     */
+
     properties: {
         postId:{
             type: Number,
@@ -13,8 +14,8 @@ Component({
             value: 'https://img.yzcdn.cn/vant/cat.jpeg'
         },
         studentNumber:{
-          type: Number,
-          value: 20191414
+          type: String,
+          value: '20191414'
         },
         name: {
             type: String,
@@ -61,19 +62,17 @@ Component({
           photo:{
             type:String,
             value: 'https://img.yzcdn.cn/vant/cat.jpeg'
+          },
+          navigateNum:{
+            type:Number,
+            value:''
           }
 
     },
 
-    /**
-     * 组件的初始数据
-     */
     data: {
     },
 
-    /**
-     * 组件的方法列表
-     */
     methods: {
         delete(){
           console.log(this.data.postId)
@@ -95,6 +94,11 @@ Component({
                         })
                      }
                     })
+                    if(navigateNum==0){
+                      wx.navigateTo({
+                        url: '/pages/',
+                      })
+                    }
 
         },
     }

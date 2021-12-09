@@ -4,14 +4,10 @@ Component({
      * 组件的属性列表
      */
     properties: {
-        studentNumber:{
-            type: Number,
-            value: 20191414
-          },
-            userId:{
-                type:Number,
-                value: 1
-            },
+      studentNumber:{
+        type: String,
+        value: '20191414'
+      },
             profilePhoto:{
                 type:String,
                 value: 'https://img.yzcdn.cn/vant/cat.jpeg'

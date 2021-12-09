@@ -12,8 +12,8 @@ Component({
         value: 'https://img.yzcdn.cn/vant/cat.jpeg'
     },
     studentNumber:{
-      type: Number,
-      value: 20191414
+      type: String,
+      value: '20191414'
     },
     name: {
         type: String,
@@ -61,6 +61,14 @@ Component({
         value: 111
 
       },
+      thumbStatus:{
+        type: Number,
+        value: 0
+      },
+      starStatus:{
+        type: Number,
+        value: 0
+      }
     },
     
     data: {
@@ -90,7 +98,7 @@ Component({
     methods: {
       fullDetails(){                                          // 跳转帖子详情
         wx.navigateTo({
-          url: '/pages/fullText/fullText?postId='+this.postId,
+          url: '/pages/fullText/fullText?postId='+this.data.postId,
         })
       },
      

@@ -1,5 +1,5 @@
 <!--pages/myComment/myComment.wxml-->
-<scroll-view scroll-y="true" style="height: auto;" >
+<scroll-view wx:if="{{!isEmpty}}"scroll-y="true" style="height: auto;" >
 <view wx:for="{{commentList}}"wx:key="index">
     <adminstorComment
                commentId="{{item.cid}}"
@@ -12,4 +12,5 @@
     </adminstorComment>
 </view>
 </scroll-view>
+<view wx:else class="empty">您暂时没有发布评论！</view>
 

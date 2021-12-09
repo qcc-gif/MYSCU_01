@@ -3,7 +3,7 @@
     <view class="bg-top">bg</view>
     <view class="menu">
         <van-cell-group inset>
-            <van-cell title="系统消息" is-link link-type="navigateTo" url="/pages/systemmsg/systemmsg"/>
+            <van-cell title="系统消息" is-link link-type="navigateTo" url="/pages/msgManage/msgManage"/>
             <van-cell title="联系我们" is-link bind:click="contactFonfirm" />
             <van-cell title="打赏开发者" is-link link-type="navigateTo" url="/pages/reward/reward" />
             <van-cell title="退出登录" is-link bind:click="logOut"/>

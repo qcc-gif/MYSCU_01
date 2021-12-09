@@ -1,8 +1,9 @@
 // components/adminstorPost/adminstorPost.js
+const api = require("../../api/api");
+const app = getApp();
+
 Component({
-    /**
-     * 组件的属性列表
-     */
+
     properties: {
         postId:{
             type: Number,
@@ -13,8 +14,8 @@ Component({
             value: 'https://img.yzcdn.cn/vant/cat.jpeg'
         },
         studentNumber:{
-          type: Number,
-          value: 20191414
+          type: String,
+          value: '20191414'
         },
         name: {
             type: String,
@@ -61,28 +62,29 @@ Component({
 
     },
 
-    /**
-     * 组件的初始数据
-     */
     data: {
+     isDelete:false 
     },
 
-    /**
-     * 组件的方法列表
-     */
     methods: {
+      onShow(){
+
+      },
       delete(){
         console.log(this.data.postId)
-          let url = app.globalData.url + '/post/deleteComment'             // 删除帖子
+          let url = app.globalData.url + '/action/PCDrop'             // 删除帖子
                   api.post(url, {
-                    pid:this.data.postId
+                    pid: this.data.postId,
+                    poc: 0
                   }).then((res) => {
+                    console.log.res
                     if(res.data.success){                                  // 返回一个状态，是否删除成功
                       console.log(res.data)
                       wx.showToast({
                        title: '删除成功',
                        icon:'none'
-                     })                              
+                     }) 
+                     this.onShow()                             
                    }
                    else{
                       wx.showToast({
@@ -91,8 +93,13 @@ Component({
                       })
                    }
                   })
+                  this.onShow()
+                  this.setData({
+                    isDelete:true
+                  })
 
       },
+
         fullDetails(){                                                       // 点击帖子跳转详情
           wx.navigateTo({
             url: '/pages/adminstorFullText/adminstorFullText?postId='+this.data.postId,

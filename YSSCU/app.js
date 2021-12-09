@@ -7,7 +7,7 @@ App({
     adminAccount: "",                        // 管理员账号
     adminName: "",                           // 管理员名字
     adminAvatarUrl: "",                            // 管理员头像
-    url: "http://10.133.231.56:3000",
+    url: "http://10.132.48.133:3000",
   },
 
 })

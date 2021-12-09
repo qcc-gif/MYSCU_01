@@ -1,9 +1,10 @@
 <!--pages/searchPost/searchPost.wxml-->
 <!-- 搜索框 -->
-<van-search model:value="{{searchValue}}" placeholder="请输入需要处理的账号" use-action-slot maxHeight="13" bind:search="onSearch">
+<van-search model:value="{{searchValue}}" placeholder="请输入关键词" use-action-slot maxHeight="13" bind:search="onSearch">
 <view slot="action" bind:tap="onSearch">搜索</view>
 </van-search>
 
+<view wx:if="{{!empty}}">
 <!-- 无结果 -->
 <view class="none" wx:if="{{noneview}}">
     <image src="/static/images/no_result.png" mode="widthFix" style="width:20%"></image>
@@ -17,4 +18,5 @@
         </mypost>
     </view>
 </scroll-view>
+</view>
 </view>

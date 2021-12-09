@@ -12,8 +12,8 @@ Page({
 
   onLoad: function(e){
     this.setData({
-      // postId: e.detail.value
-      postId: '1'
+      
+      postId: e.postId
     })
   },
 
@@ -80,8 +80,8 @@ Page({
             title: '发布成功！',
             duration: 3000,
           }).then((res) => {
-            wx.reLaunch({
-              url: '/pages/square/square',
+            wx.navigateBack({
+              delta: 1,
             })
           })
           

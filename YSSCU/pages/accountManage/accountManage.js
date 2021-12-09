@@ -12,7 +12,8 @@ Page({
             atype: "",
             areason:  "",
             aphone: "",
-        }]
+        }],
+        isEmpty:true
     },
    
     search:function(){
@@ -26,11 +27,19 @@ Page({
         api.post(url, {  
             
         }).then((res) => {
-            if(!res.data.empty){  // 展示申诉列表
+            if(!res.data.empty){
+                for (var chr of res.data.complaintList) {
+                  chr.profilePhoto = app.globalData.url + '/' + chr.profilePhoto
+                }
                 this.setData({
-                    complaintList:res.data.complaintList
-                })
-            }
+                    complaintList:res.data.complaintList,
+                    isEmpty:false
+               })
+              }else{                                 
+                this.setData({
+                    isEmpty:true
+               })      
+              }
         })
 
     },

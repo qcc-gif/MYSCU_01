@@ -1,1 +1,4 @@
 /* pages/myComment/myComment.wxss */
+.empty{
+    margin-left: 30%;
+}

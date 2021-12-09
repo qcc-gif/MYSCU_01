@@ -1,5 +1,9 @@
 // components/adminstorComment/adminstorComment.js
+const api = require("../../api/api");
+const app = getApp();
+
 Component({
+  
     properties: {                                                    
           commentId:{
             type: Number,
@@ -10,8 +14,8 @@ Component({
             value: 'https://img.yzcdn.cn/vant/cat.jpeg'
         },
         studentNumber:{
-          type: Number,
-          value: 20191414
+          type: String,
+          value: ""
         },
         name: {
             type: String,
@@ -36,6 +40,7 @@ Component({
         
 
     },
+
     data: {
     },
 

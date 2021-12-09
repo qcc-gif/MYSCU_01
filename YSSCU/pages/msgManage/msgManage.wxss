@@ -1,1 +1,4 @@
 /* pages/systempost/systempost.wxss */
+.empty{
+    margin-left: 30%;
+}

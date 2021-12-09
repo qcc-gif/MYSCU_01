@@ -14,11 +14,16 @@
         <van-icon style="width: 38rpx; height: 38rpx; display: flex; box-sizing: border-box"  class="delete" type="position"bindclick="report" color="#555" name="warning" />
     </view>
     <text class="post"space="nbsp">{{detail}}</text>
+    <view wx:if="{{photo}}" class="photo">
+        <cover-image round size="50%" width="50%" height="50%" src="{{photo}}"/>
+    </view>
+    <view wx:else></view>
+    
    
     <view class="btn-box">
         <view class="time">{{time}}</view>
         <view class="btn"catchtap="thumb">
-            <van-icon wx:if="{{thumbStatus}}"name="thumb-circle" />
+            <van-icon wx:if="{{thumbStatus==0}}"name="thumb-circle" />
             <van-icon wx:else name="thumb-circle"color="#82caff" />
             <view>{{thumbnum}}</view>
         </view>

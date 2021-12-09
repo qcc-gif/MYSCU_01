@@ -5,6 +5,7 @@ const app = getApp();
 Page({
     data: {
         searchValue:'',                                         // 搜索内容
+        studentNumber: "",                                      // 学号
         searchResultList:[{                                     // 搜索结果列表
             pid: '1',                                           // 帖子id
             avatar: 'https://img.yzcdn.cn/vant/cat.jpeg',       // 头像
@@ -20,10 +21,13 @@ Page({
             starnum: 0,                                         // 收藏数
         }],
         noneview: null,            // 有无搜索结果: true无搜索结果 false有搜索结果
+        empty: true,
     },
 
     onLoad: function (options) {
-
+        this.setData({
+            empty: true
+        })
     },
 
     onShow: function () {
@@ -37,13 +41,18 @@ Page({
         console.log('onSearch')
         let url = app.globalData.url + '/search/searchKey'
         api.post(url, {
+            studentNumber: app.globalData.studentNumber,
             key: this.data.searchValue
         }).then((res) => {
+            this.setData({
+                empty: false
+            })
             if(!res.data.empty){  // 查找到
                 this.setData({
                     noneview: false,
                     searchResultList: res.data.postList,
                 })
+                console.log('search res:', this.data.searchResultList)
             }else{
                 this.setData({  // 未查找到
                     noneview: true

@@ -1,10 +1,12 @@
 // components/complaint/complaint.js
+const api = require("../../api/api");
+const app = getApp();
 
 Component({
   properties: {
     studentNumber:{                                 // 学号
-      type: Number,
-      value: 20191414
+      type: String,
+      value: '20191414'
     },
     profilePhoto:{                                 // 头像
       type:String,

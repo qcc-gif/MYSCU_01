@@ -1,1 +1,4 @@
 /* pages/mypost/mypost.wxss */
+.empty{
+    margin-left: 30%;
+}

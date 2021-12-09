@@ -1,8 +1,8 @@
 // components/comment/comment.js
+const api = require("../../api/api");
+const app = getApp();
+
 Component({
-    /**
-     * 组件的属性列表
-     */
     properties: {
           commentId:{
             type: Number,
@@ -12,6 +12,10 @@ Component({
             type:String,
             value: 'https://img.yzcdn.cn/vant/cat.jpeg'
         },
+        photo:{
+          type:String,
+          value: 'https://img.yzcdn.cn/vant/cat.jpeg'
+      },
         name: {
             type: String,
             value: '大白'
@@ -28,81 +32,37 @@ Component({
             type: Number,
             value: 1111
           },
+          thumbStatus:{
+            type:Number,
+            value:0
+          }
 
     },
 
-    /**
-     * 组件的初始数据
-     */
     data: {
-        thumbStatus:"true"
+      poc: 0,
     },
-    //组件生命周期
-    lifetimes:{
-      attached: function() {                             // 在组件实例进入页面节点树时执行
-        let url=app.globalData.url+''                    // 请求点赞状态
-        api.post(url,{
-          cid:this.data.commentId,
-          studentNumber:app.globalData.studentNumber
-        }).then((res)=>{
-          if(res.data.success){
-            this.setData({
-              thumbStatus:''                              // false未点赞true已点赞
-            })
-          }
-          else{
-            console.log(res.data)
-          }
-        })
-      },
 
-    },
- 
     methods: {
-      thumb(){//点赞
-        if(this.data.thumbStatus){
-          let url = app.globalData.url + 'url'              // 取消点赞
-        }else{
-          let url = app.globalData.url + 'url'               // 点赞
-        }
+      thumb(){                                               // 点赞
+          let url = app.globalData.url + '/action/thumb'
             api.post(url, {
-              cid:this.postId,
-              studentnumber:app.globalData.studentnumber
+              pid: this.data.commentId,
+              studentNumber: wx.getStorageSync('studentNumber'),
+              poc: 0
             }).then((res) => {
               if(res.data.success){
                   this.setData({
-                    thumbStatus: res.data,
-                    thumbnum:res.data
+                    thumbStatus: res.data.thumbnum,
+                    thumbnum:res.data.isThumb
                   })
               }
             })
-        // return this.updatePostData('thumb'),
-        // this.setData({
-        //   thumbnum:thumbnum,
-        //   thumbStatus:thumbStatus
-        // })
       },
-      // updatePostData(category){
-      //   switch(category){
-      //       case 'thumb':
-      //         //处理点赞
-      //         if(!thumbStatus){
-      //           //如果当前状态是未点赞
-      //           thumbnum++;
-      //           thumbStatus = true;
-      //         }else{
-      //           //如果当前状态是已点赞
-      //           thumbnum--;
-      //           thumbStatus = false;
-      //         }
-      //         break;
-      //       default:break;
-      
-        // }
-      // },
-        report(){//举报
+
+        report(){                                            // 举报
           wx.navigateTo({
-            url: '/pages/appeal/appeal?postId'+this.data.postId+"commentId="+this.data.commentId
+            url: '/pages/report/report?poc=' + this.data.poc + "&postId=" + this.data.commentId
           })
       },
     }

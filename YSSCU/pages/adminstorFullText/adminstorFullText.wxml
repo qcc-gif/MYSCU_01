@@ -1,5 +1,5 @@
 <!--pages/adminstorFullText/adminstorFullText.wxml-->
-<scroll-view scroll-y="true" style="height: 1440rpx;" >
+<scroll-view wx:if="{{!isEmpty}}" scroll-y="true" style="height: 1440rpx;" >
 <view wx:for="{{postList}}"wx:key="index">
     <adminstorFullText postId="{{item.pid}}"
                        label="{{item.position1}}"

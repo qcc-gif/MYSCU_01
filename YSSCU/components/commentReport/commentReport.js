@@ -1,13 +1,17 @@
 // components/commentReport/commentReport.js
+const api = require("../../api/api");
+const app = getApp();
+
 Component({
+
     properties: {
       commentId:{
         type: Number,
         value: 1
       },
       studentNumber:{
-        type: Number,
-        value: 20191414
+        type: String,
+        value: '20191414'
       },
       name: {
         type: String,
@@ -35,9 +39,11 @@ Component({
         value:"不实信息"
       }
     },
+
     data: {
       isDelete:'true'
     },
+
     methods: {
       retainClick(){
            this.setData({
@@ -45,12 +51,14 @@ Component({
            })
            this.determineClick();
       },
+
       deleteClick(){
         this.setData({
           isDelete:true
          })
          this.determineClick();
       },
+
       determineClick(){
         var that=this
               wx.showLoading({

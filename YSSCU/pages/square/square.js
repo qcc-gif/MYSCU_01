@@ -38,7 +38,8 @@ Page({
       chatnum: 0,                                         // 帖子评论数
       sharenum: 0,                                        // 帖子分享数
       starnum: 0,                                         // 帖子转发数
-    }]
+    }],
+    isEmpty:true
   },
 
   onLoad: function(e){
@@ -55,30 +56,35 @@ Page({
         choice: this.data.searchvalue,
    }).then((res) => {
     // 请求成功
-    console.log('res:', res)
-    if(!res.data.empty){
-      for (var chr of res.data.postList) {
-        chr.profilePhoto = app.globalData.url + '/' + chr.profilePhoto
-      }
-      this.setData({
-        postList: res.data.postList,
-     })
-    }else{  // 请求失败
-      wx.showLoading({
-        title: 'Loading...',
-      })      
-    }
+    console.log(res)
+         if(!res.data.empty){
+          for (var chr of res.data.postList) {
+            chr.profilePhoto = app.globalData.url + '/' + chr.profilePhoto
+          }
+          this.setData({
+            postList:res.data.postList,
+              isEmpty:false
+         })
+        }else{                                 
+          this.setData({
+              isEmpty:true
+         })      
+        }
   })
   },
 
   onShow: function (e) {
     //请求所有帖子
     console.log('onShow')
+    wx.showLoading({
+      title: 'Loading...',
+    })
     let url = app.globalData.url + '/search/requestPost';
     api.post(url, {  
         studentNumber: app.globalData.studentNumber,
         choice: '全部',
    }).then((res) => {
+     wx.hideLoading()
      console.log('onshowRequest:', res)
     // 请求成功
     if(!res.data.empty){
@@ -88,12 +94,13 @@ Page({
       console.log('postList:', res.data.postList);
       this.setData({
         postList: res.data.postList,
+        isEmpty:false
      })
      console.log('url', this.data.url)
-     }else{  // 请求失败
-      wx.showLoading({
-        title: 'Loading...',
-      })      
+     }else{                                       // 请求结果为空列表
+      this.setData({
+        isEmpty:true
+     })
     }
   })
   
@@ -146,18 +153,6 @@ Page({
     wx.navigateTo({
       url: '/pages/searchPost/searchPost',
     })
-  },
-
-  // // 跳转到全文
-  // toFullText: function(e){
-  //   console.log('toFullText:', e)
-  //   let index = e.currentTarget.dataset.index          // 当前item的下标
-  //   let postId = this.data.postList[index].postId      // 当前帖子ID
-  //   wx.navigateTo({
-  //     url: `/pages/fullText/fullText?postId=${postId}`,
-  //   })
-  //   console.log('toFullText PostId:', postId)
-  // }
-   
+  },   
 })
 
