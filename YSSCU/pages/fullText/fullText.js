@@ -47,21 +47,16 @@ Page({
       console.log(res) ;                                         // 展示帖子和评论列表
       if(!res.data.empty){
         for (var chr of res.data.postList) {
+          
           if(chr.profilePhoto==null){
             chr.profilePhoto = chr.profilePhoto
-          }else{
+          }
+          else{
             chr.profilePhoto = app.globalData.url + '/' + chr.profilePhoto
           }
-          for (var chr of res.data.commentList) {
-            if(chr.profilePhoto==null){
-              chr.profilePhoto = chr.profilePhoto
-            }else{
-              chr.profilePhoto = app.globalData.url + '/' + chr.profilePhoto
-            }
-          }
+          console.log(chr.profilePhoto)
         }
         console.log('postList:', res.data.postList);
-        console.log('commentList:', res.data.commentList);
         this.setData({
           postList: res.data.postList,
           commentList:res.data.commentList,

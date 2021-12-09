@@ -1,8 +1,11 @@
 <!--pages/fullText/fullText.wxml-->
-
-<scroll-view wx:if="{{!isEmpty}}" scroll-y="true" style="height: 1430rpx;" >
 <view wx:for="{{postList}}"wx:key="index">
-    <fullText  postId="{{item.pid}}" label="{{item.position1}}" profilePhoto="{{item.simgurl}}" name="{{item.name}}" place="{{item.position2}}" studentNumber="{{item.studentNumber}}"
+    <fullText  postId="{{item.pid}}"
+                       label="{{item.position1}}"
+                       profilePhoto="{{item.simgurl}}"
+                       name="{{item.name}}"
+                       place="{{item.position2}}"
+                       studentNumber="{{item.studentNumber}}"
                        title="{{item.ptitle}}"
                        time="{{item.time}}"
                        detail="{{item.detail}}"
@@ -15,7 +18,7 @@
                        starStatus="{{item.isStar}}">
     </fullText>
 </view>
-
+<scroll-view wx:if="{{!isEmpty}}" scroll-y="true" style="height: 1430rpx;" >
 <view wx:for="{{commentList}}" wx:key="index">
     <comment commentId="{{item.cid}}" profilePhoto="{{item.simgurl}}" name="{{item.name}}" time="{{item.time}}" detail="{{item.detail}}" photo="{{item.profilePhoto}}" thumbnum="{{item.thumbnum}}"thumbStatus="{{item.isThumb}}"></comment>
 </view>

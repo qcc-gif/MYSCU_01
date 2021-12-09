@@ -19,13 +19,9 @@ Page({
           sharenum: '2',
           starnum: '2'
     }],
-    isEmpty:true
+    isEmpty:true,
+
   },
-    onLoad:function(){
-      if(this.data.isDelete){
-        this.onShow()
-      }
-    },
     onShow: function (){
       let url = app.globalData.url+'/mine/mypost'
       // 请求我的历史发布帖子列表

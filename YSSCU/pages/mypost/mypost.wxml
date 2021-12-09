@@ -2,7 +2,7 @@
 
         <scroll-view wx:if="{{!isEmpty}}" scroll-y="true" style="height: auto;" >
     <view wx:for="{{postList}}"wx:key="index">
-    <adminstorPost postId="{{item.pid}}"
+    <adminstorPost bind:componentfunc="pagefun" postId="{{item.pid}}"
                profilePhoto="{{item.simgurl}}"
                name="{{item.name}}"
                label="{{item.position1}}"
@@ -14,8 +14,7 @@
                thumbnum="{{item.thumbnum}}"
                chatnum="{{item.chatnum}}"
                sharenum="{{item.sharenum}}"
-               starnum="{{item.starnum}}"
-               navigateNum="0">
+               starnum="{{item.starnum}}">
     </adminstorPost>
 </view>
 </scroll-view>
