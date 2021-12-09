@@ -39,14 +39,28 @@ Page({
   },
 
   onShow: function (){
+    wx.showLoading({
+      title: 'Loading...',
+    })
     let url=app.globalData.url+'/full/userFullText';             // 请求帖子和评论列表
     api.post(url, { 
       studentNumber: app.globalData.studentNumber,
       pid: this.data.postId
     }).then((res) => { 
+      wx.hideLoading()
       console.log(res) ;                                         // 展示帖子和评论列表
       if(!res.data.empty){
         for (var chr of res.data.postList) {
+          
+          if(chr.profilePhoto==null){
+            chr.profilePhoto = chr.profilePhoto
+          }
+          else{
+            chr.profilePhoto = app.globalData.url + '/' + chr.profilePhoto
+          }
+          console.log(chr.profilePhoto)
+        }
+        for (var chr of res.data.commentList) {
           
           if(chr.profilePhoto==null){
             chr.profilePhoto = chr.profilePhoto

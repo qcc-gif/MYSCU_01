@@ -21,11 +21,15 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function () {
+        wx.showLoading({
+            title: 'Loading...',
+          })
         let url = app.globalData.url+'/message/msgManage'
     // 请求系统消息列表
     api.post(url, {  
         studentNumber:app.globalData.studentNumber
     }).then((res) => {
+        wx.hideLoading()
        //展示系统消息列表
        console.log(res)
        if(!res.data.empty){

@@ -6,7 +6,7 @@ Page({
   data: {
     active: 0,
     index: 0,
-    triggered: false,                                    // 下拉刷新触发
+    triggered: true,                                    // 下拉刷新触发
     searchvalue: "",                                     // 搜索栏的值
     array: ['全部', '失物招领','表白'],                   // 右侧列表选项
     objectArray: [
@@ -56,7 +56,7 @@ Page({
     console.log('onShow')
     let url = app.globalData.url + '/search/requestPost';
     api.post(url, {  
-        choice: '全部',
+      choice: '全部',
    }).then((res) => {
      console.log('onshowRequest:', res)
     // 请求成功
@@ -82,13 +82,12 @@ Page({
 
   // 获取选项并搜索
   bindPickerChange: function (e) {
-    console.log('picker:', e.detail.value)
     this.setData({
       index: e.detail.value
     })
     // 按选项搜索
     let url = app.globalData.url + '/search/requestPost';
-    console.log('choice', this.data.array[this.data.index])
+    console.log('choice', this.data.array[Number(this.data.index)])
     api.post(url, {  
         studentNumber: app.globalData.studentNumber,
         choice: this.data.array[this.data.index],
@@ -127,13 +126,6 @@ Page({
       url: '/pages/adminstorSearchPost/adminstorSearchPost',
     })
   },
-
-  // 跳转到全文
-  toFullText: function(){
-    wx.navigateTo({
-      url: '/pages/adminstorFullText/adminstorFullText?postId=${this.data.postId}',
-    })
-  }
    
 })
 

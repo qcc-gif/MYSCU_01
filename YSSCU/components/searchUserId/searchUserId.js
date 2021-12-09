@@ -1,8 +1,8 @@
 // components/searchUserId/searchUserId.js
+const api = require("../../api/api");
+const app = getApp();
+
 Component({
-    /**
-     * 组件的属性列表
-     */
     properties: {
       studentNumber:{
         type: String,
@@ -44,7 +44,7 @@ Component({
               }
               else{
                 wx.navigateTo({
-                    url: '/pages/messageNotice/messageNotice?studentNumber='+this.studentNumber+'name='+this.name+'profilePhoto='+this.profilePhoto,
+                    url: '/pages/messageNotice/messageNotice?studentNumber='+this.data.studentNumber+'&name='+this.data.name+'&profilePhoto='+this.data.profilePhoto,
                   })
               }
         }

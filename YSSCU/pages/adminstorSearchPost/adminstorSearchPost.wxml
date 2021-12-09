@@ -4,6 +4,7 @@
 <view slot="action" bind:tap="onSearch">搜索</view>
 </van-search>
 
+<view wx:if="{{!empty}}">
 <!-- 无结果 -->
 <view class="none" wx:if="{{noneview}}">
     <image src="/static/images/no_result.png" mode="widthFix" style="width:20%"></image>
@@ -13,8 +14,9 @@
 <view class="result" wx:else>
 <scroll-view scroll-y="true" >
     <view wx:for="{{searchResultList}}" wx:key="id">
-        <adminstorPost postId="{{item.postId}}" profilePhoto="{{item.profilePhoto}}" name="{{item.name}}" position1="{{item.position1}}" position2="{{item.position2}}" title="{{item.title}}" time="{{item.time}}" detail="{{item.detail}}" thumbnum="{{item.thumbnum}}" chatnum="{{item.chatnum}}" sharenum="{{item.sharenum}}" starnum="{{item.starnum}}">
+        <adminstorPost postId="{{item.pid}}" profilePhoto="{{item.simgurl}}" name="{{item.name}}" label="{{item.position1}}" place="{{item.position2}}" title="{{item.title}}" time="{{item.time}}" detail="{{item.detail}}" thumbnum="{{item.thumbnum}}" chatnum="{{item.chatnum}}" sharenum="{{item.sharenum}}" starnum="{{item.starnum}}">
         </adminstorPost>
     </view>
 </scroll-view>
+</view>
 </view>

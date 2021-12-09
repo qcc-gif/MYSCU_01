@@ -20,11 +20,15 @@ Page({
 
     },
     onShow: function () {
+      wx.showLoading({
+        title: 'Loading...',
+      })
             let url = app.globalData.url+'/mine/myComment'
         // 请求我的评论列表
         api.post(url, {  
             stuNum: wx.getStorageSync('studentNumber')
         }).then((res) => {
+          wx.hideLoading()
            //展示我的评论列表
            console.log(res)
          if(!res.data.empty){

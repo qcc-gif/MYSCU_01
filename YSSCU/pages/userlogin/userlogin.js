@@ -13,6 +13,15 @@ Page({
   },
 
   onLoad: function () {
+    // 判断是否是已登录的管理员
+    if (wx.getStorageSync('adminAccount')){
+      app.globalData.account = wx.getStorageSync('adminAccount');  
+      var adminName = wx.getStorageSync('adminName')
+      var adminAvatarUrl = wx.getStorageSync('adminAvatarUrl')
+      wx.reLaunch({
+        url:  `/pages/adminstor/adminstor?adminName=${adminName}&adminAvatarUrl=${adminAvatarUrl}`,
+      })
+    }
     // 已注册登录过的用户
     if(wx.getStorageSync('studentNumber')){
       app.globalData.studentNumber = wx.getStorageSync('studentNumber')

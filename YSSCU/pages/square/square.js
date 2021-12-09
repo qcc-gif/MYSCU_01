@@ -144,7 +144,7 @@ Page({
       that.setData({
         triggered: false,
       })
-    },2000);
+    },1000);
     this.onShow();       // 重新加载帖子
   },
 

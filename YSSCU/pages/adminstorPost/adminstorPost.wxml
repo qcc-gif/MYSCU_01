@@ -8,13 +8,13 @@
             </picker>
             <van-icon class='arrow-icon' name="arrow-down" />
         </view>
-</view>
+    </view>
    
     <view class="plain"></view>
     <view class="box-post">
-    <scroll-view scroll-y="true" style="height: auto;" >
+    <scroll-view scroll-y="true" style="height: auto;" refresher-enabled="{{true}}" refresher-threshold="{{100}}" refresher-triggered="{{triggered}}" bindrefresherrefresh="onScrollRefresh">
         <view wx:for="{{postList}}"wx:key="index">
-        <adminstorPost postId="{{item.postId}}" profilePhoto="{{item.simgurl}}" name="{{item.name}}" label="{{item.position1}}" place="{{item.position2}}" title="{{item.ptitle}}" time="{{item.time}}" detail="{{item.detail}}" thumbnum="{{item.thumbnum}}" chatnum="{{item.chatnum}}" sharenum="{{item.sharenum}}" starnum="{{item.starnum}}">
+        <adminstorPost postId="{{item.pid}}" profilePhoto="{{item.simgurl}}" name="{{item.name}}" label="{{item.position1}}" place="{{item.position2}}" title="{{item.ptitle}}" time="{{item.time}}" detail="{{item.detail}}" thumbnum="{{item.thumbnum}}" chatnum="{{item.chatnum}}" sharenum="{{item.sharenum}}" starnum="{{item.starnum}}">
         </adminstorPost>
         </view>
     </scroll-view>

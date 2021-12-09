@@ -1,11 +1,8 @@
 // pages/adminstorFullText/adminstorFullText.js
 const api = require("../../api/api")
 const app = getApp();
-Page({
 
-    /**
-     * 页面的初始数据
-     */
+Page({
     data: {
         postList:[{
             postId: '1',                                          // 帖子id
@@ -35,20 +32,23 @@ Page({
           isEmpty:false
     },
 
-    onLoad: function (options) {
-        console.log(options)
+    onLoad: function (e) {
+        console.log('aminstorFullText postId', e.postId)
         this.setData({
-            pid:options.postId
+          postId: e.postId
         })
 
     },
     onShow: function () {
-        console.log(options.postId)
+      wx.showLoading({
+        title: 'Loading...',
+      })
         let url=app.globalData.url+'/full/userFullText';               // 请求帖子和评论列表
      api.post(url, {  
-        pid:this.data.postId,
+        pid: this.data.postId,
         studentNumber: app.globalData.studentNumber,
-     }).then((res) => {                                               // 展示帖子和评论列表
+     }).then((res) => {  
+      wx.hideLoading()                                             // 展示帖子和评论列表
       console.log(res) ;                                         // 展示帖子和评论列表
       if(!res.data.empty){
         for (var chr of res.data.postList) {

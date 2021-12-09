@@ -46,12 +46,16 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function (currentNavtab) {
+      wx.showLoading({
+        title: 'Loading...',
+      })
           if(currentNavtab==0){
           let url = app.globalData.url+'/admin/reportManage'
         // 请求举报帖子列表
         api.post(url, {  
           
         }).then((res) => {
+          wx.hideLoading()
           //展示举报帖子列表
           this.setData({
           //postList:res.data.accountList,

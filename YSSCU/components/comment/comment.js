@@ -3,67 +3,71 @@ const api = require("../../api/api");
 const app = getApp();
 
 Component({
-    properties: {
-          commentId:{
-            type: Number,
-            value: 1
-          },
-        profilePhoto:{
-            type:String,
-            value: 'https://img.yzcdn.cn/vant/cat.jpeg'
-        },
-        photo:{
-          type:String,
-          value: 'https://img.yzcdn.cn/vant/cat.jpeg'
-      },
-        name: {
-            type: String,
-            value: '大白'
-          },
-          time: {
-            type: String,
-            value: '2000年11月14日 14:00'
-          },
-          detail: {
-            type: String,
-            value: "这里是我发的评论"
-          },
-          thumbnum:{
-            type: Number,
-            value: 1111
-          },
-          thumbStatus:{
-            type:Number,
-            value:0
-          }
-
+  properties: {
+    commentId:{
+    type: Number,
+    value: 1
     },
-
-    data: {
-      poc: 0,
+    profilePhoto:{
+      type:String,
+      value: 'https://img.yzcdn.cn/vant/cat.jpeg'
     },
-
-    methods: {
-      thumb(){                                               // 点赞
-          let url = app.globalData.url + '/action/thumb'
-            api.post(url, {
-              pid: this.data.commentId,
-              studentNumber: wx.getStorageSync('studentNumber'),
-              poc: 0
-            }).then((res) => {
-              if(res.data.success){
-                  this.setData({
-                    thumbStatus: res.data.thumbnum,
-                    thumbnum:res.data.isThumb
-                  })
-              }
-            })
-      },
-
-        report(){                                            // 举报
-          wx.navigateTo({
-            url: '/pages/report/report?poc=' + this.data.poc + "&postId=" + this.data.commentId
-          })
-      },
+    photo:{
+      type:String,
+      value: 'https://img.yzcdn.cn/vant/cat.jpeg'
+    },
+    name: {
+      type: String,
+      value: '大白'
+    },
+    time: {
+      type: String,
+      value: '2000年11月14日 14:00'
+    },
+    detail: {
+      type: String,
+      value: "这里是我发的评论"
+    },
+    thumbnum:{
+      type: Number,
+      value: 1111
+    },
+    thumbStatus:{
+      type:Number,
+      value:0
     }
+  },
+
+  data: {
+    poc: 0,
+  },
+
+  methods: {
+    thumb(){        
+       // 点赞
+      var allpages = getCurrentPages();  // 获取全部页面数据
+      var nowpage = allpages[allpages.length - 1];   
+      let url = app.globalData.url + '/action/thumb'
+      api.post(url, {
+        cid: this.data.commentId,
+        studentNumber: app.globalData.studentNumber,
+        poc: 0
+      }).then((res) => {
+        if(res.data.success){
+          this.setData({
+            thumbStatus: res.data.thumbnum,
+            thumbnum:res.data.isThumb
+          })
+          nowpage.onShow()
+        }
+      })
+    },
+
+    // 举报
+    report(){                                            
+      wx.navigateTo({
+        url: '/pages/report/report?poc=' + this.data.poc + "&postId=" + this.data.commentId
+      })
+    },
+  }
 })

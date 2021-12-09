@@ -16,11 +16,15 @@ Page({
 
     // 点击搜索
     onSearch: function(){
+        wx.showLoading({
+            title: 'Loading...',
+          })
         console.log('onSearch')
         let url = app.globalData.url + '/search/searchUser'
         api.post(url, {
             stuNum: this.data.studentNumber,
         }).then((res) => {
+            wx.hideLoading()
             this.setData({
                 empty: true
             })

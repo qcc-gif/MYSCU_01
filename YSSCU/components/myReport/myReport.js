@@ -1,3 +1,6 @@
+const api = require("../../api/api");
+const app = getApp();
+
 Component({
     properties: {
       postId:{
@@ -50,6 +53,8 @@ Component({
          this.determineClick();
       },
       determineClick(){
+        var allpages = getCurrentPages();//获取全部页面数据
+        var nowpage = allpages[allpages.length - 1];//获取页面，包括数据和方法
         var that=this
               wx.showLoading({
                 title: '正在发送...',
@@ -67,6 +72,7 @@ Component({
                         title: '发送成功！',
                     })
                     console.log(res.data);
+                    nowpage.onShow()
                 }
                 else{
                     wx.showToast({

@@ -38,12 +38,16 @@ Page({
 
     // 搜索
     onSearch: function(){
+        wx.showLoading({
+            title: 'Loading...',
+          })
         console.log('onSearch')
         let url = app.globalData.url + '/search/searchKey'
         api.post(url, {
             studentNumber: app.globalData.studentNumber,
             key: this.data.searchValue
         }).then((res) => {
+            wx.hideLoading()
             this.setData({
                 empty: false
             })

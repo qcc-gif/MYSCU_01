@@ -21,11 +21,15 @@ Page({
     
     // 点击搜索
     onSearch: function(){
+        wx.showLoading({
+            title: 'Loading...',
+          })
         console.log('onSearch')
         let url = app.globalData.url + '/?'
         api.post(url, {
             studentNumber: this.data.studentNumber,
         }).then((res) => {
+            wx.hideLoading()
             if(!res.data.empty){  // 查找到
                 this.setData({
                     noneview: false,

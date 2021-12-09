@@ -23,11 +23,15 @@ Page({
 
   },
     onShow: function (){
+      wx.showLoading({
+        title: 'Loading...',
+      })
       let url = app.globalData.url+'/mine/mypost'
       // 请求我的历史发布帖子列表
       api.post(url, {  
         stuNum: app.globalData.studentNumber
       }).then((res) => {
+        wx.hideLoading()
         console.log('res', res)
         //展示我的历史发布帖子列表
          if(!res.data.empty){

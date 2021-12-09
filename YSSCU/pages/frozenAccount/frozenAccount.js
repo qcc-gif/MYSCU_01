@@ -12,11 +12,15 @@ Page({
     },
 
     onShow: function () {
+      wx.showLoading({
+        title: 'Loading...',
+      })
         let url = app.globalData.url + '/search/requestPost'
         // 请求所有用户账号列表
         api.post(url, {  
           
         }).then((res) => {
+          wx.hideLoading()
             console.log('onshowRequest:', res)
             // 请求成功
             if(!res.data.empty){
@@ -25,9 +29,7 @@ Page({
                 postList: res.data.postList,
              })
              }else{  // 请求失败
-              wx.showLoading({
-                title: 'Loading...',
-              })      
+                 
             }
           })
     

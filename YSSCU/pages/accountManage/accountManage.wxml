@@ -5,7 +5,7 @@
 
 <scroll-view wx:if="{{!isEmpty}}" scroll-y="true" style="height: 1230rpx;" >
 <view wx:for="{{complaintList}}"wx:key="id">
-    <complaint profilePhoto="{{item.simgurl}}" name="{{item.name}}" studentNumber="{{item.studentNumber}}" time="{{item.time}}" reason="{{item.reason}}">
+    <complaint bind:componentfunc="pagefun"profilePhoto="{{item.simgurl}}" name="{{item.name}}" studentNumber="{{item.studentNumber}}" time="{{item.time}}" reason="{{item.reason}}">
     </complaint>
 </view>
 </scroll-view>

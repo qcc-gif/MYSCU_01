@@ -8,7 +8,5 @@
     "van-picker": "/miniprogram/miniprogram_npm/@vant/weapp/picker/index",
     "van-dialog": "/miniprogram/miniprogram_npm/@vant/weapp/dialog/index"
   },
-  "navigationBarTitleText": "帖子管理",
-  "backgroundTextStyle":"dark",
-  "enablePullDownRefresh": true
+  "navigationBarTitleText": "帖子管理"
 }

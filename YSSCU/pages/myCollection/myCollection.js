@@ -26,11 +26,15 @@ Page({
     },
 
     onShow: function () {
+      wx.showLoading({
+        title: 'Loading...',
+      })
             let url = app.globalData.url+'/mine/myCollection'
       // 请求我的收藏帖子列表
       api.post(url, {  
         stuNum:app.globalData.studentNumber
       }).then((res) => {
+        wx.hideLoading()
          //展示我的收藏帖子列表
          console.log(res)
          if(!res.data.empty){

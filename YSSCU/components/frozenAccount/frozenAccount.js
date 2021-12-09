@@ -58,6 +58,8 @@ Component({
 
     // 发送结果
     sendClick(){
+      var allpages = getCurrentPages();//获取全部页面数据
+        var nowpage = allpages[allpages.length - 1];//获取页面，包括数据和方法
       if(checkChange){  // 如果有改变账号状态
         if(this.properties.isFrozen){ // 如果需要冻结账户
           var url = app.globalData.url + ''
@@ -87,6 +89,7 @@ Component({
                 title: '发送成功！',
                 duration: 3000,
               })
+              nowpage.onShow()
             }else{
               wx.showToast({
                 title: '发送失败！',

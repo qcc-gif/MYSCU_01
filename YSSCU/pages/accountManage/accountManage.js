@@ -23,10 +23,14 @@ Page({
 },
    
     onShow: function () {
+        wx.showLoading({
+            title: 'Loading...',
+          })
         let url = app.globalData.url+'/?'  // 请求申诉列表
         api.post(url, {  
             
         }).then((res) => {
+            wx.hideLoading()
             if(!res.data.empty){
                 for (var chr of res.data.complaintList) {
                   chr.profilePhoto = app.globalData.url + '/' + chr.profilePhoto

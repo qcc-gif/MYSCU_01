@@ -10,7 +10,7 @@
  <scroll-view  wx:if="{{currentNavtab==0}}"scroll-y="true" class="main-box"style="height: 1340rpx;" >
   <!-- 这里填写组件 -->
   <view class="ctnt0" hidden="{{currentNavtab==0 ? '' : true}}"wx:for="{{postList}}"wx:key="index" style="width: 750rpx; height: 334rpx; display: block; box-sizing: border-box">
-    <myreport  postId="{{item.pid}}"
+    <myreport  bind:componentfunc="pagefun"postId="{{item.pid}}"
                reason="{{item.reason}}"
                profilePhoto="{{item.profilePhoto}}"
                name="{{item.name}}"
