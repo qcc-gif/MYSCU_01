@@ -7,22 +7,22 @@
     <view class="box1">
         <text>发送至：</text>
         <view>{{result}}</view>
-        <van-icon wx:if="{{!studentnumber}}"  name="add" class='add-icon' size='25' bind:click="addClick" color="#82caff" />
-        <view wx:else>{{studentnumber}}</view>
+        <van-icon wx:if="{{!studentNumber}}"  name="add" class='add-icon' size='25' bind:click="addClick" color="#82caff" />
+        <view wx:else>{{studentNumber}}</view>
     </view>
 
     <view class="edit box">
      <view class="textarea-wrp">
       <textarea bindinput="GetMsg" auto-focus="true" adjust-position style="height: 8em"  placeholder="来，说点什么吧！" maxlength="60" />
      </view>
-    <view class="count">{{msg.length}}/60</view>
+    <view class="count">{{mtext.length}}/60</view>
     </view>
 
-    <!-- <view class="icon">
+    <view class="icon">
         <view><van-icon wx:if='{{!imgFilePath}}' name="photo-o" size="70" color='#bfbfbf' bind:click='browse'/> </view>
-        <van-image wx:if='{{imgFilePath}}' class="img" slot="loading" width="70" height="70" src="{{imgFilePath}}" bindlongpress="deleteImage"/> -->
-        <view class="last-icon" style="margin-left: 500rpx; width: 200px;height: 100%;" bindtap="onClickSend">
+        <van-image wx:if='{{imgFilePath}}' class="img" slot="loading" width="70" height="70" src="{{imgFilePath}}" bindlongpress="deleteImage"/>
+        <view class="last-icon" style="margin-left: 160rpx;" bindtap="onClickSend">
             <van-icon name="guide-o" color='#009FFF' size="30" />
         </view>
-    <!-- </view> -->
+    </view>
 </view>

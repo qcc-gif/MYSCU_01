@@ -12,8 +12,9 @@ Page({
     url: "",
   },
 
-  onLoad: function () {
+  onLoad(){
     // 判断是否是已登录的管理员
+    console.log('Manager pending...')
     if (wx.getStorageSync('adminAccount')){
       app.globalData.account = wx.getStorageSync('adminAccount');  
       var adminName = wx.getStorageSync('adminName')
@@ -22,21 +23,28 @@ Page({
         url:  `/pages/adminstor/adminstor?adminName=${adminName}&adminAvatarUrl=${adminAvatarUrl}`,
       })
     }
-    // 已注册登录过的用户
+
+    // 用户判断
+    // 判断已注册登录过的用户
+    console.log('Registered pending...', wx.getStorageSync('studentNumber'))
     if(wx.getStorageSync('studentNumber')){
       app.globalData.studentNumber = wx.getStorageSync('studentNumber')
       app.globalData.nickName = wx.getStorageSync('nickName')
       app.globalData.studentAvatarUrl = wx.getStorageSync('studentAvatarUrl')
-      // 判断是否被封号
+      // 判断是否冻结
+      console.log('Frozen pending...')
       let url = app.globalData.url + '/users/frozen'
       api.post(url, {
         studentNumber: app.globalData.studentNumber,
       }).then((res)=>{
-        if(!res.data.frozen){  // 账号未被冻结
+        console.log('Frozen pending...', res.data.isfrozen)
+        if(res.data.isfrozen){  // 账号未被冻结
+          console.log('Not being Frozen')
           wx.reLaunch({
             url: '/pages/mine/mine',
           })
         }else{  // 账号被冻结
+          console.log('Frozen')
           wx.reLaunch({
             url: '/pages/frozen/frozen',
           })
@@ -56,8 +64,21 @@ Page({
     }).then((res) => {
       console.log(res)
       if(res.data.success){
-        // 若账号密码正确，则获取个人信息并登录
-        this.GetUserInfo().then((res) => {
+        // 若账号密码正确，则先判断是否冻结
+        let url = app.globalData.url + '/users/frozen'
+        api.post(url, {
+          studentNumber: app.globalData.studentNumber,
+        }).then((res)=>{
+          console.log('Frozen pending...', res.data.isfrozen)
+          if(!res.data.isfrozen){  // 账号被冻结
+            console.log('Frozen')
+            wx.reLaunch({
+              url: '/pages/frozen/frozen',
+            })
+          }else{
+            console.log('Not being Frozen')
+            // 若账号密码正确，则获取个人信息并登录
+          this.GetUserInfo().then((res) => {
           // 保存个人信息到全局变量
           app.globalData.studentAvatarUrl = res.userInfo.avatarUrl,
           app.globalData.nickName = res.userInfo.nickName,
@@ -90,7 +111,7 @@ Page({
             nickName: app.globalData.nickName,
             studentAvatarUrl: app.globalData.studentAvatarUrl,
             account: this.data.studentNumber
-        }).then((res) => {
+          }).then((res) => {
           if(res.data.success){
             wx.setStorageSync('studentNumber', that.data.studentNumber)
             app.globalData.studentNumber = that.data.studentNumber
@@ -107,15 +128,18 @@ Page({
             }
           })
         })
-      }else{
-        // 登录失败，弹出提示框
-        wx.showToast({
-          title: '学号或密码错误！',
-          icon: 'none',
-        })
       }
     })
+  }else{
+    // 登录失败，弹出提示框
+    wx.showToast({
+      title: '学号或密码错误！',
+      icon: 'error',
+    })
+  }
+  })
   },
+
 
   // 获取用户头像和昵称
   GetUserInfo: function(){

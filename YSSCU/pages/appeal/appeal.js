@@ -85,7 +85,7 @@ Page({
         if(res.data.success){
           wx.showToast({
             title: '提交成功！',
-            duration: 3000,
+            duration: 8000,
          }).then((res) => {
           wx.navigateBack({
             delta: 1,

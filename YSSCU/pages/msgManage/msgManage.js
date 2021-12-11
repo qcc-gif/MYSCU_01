@@ -2,10 +2,6 @@
 const api = require("../../api/api");
 const app = getApp();
 Page({
-
-    /**
-     * 页面的初始数据
-     */
     data: {
         msgList:[
             {
@@ -17,9 +13,6 @@ Page({
 
     },
 
-    /**
-     * 生命周期函数--监听页面加载
-     */
     onLoad: function () {
         wx.showLoading({
             title: 'Loading...',
@@ -27,7 +20,7 @@ Page({
         let url = app.globalData.url+'/message/msgManage'
     // 请求系统消息列表
     api.post(url, {  
-        studentNumber:app.globalData.studentNumber
+        studentNumber: wx.getStorageSync('studentNumber')
     }).then((res) => {
         wx.hideLoading()
        //展示系统消息列表
@@ -47,5 +40,4 @@ Page({
       }
     })
     },
-
 })

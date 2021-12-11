@@ -4,8 +4,16 @@
 </van-search>
 
 <scroll-view scroll-y="true">
+<view wx:if="{{!back}}">
 <view wx:for="{{accountList}}"wx:key="index">
-<frozenAccount bind:componentfunc="pagefun"profilePhoto="{{item.simgurl}}" name="{{item.name}}" studentNumber="{{item.studentNumber}}">
-</frozenAccount>
+    <frozenAccount bind:componentfunc="pagefun" profilePhoto="{{item.simgurl}}" name="{{item.name}}" studentNumber="{{item.studentNumber}}" isFrozen="{{item.isFrozen}}"> 
+    </frozenAccount>
 </view>
+</view>
+
+<view wx:else>
+    <frozenAccount bind:componentfunc="pagefun" profilePhoto="{{simgurl}}" name="{{name}}" studentNumber="{{studentNumber}}" isFrozen="{{isFrozen}}"> 
+    </frozenAccount>
+</view>
+
 </scroll-view>

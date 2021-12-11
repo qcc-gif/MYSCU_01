@@ -13,7 +13,7 @@
         <van-icon name="guide-o" color="#82caff" bind:click="sendClick" size="40"/>
     </view>
 </view>
-    </view>
+</view>
 
     
     

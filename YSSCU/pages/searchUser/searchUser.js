@@ -1,17 +1,28 @@
 // pages/searchUser/searchUser.js
+const api = require("../../api/api");
+const app = getApp();
+
 Page({
     data: {
-        studentNumber:'',                       // 搜索内容
+        searchValue: '',                        // 搜索的学号
         searchResultList:[{
             simgurl: '',                        // 头像
             name: '',                           // 昵称
         }],
-        noneview: null,                         // 有无搜索结果: true无搜索结果 false有搜索结果
+        noneview: null,                 // 有无搜索结果: true无搜索结果 false有搜索结果
         empty: true,
+        navigateId: "-1",
+    },
+
+    onLoad: function(e){
+        this.setData({
+            navigateId: e.navigateId
+        })
+        console.log('navigateId', this.data.navigateId)
     },
 
     onShow: function () {
-    
+
     },
 
     // 点击搜索
@@ -20,9 +31,10 @@ Page({
             title: 'Loading...',
           })
         console.log('onSearch')
-        let url = app.globalData.url + '/search/searchUser'
+        console.log('searchValue', this.data.searchValue)
+        let url = app.globalData.url + '/search/searchUsers'
         api.post(url, {
-            stuNum: this.data.studentNumber,
+            stuNum: this.data.searchValue,
         }).then((res) => {
             wx.hideLoading()
             this.setData({
@@ -31,7 +43,7 @@ Page({
             if(!res.data.empty){  // 查找到
                 this.setData({
                     noneview: false,
-                    searchResultList: res.data.complaintList,
+                    searchResultList: res.data.userList,
                 })
                 console.log('serach res:', this.data.searchResultList)
             }else{
@@ -40,17 +52,6 @@ Page({
                 })
             }
         })
-    },
-
-    // 某个账号被选中
-    onChosen: function(){
-       wx.showLoading({
-         title: 'Loading...',
-       }).then((res) => {
-           wx.navigateTo({
-             url: `/pages/messageNotice/messageNotice?studentNumber=${this.data.studentNumber}`,
-           })
-       })
     },
 
 })
