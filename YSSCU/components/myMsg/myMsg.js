@@ -15,6 +15,10 @@ Component({
         msg: {
             type: String,
             value: '这是一条系统消息'
+        },
+        photo:{
+            type:String,
+            value:''
         }
     },
     data: {

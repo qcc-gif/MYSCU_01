@@ -11,14 +11,15 @@
     </view>
    
     <view class="plain"></view>
-    <view class="box-post">
+    <view wx:if="{{isEmpty==0}}"class="box-post">
     <scroll-view scroll-y="true" style="height: auto;" refresher-enabled="{{true}}" refresher-threshold="{{100}}" refresher-triggered="{{triggered}}" bindrefresherrefresh="onScrollRefresh">
         <view wx:for="{{postList}}"wx:key="index">
-        <adminstorPost postId="{{item.pid}}" profilePhoto="{{item.simgurl}}" name="{{item.name}}" label="{{item.position1}}" place="{{item.position2}}" title="{{item.ptitle}}" time="{{item.time}}" detail="{{item.detail}}" thumbnum="{{item.thumbnum}}" chatnum="{{item.chatnum}}" sharenum="{{item.sharenum}}" starnum="{{item.starnum}}">
+        <adminstorPost bind:componentfunc="pagefun"postId="{{item.pid}}" profilePhoto="{{item.simgurl}}" name="{{item.name}}" label="{{item.position1}}" place="{{item.position2}}" title="{{item.ptitle}}" time="{{item.time}}" detail="{{item.detail}}" >
         </adminstorPost>
         </view>
     </scroll-view>
     </view>
+    <view wx:else class="empty">暂时没有帖子！</view> 
     <van-popup show="{{ showpopup }}" position="bottom" bind:close="onClosePopup">
         <van-picker columns="{{ columns }}" show-toolbar title="地点" bind:cancel="onCancel" bind:confirm="onConfirm" bind:change="onChange" />
     </van-popup>

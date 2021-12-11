@@ -31,12 +31,6 @@
     margin: 8rpx 0;
     font-size:  28rpx;
 }
-.studentNumber{
-    font-size: small;
-    color: #333333;
-    margin-left: 20rpx;
-    margin-top: 8rpx;
-}
 
 .time {
     color: #555;

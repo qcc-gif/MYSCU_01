@@ -35,9 +35,6 @@ Page({
         console.log('res', res)
         //展示我的历史发布帖子列表
          if(!res.data.empty){
-          for (var chr of res.data.postList) {
-            chr.profilePhoto = app.globalData.url + '/' + chr.profilePhoto
-          }
           this.setData({
             postList:res.data.postList,
               isEmpty:false

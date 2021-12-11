@@ -12,10 +12,7 @@ Component({
       type:String,
       value: 'https://img.yzcdn.cn/vant/cat.jpeg'
     },
-    studentNumber:{
-      type: String,
-      value: '20191414'
-    },
+  
     name: {
       type: String,
       value: '大白'
@@ -72,11 +69,12 @@ methods: {
       var allpages = getCurrentPages();     // 获取全部页面数据
       var nowpage = allpages[allpages.length - 1];    // 获取页面，包括数据和方法
       console.log(this.data.postId)
-      let url = app.globalData.url + '/post/deleteComment'             // 删除帖子
+      let url = app.globalData.url + '/action/PCDrop'             // 删除帖子
       api.post(url, {
         pid:this.data.postId,
         poc:1
       }).then((res) => {
+        console.log("delete",res)
         if(res.data.success){                           // 返回一个状态，是否删除成功
           console.log(res.data)
           wx.showToast({
@@ -90,7 +88,14 @@ methods: {
           icon:'none'
         })
       }
-    })
+    }).catch((err)=>{
+      console.log(err)
+      wx.showToast({
+        title: '删除异常！',
+        icon: 'error'
+      })
+  })
+
   },
 }
 

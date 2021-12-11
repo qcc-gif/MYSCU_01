@@ -21,7 +21,7 @@
 </view>
 <scroll-view wx:if="{{!isEmpty}}" scroll-y="true" style="height: 1430rpx;" >
 <view wx:for="{{commentList}}" wx:key="index">
-    <comment bind:componentfunc="pagefun"commentId="{{item.cid}}" profilePhoto="{{item.simgurl}}" name="{{item.name}}" time="{{item.time}}" detail="{{item.detail}}" photo="{{item.profilePhoto}}" thumbnum="{{item.thumbnum}}"thumbStatus="{{item.isThumb}}"></comment>
+    <comment bind:componentfunc="pagefun" commentId="{{item.cid}}" profilePhoto="{{item.simgurl}}" name="{{item.name}}" time="{{item.time}}" detail="{{item.detail}}" photo="{{item.profilePhoto}}" thumbnum="{{item.thumbnum}}"thumbStatus="{{item.isThumb}}"></comment>
 </view>
 </scroll-view>
 <view wx:else class="empty">暂时没有评论！</view>

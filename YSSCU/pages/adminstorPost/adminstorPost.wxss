@@ -27,3 +27,6 @@
     background: #eee;
 
 }
+.empty{
+    margin-left: 30%;
+}

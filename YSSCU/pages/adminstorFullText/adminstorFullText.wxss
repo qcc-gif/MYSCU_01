@@ -1,1 +1,4 @@
 /* pages/adminstorFullText/adminstorFullText.wxss */
+.empty{
+    margin-left: 30%;
+}

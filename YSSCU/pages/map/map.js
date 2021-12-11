@@ -73,7 +73,7 @@ Page({
   onShow: function(){
     console.log('onshow')
     var that = this
-    setInterval(function () {
+    //setInterval(function () {
       let url = app.globalData.url+'/post/getpost'
       // 请求总贴子数，今日新增，今日热门
       api.post(url, {  
@@ -89,7 +89,7 @@ Page({
           hotSpot3: res.data.hostpost3,
         })
       })
-    }, 6000)    // 请求时间间隔
+   // }, 6000)    // 请求时间间隔
   }
 
 })

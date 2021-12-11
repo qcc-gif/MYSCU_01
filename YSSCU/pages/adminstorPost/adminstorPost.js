@@ -6,7 +6,7 @@ Page({
   data: {
     active: 0,
     index: 0,
-    triggered: true,                                    // 下拉刷新触发
+    triggered: false,                                    // 下拉刷新触发
     searchvalue: "",                                     // 搜索栏的值
     array: ['全部', '失物招领','表白'],                   // 右侧列表选项
     objectArray: [
@@ -39,55 +39,51 @@ Page({
       chatnum: 0,                                         // 帖子评论数
       sharenum: 0,                                        // 帖子分享数
       starnum: 0,                                         // 帖子转发数
-    }]
+    }],
+    isEmpty:true,
+    choice: '全部'
   },
 
-  onLoad: function(e){
-    console.log('onLoad:', e)
-    this.setData({
-      searchvalue: e.searchvalue
-    })
-    console.log('searchValue:', this.data.searchvalue)
-    this.bindPickerChange();
-  },
 
-  onShow: function (e) {
+  onShow: function () {
     //请求所有帖子
     console.log('onShow')
+    wx.showLoading({
+      title: 'Loading...',
+    })
     let url = app.globalData.url + '/search/requestPost';
     api.post(url, {  
-      choice: '全部',
+        choice: '全部',
    }).then((res) => {
+     wx.hideLoading()
      console.log('onshowRequest:', res)
     // 请求成功
     if(!res.data.empty){
-      for (var chr of res.data.postList) {
-        chr.profilePhoto = app.globalData.url + '/' + chr.profilePhoto
-      }
       console.log('postList:', res.data.postList);
       this.setData({
         postList: res.data.postList,
+        isEmpty:false
      })
      console.log('url', this.data.url)
-     }else{  // 请求失败
-      wx.showLoading({
-        title: '加载中',
-      })      
+     }else{                                       // 请求结果为空列表
+      this.setData({
+        isEmpty:true
+     })
     }
-  }).catch((Error)=>{
-    console.log('ERR',Error)
   })
   
 },
 
   // 获取选项并搜索
   bindPickerChange: function (e) {
+    console.log('picker:', e.detail.value)
     this.setData({
       index: e.detail.value
     })
+
     // 按选项搜索
     let url = app.globalData.url + '/search/requestPost';
-    console.log('choice', this.data.array[Number(this.data.index)])
+    console.log('choice', this.data.array[this.data.index])
     api.post(url, {  
         studentNumber: app.globalData.studentNumber,
         choice: this.data.array[this.data.index],
@@ -100,11 +96,12 @@ Page({
       }
       this.setData({
         postList: res.data.postList,
+        isEmpty:false
      })
     }else{  // 请求失败
-      wx.showLoading({
-        title: '加载中',
-      })      
+     this.setData({
+       isEmpty:true
+     })
     }
   })
   },
@@ -116,7 +113,7 @@ Page({
       that.setData({
         triggered: false,
       })
-    },2000);
+    },1000);
     this.onShow();       // 重新加载帖子
   },
 
@@ -125,7 +122,6 @@ Page({
     wx.navigateTo({
       url: '/pages/adminstorSearchPost/adminstorSearchPost',
     })
-  },
-   
+  },   
 })
 

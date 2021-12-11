@@ -49,7 +49,7 @@ Page({
     }).then((res) => { 
       wx.hideLoading()
       console.log(res) ;                                         // 展示帖子和评论列表
-      if(!res.data.empty){
+      
         for (var chr of res.data.postList) {
           
           if(chr.profilePhoto==null){
@@ -59,7 +59,7 @@ Page({
             chr.profilePhoto = app.globalData.url + '/' + chr.profilePhoto
           }
           console.log(chr.profilePhoto)
-        }
+      if(!res.data.empty){
         for (var chr of res.data.commentList) {
           
           if(chr.profilePhoto==null){
@@ -70,6 +70,7 @@ Page({
           }
           console.log(chr.profilePhoto)
         }
+      
         console.log('postList:', res.data.postList);
         this.setData({
           postList: res.data.postList,
@@ -79,9 +80,11 @@ Page({
        console.log('commentList', this.data.commentList)
        }else{                                       // 请求结果为空列表
         this.setData({
+          postList: res.data.postList,
           isEmpty:true
        })
       }
+    }
     })
   },
     

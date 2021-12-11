@@ -7,7 +7,7 @@
         <view class="desc">
             <view class="nameBox">
             <view class="name">{{name}}</view>
-            <view class="studentNumber">{{studentNumber}}</view>
+            
             </view>
         </view>
 

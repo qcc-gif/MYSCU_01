@@ -9,7 +9,7 @@
             <view class="nameBox">
             <view class="name">{{name}}</view>
             
-            <view class="studentNumber">{{studentNumber}}</view>
+            
             </view>
              <view class="position"wx:if="{{!label}}">{{place}}</view>
              <view class="position"wx:else>{{place}}•{{label}}</view>

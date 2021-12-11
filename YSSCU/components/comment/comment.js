@@ -45,21 +45,23 @@ Component({
   methods: {
     thumb(){        
        // 点赞
-      var allpages = getCurrentPages();  // 获取全部页面数据
-      var nowpage = allpages[allpages.length - 1];   
+       var allpages = getCurrentPages();  // 获取全部页面数据
+       var nowpage = allpages[allpages.length - 1];   
       let url = app.globalData.url + '/action/thumb'
       api.post(url, {
-        cid: this.data.commentId,
+        pid: this.data.commentId,
         studentNumber: app.globalData.studentNumber,
         poc: 0
       }).then((res) => {
-        if(res.data.success){
+        console.log(res)
+        //if(res.data.empty){
           this.setData({
             thumbStatus: res.data.thumbnum,
             thumbnum:res.data.isThumb
           })
-          nowpage.onShow()
-        }
+           nowpage.onShow()
+        //}
+        console.log('thumb:',this.data.thumbnum, 'thumbstatus:',this.data.thumbStatus)
       })
     },
 

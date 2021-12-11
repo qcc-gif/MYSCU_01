@@ -39,38 +39,17 @@ Page({
       sharenum: 0,                                        // 帖子分享数
       starnum: 0,                                         // 帖子转发数
     }],
-    isEmpty:true
+    isEmpty:true,
+    choice: '全部'
   },
 
   onLoad: function(e){
+    console.log("e",e.length)
     console.log('onLoad:', e)
     this.setData({
-      searchvalue: e.searchvalue
+      choice: e.searchvalue
     })
-    console.log('searchValue:', this.data.searchvalue)
-    // 按选项搜索
-    let url = app.globalData.url + '/search/requestPost';
-    console.log('choice', this.data.searchvalue)
-    api.post(url, {  
-        studentNumber: app.globalData.studentNumber,
-        choice: this.data.searchvalue,
-   }).then((res) => {
-    // 请求成功
-    console.log(res)
-         if(!res.data.empty){
-          for (var chr of res.data.postList) {
-            chr.profilePhoto = app.globalData.url + '/' + chr.profilePhoto
-          }
-          this.setData({
-            postList:res.data.postList,
-              isEmpty:false
-         })
-        }else{                                 
-          this.setData({
-              isEmpty:true
-         })      
-        }
-  })
+    console.log('searchValue:', this.data.choice)
   },
 
   onShow: function (e) {
@@ -79,10 +58,15 @@ Page({
     wx.showLoading({
       title: 'Loading...',
     })
+    if(this.data.choice!='表白'&&this.data.choice!='失物招领'){
+      this.setData({
+        choice:'全部'
+      })
+    }
     let url = app.globalData.url + '/search/requestPost';
     api.post(url, {  
-        studentNumber: app.globalData.studentNumber,
-        choice: '全部',
+        
+        choice: this.data.choice,
    }).then((res) => {
      wx.hideLoading()
      console.log('onshowRequest:', res)
@@ -117,7 +101,7 @@ Page({
     let url = app.globalData.url + '/search/requestPost';
     console.log('choice', this.data.array[this.data.index])
     api.post(url, {  
-        studentNumber: app.globalData.studentNumber,
+       
         choice: this.data.array[this.data.index],
    }).then((res) => {
     // 请求成功

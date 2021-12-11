@@ -23,7 +23,7 @@ Page({
         empty: true,
     },
 
-    onLoad: function (options) {
+    onLoad: function () {
         this.setData({
             empty: true
         })
@@ -33,6 +33,7 @@ Page({
         this.setData({
             noneview: null,
         })
+        this.onSearch()
     },
 
     // 搜索

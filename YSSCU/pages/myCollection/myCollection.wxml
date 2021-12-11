@@ -8,12 +8,7 @@
                label="{{item.position1}}"
                title="{{item.ptitle}}"
                time="{{item.time}}"
-               studentNumber="{{item.pstuNum}}"
-               detail="{{item.detail}}"
-               thumbnum="{{item.thumbnum}}"
-               chatnum="{{item.chatnum}}"
-               sharenum="{{item.sharenum}}"
-               starnum="{{item.starnum}}">
+               detail="{{item.detail}}">
     </myPost>
 </view>
 </scroll-view>

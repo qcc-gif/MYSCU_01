@@ -9,7 +9,7 @@
             <view class="nameBox">
             <view class="name">{{name}}</view>
            
-            <view class="studentNumber">{{studentNumber}}</view>
+            
             </view>
             <view class="position"wx:if="{{!label}}">{{place}}</view>
             <view class="position"wx:else>{{place}}•{{label}}</view>
@@ -22,22 +22,6 @@
     <text class="post"space="nbsp">{{detail}}</text>
     </view>
     <view class="btn-box">
-        <view class="time">{{time}}</view>
-        <view class="btn">
-            <van-icon bindclick="thumb"name="thumb-circle" />
-            <view>{{thumbnum}}</view>
-        </view>
-        <view class="btn">
-            <van-icon bindclick="chat"name="chat" />
-            <view>{{chatnum}}</view>
-        </view>
-        <view class="btn">
-            <van-icon bindclick="share"name="share" />
-            <view>{{sharenum}}</view>
-        </view>
-        <view class="btn">
-            <van-icon bindclick="star"name="star" />
-            <view>{{starnum}}</view>
-        </view>
+        
     </view>
 </view>

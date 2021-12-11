@@ -7,14 +7,9 @@
                name="{{item.name}}"
                label="{{item.position1}}"
                place="{{item.position2}}"
-               studentNumber=""
                title="{{item.ptitle}}"
                time="{{item.time}}"
-               detail="{{item.detail}}"
-               thumbnum="{{item.thumbnum}}"
-               chatnum="{{item.chatnum}}"
-               sharenum="{{item.sharenum}}"
-               starnum="{{item.starnum}}">
+               detail="{{item.detail}}">
     </adminstorPost>
 </view>
 </scroll-view>
