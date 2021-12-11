@@ -73,7 +73,7 @@ Page({
           if(!res.data.isfrozen){  // 账号被冻结
             console.log('Frozen')
             wx.reLaunch({
-              url: '/pages/frozen/frozen',
+              url: `/pages/frozen/frozen?studentNumber=${this.data.studentNumber}`,
             })
           }else{
             console.log('Not being Frozen')
