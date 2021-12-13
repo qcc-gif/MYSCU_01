@@ -14,7 +14,7 @@
             <view class="time">{{time}}</view>
         </view>
     </view>
-    <view style="margin-left: 10rpx;">举报原因：{{reason}}</view>
+    <view style="margin-left: 10rpx;color: red;">举报原因：{{reason}}</view>
     <text class="post"space="nbsp">{{detail}}</text>
     <view wx:if="{{photo}}" class="photo">
         <cover-image round size="100%"width="100%" height="100%" src="{{photo}}"/>

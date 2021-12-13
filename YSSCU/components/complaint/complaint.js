@@ -35,15 +35,15 @@ Component({
   },
 
   data: {
-    isAgree: false                              // false拒绝，true同意
+    isFrozen: false                              // false拒绝，true同意
   },
 
   methods: {
     switchChange(e) {
       this.setData({
-        isAgree: e.detail.value
+        isFrozen: e.detail.value
       })
-      console.log(this.data)
+      console.log('isFrozen', this.data.isFrozen)
     },
 
     // 点击发送
@@ -51,17 +51,13 @@ Component({
       var allpages = getCurrentPages();//获取全部页面数据
       var nowpage = allpages[allpages.length - 1];//获取页面，包括数据和方法
       var that=this
-      wx.showLoading({
-        title: '正在发送...',
-      });
       
       // 判断是否解冻
-      if(isAgree){
-        var url = app.globalData.url + ''//同意解冻
+      if(!this.data.isFrozen){
+        var url = app.globalData.url + '/action/unfreeze'  // 同意解冻
       }else{
-        var url = app.globalData.url + ''//拒绝解冻
+        var url = app.globalData.url + '/action/freeze'// 拒绝解冻
       }
-
       api.post(url, {
         studentNumber: this.data.studentNumber
       }).then((res) => {

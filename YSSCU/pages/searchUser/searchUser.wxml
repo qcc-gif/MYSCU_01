@@ -3,9 +3,9 @@
 <van-search model:value="{{searchValue}}" placeholder="请输入需要处理的账号" use-action-slot maxHeight="13" bind:search="onSearch">
 <view slot="action" bind:tap="onSearch">搜索</view>
 </van-search>
-
+<view wx:if="{{!empty}}">
 <!-- 无结果 -->
-<view class="none" wx:if="{{noneview}}">
+<view  class="none" wx:if="{{noneview}}">
     <image src="/static/images/no_result.png" mode="widthFix" style="width:20%"></image>
     <text class="nostyle">抱歉，没有相关搜索结果</text>
 </view>
@@ -18,4 +18,5 @@
         </searchUserId>
     </view>
 </scroll-view>
+</view>
 </view>

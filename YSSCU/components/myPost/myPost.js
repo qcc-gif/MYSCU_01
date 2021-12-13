@@ -43,30 +43,30 @@ Component({
       type: String,
       value: "这里是我发的帖子这里是我发的帖子这里是我发的帖子这里是我发的帖子这里是我发的帖子这里是我发的帖子这里是我发的帖子这里是我发的帖子这里是我发的帖子这里是我发的帖子这里是我发的帖子这里是我发的帖子这里是我发的帖子这里是我发的帖子这里是我发的帖子这里是我发的帖子"
     },
-    thumbnum:{
-      type: Number,
-      value: 111
-    },
-    chatnum:{
-      type: Number,
-      value: 111
-    },
-    sharenum:{
-      type: Number,
-      value: 111
-    },
-    starnum:{
-      type: Number,
-      value: 111
-    },
-    thumbStatus:{
-      type: Number,
-      value: 0
-    },
-    starStatus:{
-      type: Number,
-      value: 0
-    }
+    // thumbnum:{
+    //   type: Number,
+    //   value: 111
+    // },
+    // chatnum:{
+    //   type: Number,
+    //   value: 111
+    // },
+    // sharenum:{
+    //   type: Number,
+    //   value: 111
+    // },
+    // starnum:{
+    //   type: Number,
+    //   value: 111
+    // },
+    // thumbStatus:{
+    //   type: Number,
+    //   value: 0
+    // },
+    // starStatus:{
+    //   type: Number,
+    //   value: 0
+    // }
   },
 
   data: {

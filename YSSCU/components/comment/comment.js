@@ -66,9 +66,10 @@ Component({
     },
 
     // 举报
-    report(){                                            
+    report(){    
+      var poc=0;                                        
       wx.navigateTo({
-        url: '/pages/report/report?poc=' + this.data.poc + "&postId=" + this.data.commentId
+        url: '/pages/report/report?poc=' + poc + "&postId=" + this.data.commentId
       })
     },
   }

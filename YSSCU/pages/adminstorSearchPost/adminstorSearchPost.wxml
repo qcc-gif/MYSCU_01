@@ -14,7 +14,7 @@
 <view class="result" wx:else>
 <scroll-view scroll-y="true" >
     <view wx:for="{{searchResultList}}" wx:key="id">
-        <adminstorPost bind:componentfunc="pagefun"postId="{{item.pid}}" profilePhoto="{{item.simgurl}}" name="{{item.name}}" label="{{item.position1}}" place="{{item.position2}}" title="{{item.title}}" time="{{item.time}}" detail="{{item.detail}}" thumbnum="{{item.thumbnum}}" chatnum="{{item.chatnum}}" sharenum="{{item.sharenum}}" starnum="{{item.starnum}}">
+        <adminstorPost bind:componentfunc="pagefun"postId="{{item.pid}}" profilePhoto="{{item.simgurl}}" name="{{item.name}}" label="{{item.position1}}" place="{{item.position2}}" title="{{item.ptitle}}" time="{{item.time}}" detail="{{item.detail}}" thumbnum="{{item.thumbnum}}" chatnum="{{item.chatnum}}" sharenum="{{item.sharenum}}" starnum="{{item.starnum}}">
         </adminstorPost>
     </view>
 </scroll-view>

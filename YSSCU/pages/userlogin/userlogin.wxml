@@ -4,7 +4,7 @@
     <van-van-field class="login">学生认证</van-van-field>
     <view class="input">
       <van-field-group>
-        <van-field model:value="{{ studentnumber }}" adjust-position clearable size="large" label="账号：" placeholder="请输入学号" bind:input="GetStuno"/>
+        <van-field model:value="{{ studentnumber }}" adjust-position clearable size="large" label="账号：" placeholder="请输入学号" bind:input="GetStuno" maxlength='13'/>
         <view class="divLine"></view>
         <van-field model:value="{{ pwd }}" adjust-position password clearable size="large" label="密码：" placeholder="请输入教务处密码" bind:input="GetPwd" />
         <view class="divLine"></view>

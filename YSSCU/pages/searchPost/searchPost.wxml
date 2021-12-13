@@ -14,7 +14,7 @@
 <view class="result" wx:else>
 <scroll-view scroll-y="true" >
     <view wx:for="{{searchResultList}}" wx:key="id">
-        <mypost postId="{{item.postId}}" profilePhoto="{{item.simgurl}}" name="{{item.name}}" position1="{{item.position1}}" position2="{{item.position2}}" title="{{item.title}}" time="{{item.time}}" detail="{{item.detail}}" thumbnum="{{item.thumbnum}}" chatnum="{{item.chatnum}}" sharenum="{{item.sharenum}}" starnum="{{item.starnum}}">
+        <mypost postId="{{item.postId}}" profilePhoto="{{item.simgurl}}" name="{{item.name}}" position1="{{item.position1}}" position2="{{item.position2}}" title="{{item.ptitle}}" time="{{item.time}}" detail="{{item.detail}}" thumbnum="{{item.thumbnum}}" chatnum="{{item.chatnum}}" sharenum="{{item.sharenum}}" starnum="{{item.starnum}}">
         </mypost>
     </view>
 </scroll-view>

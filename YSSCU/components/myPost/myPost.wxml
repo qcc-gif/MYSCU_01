@@ -19,23 +19,6 @@
     </view>
     <view class="btn-box">
         <view class="time" style="width: 264rpx; height: 50rpx; display: block; box-sizing: border-box">{{time}}</view>
-        <button class="btn"catchtap="thumb" style="position: relative; left: -8rpx; top: -2rpx">
-            <van-icon class="icon" wx:if="{{thumbStatus==0}}"name="thumb-circle" />
-            <van-icon class="icon" wx:else name="thumb-circle"color="#82caff" />
-            <view>{{thumbnum}}</view>
-        </button>
-        <button class="btn"catchtap="chat">
-            <van-icon class="icon" name="chat" />
-            <view>{{chatnum}}</view>
-        </button>
-        <button class="btn"catchtap="share"open-type="share">
-            <van-icon class="icon" name="share" />
-            <view>{{sharenum}}</view>
-        </button>
-        <button class="btn"catchtap="star">
-            <van-icon class="icon" wx:if="{{starStatus==0}}"name="star" />
-            <van-icon class="icon" wx:else name="star"color="#82caff" />
-            <view>{{starnum}}</view>
-        </button>
+       
     </view>
 </view>

@@ -4,7 +4,7 @@ const app = getApp();
 Page({
   data: {
     navTab: ["帖子", "评论"],  // 顶部导航栏的内容
-    currentNavtab: 0,         // 目前的下标（0是帖子，1是评论）
+    currentNavtab: '',         // 目前的下标（0是帖子，1是评论）
     postList:[{postId:'1',
       name: '大',
       studentNumber:'2019',
@@ -29,46 +29,80 @@ Page({
   },
    // 切换顶部导航栏
    switchTab: function(e){
+     console.log(e)
     this.setData({
       currentNavtab: e.currentTarget.dataset.idx
     });
-    this.onShow(currentNavtab);
+    this.onShow(this.data.currentNavtab);
    },
 
+    /**
+     * 生命周期函数--监听页面初次渲染完成
+     */
     onReady: function () {
 
     },
 
+    /**
+     * 生命周期函数--监听页面显示
+     */
+     format (shijian) {
+      let date = new Date(shijian)
+      var y = date.getFullYear()
+      var m = date.getMonth() + 1
+      m = m < 10 ? ('0' + m) : m
+      var d = date.getDate()
+      d = d < 10 ? ('0' + d) : d
+      var h = date.getHours()
+      h = h < 10 ? ('0' + h) : h
+      var minute = date.getMinutes()
+      minute = minute < 10 ? ('0' + minute) : minute
+      var second = date.getSeconds()
+      second = second < 10 ? ('0' + second) : second
+      return y + '-' + m + '-' + d + ' ' + h + ':' + minute + ':' + second
+  },
+  
     onShow: function (currentNavtab) {
       wx.showLoading({
         title: 'Loading...',
       })
-          if(currentNavtab==0){
+         
           let url = app.globalData.url+'/admin/reportManage'
         // 请求举报帖子列表
         api.post(url, {  
           
         }).then((res) => {
           wx.hideLoading()
-          //展示举报帖子列表
-          this.setData({
-          //postList:res.data.accountList,
-          commentList:null
-          })
-        })
-      }
-      else{
-        let url = app.globalData.url+'/admin/reportManage'
-        // 请求举报评论列表
-        api.post(url, {  
+          if(!res.data.empty){
+            for (var chr of res.data.postList) {
+              chr.ptime=this.format(chr.ptime)
+            }
+            for (var chr of res.data.comList) {
+              chr.ctime=this.format(chr.ctime)
+              console.log("comcid",chr.cid)
+              if(chr.cimgurl==null){
+                chr.cimgurl = chr.cimgurl
+              }
+              else{
+                chr.cimgurl = app.globalData.url + '/' + chr.cimgurl
+              }
+              console.log(chr.cimgurl)
+            }
           
-        }).then((res) => {
-          //展示举报评论列表
-          this.setData({
-          //commentList:res.data.accountList
-          postList:null
-          })
+            console.log('postList:', res.data.postList);
+            this.setData({
+              postList: res.data.postList,
+            commentList:res.data.comList,
+              isEmpty:false
+           })
+           console.log('commentList', this.data.commentList)
+           }else{                                       // 请求结果为空列表
+            this.setData({
+              isEmpty:true
+           })
+          }
+          //展示举报列表
         })
-      }
+     
     },
 })

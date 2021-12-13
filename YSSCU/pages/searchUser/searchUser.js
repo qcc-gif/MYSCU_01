@@ -16,7 +16,8 @@ Page({
 
     onLoad: function(e){
         this.setData({
-            navigateId: e.navigateId
+            navigateId: e.navigateId,
+            empty:true
         })
         console.log('navigateId', this.data.navigateId)
     },
@@ -38,7 +39,7 @@ Page({
         }).then((res) => {
             wx.hideLoading()
             this.setData({
-                empty: true
+                empty: false
             })
             if(!res.data.empty){  // 查找到
                 this.setData({

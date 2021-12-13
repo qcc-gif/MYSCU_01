@@ -32,6 +32,7 @@ Page({
     onShow: function () {
         this.setData({
             noneview: null,
+            empty:true
         })
         this.onSearch()
     },

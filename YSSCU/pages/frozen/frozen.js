@@ -7,20 +7,15 @@ Page({
       studentNumber: "",       // 学号
     },
 
-    onLoad(e){
-      this.setData({
-        studentNumber: e.studentNumber
-      })
-    },
-
     onShow: function (options) {
 
     },
 
    // 点击举报
    bindGetUserInfo: function(){
+    let studentNumber = wx.getStorageSync('studentNumber')
     wx.navigateTo({
-      url: `/pages/appeal/appeal?studentNumber=${this.data.studentNumber}`,
+      url: `/pages/appeal/appeal?studentNumber=${studentNumber}`,
     })
   },
 

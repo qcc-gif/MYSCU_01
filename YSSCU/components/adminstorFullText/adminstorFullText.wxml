@@ -11,8 +11,8 @@
             
             
             </view>
-             <view class="position"wx:if="{{!label}}">{{place}}</view>
-             <view class="position"wx:else>{{place}}•{{label}}</view>
+            <view class="position" wx:if="{{label == '表白' || label == '失物招领'}}">{{label}}•{{place}}</view>
+            <view class="position"wx:else>{{place}}</view>
         </view>
         
         <van-icon style="width: 38rpx; height: 38rpx; display: flex; box-sizing: border-box"  class="delete" type="position"bindclick="delete"  name="clear" />

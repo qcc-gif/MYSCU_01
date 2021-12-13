@@ -13,20 +13,15 @@ Page({
             areason:  "",
             aphone: "",
         }],
-        isEmpty:true
+        isEmpty:true                        // 请求申诉结果是否为空
     },
-   
-    search:function(){
-        wx.navigateTo({
-            url: '/pages/searchAppeal/searchAppeal'
-      });
-},
    
     onShow: function () {
         wx.showLoading({
             title: 'Loading...',
           })
-        let url = app.globalData.url+'/admin/accountManage'  // 请求申诉列表
+        // 请求申诉列表
+        let url = app.globalData.url+'/admin/accountManage'  
         api.post(url, {  
             
         }).then((res) => {
@@ -41,6 +36,12 @@ Page({
                     isEmpty:true
                })      
               }
+        }).catch((err) => {
+            console.log('err', err)
+            wx.showToast({
+              title: '出错啦！',
+              icon: 'error',
+            })
         })
 
     },

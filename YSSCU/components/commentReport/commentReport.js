@@ -39,20 +39,20 @@ Component({
   },
 
   data: {
-    isDelete:'true'
+    isDelete:0
   },
 
   methods: {
     retainClick(){
       this.setData({
-      isDelete:false
+      isDelete:0
       })
       this.determineClick();
     },
 
   deleteClick(){
     this.setData({
-      isDelete:true
+      isDelete:1
     })
     this.determineClick();
   },
@@ -60,18 +60,19 @@ Component({
     determineClick(){
       var allpages = getCurrentPages(); // 获取全部页面数据
       var nowpage = allpages[allpages.length - 1]; // 获取页面，包括数据和方法
-      var that=this
         wx.showLoading({
           title: '正在发送...',
         });
-        if(isDelete){
-          let url = app.globalData.url + 'url'                       //系统删除
-        }else{
-          let url = app.globalData.url + 'url'                       //保留
-        }
+          let url = app.globalData.url + '/report/deletePoc'                      
         api.post(url, {
-          cid:this.data.commentId
+          poc:0,
+          pid:this.data.commentId,
+          isDelete:this.data.isDelete,
+          studentNumber:this.data.studentNumber
         }).then((res) => {
+         wx.hideLoading()
+         console.log("cid:",this.data.commentId)
+
           if(res.data.success){
             wx.showToast({
               title: '发送成功！',
@@ -83,7 +84,13 @@ Component({
             title: '发送失败！',
             })
           }
-        })
+        }).catch((err)=>{
+          console.log(err)
+          wx.showToast({
+            title: '发送异常！',
+            icon: 'error'
+          })
+      })
     },
   }
 })

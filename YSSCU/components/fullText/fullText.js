@@ -71,7 +71,7 @@ Component({
   methods: {
     // 举报
     report(){     
-      var poc = 0;                                  
+      var poc = 1;                                  
         wx.navigateTo({
           url: '/pages/report/report?postId='+this.data.postId+'&poc='+poc,
         })
@@ -87,6 +87,7 @@ Component({
         studentNumber:app.globalData.studentNumber,
         poc:1
       }).then((res) => {
+        console.log(res)
         if(!res.data.empty){
           this.setData({
             thumbnum:res.data.thumbnum,
@@ -141,7 +142,7 @@ Component({
     })
   },
 
-  // 点赞
+  // 收藏
   star(){   
     var allpages = getCurrentPages();//获取全部页面数据
     var nowpage = allpages[allpages.length - 1];

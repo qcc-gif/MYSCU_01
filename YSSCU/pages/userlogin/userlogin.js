@@ -38,7 +38,7 @@ Page({
         studentNumber: app.globalData.studentNumber,
       }).then((res)=>{
         console.log('Frozen pending...', res.data.isfrozen)
-        if(res.data.isfrozen){  // 账号未被冻结
+        if(res.data.isfrozen == false){  // 账号未被冻结
           console.log('Not being Frozen')
           wx.reLaunch({
             url: '/pages/mine/mine',
@@ -69,8 +69,8 @@ Page({
         api.post(url, {
           studentNumber: app.globalData.studentNumber,
         }).then((res)=>{
-          console.log('Frozen pending...', res.data.isfrozen)
-          if(!res.data.isfrozen){  // 账号被冻结
+          console.log('Frozen pending...', res.data.isfrozen, res.data.isfrozen==false)
+          if(res.data.isfrozen){  // 账号被冻结
             console.log('Frozen')
             wx.reLaunch({
               url: `/pages/frozen/frozen?studentNumber=${this.data.studentNumber}`,
@@ -137,6 +137,12 @@ Page({
       icon: 'error',
     })
   }
+  }).catch((err) => {
+    console.log('error', err)
+    wx.showToast({
+      title: '出错啦！',
+      icon: 'error',
+    })
   })
   },
 
