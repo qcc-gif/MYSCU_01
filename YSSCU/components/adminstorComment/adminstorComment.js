@@ -47,21 +47,20 @@ Component({
       console.log(this.data.isDelete,this.data.postId)
       let url = app.globalData.url + '/action/PCDrop'     
       api.post(url, {
-        pid:this.data.commentId,
-        poc:0
+        pid: this.data.commentId,
+        poc: 0
       }).then((res) => {
         console.log(res)
         if(res.data.success){                      // 返回一个状态，是否删除成功
           console.log(res)
           wx.showToast({
             title: '删除成功',
-            icon:'none'
           })
           nowpage.onShow()                               
         }else{
           wx.showToast({
-            title: '无法删除评论，请稍后再试',
-            icon:'none'
+            title: '出错啦！',
+            icon:'error'
           })
         }
       }).catch((err)=>{
@@ -70,8 +69,7 @@ Component({
           title: '删除异常！',
           icon: 'error'
         })
-    })
-
+      })
     },
   }
 })

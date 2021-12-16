@@ -1,14 +1,7 @@
 <!--pages/myCollection/myCollection.wxml-->
 <scroll-view wx:if="{{!isEmpty}}" scroll-y="true" style="height: auto;" >
     <view wx:for="{{postList}}"wx:key="index">
-    <myPost    postId="{{item.pid}}"
-               profilePhoto="{{item.simgurl}}"
-               name="{{item.name}}"
-               place="{{item.position2}}"
-               label="{{item.position1}}"
-               title="{{item.ptitle}}"
-               time="{{item.time}}"
-               detail="{{item.detail}}">
+    <myPost postId="{{item.pid}}" profilePhoto="{{item.simgurl}}" name="{{item.name}}" place="{{item.position2}}" label="{{item.position1}}" title="{{item.ptitle}}" time="{{item.time}}" detail="{{item.detail}}">
     </myPost>
 </view>
 </scroll-view>

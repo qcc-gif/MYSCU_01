@@ -7,13 +7,12 @@ Page({
             simgurl: '',                                             // 用户头像
             name:  '大白',                                           // 用户昵称
         }],
-        noneview: null,                         // 有无搜索结果: true无搜索结果 false有搜索结果
+        noneview: null,                  // 有无搜索结果: true无搜索结果 false有搜索结果
     },
 
     onLoad: function (options) {
 
     },
-
     
     // 点击搜索
     onSearch: function(){
@@ -38,5 +37,4 @@ Page({
             }
         })
     },
-
 })

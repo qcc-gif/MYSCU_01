@@ -1,15 +1,7 @@
 <!--pages/myComment/myComment.wxml-->
 <scroll-view wx:if="{{!isEmpty}}"scroll-y="true" style="height: auto;" >
 <view wx:for="{{commentList}}"wx:key="index">
-    <adminstorComment bind:componentfunc="pagefun"
-               commentId="{{item.cid}}"
-               profilePhoto="{{item.simgurl}}"
-               name="{{item.name}}"
-               time="{{item.time}}"
-               photo="{{item.profilePhoto}}"
-               studentNumber="{{}}"
-               detail="{{item.detail}}"
-               thumbnum="{{item.thumbnum}}">
+    <adminstorComment bind:componentfunc="pagefun" commentId="{{item.cid}}" profilePhoto="{{item.simgurl}}" name="{{item.name}}" time="{{item.time}}" photo="{{item.profilePhoto}}" studentNumber="{{}}" detail="{{item.detail}}" thumbnum="{{item.thumbnum}}">
     </adminstorComment>
 </view>
 </scroll-view>

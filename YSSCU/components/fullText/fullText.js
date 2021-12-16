@@ -1,6 +1,7 @@
 // components/fullText/fullText.js
 const api = require("../../api/api");
 const app = getApp();
+
 Component({
   properties: {
     postId:{
@@ -64,6 +65,7 @@ Component({
       value:0
     },
   },
+
   data: {
 
   },
@@ -83,14 +85,14 @@ Component({
       var nowpage = allpages[allpages.length - 1];   // 获取页面，包括数据和方法
       let url = app.globalData.url + '/action/Thumb'
       api.post(url, {
-        pid:this.data.postId,
-        studentNumber:app.globalData.studentNumber,
-        poc:1
+        pid: this.data.postId,
+        studentNumber: app.globalData.studentNumber,
+        poc: 1
       }).then((res) => {
         console.log(res)
         if(!res.data.empty){
           this.setData({
-            thumbnum:res.data.thumbnum,
+            thumbnum: res.data.thumbnum,
             thumbStatus: res.data.isThumb
           })
           console.log("Thumb:",this.data.thumbStatus,this.data.thumbnum)
@@ -136,7 +138,7 @@ Component({
       studentNumber: app.globalData.studentNumber
     }).then((res) => {
       this.setData({
-        sharenum:res.data.sharenum,
+        sharenum: res.data.sharenum,
       })
       nowpage.onShow()
     })
@@ -153,8 +155,8 @@ Component({
     }).then((res) => {
       if(!res.data.empty){
         this.setData({
-        starnum:res.data.starnum,
-        starStatus:res.data.isStar,
+        starnum: res.data.starnum,
+        starStatus: res.data.isStar,
         })
         console.log(this.data.starnum)
       }else{
@@ -163,6 +165,5 @@ Component({
       nowpage.onShow()
     })
   },
-
   }
 })

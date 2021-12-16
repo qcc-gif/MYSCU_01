@@ -60,10 +60,14 @@ Page({
       }else{
         wx.showToast({
           title: '账号或密码错误！',
-          icon: 'none',
+          icon: 'error',
         })
       }
     }).catch((err)=>{
+      wx.showToast({
+        title: '出错啦！',
+        icon: 'error'
+      })
       console.log(err)
     })
   },

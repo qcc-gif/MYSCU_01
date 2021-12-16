@@ -74,13 +74,12 @@ Component({
           console.log(res.data)
           wx.showToast({
           title: '删除成功',
-          icon:'none'
           }) 
           nowpage.onShow()                                  
           }else{
             wx.showToast({
-            title: '无法删除帖子，请稍后再试',
-            icon:'none'
+            title: '出错啦！',
+            icon:'error'
             })
           }
       })

@@ -71,7 +71,7 @@ Component({
         }else{
           wx.showToast({
             title: '发送失败！',
-            icon: 'none',
+            icon: 'error',
             duration: 3000,
           })
         }

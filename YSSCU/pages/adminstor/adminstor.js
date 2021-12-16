@@ -37,6 +37,10 @@ Page({
           url: '/pages/userlogin/userlogin',
         })
       }).catch((err) => {
+        wx.showToast({
+          title: '出错啦！',
+          icon: 'error'
+        })
         console.log('err', err)
       });
   },

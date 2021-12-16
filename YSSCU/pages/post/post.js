@@ -21,10 +21,14 @@ Page({
     ptext: "",          // 正文
     countIndex: 1,      // 上传图片的最大数量
     imgFilePath: null,  // 上传图片的路径
+    submitAble: true   // 是都反复上传
   },
 
-  onLoad: function(){
-
+  onShow: function(){
+    this.setData({
+      submitAble: true
+    })
+    console.log('submitAble', this.data.submitAble)
   },
 
   onChangeTab: function () {
@@ -125,7 +129,11 @@ Page({
           plabel: null,
         })
       }
-    
+      // 禁止反复发送同一条
+      this.setData({
+        submitAble: false
+      })
+      console.log('onClick', this.data.submitAble)
       // 发送
       if(!this.data.imgFilePath){  // 用户没有发送图片
         let url = app.globalData.url + '/post'
@@ -148,9 +156,13 @@ Page({
           })
           
         }else{   
+          // 可以重新发送
+          this.setData({
+            submitAble: true
+          })
           wx.showToast({
             title: '发送失败',
-            icon: 'none',
+            icon: 'error',
             duration: 3000,
           })
         }
@@ -177,9 +189,13 @@ Page({
               })
             })
           }else{
+            // 可以重新发送
+            this.setData({
+              submitAble: true
+            })
             wx.showToast({
               title: '发送失败',
-              icon: 'none',
+              icon: 'error',
               duration: 3000,
             })
           }
@@ -188,7 +204,7 @@ Page({
     }else{   // 用户未选择地点标签
       wx.showToast({
         title: '请填写地点和标题！',
-        icon: 'none',
+        icon: 'error',
         duration: 3000,
       })
     }
@@ -210,6 +226,15 @@ Page({
           console.log('点击取消了');
         }
       }
+    }).catch((err) => {
+      // 可以重新发送
+      this.setData({
+        submitAble: true
+      })
+      wx.showToast({
+        title: '出错啦！',
+        icon: "error"
+      })
     })
   },
 

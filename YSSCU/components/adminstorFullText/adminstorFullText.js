@@ -84,8 +84,8 @@ methods: {
          nowpage.onShow()
        }else{
         wx.showToast({
-          title: '无法删除评论，请稍后再试',
-          icon:'none'
+          title: '出错啦！',
+          icon:'error'
         })
       }
     }).catch((err)=>{
@@ -94,9 +94,7 @@ methods: {
         title: '删除异常！',
         icon: 'error'
       })
-  })
-
+    })
   },
 }
-
 })

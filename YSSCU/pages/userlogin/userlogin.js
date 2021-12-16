@@ -102,7 +102,7 @@ Page({
             }else{  // 失败
               wx.showToast({
                 title: '登录失败！',
-                icon: 'none'
+                icon: 'error'
                 })
               }
             })
@@ -123,7 +123,7 @@ Page({
           }else{  // 失败
             wx.showToast({
               title: '登录失败！',
-              icon: 'none'
+              icon: 'error'
               })
             }
           })

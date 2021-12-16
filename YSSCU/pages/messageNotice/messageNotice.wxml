@@ -20,9 +20,12 @@
 
     <view class="icon">
         <view><van-icon wx:if='{{!imgFilePath}}' name="photo-o" size="70" color='#bfbfbf' bind:click='browse'/> </view>
-        <van-image wx:if='{{imgFilePath}}' class="img" slot="loading" width="70" height="70" src="{{imgFilePath}}" bindlongpress="deleteImage"/>
-        <view class="last-icon" style="margin-left: 160rpx;" bindtap="onClickSend">
+        <van-image wx:if='{{imgFilePath}}' slot="loading" width="70" height="70" src="{{imgFilePath}}" bindlongpress="deleteImage"/>
+        <button class="last-icon" size='mini' bindtap="onClickSend" disabled="{{!submitAble}}" style="position: relative;">
+            <van-icon class='btn-icon' name="guide-o" color='#009FFF' size="30" />
+        </button>
+        <!-- <view class="last-icon" style="margin-left: 160rpx;" bindtap="onClickSend">
             <van-icon name="guide-o" color='#009FFF' size="30" />
-        </view>
+        </view> -->
     </view>
 </view>

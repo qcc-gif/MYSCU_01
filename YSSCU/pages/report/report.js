@@ -78,7 +78,7 @@ Page({
       }else{
         wx.showToast({
           title: '不可以重复举报！',
-          icon: 'none',
+          icon: 'error',
           duration: 3000,
         })
       }

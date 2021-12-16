@@ -10,32 +10,16 @@
  <scroll-view wx:if="{{currentNavtab==0}}" scroll-y="true" class="main-box"style="height: 1340rpx;" >
   <!-- 这里填写组件 -->
   <view class="ctnt0" hidden="{{currentNavtab==0 ? '' : true}}"wx:for="{{postList}}"wx:key="index" >
-    <myreport  bind:componentfunc="pagefun"postId="{{item.pid}}"
-               reason="{{item.rtype}}"
-               profilePhoto="{{item.profilePhoto}}"
-               name="{{item.name}}"
-               studentNumber="{{item.studentNumber}}"
-               time="{{item.ptime}}"
-               title="{{item.ptitle}}"
-               detail="{{item.ptext}}">
+    <myreport  bind:componentfunc="pagefun"postId="{{item.pid}}" reason="{{item.rtype}}" profilePhoto="{{item.profilePhoto}}" name="{{item.name}}" studentNumber="{{item.studentNumber}}" time="{{item.ptime}}" title="{{item.ptitle}}" detail="{{item.ptext}}">
     </myreport>
 </view>
-
 </scroll-view>
 
-
-  <!-- 评论组件内容 -->
-  <scroll-view wx:else scroll-y="true" class="main-box"style="height: 1340rpx;" >
-    <!-- 这里填写组件 -->
-    <view class="ctnt0" hidden="{{currentNavtab==1 ? '' : true}}"wx:for="{{commentList}}"wx:key="index" >
-    <commentReport  commentId="{{item.cid}}"
-               reason="{{item.rtype}}"
-               profilePhoto="{{item.profilePhoto}}"
-               name="{{item.name}}"
-               studentNumber="{{item.studentNumber}}"
-               time="{{item.ctime}}"
-               photo="{{item.cimgurl}}"
-               detail="{{item.ctext}}">
-    </commentReport>
+<!-- 评论组件内容 -->
+<scroll-view wx:else scroll-y="true" class="main-box"style="height: 1340rpx;" >
+  <!-- 这里填写组件 -->
+  <view class="ctnt0" hidden="{{currentNavtab==1 ? '' : true}}"wx:for="{{commentList}}"wx:key="index" >
+  <commentReport  commentId="{{item.cid}}" reason="{{item.rtype}}" profilePhoto="{{item.profilePhoto}}" name="{{item.name}}" studentNumber="{{item.studentNumber}}" time="{{item.ctime}}" photo="{{item.cimgurl}}" detail="{{item.ctext}}">
+  </commentReport>
 </view>
 </scroll-view>

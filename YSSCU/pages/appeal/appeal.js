@@ -94,7 +94,7 @@ Page({
         }else{
           wx.showToast({
             title: '上传失败',
-            icon: "none",
+            icon: "error",
             duration: 3000,
           })
         }
@@ -102,7 +102,7 @@ Page({
     }else{
       wx.showToast({
         title: '请阐述细节',
-        icon: "none",
+        icon: "error",
         duration: 3000,
       })
    }

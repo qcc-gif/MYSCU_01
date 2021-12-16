@@ -17,7 +17,6 @@ Page({
     onLoad: function (options) {
 
     },
-
     
     // 点击搜索
     onSearch: function(){

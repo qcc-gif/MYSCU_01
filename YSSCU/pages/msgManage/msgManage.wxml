@@ -1,13 +1,7 @@
 <!--pages/systempost/systempost.wxml-->
 <scroll-view  wx:if="{{!isEmpty}}" style="height: auto;" >
 <view wx:for="{{msgList}}"wx:key="index">
-    <myMsg  
-            bind:componentfunc="pagefun"
-            name="{{item.name}}"
-            time="{{item.mtime}}"
-            msg="{{item.msg}}"
-            profilePhoto="{{item.simgurl}}"
-            photo="{{item.mimgurl}}">
+    <myMsg  bind:componentfunc="pagefun" name="{{item.name}}" time="{{item.mtime}}" msg="{{item.msg}}" profilePhoto="{{item.simgurl}}" photo="{{item.mimgurl}}">
     </myMsg>
 </view>
 </scroll-view>

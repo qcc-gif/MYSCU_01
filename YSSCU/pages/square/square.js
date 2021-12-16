@@ -9,19 +9,19 @@ Page({
     searchvalue: "",                                     // 搜索栏的值
     array: ['全部', '失物招领','表白'],                   // 右侧列表选项
     objectArray: [
-      {
-        id: 0,
-        name: '全部'
-      },
-      {
-        id: 1,
-        name: '失物招领'
-      },
-      {
-        id: 2,
-        name: '表白'
-      }
-    ],
+    {
+      id: 0,
+      name: '全部'
+    },
+    {
+      id: 1,
+      name: '失物招领'
+    },
+    {
+      id: 2,
+      name: '表白'
+    }
+  ],
     studentNumber: '',                                    // 学生学号
     postList:[{                                           // 发帖列表
       postId: '1',                                        // 帖子id
@@ -55,9 +55,12 @@ Page({
   onShow: function (e) {
     //请求所有帖子
     console.log('onShow')
-    wx.showLoading({
-      title: 'Loading...',
-    })
+    // 若有帖子
+    if(!this.data.isEmpty){
+      wx.showLoading({
+        title: 'Loading...',
+      })
+    }
     if(this.data.choice!='表白'&&this.data.choice!='失物招领'){
       this.setData({
         choice:'全部'
@@ -78,7 +81,7 @@ Page({
       console.log('postList:', res.data.postList);
       this.setData({
         postList: res.data.postList,
-        isEmpty:false
+        isEmpty: false
      })
      console.log('url', this.data.url)
      }else{                                       // 请求结果为空列表
@@ -87,7 +90,6 @@ Page({
      })
     }
   })
-  
 },
 
   // 获取选项并搜索
@@ -114,9 +116,10 @@ Page({
         postList: res.data.postList,
      })
     }else{  // 请求失败
-      wx.showLoading({
-        title: '加载中',
-      })      
+      wx.showToast({
+        title: '出错啦！',
+        icon: 'error'
+      })
     }
   })
   },

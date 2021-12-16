@@ -159,5 +159,14 @@
 }
 
 .last-icon{
-   margin-top: -32rpx;
+    height: 90%;
+    width: 15%;
+    margin-right: 60rpx;
+    margin-top: 25rpx;
 }
+
+.btn-icon{
+      margin-left: -20rpx;
+      margin-top: 10rpx;
+  }
+

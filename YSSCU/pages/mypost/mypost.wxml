@@ -1,15 +1,8 @@
 <!-- pages/mypost/mypost.wxml -->
 
-        <scroll-view wx:if="{{!isEmpty}}" scroll-y="true" style="height: auto;" >
-    <view wx:for="{{postList}}"wx:key="index">
-    <adminstorPost bind:componentfunc="pagefun" postId="{{item.pid}}"
-               profilePhoto="{{item.simgurl}}"
-               name="{{item.name}}"
-               label="{{item.position1}}"
-               place="{{item.position2}}"
-               title="{{item.ptitle}}"
-               time="{{item.time}}"
-               detail="{{item.detail}}">
+<scroll-view wx:if="{{!isEmpty}}" scroll-y="true" style="height: auto;" >
+<view wx:for="{{postList}}"wx:key="index">
+    <adminstorPost bind:componentfunc="pagefun" postId="{{item.pid}}" profilePhoto="{{item.simgurl}}" name="{{item.name}}" label="{{item.position1}}" place="{{item.position2}}" title="{{item.ptitle}}" time="{{item.time}}" detail="{{item.detail}}">
     </adminstorPost>
 </view>
 </scroll-view>

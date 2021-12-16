@@ -59,6 +59,30 @@
                     "pathName": "pages/reportManage/reportManage",
                     "query": "",
                     "scene": null
+                },
+                {
+                    "name": "pages/adminstor/adminstor",
+                    "pathName": "pages/adminstor/adminstor",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/post/post",
+                    "pathName": "pages/post/post",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/messageNotice/messageNotice",
+                    "pathName": "pages/messageNotice/messageNotice",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/addComment/addComment",
+                    "pathName": "pages/addComment/addComment",
+                    "query": "",
+                    "scene": null
                 }
             ]
         }

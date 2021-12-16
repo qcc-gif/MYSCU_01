@@ -81,7 +81,8 @@ Component({
             nowpage.onShow()
           }else{
             wx.showToast({
-            title: '发送失败！',
+              title: '发送失败！',
+              icon: 'error'
             })
           }
         }).catch((err)=>{

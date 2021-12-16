@@ -70,7 +70,7 @@ Component({
             }else{
               wx.showToast({
                 title: '发送失败！',
-                icon: 'none',
+                icon: 'error',
                 duration: 3000,
               })
             }
@@ -89,7 +89,7 @@ Component({
             }else{
               wx.showToast({
                 title: '发送失败！',
-                icon: 'none',
+                icon: 'error',
                 duration: 3000,
               })
             }
@@ -98,7 +98,7 @@ Component({
       }else{   // 没有有改变账号状态
         wx.showToast({
           title: '无状态改变！',
-          icon: 'none',
+          icon: 'error',
         })
       }
     },

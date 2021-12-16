@@ -46,52 +46,55 @@ Component({
            })
            this.determineClick();
       },
+
       deleteClick(){
         this.setData({
           isDelete:1
          })
          this.determineClick();
       },
+
       determineClick(){
         var allpages = getCurrentPages();//获取全部页面数据
         var nowpage = allpages[allpages.length - 1];//获取页面，包括数据和方法
-              wx.showLoading({
-                title: '正在发送...',
-              });
-                let url = app.globalData.url + '/report/deletePoc'                   
-              api.post(url, {
-                poc:1,
-                pid:this.data.postId,
-                isDelete:this.data.isDelete,
-                studentNumber:this.data.studentNumber
-              }).then((res) => {
-                wx.hideLoading()
-                if(res.data.success){
-                    wx.showToast({
-                        title: '发送成功！',
-                    })
-                    console.log(res.data);
-                    nowpage.onShow()
-                }
-                else{
-                    wx.showToast({
-                        title: '发送失败！',
-                    })
-                }
-              }).catch((err)=>{
-                console.log(err)
-                wx.showToast({
-                  title: '发送异常！',
+        wx.showLoading({
+          title: '正在发送...',
+        });
+          let url = app.globalData.url + '/report/deletePoc'                   
+        api.post(url, {
+          poc:1,
+          pid:this.data.postId,
+          isDelete:this.data.isDelete,
+          studentNumber:this.data.studentNumber
+        }).then((res) => {
+          wx.hideLoading()
+          if(res.data.success){
+              wx.showToast({
+                title: '发送成功！',
+              })
+              console.log(res.data);
+              nowpage.onShow()
+          }
+          else{
+              wx.showToast({
+                  title: '发送失败！',
                   icon: 'error'
-                })
-            })
+              })
+          }
+        }).catch((err)=>{
+          console.log(err)
+          wx.showToast({
+            title: '发送异常！',
+            icon: 'error'
+          })
+        })
       },
-      fullDetails(){                                                       // 点击帖子跳转详情
+
+      fullDetails(){                                                // 点击帖子跳转详情
         wx.navigateTo({
           url: '/pages/adminstorFullText/adminstorFullText?postId='+this.data.postId,
         })
-
       }
-  
     }
+    
   })

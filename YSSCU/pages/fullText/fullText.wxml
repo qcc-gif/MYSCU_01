@@ -1,24 +1,9 @@
 <!--pages/fullText/fullText.wxml-->
 <view wx:for="{{postList}}"wx:key="index">
-    <fullText       bind:componentfunc="pagefun"
-                       postId="{{item.pid}}"
-                       label="{{item.position1}}"
-                       profilePhoto="{{item.simgurl}}"
-                       name="{{item.name}}"
-                       place="{{item.position2}}"
-                       studentNumber="{{item.studentNumber}}"
-                       title="{{item.ptitle}}"
-                       time="{{item.time}}"
-                       detail="{{item.detail}}"
-                       photo="{{item.profilePhoto}}"
-                       thumbnum="{{item.thumbnum}}"
-                       chatnum="{{item.chatnum}}"
-                       sharenum="{{item.sharenum}}"
-                       starnum="{{item.starnum}}"
-                       thumbStatus="{{item.isThumb}}"
-                       starStatus="{{item.isStar}}">
+    <fullText   bind:componentfunc="pagefun" postId="{{item.pid}}" label="{{item.position1}}" profilePhoto="{{item.simgurl}}" name="{{item.name}}" place="{{item.position2}}" studentNumber="{{item.studentNumber}}" title="{{item.ptitle}}" time="{{item.time}}"  detail="{{item.detail}}" photo="{{item.profilePhoto}}" thumbnum="{{item.thumbnum}}" chatnum="{{item.chatnum}}" sharenum="{{item.sharenum}}" starnum="{{item.starnum}}" thumbStatus="{{item.isThumb}}" starStatus="{{item.isStar}}">
     </fullText>
 </view>
+
 <scroll-view wx:if="{{!isEmpty}}" scroll-y="true" style="height: 1430rpx;" >
 <view wx:for="{{commentList}}" wx:key="index">
     <comment bind:componentfunc="pagefun" commentId="{{item.cid}}" profilePhoto="{{item.simgurl}}" name="{{item.name}}" time="{{item.time}}" detail="{{item.detail}}" photo="{{item.profilePhoto}}" thumbnum="{{item.thumbnum}}"thumbStatus="{{item.isThumb}}"></comment>

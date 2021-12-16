@@ -39,6 +39,7 @@ Page({
         })
 
     },
+
     onShow: function () {
       wx.showLoading({
         title: 'Loading...',
@@ -81,6 +82,6 @@ Page({
           isEmpty:true
        })
       }
- })
-    },
+    })
+  },
 })

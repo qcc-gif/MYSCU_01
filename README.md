@@ -10,7 +10,17 @@
 
 ## 技术
 
-该项目基于微信小程序开发平台，采用微信开发者平台 + Vant UI（前端），Node.js框架（后端）和SQLite（数据库）。
+该项目基于微信小程序开发平台。
+
+- 前端：微信开发者平台 + Vant UI
+
+- 后端：Node.js （Express）
+
+- 数据库：SQLite
+
+## 软件架构
+
+![img](file:///C:/Users/HP/AppData/Local/Temp/msohtmlclip1/01/clip_image002.jpg)
 
 ## 目录结构
 
@@ -25,15 +35,6 @@
 │       └── api.js
 │   ├── miniprogram				// vant ui 组件              
 │   ├── pages					// 页面  
-│   	├── authorize			// 用户授权
-│   	├── adminlogin			// 管理员登录
-│   	├── mine				// 个人空间
-│   	├── administrator		// 管理员空间
-│   	├── reward				// 打赏开发者
-│   	├──  
-│   	├──  
-│   	├──  
-│       └── 
 │   ├── static					// 图标和图片  
 │       └── icons
 │       └── images
@@ -45,8 +46,7 @@
 │   ├── package.json  
 │   ├── package-lock.json
 │   ├── package.config.json
-│   ├── sitemap.json
-│   └── XX              
+│   └── sitemap.json             
 ├── server						// server 服务端
 │   ├── bin
 │   ├── db

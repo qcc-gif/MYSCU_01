@@ -8,12 +8,13 @@ Page({
     ptext: "",          // 正文
     countIndex: 1,      // 上传图片的最大数量
     imgFilePath: null,  // 上传图片的路径
+    submitAble: true
   },
 
   onLoad: function(e){
     this.setData({
-      
-      postId: e.postId
+      postId: e.postId,
+      submitAble: true
     })
   },
 
@@ -67,6 +68,10 @@ Page({
   // 点击发送
   onClickSend: function(){
     if(this.data.ptext){ // 用户填写了文本
+      // 禁止反复发送同一条
+      this.setData({
+        submitAble: false
+      })
       // 发送
       if(!this.data.imgFilePath){  // 用户没有发送图片
         let url = app.globalData.url + '/comment/addComment'
@@ -115,7 +120,7 @@ Page({
           }else{
             wx.showToast({
               title: '发送失败',
-              icon: 'none',
+              icon: 'error',
               duration: 3000,
             })
           }
@@ -124,7 +129,7 @@ Page({
     }else{   // 用户未填写内容
       wx.showToast({
         title: '请填写内容！',
-        icon: 'none',
+        icon: 'error',
         duration: 3000,
       })
     }

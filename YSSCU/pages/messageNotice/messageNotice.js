@@ -8,11 +8,13 @@ Page({
     studentNumber: "",  // 学号
     mtext: "",          // 发送的消息
     navigateId: 0,
+    submitAble: true
   },
 
   onLoad: function(e){
     this.setData({
       studentNumber: e.studentNumber,
+      submitAble: true
     })
     console.log('studentNumber', this.data.studentNumber)
   },
@@ -80,54 +82,32 @@ Page({
 
   // 点击发送
   onClickSend: function(){
-    // 发送
-    console.log('studentNumber', )
-    if(!this.data.imgFilePath){  // 用户没有发送图片
-      let url = app.globalData.url + '/message/messageNotice'
-      api.post(url, {
-        adminId: wx.getStorageSync('adminAccount'),
-        studentNumber: this.data.studentNumber,
-        mtext: this.data.mtext,
-    }).then((res)=>{
-      // let data = JSON.parse(res.data)
-      if(res.data.success == true){
-        wx.showToast({
-          title: '发布成功！',
-          duration: 3000,
-        }).then((res) => {
-          wx.navigateBack({
-          delta: 1,
-        })
+    // 选了了用户并且输入了内容
+    if(this.data.studentNumber && this.data.mtext){
+      // 禁止反复发送同一条
+      this.setData({
+        submitAble: false
       })
-    }else{   
-      wx.showToast({
-        title: '发送失败',
-        icon: 'none',
-        duration: 3000,
-      })
-    }
-  })
-  }else{    // 用户发送了图片
-    console.log('onSending Picture...')
-    console.log('mtext', this.data.mtext)
-    let url = app.globalData.url + '/message/img'
-    let filePath = this.data.imgFilePath
-    api.adminUpload(url, filePath, {
-      adminId: wx.getStorageSync('adminAccount'),
-      studentNumber: this.data.studentNumber,
-      mtext: this.data.mtext,
-    }).then((res)=>{
-      let data = JSON.parse(res.data)
-      if(data.success == true){
-        wx.showToast({
-          title: '发送成功',
-          duration: 3000,
-        }).then((res) => {
-          wx.reLaunch({
-            url: '/pages/square/square',
+      // 发送
+      console.log('studentNumber', )
+      if(!this.data.imgFilePath){  // 用户没有发送图片
+        let url = app.globalData.url + '/message/messageNotice'
+        api.post(url, {
+          adminId: wx.getStorageSync('adminAccount'),
+          studentNumber: this.data.studentNumber,
+          mtext: this.data.mtext,
+      }).then((res)=>{
+        // let data = JSON.parse(res.data)
+        if(res.data.success == true){
+          wx.showToast({
+            title: '发布成功！',
+            duration: 3000,
+          }).then((res) => {
+            wx.navigateBack({
+            delta: 1,
           })
         })
-      }else{
+      }else{   
         wx.showToast({
           title: '发送失败',
           icon: 'error',
@@ -135,7 +115,42 @@ Page({
         })
       }
     })
-  } 
+    }else{    // 用户发送了图片
+      console.log('onSending Picture...')
+      console.log('mtext', this.data.mtext)
+      let url = app.globalData.url + '/message/img'
+      let filePath = this.data.imgFilePath
+      api.adminUpload(url, filePath, {
+        adminId: wx.getStorageSync('adminAccount'),
+        studentNumber: this.data.studentNumber,
+        mtext: this.data.mtext,
+      }).then((res)=>{
+        let data = JSON.parse(res.data)
+        if(data.success == true){
+          wx.showToast({
+            title: '发送成功',
+            duration: 3000,
+          }).then((res) => {
+            wx.reLaunch({
+              url: '/pages/square/square',
+            })
+          })
+        }else{
+          wx.showToast({
+            title: '发送失败',
+            icon: 'error',
+            duration: 3000,
+          })
+        }
+      })
+    } 
+    }else{
+      wx.showToast({
+        title: '请输入正确内容',
+        icon: 'error'
+      })
+    }
+    
   },
 
   // 点击删除已上传的图片
