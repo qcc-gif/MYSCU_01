@@ -34,14 +34,14 @@ appScrect = config.appScrect
  * @function login 首次登录，需要用学号和密码到教务处进行验证
  */
 router.post('/login', async (req, resp) => {
-	console.log(`账号密码发送成功`)
+	console.log(`账号密码接收成功`)
 	let { account, pwd } = req.body
 	let jwcurl = 'http://47.108.67.131/timetable_api/v1/timetables'
 	let url = jwcurl + '?account=' + account + '&password=' + md5.hex_md5(pwd)
 
 	let jwcres = await api.Get(url)
 	// console.log(jwcres.body)
-	console.log('状态码', jwcres.response.statusCode)
+	console.log('账号密码检验返回状态码', jwcres.response.statusCode)
 	if (jwcres.response.statusCode == 200) {
 		let sql = `select stuNum from users where stuNum = '${account}'`
 		let sqlres = await dbs.QueryOne(sql)
@@ -50,9 +50,14 @@ router.post('/login', async (req, resp) => {
 			sql = `insert into users(stuNum) values ('${account}')`
 			await dbs.Run(sql)
 		}
-		resp.json({ 'success': true })
-	} else {
-		resp.json({ 'success': false })
+		resp.json({
+			'success': true
+		})
+	}
+	else {
+		resp.json({
+			'success': false
+		})
 	}
 })
 
@@ -61,38 +66,49 @@ router.post('/login', async (req, resp) => {
  */
 router.post('/frozen', async (req, resp) => {
 	console.log('判断是否被封号')
-	let { account } = req.body
-	let sql = ` select * from appeal where stuNum = '${account}'`
+	let { studentNumber } = req.body
+	console.log('studentNumber',studentNumber);
+	let sql = ` select * from appeal where stuNum = '${studentNumber}'`
 	let sqlres = await dbs.QueryOne(sql)
 	console.log('appeal表中查询结果', sqlres)
 	if (typeof (sqlres) == "undefined") {
-		resp.json({ 'frozen': false })
+		resp.json({ 'isfrozen': false })
 	} else {
-		resp.json({ 'frozen': true })
+		resp.json({ 'isfrozen': true })
 	}
 })
 
-
+/**
+ * @function report 举报帖子或评论
+ */
 router.post('/report', async (req, resp) => {
 	console.log('举报')
-	let { account, pid, poc, rtype, rreason, rphone } = req.body
-	let sql = ` select count(*) from report where
-			stuNum = '${stuNum}',pdi = ${pid},poc = ${poc}; `
+	console.log(req.body)
+	let { studentNumber, pid, poc, rtype } = req.body
+	let sql = `select count(*) as num from report where
+			stuNum = '${studentNumber}'and rid ='${pid}' and poc = '${poc}'; `
 	let sqlres = await dbs.QueryOne(sql)
-	if (sqlres.num == 0) {
-		resp.json({ 'success': false })
+	if (sqlres.num) {
+		resp.json({
+			'success': false
+		})
 		return
 	}
-
-	sql = ` insert into report(stuNum,pid,poc,rtype,rreason,rphone)
-		values ('${account}',${pid},${poc},'${rtype}','${rreason}','${rphone}'); `
+	sql = `insert into report(stuNum,rid,poc,rtype) values('${studentNumber}','${pid}','${poc}','${rtype}'); `
 	sqlres = await dbs.Run(sql)
 	console.log(sqlres.success)
 	if (sqlres.success) {
-		resp.json({ 'success': true })
+		resp.json({
+			'success': true
+		})
 	} else {
-		resp.json({ 'success': false })
+		resp.json({
+			'success': false
+		})
 	}
 })
+
+
+
 
 module.exports = router
