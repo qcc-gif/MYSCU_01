@@ -2,13 +2,10 @@ const express = require('express')
 const router = express.Router()
 const dbs = require('./../db/dbs')
 var multer = require("multer")
-const fun = require("../test/imgUrl")
 
 
-const basePath = 'public/images'
-/**
- * 
- */
+const basePath = 'public/images';
+
 // 设置文件存放路径和名字保留后缀 同时生成url链接
 var storge = multer.diskStorage({
     destination (req, res, cb) {
@@ -18,7 +15,6 @@ var storge = multer.diskStorage({
         var fileformat = (file.originalname).split('.')
         cb(null, file.fieldname + '-' + Date.now() + '.' + fileformat[fileformat.length - 1])
     }
-
 })
 
 var upload = multer({
@@ -75,9 +71,8 @@ router.post('/img', upload.single('file'), async (req, resp) => {
     // console.log(sqlres)
     console.log(realPath)
     // console.log(pimgurl)
-    resp.send({
+    resp.json({
         'success': true
-
     })
 })
 
@@ -131,6 +126,7 @@ router.post('/getpost', async (req, resp) => {
         'hostpost3': hostpost[2]
     })
 })
+
 
 
 module.exports = router

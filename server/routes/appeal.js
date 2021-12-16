@@ -18,7 +18,8 @@ router.post('/', async (req, resp) => {
             ('${studentNumber}','${atype}','${areason}','${aphone}'); `
 
     } else {
-        sql = ` update appeal set atype='${atype}',areason='${areason}',aphone='${aphone}' where stuNum = '${studentNumber}' `
+        sql = ` update appeal set atype='${atype}',
+            areason='${areason}',aphone='${aphone}' where stuNum = '${studentNumber}' `
     }
     sqlres = await dbs.Run(sql)
     console.log(sqlres.success)
