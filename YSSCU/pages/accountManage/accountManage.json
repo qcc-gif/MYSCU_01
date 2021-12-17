@@ -1,7 +1,7 @@
 {
   "usingComponents": {
     "van-search": "/miniprogram/miniprogram_npm/@vant/weapp/search/index",
-    "complaint":"/components/complaint/complaint"
+    "complaint": "/components/complaint/complaint"
   },
   "navigationBarTitleText": "申诉管理"
 }

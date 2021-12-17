@@ -1,8 +1,10 @@
 <!--pages/accountManage/accountManage.wxml-->
-<scroll-view wx:if="{{!isEmpty}}" scroll-y="true" style="height: 1230rpx;" >
-<view wx:for="{{complaintList}}"wx:key="id">
-    <complaint bind:componentfunc="pagefun"profilePhoto="{{item.profilePhoto}}" name="{{item.name}}" studentNumber="{{item.studentNumber}}" areason="{{item.areason}}"atype="{{item.atype}}"aphone="{{item.aphone}}">
-    </complaint>
-</view>
+<scroll-view wx:if="{{!isEmpty}}" scroll-y="true" style="height: 1230rpx;">
+    <view wx:for="{{complaintList}}" wx:key="id">
+        <complaint bind:componentfunc="pagefun" profilePhoto="{{item.profilePhoto}}" name="{{item.name}}"
+            studentNumber="{{item.studentNumber}}" areason="{{item.areason}}" atype="{{item.atype}}"
+            aphone="{{item.aphone}}">
+        </complaint>
+    </view>
 </scroll-view>
 <view class="noComplaint" wx:else>暂时没有申诉~</view>

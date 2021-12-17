@@ -1,7 +1,7 @@
 Component({
     properties: {
-        profilePhoto:{
-            type:String,
+        profilePhoto: {
+            type: String,
             value: 'https://img.yzcdn.cn/vant/cat.jpeg'
         },
         name: {
@@ -16,9 +16,9 @@ Component({
             type: String,
             value: '这是一条系统消息'
         },
-        photo:{
-            type:String,
-            value:''
+        photo: {
+            type: String,
+            value: ''
         }
     },
     data: {

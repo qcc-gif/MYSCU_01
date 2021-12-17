@@ -30,43 +30,47 @@
 .position {
     color: #555;
     margin: 8rpx 0;
-    font-size:  28rpx;
+    font-size: 28rpx;
 }
 
 
 .time {
     color: #555;
-    font-size:  25rpx;
-    margin-left:20rpx;
+    font-size: 25rpx;
+    margin-left: 20rpx;
 }
 
 .post {
     text-indent: 1.8em;
     margin: 20rpx 0;
     display: -webkit-box;
-    font-size: 25rpx;  
+    font-size: 25rpx;
 }
 
-.delete{
+.delete {
     margin-left: auto;
 }
-.nameBox{
+
+.nameBox {
     display: flex;
     margin-top: 10rpx;
 }
+
 .btn-box {
     display: flex;
 }
 
 .btn {
     display: flex;
-    font-size:  25rpx;
+    font-size: 25rpx;
     margin-left: auto;
 }
+
 .btn view {
     padding-left: 10rpx;
 }
-.photo{
+
+.photo {
     width: 200rpx;
     height: 200rpx;
     margin-right: 20rpx;

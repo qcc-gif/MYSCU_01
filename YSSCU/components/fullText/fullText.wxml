@@ -2,45 +2,46 @@
 <view class="main">
     <view class="top" style="width: 656rpx; height: 108rpx; display: flex; box-sizing: border-box">
         <view class="pic-avtor">
-            <van-image style="margin-left: 10rpx;"round size="80%"width="80%" height="80%" src="{{profilePhoto}}" />
-            
+            <van-image style="margin-left: 10rpx;" round size="80%" width="80%" height="80%" src="{{profilePhoto}}" />
+
         </view>
         <view class="desc">
             <view class="nameBox">
-            <view class="name">{{name}}</view>
-            
+                <view class="name">{{name}}</view>
+
             </view>
-            <view class="position"wx:if="{{!label}}">{{place}}</view>
-            <view class="position"wx:else>{{place}}•{{label}}</view>
+            <view class="position" wx:if="{{!label}}">{{place}}</view>
+            <view class="position" wx:else>{{place}}•{{label}}</view>
         </view>
-        
-        <van-icon style="width: 38rpx; height: 38rpx; display: flex; box-sizing: border-box"  class="delete" type="position"bindclick="report" color="#555" name="warning" />
+
+        <van-icon style="width: 38rpx; height: 38rpx; display: flex; box-sizing: border-box" class="delete"
+            type="position" bindclick="report" color="#555" name="warning" />
     </view>
     <view class="title">{{title}}</view>
-    <text user-select="true"class="post"space="nbsp">{{detail}}</text>
-    
+    <text user-select="true" class="post" space="nbsp">{{detail}}</text>
+
     <view wx:if="{{photo}}" class="photo">
-        <cover-image round size="100%"width="100%" height="100%" src="{{photo}}"/>
+        <cover-image round size="100%" width="100%" height="100%" src="{{photo}}" />
     </view>
     <view wx:else></view>
     <view class="btn-box">
         <view class="time" style="width: 264rpx; height: 50rpx; display: block; box-sizing: border-box">{{time}}</view>
-        <button class="btn"catchtap="thumb" style="position: relative;  top: -2rpx">
-            <van-icon class="icon" wx:if="{{thumbStatus==0}}"name="thumb-circle" />
-            <van-icon class="icon" wx:else name="thumb-circle"color="#82caff" />
+        <button class="btn" catchtap="thumb" style="position: relative;  top: -2rpx">
+            <van-icon class="icon" wx:if="{{thumbStatus==0}}" name="thumb-circle" />
+            <van-icon class="icon" wx:else name="thumb-circle" color="#82caff" />
             <view>{{thumbnum}}</view>
         </button>
-        <button class="btn"catchtap="chat">
+        <button class="btn" catchtap="chat">
             <van-icon class="icon" name="chat" />
             <view>{{chatnum}}</view>
         </button>
-        <button class="btn"catchtap="share"open-type="share">
+        <button class="btn" catchtap="share" open-type="share">
             <van-icon class="icon" name="share" />
             <view>{{sharenum}}</view>
         </button>
-        <button class="btn"catchtap="star">
-            <van-icon class="icon" wx:if="{{starStatus==0}}"name="star" />
-            <van-icon class="icon" wx:else name="star" color="#82caff"/>
+        <button class="btn" catchtap="star">
+            <van-icon class="icon" wx:if="{{starStatus==0}}" name="star" />
+            <van-icon class="icon" wx:else name="star" color="#82caff" />
             <view>{{starnum}}</view>
         </button>
     </view>

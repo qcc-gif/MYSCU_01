@@ -1,4 +1,3 @@
-
 .main {
     width: 90%;
     border: 2rpx solid #000;
@@ -29,43 +28,48 @@
 .position {
     color: #555;
     margin: 8rpx 0;
-    font-size:  28rpx;
+    font-size: 28rpx;
 }
-.studentNumber{
-    font-size:  25rpx;
+
+.studentNumber {
+    font-size: 25rpx;
     margin: 10rpx 0;
 }
 
 .time {
     color: #555;
-    font-size:  25rpx;
-    margin-left:20rpx;
+    font-size: 25rpx;
+    margin-left: 20rpx;
 }
 
 .post {
     margin: 20rpx 0;
     display: -webkit-box;
-    font-size: 25rpx; 
+    font-size: 25rpx;
     margin-left: 3%;
     margin-right: 3%;
-    color: #696868;      
-    overflow:hidden;
+    color: #696868;
+    overflow: hidden;
     text-overflow: ellipsis;
-    display:-webkit-box;
+    display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
 }
+
 .title {
     font-size: 28rpx;
     font-weight: 600;
-    margin-left:20rpx;
+    margin-left: 20rpx;
 }
-.delete{
+
+.delete {
     margin-left: auto;
 }
-.nameBox{
+
+.nameBox {
     display: flex;
 }
+
 .btn-box {
     display: flex;
 }
@@ -74,7 +78,7 @@
     width: 12%;
     height: 50rpx;
     display: flex;
-    font-size:  25rpx;
+    font-size: 25rpx;
     border: 0rpx solid rgb(255, 255, 255);
     color: #696868;
     background-color: white;
@@ -83,6 +87,7 @@
 .btn view {
     padding-left: rpx;
 }
-.icon{
+
+.icon {
     margin-left: -20rpx;
 }

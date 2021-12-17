@@ -29,39 +29,44 @@
 .position {
     color: #555;
     margin: 8rpx 0;
-    font-size:  28rpx;
+    font-size: 28rpx;
 }
-.studentNumber{
-    font-size:  25rpx;
+
+.studentNumber {
+    font-size: 25rpx;
     margin: 10rpx 0;
 }
 
 .time {
     color: #555;
-    font-size:  25rpx;
-    margin-left:20rpx;
+    font-size: 25rpx;
+    margin-left: 20rpx;
 }
 
 .post {
     margin: 20rpx 0;
     display: -webkit-box;
-    font-size: 25rpx; 
+    font-size: 25rpx;
     margin-left: 3%;
     margin-right: 3%;
-    color: #696868;      
+    color: #696868;
 }
+
 .title {
     font-size: 28rpx;
     font-weight: 600;
-    margin-left:3%;
+    margin-left: 3%;
     margin-top: 3%;
 }
-.delete{
+
+.delete {
     margin-left: auto;
 }
-.nameBox{
+
+.nameBox {
     display: flex;
 }
+
 .btn-box {
     display: flex;
 }
@@ -70,18 +75,19 @@
     width: 12%;
     height: 50rpx;
     display: flex;
-    font-size:  25rpx;
+    font-size: 25rpx;
     border: 0rpx solid rgb(255, 255, 255);
     color: #696868;
     background-color: white;
 }
 
-.photo{
+.photo {
     width: 200rpx;
     height: 200rpx;
     margin-right: 20rpx;
     margin-left: 20rpx;
 }
-.icon{
+
+.icon {
     margin-left: -20rpx;
 }

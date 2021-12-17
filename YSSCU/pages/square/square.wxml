@@ -2,29 +2,34 @@
 <view class="main">
     <!-- 搜索框 -->
     <view class="box-search">
-        <van-search style="width: 580rpx; height: 120rpx; display: block; box-sizing: border-box"  input-align="center" bind:focus="bindFocus" placeholder="按关键字搜索" />
+        <van-search style="width: 580rpx; height: 120rpx; display: block; box-sizing: border-box" input-align="center"
+            bind:focus="bindFocus" placeholder="按关键字搜索" />
         <view class="right">
             <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
-            <view class="picker">{{array[index]}}</view>
+                <view class="picker">{{array[index]}}</view>
             </picker>
             <van-icon class='arrow-icon' name="arrow-down" />
         </view>
     </view>
-   <!-- 消息 -->
+    <!-- 消息 -->
     <view class="plain"></view>
     <view wx:if="{{isEmpty==0}}" class="box-post">
-    <scroll-view scroll-y="true" style="height: auto;" refresher-enabled="{{true}}" refresher-threshold="{{100}}" refresher-triggered="{{triggered}}" bindrefresherrefresh="onScrollRefresh">
-        <view wx:for="{{postList}}" wx:key="index">
-        <mypost postId="{{item.pid}}" profilePhoto="{{item.simgurl}}" name="{{item.name}}" position1="{{item.position1}}" position2="{{item.position2}}" title="{{item.ptitle}}" time="{{item.time}}" detail="{{item.detail}}" >
-           
-        </mypost>
-        </view>
-    </scroll-view>
+        <scroll-view scroll-y="true" style="height: auto;" refresher-enabled="{{true}}" refresher-threshold="{{100}}"
+            refresher-triggered="{{triggered}}" bindrefresherrefresh="onScrollRefresh">
+            <view wx:for="{{postList}}" wx:key="index">
+                <mypost postId="{{item.pid}}" profilePhoto="{{item.simgurl}}" name="{{item.name}}"
+                    position1="{{item.position1}}" position2="{{item.position2}}" title="{{item.ptitle}}"
+                    time="{{item.time}}" detail="{{item.detail}}">
+
+                </mypost>
+            </view>
+        </scroll-view>
     </view>
-    <view wx:else class="empty">暂时没有帖子！</view> 
+    <view wx:else class="empty">暂时没有帖子！</view>
 
     <!-- 选择框 -->
     <van-popup show="{{ showpopup }}" position="bottom" bind:close="onClosePopup">
-        <van-picker columns="{{ columns }}" show-toolbar title="地点" bind:cancel="onCancel" bind:confirm="onConfirm" bind:change="onChange" />
+        <van-picker columns="{{ columns }}" show-toolbar title="地点" bind:cancel="onCancel" bind:confirm="onConfirm"
+            bind:change="onChange" />
     </van-popup>
 </view>

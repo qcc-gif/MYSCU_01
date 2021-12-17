@@ -15,7 +15,7 @@
     justify-content: center;
 }
 
-.user {                          
+.user {
     height: 200rpx;
     position: absolute;
     top: 40%;
@@ -45,11 +45,12 @@
     height: 100%;
 
 }
+
 .menu {
     position: absolute;
     box-sizing: border-box;
     top: 77%;
-    width: 90%;                                                    
+    width: 90%;
     height: 530rpx;
     left: 5%;
     border: 2rpx solid #ccc;
@@ -59,7 +60,7 @@
 
 .exit {
     position: absolute;
-    top:5%;
+    top: 5%;
     right: 5%;
     color: white;
 }

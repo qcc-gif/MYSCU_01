@@ -5,13 +5,13 @@
     box-sizing: border-box;
     border: 2rpx solid #ccc;
     border-radius: 20rpx;
-    margin-top:25rpx;
+    margin-top: 25rpx;
     /* box-shadow: 3rpx 3rpx 3rpx #606262; */
 }
 
 .position {
     display: flex;
-    padding-top:10rpx;
+    padding-top: 10rpx;
 }
 
 .po-icon {
@@ -53,7 +53,7 @@
     border: 2rpx solid #009FFF;
 }
 
-.label-choice{
+.label-choice {
     padding: 24rpx;
     display: flex;
     font-size: medium;
@@ -82,7 +82,7 @@
     margin-top: -16rpx;
 }
 
-.icon view{
+.icon view {
     margin: 5rpx 15rpx;
 }
 
@@ -109,18 +109,18 @@
     margin-left: 70rpx;
 }
 
-.choice-label{
+.choice-label {
     margin-left: 20rpx;
     font-size: medium;
     color: #606262;
 }
 
-.isActive{
+.isActive {
     background-color: #FFCC00;
     color: white;
 }
 
-.nonActive{
+.nonActive {
     background-color: white;
     color: #333333;
 }
@@ -128,33 +128,33 @@
 .textarea-wrp {
     padding: 0 25rpx;
     background-color: #fff;
-  }
+}
 
-  .upLoad{
-      margin-top: -20rpx;
-  }
-  
-  .img{
-      margin-left: -240rpx
-  }
+.upLoad {
+    margin-top: -20rpx;
+}
 
-  .ptitle{
+.img {
+    margin-left: -240rpx
+}
+
+.ptitle {
     margin-top: 45rpx;
     margin-left: 45rpx;
     margin-right: 45rpx;
     color: #606262;
     border: 2rpx solid #009FFF;
     border-radius: 20rpx;
-  }
+}
 
-  .last-icon{
+.last-icon {
     height: 90%;
     width: 15%;
     margin-right: 60rpx;
     margin-top: 25rpx;
 }
 
-.btn-icon{
-      margin-left: -20rpx;
-      margin-top: 10rpx;
-  }
+.btn-icon {
+    margin-left: -20rpx;
+    margin-top: 10rpx;
+}

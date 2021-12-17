@@ -1,5 +1,5 @@
 {
-  "pages": [ 
+  "pages": [
     "pages/userlogin/userlogin",
     "pages/adminlogin/adminlogin",
     "pages/msgManage/msgManage",
@@ -12,7 +12,7 @@
     "pages/messageNotice/messageNotice",
     "pages/fullText/fullText",
     "pages/searchUser/searchUser",
-    
+
     "pages/myComment/myComment",
     "pages/addComment/addComment",
     "pages/report/report",
@@ -25,7 +25,7 @@
     "pages/map/map",
     "pages/reward/reward",
     "pages/mine/mine",
-    "pages/adminstor/adminstor", 
+    "pages/adminstor/adminstor",
     "pages/index/index",
     "pages/logs/logs",
 
@@ -34,45 +34,44 @@
 
   "permission": {
     "scope.userLocation": {
-      "desc": "你的位置信息将用于小程序位置接口的效果展示" 
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
     }
   },
 
   "tabBar": {
-    "list": [
-      {
+    "list": [{
         "pagePath": "pages/map/map",
         "text": "地图",
         "iconPath": "./static/icons/map-u.png",
-        "selectedIconPath":"./static/icons/map.png"
+        "selectedIconPath": "./static/icons/map.png"
       },
       {
         "pagePath": "pages/square/square",
         "text": "广场",
         "iconPath": "./static/icons/comment-u.png",
-        "selectedIconPath":"./static/icons/comment.png"
+        "selectedIconPath": "./static/icons/comment.png"
       },
       {
         "pagePath": "pages/post/post",
         "text": "",
         "iconPath": "./static/icons/plus.png",
-        "selectedIconPath":"./static/icons/plus.png",
-        "size":""
+        "selectedIconPath": "./static/icons/plus.png",
+        "size": ""
       },
       {
         "pagePath": "pages/morefunc/morefunc",
         "text": "多功能",
         "iconPath": "./static/icons/more-u.png",
-        "selectedIconPath":"./static/icons/more.png"
+        "selectedIconPath": "./static/icons/more.png"
       },
       {
         "pagePath": "pages/mine/mine",
         "text": "我的",
         "iconPath": "./static/icons/mine-u.png",
-        "selectedIconPath":"./static/icons/mine.png"
+        "selectedIconPath": "./static/icons/mine.png"
       }
     ],
-    "selectedColor" : "#EE0A24"
+    "selectedColor": "#EE0A24"
   },
   "window": {
     "backgroundTextStyle": "light",

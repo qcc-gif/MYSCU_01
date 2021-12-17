@@ -63,7 +63,7 @@ Page({
     // 用户点击搜索，页面跳转至搜索界面
     onClickSearch: function(){
         wx.navigateTo({
-          url: `/pages/searchUser/searchUser?navigateId=${this.data.navigateId}`,
+          url: `/pages/searchFrozen/searchFrozen?navigateId=${this.data.navigateId}`,
         })
     },
 

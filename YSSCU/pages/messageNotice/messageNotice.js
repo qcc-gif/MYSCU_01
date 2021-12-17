@@ -132,7 +132,7 @@ Page({
             duration: 3000,
           }).then((res) => {
             wx.reLaunch({
-              url: '/pages/square/square',
+              url: '/pages/adminstor/adminstor',
             })
           })
         }else{

@@ -1,5 +1,5 @@
 const get = (url) => {
-  return new Promise((resolve,reject) => {
+  return new Promise((resolve, reject) => {
     wx.request({
       url: url,
       method: "GET",
@@ -16,30 +16,30 @@ const get = (url) => {
   })
 }
 
-const post = (url,data) => {
-    return new Promise((resolve,reject) => {
-        wx.request({
-            url: url,
-            method: "POST",//指定请求方式，默认get
-            data: data,
-            header: {
-               //默认值'Content-Type': 'application/json'
-              'content-type': 'application/x-www-form-urlencoded' //post
-            },
-            success: (res) => {
-              resolve(res)
-            },
-            fail: (err) => {
-                reject(err)
-            }
-          });
-    })
+const post = (url, data) => {
+  return new Promise((resolve, reject) => {
+    wx.request({
+      url: url,
+      method: "POST", //指定请求方式，默认get
+      data: data,
+      header: {
+        //默认值'Content-Type': 'application/json'
+        'content-type': 'application/x-www-form-urlencoded' //post
+      },
+      success: (res) => {
+        resolve(res)
+      },
+      fail: (err) => {
+        reject(err)
+      }
+    });
+  })
 }
 
 const upload = (url, tempFilePath, data) => {
-  return new Promise((resolve,reject) => {
+  return new Promise((resolve, reject) => {
     wx.uploadFile({
-      url: url, 
+      url: url,
       filePath: tempFilePath,
       name: 'file',
       formData: {
@@ -49,7 +49,7 @@ const upload = (url, tempFilePath, data) => {
         'ptitle': data.ptitle,
         'ptext': data.ptext,
       },
-      success (res){
+      success(res) {
         resolve(res)
       },
       fail: (err) => {
@@ -60,9 +60,9 @@ const upload = (url, tempFilePath, data) => {
 }
 
 const adminUpload = (url, tempFilePath, data) => {
-  return new Promise((resolve,reject) => {
+  return new Promise((resolve, reject) => {
     wx.uploadFile({
-      url: url, 
+      url: url,
       filePath: tempFilePath,
       name: 'file',
       formData: {
@@ -70,7 +70,7 @@ const adminUpload = (url, tempFilePath, data) => {
         'studentNumber': data.studentNumber,
         'mtext': data.mtext,
       },
-      success (res){
+      success(res) {
         resolve(res)
       },
       fail: (err) => {
@@ -81,9 +81,9 @@ const adminUpload = (url, tempFilePath, data) => {
 }
 
 const addcomment = (url, tempFilePath, data) => {
-  return new Promise((resolve,reject) => {
+  return new Promise((resolve, reject) => {
     wx.uploadFile({
-      url: url, 
+      url: url,
       filePath: tempFilePath,
       name: 'file',
       formData: {
@@ -91,7 +91,7 @@ const addcomment = (url, tempFilePath, data) => {
         'postId': data.postId,
         'ptext': data.ptext,
       },
-      success (res){
+      success(res) {
         resolve(res)
       },
       fail: (err) => {
@@ -102,9 +102,9 @@ const addcomment = (url, tempFilePath, data) => {
 }
 
 module.exports = {
-    post: post,
-    get: get,
-    upload: upload,
-    addcomment: addcomment,
-    adminUpload: adminUpload,
- }
+  post: post,
+  get: get,
+  upload: upload,
+  addcomment: addcomment,
+  adminUpload: adminUpload,
+}

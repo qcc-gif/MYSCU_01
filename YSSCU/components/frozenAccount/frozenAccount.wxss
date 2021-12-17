@@ -6,13 +6,13 @@
     margin-top: 20rpx;
     border-radius: 20rpx;
     padding: 8rpx;
-    box-sizing: border-box; 
+    box-sizing: border-box;
 }
 
 .position {
     color: #555;
     margin: 8rpx 0;
-    font-size:  28rpx;
+    font-size: 28rpx;
 }
 
 .pic-avtor {
@@ -27,7 +27,7 @@
     display: flex;
 }
 
-.portrait{
+.portrait {
     width: 120rpx;
     height: 120rpx;
     border-radius: 50%;
@@ -35,26 +35,26 @@
     margin-right: 20rpx;
 }
 
-.name{
+.name {
     font-size: 35rpx;
     font-weight: 600;
     overflow: hidden;
-    text-overflow:ellipsis;
+    text-overflow: ellipsis;
     white-space: nowrap
 }
 
-.consent{
-     margin-left: auto;
-     display: flex;
+.consent {
+    margin-left: auto;
+    display: flex;
 }
 
-.nameBox{
+.nameBox {
     margin-top: 10%;
     display: flex;
 }
 
-.studentNumber{
-    font-size:  25rpx;
+.studentNumber {
+    font-size: 25rpx;
     margin: 10rpx 0;
     color: #555;
     -webkit-line-clamp: 1;

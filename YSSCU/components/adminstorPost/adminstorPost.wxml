@@ -1,25 +1,26 @@
 <!--components/adminstorPost/adminstorPost.wxml-->
-<view class="main" >
+<view class="main">
     <view class="top" style="width: 656rpx; height: 108rpx; display: flex; box-sizing: border-box">
         <view class="pic-avtor">
-            <van-image style="margin-left: 10rpx;"round size="80%"width="80%" height="80%" src="{{profilePhoto}}" />
-           
+            <van-image style="margin-left: 10rpx;" round size="80%" width="80%" height="80%" src="{{profilePhoto}}" />
+
         </view>
         <view class="desc">
             <view class="nameBox">
-            <view class="name">{{name}}</view>
-           
-            
+                <view class="name">{{name}}</view>
+
+
             </view>
             <view class="position" wx:if="{{label == '表白' || label == '失物招领'}}">{{label}}•{{place}}</view>
-            <view class="position"wx:else>{{place}}</view>
+            <view class="position" wx:else>{{place}}</view>
         </view>
-        
-        <van-icon style="width: 38rpx; height: 38rpx; display: flex; box-sizing: border-box"  class="delete" type="position"bindclick="delete"  name="clear" />
+
+        <van-icon style="width: 38rpx; height: 38rpx; display: flex; box-sizing: border-box" class="delete"
+            type="position" bindclick="delete" name="clear" />
     </view>
     <view bindtap="fullDetails">
-    <view class="title">{{title}}</view>
-    <text class="post"space="nbsp">{{detail}}</text>
+        <view class="title">{{title}}</view>
+        <text class="post" space="nbsp">{{detail}}</text>
     </view>
     <view class="btn-box">
         <view class="time" style="width: 264rpx; height: 50rpx; display: block; box-sizing: border-box">{{time}}</view>

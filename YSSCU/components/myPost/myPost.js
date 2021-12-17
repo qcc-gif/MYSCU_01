@@ -3,15 +3,15 @@ const app = getApp();
 
 Component({
   properties: {
-    postId:{
+    postId: {
       type: Number,
       value: 1
     },
-    profilePhoto:{
-      type:String,
+    profilePhoto: {
+      type: String,
       value: 'https://img.yzcdn.cn/vant/cat.jpeg'
     },
-    studentNumber:{
+    studentNumber: {
       type: String,
       value: '20191414'
     },
@@ -27,9 +27,9 @@ Component({
       type: String,
       value: '一教'
     },
-    label:{
-      type:String,
-      value:''
+    label: {
+      type: String,
+      value: ''
     },
     time: {
       type: String,
@@ -70,14 +70,14 @@ Component({
   },
 
   data: {
-                                  
+
   },
 
   methods: {
     // 跳转帖子详情
-    fullDetails(){                                          
+    fullDetails() {
       wx.navigateTo({
-        url: '/pages/fullText/fullText?postId='+this.data.postId,
+        url: '/pages/fullText/fullText?postId=' + this.data.postId,
       })
     },
   }

@@ -21,10 +21,10 @@
     /* margin-left: auto; */
 }
 
-.arrow-icon{
-   display: flex;
-}
-.empty{
-    margin-left: 30%;
+.arrow-icon {
+    display: flex;
 }
 
+.empty {
+    margin-left: 30%;
+}

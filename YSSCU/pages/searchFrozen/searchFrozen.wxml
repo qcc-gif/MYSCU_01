@@ -1,22 +1,25 @@
 <!--pages/searchFrozen/searchFrozen.wxml-->
 <!-- 搜索框 -->
-<van-search model:value="{{searchValue}}" placeholder="请输入需要处理的账号" use-action-slot maxHeight="13" bind:search="onSearch">
-<view slot="action" bind:tap="onSearch">搜索</view>
+<van-search model:value="{{searchValue}}" placeholder="请输入需要处理的账号" use-action-slot maxHeight="13"
+    bind:search="onSearch">
+    <view slot="action" bind:tap="onSearch">搜索</view>
 </van-search>
 
-<!-- 无结果 -->
-<view class="none" wx:if="{{noneview}}">
-    <image src="/static/images/no_result.png" mode="widthFix" style="width:20%"></image>
-    <text class="nostyle">抱歉，没有相关搜索结果</text>
-</view>
-
-<!-- 有结果 -->
-<view class="result" wx:else>
-<scroll-view scroll-y="true" >
-    <view wx:for="{{accountList}}"wx:key="index">
-        <frozenAccount bind:componentfunc="pagefun"profilePhoto="{{item.simgurl}}" name="{{item.name}}" studentNumber="{{item.studentNumber}}">
-        </frozenAccount>
+<view wx:if="{{!empty}}">
+    <!-- 无结果 -->
+    <view class="none" wx:if="{{noneview}}">
+        <image src="/static/images/no_result.png" mode="widthFix" style="width:20%"></image>
+        <text class="nostyle">抱歉，没有相关搜索结果</text>
     </view>
-</scroll-view>
-</view>
 
+    <!-- 有结果 -->
+    <view class="result" wx:else>
+        <scroll-view scroll-y="true">
+            <view wx:for="{{accountList}}" wx:key="index">
+                <frozenAccount bind:componentfunc="pagefun" profilePhoto="{{item.simgurl}}" name="{{item.name}}"
+                    studentNumber="{{item.studentNumber}}">
+                </frozenAccount>
+            </view>
+        </scroll-view>
+    </view>
+</view>

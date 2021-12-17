@@ -8,5 +8,5 @@
     "van-toast": "/miniprogram/miniprogram_npm/@vant/weapp/toast/index",
     "van-divider": "/miniprogram/miniprogram_npm/@vant/weapp/divider/index"
   },
-  "navigationBarTitleText":"管理员登录"
+  "navigationBarTitleText": "管理员登录"
 }

@@ -1,9 +1,8 @@
 /* pages/accountManage/accountManage.wxss */
-.empty{
+.empty {
     margin-left: 30%;
 }
 
-.noComplaint{
+.noComplaint {
     text-align: center;
 }
-

@@ -2,17 +2,17 @@
     <view class="top">
         <view class="pic-avtor">
             <van-image round width="100%" height="100%" src="{{profilePhoto}}" />
-            
+
         </view>
         <view class="desc">
             <view class="name">{{name}}</view>
-            
+
             <view class="time">{{time}}</view>
         </view>
     </view>
     <view class="detail">{{msg}}</view>
     <view wx:if="{{photo}}" class="photo">
-        <cover-image round size="100%"width="100%" height="100%" src="{{photo}}"/>
+        <cover-image round size="100%" width="100%" height="100%" src="{{photo}}" />
     </view>
     <view wx:else></view>
 </view>

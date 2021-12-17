@@ -2,32 +2,32 @@
 <view class="main">
     <view class="top" style="width: 656rpx; height: 108rpx; display: flex; box-sizing: border-box">
         <view class="pic-avtor">
-            <van-image style="margin-left: 10rpx;"round size="80%"width="80%" height="80%" src="{{profilePhoto}}" />
-            
+            <van-image style="margin-left: 10rpx;" round size="80%" width="80%" height="80%" src="{{profilePhoto}}" />
+
         </view>
         <view class="desc">
             <view class="nameBox">
-            <view class="name">{{name}}</view>
-            
-            <view class="studentNumber">{{studentNumber}}</view>
+                <view class="name">{{name}}</view>
+
+                <view class="studentNumber">{{studentNumber}}</view>
             </view>
             <view class="time">{{time}}</view>
         </view>
     </view>
     <view style="margin-left: 10rpx;color: red;">举报原因：{{reason}}</view>
-    <text class="post"space="nbsp">{{detail}}</text>
+    <text class="post" space="nbsp">{{detail}}</text>
     <view wx:if="{{photo}}" class="photo">
-        <cover-image round size="100%"width="100%" height="100%" src="{{photo}}"/>
+        <cover-image round size="100%" width="100%" height="100%" src="{{photo}}" />
     </view>
     <view wx:else></view>
     <view class="btn-box">
         <view>
-            <van-button icon="success-o" plain type="default"bindclick="retainClick">继续保留</van-button>
+            <van-button icon="success-o" plain type="default" bindclick="retainClick">继续保留</van-button>
         </view>
-          
+
         <view>
-            <van-button icon="cross-o" plain type="default"bindclick="deleteClick">系统删除</van-button>
+            <van-button icon="cross-o" plain type="default" bindclick="deleteClick">系统删除</van-button>
         </view>
-          
+
     </view>
 </view>

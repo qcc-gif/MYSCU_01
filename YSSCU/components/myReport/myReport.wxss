@@ -26,7 +26,7 @@
 }
 
 
-.studentNumber{
+.studentNumber {
     font-size: small;
     color: #333333;
     margin-left: 20rpx;
@@ -36,35 +36,36 @@
 
 .time {
     color: #555;
-    font-size:  25rpx;
-    margin-left:20rpx;
+    font-size: 25rpx;
+    margin-left: 20rpx;
 }
 
 .post {
     margin: 20rpx 0;
     display: -webkit-box;
-    font-size: 25rpx; 
+    font-size: 25rpx;
     margin-left: 3%;
     margin-right: 3%;
-    color: #696868;      
+    color: #696868;
     overflow: hidden;
-    -webkit-box-orient: vertical;  
+    -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
 }
 
 .btn-box {
     display: flex;
-    padding:0 10%;
+    padding: 0 10%;
     justify-content: space-between;
     margin: 10rpx 0;
     margin-top: 15rpx;
 }
-.nameBox{
+
+.nameBox {
     display: flex;
 }
+
 .title {
     font-size: 28rpx;
     font-weight: 600;
-    margin-left:20rpx;
+    margin-left: 20rpx;
 }
-

@@ -4,12 +4,12 @@ const app = getApp();
 
 Component({
   properties: {
-    postId:{
+    postId: {
       type: Number,
       value: 1
     },
-    profilePhoto:{
-      type:String,
+    profilePhoto: {
+      type: String,
       value: 'https://img.yzcdn.cn/vant/cat.jpeg'
     },
     name: {
@@ -20,9 +20,9 @@ Component({
       type: String,
       value: '一教'
     },
-    label:{
-      type:String,
-      value:''
+    label: {
+      type: String,
+      value: ''
     },
     time: {
       type: String,
@@ -36,33 +36,33 @@ Component({
       type: String,
       value: "这里是我发的帖子这里是我发的帖子这里是我发的帖子这里是我发的帖子这里是我发的帖子这里是我发的帖子这里是我发的帖子这里是我发的帖子这里是我发的帖子这里是我发的帖子这里是我发的帖子这里是我发的帖子这里是我发的帖子这里是我发的帖子这里是我发的帖子这里是我发的帖子"
     },
-    thumbnum:{
+    thumbnum: {
       type: Number,
       value: 111
     },
-    chatnum:{
+    chatnum: {
       type: Number,
       value: 111
     },
-    sharenum:{
+    sharenum: {
       type: Number,
       value: 111
     },
-    starnum:{
+    starnum: {
       type: Number,
       value: 111
     },
-    photo:{
-      type:String,
+    photo: {
+      type: String,
       value: ''
     },
-    thumbStatus:{
-      type:Number,
-      value:0
+    thumbStatus: {
+      type: Number,
+      value: 0
     },
-    starStatus:{
-      type:Number,
-      value:0
+    starStatus: {
+      type: Number,
+      value: 0
     },
   },
 
@@ -72,17 +72,17 @@ Component({
 
   methods: {
     // 举报
-    report(){     
-      var poc = 1;                                  
-        wx.navigateTo({
-          url: '/pages/report/report?postId='+this.data.postId+'&poc='+poc,
-        })
+    report() {
+      var poc = 1;
+      wx.navigateTo({
+        url: '/pages/report/report?postId=' + this.data.postId + '&poc=' + poc,
+      })
     },
 
     // 点赞
-    thumb(){                                        
-      var allpages = getCurrentPages();   // 获取全部页面数据
-      var nowpage = allpages[allpages.length - 1];   // 获取页面，包括数据和方法
+    thumb() {
+      var allpages = getCurrentPages(); // 获取全部页面数据
+      var nowpage = allpages[allpages.length - 1]; // 获取页面，包括数据和方法
       let url = app.globalData.url + '/action/Thumb'
       api.post(url, {
         pid: this.data.postId,
@@ -90,13 +90,13 @@ Component({
         poc: 1
       }).then((res) => {
         console.log(res)
-        if(!res.data.empty){
+        if (!res.data.empty) {
           this.setData({
             thumbnum: res.data.thumbnum,
             thumbStatus: res.data.isThumb
           })
-          console.log("Thumb:",this.data.thumbStatus,this.data.thumbnum)
-        }else{
+          console.log("Thumb:", this.data.thumbStatus, this.data.thumbnum)
+        } else {
           console.log(res.data)
         }
         nowpage.onShow()
@@ -104,66 +104,66 @@ Component({
     },
 
     // 评论
-    chat(){                                                    
+    chat() {
       wx.navigateTo({
-        url: '/pages/addComment/addComment?postId='+this.data.postId,
+        url: '/pages/addComment/addComment?postId=' + this.data.postId,
       })
-   },
-  
-   // 分享
-   onShareAppMessage: function (ops) {
-    if (ops.from === 'button') {                   // 来自页面内转发按钮
-      console.log(ops.target)            
-    }
-    return {
-      title: '云上川大小程序',
-      path: 'pages/fullText/fullText?id=123&age=18',           // 路径
-      imageUrl:'',                                             // 分享的封面图
-      success: function (res) {                                // 转发成功
-        console.log("转发成功:" + JSON.stringify(res));
-      },
-      fail: function (res) {                                   // 转发失败
-        console.log("转发失败:" + JSON.stringify(res));
-      },
-    }
-  },
+    },
 
-  // 更新分享数据
-  share(){
-    var allpages = getCurrentPages();//获取全部页面数据
-    var nowpage = allpages[allpages.length - 1];//获取页面，包括数据和方法
-    let url = app.globalData.url + '/action/PostTrans'                        
-    api.post(url, {
-      pid: this.data.postId,
-      studentNumber: app.globalData.studentNumber
-    }).then((res) => {
-      this.setData({
-        sharenum: res.data.sharenum,
-      })
-      nowpage.onShow()
-    })
-  },
-
-  // 收藏
-  star(){   
-    var allpages = getCurrentPages();//获取全部页面数据
-    var nowpage = allpages[allpages.length - 1];
-    let url = app.globalData.url + '/action/PostStar'                        
-    api.post(url, {
-      pid: this.data.postId,
-      studentNumber: app.globalData.studentNumber
-    }).then((res) => {
-      if(!res.data.empty){
-        this.setData({
-        starnum: res.data.starnum,
-        starStatus: res.data.isStar,
-        })
-        console.log(this.data.starnum)
-      }else{
-        console.log(res.data)
+    // 分享
+    onShareAppMessage: function (ops) {
+      if (ops.from === 'button') { // 来自页面内转发按钮
+        console.log(ops.target)
       }
-      nowpage.onShow()
-    })
-  },
+      return {
+        title: '云上川大小程序',
+        path: 'pages/fullText/fullText?id=123&age=18', // 路径
+        imageUrl: '', // 分享的封面图
+        success: function (res) { // 转发成功
+          console.log("转发成功:" + JSON.stringify(res));
+        },
+        fail: function (res) { // 转发失败
+          console.log("转发失败:" + JSON.stringify(res));
+        },
+      }
+    },
+
+    // 更新分享数据
+    share() {
+      var allpages = getCurrentPages(); //获取全部页面数据
+      var nowpage = allpages[allpages.length - 1]; //获取页面，包括数据和方法
+      let url = app.globalData.url + '/action/PostTrans'
+      api.post(url, {
+        pid: this.data.postId,
+        studentNumber: app.globalData.studentNumber
+      }).then((res) => {
+        this.setData({
+          sharenum: res.data.sharenum,
+        })
+        nowpage.onShow()
+      })
+    },
+
+    // 收藏
+    star() {
+      var allpages = getCurrentPages(); //获取全部页面数据
+      var nowpage = allpages[allpages.length - 1];
+      let url = app.globalData.url + '/action/PostStar'
+      api.post(url, {
+        pid: this.data.postId,
+        studentNumber: app.globalData.studentNumber
+      }).then((res) => {
+        if (!res.data.empty) {
+          this.setData({
+            starnum: res.data.starnum,
+            starStatus: res.data.isStar,
+          })
+          console.log(this.data.starnum)
+        } else {
+          console.log(res.data)
+        }
+        nowpage.onShow()
+      })
+    },
   }
 })

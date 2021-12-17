@@ -20,61 +20,60 @@ Page({
   },
 
   onShow: function () {
-    wx.hideHomeButton({
-    })
+    wx.hideHomeButton({})
   },
 
   // 退出登录
   exitLogin: function () {
     Dialog.confirm({
       title: '提示',
-      context: this,   
+      context: this,
       message: '确认退出？',
     }).then(() => {
-        console.log('confirm')
-        wx.setStorageSync('adminAccount', null)
-        wx.reLaunch({
-          url: '/pages/userlogin/userlogin',
-        })
-      }).catch((err) => {
-        wx.showToast({
-          title: '出错啦！',
-          icon: 'error'
-        })
-        console.log('err', err)
-      });
+      console.log('confirm')
+      wx.setStorageSync('adminAccount', null)
+      wx.reLaunch({
+        url: '/pages/userlogin/userlogin',
+      })
+    }).catch((err) => {
+      wx.showToast({
+        title: '出错啦！',
+        icon: 'error'
+      })
+      console.log('err', err)
+    });
   },
 
   // 举报管理
-  report: function(){
+  report: function () {
     wx.navigateTo({
       url: '/pages/reportManage/reportManage',
     })
   },
 
   // 账号申诉管理
-  account: function(){
+  account: function () {
     wx.navigateTo({
       url: '/pages/accountManage/accountManage',
     })
   },
 
   // 发送消息通知
-  syspost: function(){
+  syspost: function () {
     wx.navigateTo({
       url: '/pages/messageNotice/messageNotice',
     })
   },
 
   // 帖子管理
-  msg: function(){
+  msg: function () {
     wx.navigateTo({
       url: '/pages/adminstorPost/adminstorPost',
     })
   },
 
   // 账号冻结管理
-  frozen: function(){
+  frozen: function () {
     wx.navigateTo({
       url: '/pages/frozenAccount/frozenAccount',
     })

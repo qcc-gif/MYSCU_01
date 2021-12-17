@@ -10,11 +10,11 @@
     </view>
     <view class="menu">
         <van-grid column-num="2">
-            <van-grid-item icon="manager-o" text="举报管理" bindtap="report"/>
-            <van-grid-item icon="friends-o" text="账号申诉管理" bindtap="account"/>
-            <van-grid-item icon="chat-o" text="发送消息通知" bindtap="syspost"/>
-            <van-grid-item icon="envelop-o" text="贴子管理" bindtap="msg"/>
-            <van-grid-item icon="envelop-o" text="账号冻结管理" bindtap="frozen"/>
+            <van-grid-item icon="manager-o" text="举报管理" bindtap="report" />
+            <van-grid-item icon="friends-o" text="账号申诉管理" bindtap="account" />
+            <van-grid-item icon="chat-o" text="发送消息通知" bindtap="syspost" />
+            <van-grid-item icon="envelop-o" text="贴子管理" bindtap="msg" />
+            <van-grid-item icon="envelop-o" text="账号冻结管理" bindtap="frozen" />
         </van-grid>
     </view>
     <view class="exit">
@@ -22,4 +22,4 @@
     </view>
 
 </view>
- <van-dialog id="van-dialog" />
+<van-dialog id="van-dialog" />

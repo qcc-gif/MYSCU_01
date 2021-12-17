@@ -1,7 +1,7 @@
 {
   "usingComponents": {
     "van-search": "/miniprogram/miniprogram_npm/@vant/weapp/search/index",
-    "searchUserId":"/components/searchUserId/searchUserId",
+    "searchUserId": "/components/searchUserId/searchUserId",
     "mypost": "/components/myPost/myPost"
   },
   "navigationBarTitleText": "搜索"

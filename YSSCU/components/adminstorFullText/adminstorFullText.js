@@ -4,15 +4,15 @@ const app = getApp();
 
 Component({
   properties: {
-    postId:{
+    postId: {
       type: Number,
       value: 1
     },
-    profilePhoto:{
-      type:String,
+    profilePhoto: {
+      type: String,
       value: 'https://img.yzcdn.cn/vant/cat.jpeg'
     },
-  
+
     name: {
       type: String,
       value: '大白'
@@ -21,9 +21,9 @@ Component({
       type: String,
       value: '一教'
     },
-    label:{
-      type:String,
-      value:''
+    label: {
+      type: String,
+      value: ''
     },
     time: {
       type: String,
@@ -37,64 +37,64 @@ Component({
       type: String,
       value: "这里是我发的帖子这里是我发的帖子这里是我发的帖子这里是我发的帖子这里是我发的帖子这里是我发的帖子这里是我发的帖子这里是我发的帖子这里是我发的帖子这里是我发的帖子这里是我发的帖子这里是我发的帖子这里是我发的帖子这里是我发的帖子这里是我发的帖子这里是我发的帖子"
     },
-    thumbnum:{
+    thumbnum: {
       type: Number,
       value: 111
     },
-    chatnum:{
+    chatnum: {
       type: Number,
       value: 111
     },
-    sharenum:{
+    sharenum: {
       type: Number,
       value: 111
     },
-    starnum:{
+    starnum: {
       type: Number,
       value: 1111
     },
-    photo:{
-      type:String,
+    photo: {
+      type: String,
       value: 'https://img.yzcdn.cn/vant/cat.jpeg'
     },
-},
+  },
 
-data: {
+  data: {
 
-},
+  },
 
-methods: {
+  methods: {
     // 管理员删除全文
-    delete(){
-      var allpages = getCurrentPages();     // 获取全部页面数据
-      var nowpage = allpages[allpages.length - 1];    // 获取页面，包括数据和方法
+    delete() {
+      var allpages = getCurrentPages(); // 获取全部页面数据
+      var nowpage = allpages[allpages.length - 1]; // 获取页面，包括数据和方法
       console.log(this.data.postId)
-      let url = app.globalData.url + '/action/PCDrop'             // 删除帖子
+      let url = app.globalData.url + '/action/PCDrop' // 删除帖子
       api.post(url, {
-        pid:this.data.postId,
-        poc:1
+        pid: this.data.postId,
+        poc: 1
       }).then((res) => {
-        console.log("delete",res)
-        if(res.data.success){                           // 返回一个状态，是否删除成功
+        console.log("delete", res)
+        if (res.data.success) { // 返回一个状态，是否删除成功
           console.log(res.data)
           wx.showToast({
             title: '删除成功',
-            icon:'none'
-         })
-         nowpage.onShow()
-       }else{
+            icon: 'none'
+          })
+          nowpage.onShow()
+        } else {
+          wx.showToast({
+            title: '出错啦！',
+            icon: 'error'
+          })
+        }
+      }).catch((err) => {
+        console.log(err)
         wx.showToast({
-          title: '出错啦！',
-          icon:'error'
+          title: '删除异常！',
+          icon: 'error'
         })
-      }
-    }).catch((err)=>{
-      console.log(err)
-      wx.showToast({
-        title: '删除异常！',
-        icon: 'error'
       })
-    })
-  },
-}
+    },
+  }
 })

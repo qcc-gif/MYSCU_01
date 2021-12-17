@@ -1,18 +1,14 @@
 <!--components/searchUserId/searchUserId.wxml-->
-<view class="main"bindtap="chooseUser">
+<view class="main" bindtap="chooseUser">
     <view class="top" style="width: 656rpx; height: 104rpx; display: flex; box-sizing: border-box">
         <view class="pic-avtor">
-            <van-image style="margin-left: 10rpx;"round size="80%"width="80%" height="80%" src="{{profilePhoto}}" />
-            
+            <van-image style="margin-left: 10rpx;" round size="80%" width="80%" height="80%" src="{{profilePhoto}}" />
+
         </view>
         <view class="desc">
             <view class="name">{{name}}</view>
-            
+
             <view class="studentNumber">学号：{{studentNumber}}</view>
         </view>
-</view>
     </view>
-
-    
-    
-
+</view>

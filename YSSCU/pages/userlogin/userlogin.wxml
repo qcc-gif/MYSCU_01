@@ -4,16 +4,18 @@
     <van-van-field class="login">学生认证</van-van-field>
     <view class="input">
       <van-field-group>
-        <van-field model:value="{{ studentnumber }}" adjust-position clearable size="large" label="账号：" placeholder="请输入学号" bind:input="GetStuno" maxlength='13'/>
+        <van-field model:value="{{ studentnumber }}" adjust-position clearable size="large" label="账号："
+          placeholder="请输入学号" bind:input="GetStuno" maxlength='13' />
         <view class="divLine"></view>
-        <van-field model:value="{{ pwd }}" adjust-position password clearable size="large" label="密码：" placeholder="请输入教务处密码" bind:input="GetPwd" />
+        <van-field model:value="{{ pwd }}" adjust-position password clearable size="large" label="密码："
+          placeholder="请输入教务处密码" bind:input="GetPwd" />
         <view class="divLine"></view>
       </van-field-group>
     </view>
     <view class="tips">注：忘记密码可通过教务处重置。</view>
     <button class='bottom' type='primary' open-type="getUserInfo" lang="zh_CN" bindtap="bindGetUserInfo">
-   授权登录
-   </button>
+      授权登录
+    </button>
 
   </view>
   <view class="butt">
@@ -24,4 +26,4 @@
   <view class="admin">
     <van-button type="info" size="small" bind:click="toAdmin">管理员登录</van-button>
   </view>
-</view> 
+</view>
